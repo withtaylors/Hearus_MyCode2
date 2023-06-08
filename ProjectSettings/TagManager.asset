@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ITEM_NE_MUSHROOM
+  - ITEM_VINE
+  - ITEM_DOLL
   layers:
   - Default
   - TransparentFX
@@ -11,7 +14,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Pillar
   - 
   - 
   - 
