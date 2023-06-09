@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class playerController : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class playerController : MonoBehaviour
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
 
     ItemPickup itemPickup;
+    public DialogueRunner dialogue;
 
     void Start()
     {
@@ -161,8 +163,20 @@ public class playerController : MonoBehaviour
         //        Destroy(item);
         //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
 
-        itemPickup.Pickup(item);
+ //     dialogue.StartDialogue("UnknownDoll");
+
+        itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
+    }
+
+    public void StopMoving()
+    {
+        
+    }
+
+    public void StartMoving()
+    {
+        
     }
 }

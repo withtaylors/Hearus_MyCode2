@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-
-    public ItemDatabase theDatabase;       // 아이템 데이터베이스 객체
+    public static ItemDatabase theDatabase;       // 아이템 데이터베이스 객체
 
     private List<InventorySlot> slots;      // 인벤토리 슬롯들
     public Transform tf;                    // 슬롯들의 부모 객체 (GridSlot)
@@ -24,15 +24,13 @@ public class Inventory : MonoBehaviour
     public GameObject go_Inventory;         // 인벤토리 활성화/비활성화를 위해 GameObject 불러오기
     public GameObject go_itemDes;           // 설명 패널 활성화/비활성화를 위해 GameObject 불러오기
     public GameObject go_SelectedImage;     // 선택된 슬롯이라는 것을 나타내는 이미지 불러오기
-    public GameObject go_SettingPanel;
-    public GameObject go_Page1;
+    public GameObject go_SettingPanel;      // Setting Panel 비활성화 시 인벤토리도 비활성화시키기 위함
+    public GameObject go_Page1;             // 다른 페이지도 넘어갈 시 인벤토리를 비활성화시키기 위함
 
     public int selectedSlot;                // 선택된 슬롯 -> 기본은 0
 
-    private bool activated;                 // 인벤토리 활성화 시 true
+    public bool activated;                 // 인벤토리 활성화 시 true
     private bool stopKeyInput;              // 키 입력 제한 (소비할 때, 제거할 때 팝업 메시지 뜨면 키 입력 금지)
-
-    private WaitForSeconds waitTime = new WaitForSeconds(0.01f);
 
     private void Awake()
     {
@@ -46,8 +44,6 @@ public class Inventory : MonoBehaviour
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());
         itemDes = tf_itemDes.GetComponentInChildren<ItemDescription>();
         selectedSlot = 0;
-
-        RectTransform rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
@@ -86,23 +82,55 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        IsPicking();
+    }
+
+    public void IsPicking()                                         // GetAnItemYarn이 호출되었는지 검사
+    {
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        {
+            if (ItemDatabase.itemList[i].isPicking == true)
+            {
+                GetAnItem(ItemDatabase.itemList[i].itemID);
+                ItemDatabase.itemList[i].isPicking = false;
+            }
+        }
+    }
+
+    [YarnCommand("getAnItem")]
+    public static void GetAnItemYarn(int _itemID)                   // Yarn Spinner에 쓰기 위한 정적 함수
+    {
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        {
+            if (ItemDatabase.itemList[i].itemID == _itemID)
+            {
+                ItemDatabase.itemList[i].isMeet = true;
+                ItemDatabase.itemList[i].isPicking = true;
+            }
+        }
+    }
+
     public void GetAnItem(int _itemID, int _count = 1)              // 인벤토리 리스트에 아이템 추가
     {
-        for (int i = 0; i < theDatabase.itemList.Count; i++)        // 데이터베이스 아이템 검색
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)       // 데이터베이스 아이템 검색
         {
-            if (_itemID == theDatabase.itemList[i].itemID)          // 데이터베이스 아이템 발견
+            if (_itemID == ItemDatabase.itemList[i].itemID)         // 데이터베이스 아이템 발견
             {
                 for (int j = 0; j < inventoryItemList.Count; j++)   // 소지품 중 같은 아이템이 있는지 검색
                 {
                     if (inventoryItemList[j].itemID == _itemID)     // 같은 아이템이 있다면 개수만 증가
                     {
                         slots[j].IncreaseCount(inventoryItemList[j]);
+                        ItemDatabase.itemList[i].isPicking = false;
                         return;
                     }
                 }
-                inventoryItemList.Add(theDatabase.itemList[i]);     // 없다면 소지품에 해당 아이템 추가
+                inventoryItemList.Add(ItemDatabase.itemList[i]);     // 없다면 소지품에 해당 아이템 추가
                 CreateSlot();
-                slots[slots.Count - 1].Additem(theDatabase.itemList[i]);
+                slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);
+                ItemDatabase.itemList[i].isPicking = false;
                 return;
             }
         }
