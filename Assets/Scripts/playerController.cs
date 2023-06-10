@@ -29,8 +29,10 @@ public class playerController : MonoBehaviour
     //private Collider[] colliders; // colliders 변수를 클래스 수준으로 이동하여 필드로 선언
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
 
-    ItemPickup itemPickup;
-    public DialogueRunner dialogue;
+    private ItemPickup itemPickup;
+
+    [SerializeField]
+    private DialogueRunner dialogue;
 
     void Start()
     {
@@ -58,7 +60,11 @@ public class playerController : MonoBehaviour
     {
         // 애니메이션/대화 실행 중일 때는 움직임을 막음
         if (isPicking || isInDialogue)
+        {
+            isWalking = false;
+            myAnim.SetBool("isWalking", false);
             return;
+        }
 
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
@@ -66,20 +72,7 @@ public class playerController : MonoBehaviour
         isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //어떤 방향키든지 감지해서 걷는 animation 실행
-        bool wasWalking = isWalking; // 이전 프레임에서 걸었는지 여부 저장
         isWalking = hmove != 0 || vmove != 0;
-
-        // 이전 프레임에서 걷지 않았는데 현재 프레임에서 걷는다면 애니메이션 변경
-        if (!wasWalking && isWalking)
-        {
-            myAnim.SetBool("isWalking", true);
-        }
-        // 이전 프레임에서 걸었는데 현재 프레임에서 걷지 않는다면 애니메이션 변경
-        else if (wasWalking && !isWalking)
-        {
-            myAnim.SetBool("isWalking", false);
-        }
-
         myAnim.SetBool("isWalking", isWalking);
         //shift감지 했다면 뛰는 animation 실행
         myAnim.SetBool("isRunning", isRunning);
@@ -189,15 +182,5 @@ public class playerController : MonoBehaviour
         itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
-    }
-
-    public void StopMoving()
-    {
-        isInDialogue = true;
-    }
-
-    public void StartMoving()
-    {
-        isInDialogue = false;
     }
 }

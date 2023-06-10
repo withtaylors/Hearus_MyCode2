@@ -27,6 +27,8 @@ public class ItemPickup : MonoBehaviour
 
         dialogue.StartDialogue(pickingID.ToString());
 
-//      Inventory.instance.GetAnItem(pickingID, pickingCount);
+        TextLogs.instance.GetItemLog(pickingID);
+
+        //      Inventory.instance.GetAnItem(pickingID, pickingCount);
     }
 }

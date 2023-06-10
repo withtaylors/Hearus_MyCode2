@@ -22,10 +22,13 @@ public class Crafting : MonoBehaviour
 
     private void Update()
     {
-        if (Inventory.instance.activated == false)
+        if (craftingItemList.Count > 0)
         {
-            ResetCraftingSlot();
-            ResetCraftingList();
+            if (Inventory.instance.activated == false)
+            {
+                ResetCraftingSlot();
+                ResetCraftingList();
+            }
         }
     }
 
