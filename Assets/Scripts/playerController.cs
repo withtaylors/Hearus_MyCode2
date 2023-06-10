@@ -29,8 +29,10 @@ public class playerController : MonoBehaviour
     //private Collider[] colliders; // colliders 변수를 클래스 수준으로 이동하여 필드로 선언
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
 
-    ItemPickup itemPickup;
-    public DialogueRunner dialogue;
+    private ItemPickup itemPickup;
+
+    [SerializeField]
+    private DialogueRunner dialogue;
 
     void Start()
     {
@@ -180,15 +182,5 @@ public class playerController : MonoBehaviour
         itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
-    }
-
-    public void StopMoving()
-    {
-        isInDialogue = true;
-    }
-
-    public void StartMoving()
-    {
-        isInDialogue = false;
     }
 }

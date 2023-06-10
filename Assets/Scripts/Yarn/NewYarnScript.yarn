@@ -8,30 +8,46 @@ position: -222,-141
 -> Player: 내가 왜?
     이 선택지를 고른 당신! 금쪽이군요.
 ===
+title: 101
+position: -223,174
+---
+질긴 덩굴이다. 잘 끊어지지 않을 것 같다.
+<<jump Get101>>
+===
+title: Get101
+position: -223,363
+---
+<<getAnItem 101>>
+===
 title: 103
 position: 0,174
 ---
 태엽 인형이다. 속에 이끼가 잔뜩 꼈는지 잘 움직이지 않는다.
 어릴 적 가지고 있던 인형과 비슷하게 생겼다.
-<<getAnItem 103>>
-<<jump UnknownDoll_2>>
+<<jump Get103>>
 ===
-title: UnknownDoll_2
-position: 217,174
+title: Get103
+tags:
+position: 0,362
+---
+<<getAnItem 103>>
+<<jump Last103>>
+===
+title: Last103
+position: 0,547
 ---
 가지고 다니면 외롭지 않을 것 같다. 가방에 챙기자.
 ===
-title: 101
-position: -223,174
----
-질긴 덩굴이다. 잘 끊어지지 않을 것 같다.
-<<getAnItem 101>>
-===
 title: 104
-position: -225,333
+position: 504,171
 ---
 이건 행성에서도 자주 먹었던 표고버섯이다.
 자연산이라 그런지 향이 진하다.
+<<jump Get104>>
+===
+title: Get104
+position: 505,358
+---
 <<getAnItem 104>>
 좋은 식량이 될 것 같다.
 ===
