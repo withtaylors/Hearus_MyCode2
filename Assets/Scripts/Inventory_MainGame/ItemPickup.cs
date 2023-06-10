@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -9,7 +10,14 @@ public class ItemPickup : MonoBehaviour
     public int _itemID;
     public int _count;
 
-    public void Pickup(GameObject item)
+    public DialogueRunner dialogue;
+
+    private void Start()
+    {
+        dialogue = gameObject.GetComponent<DialogueRunner>();
+    }
+
+    public void Pickup(GameObject item, DialogueRunner dialogue)
     {
         int pickingID;
         int pickingCount;
@@ -17,6 +25,8 @@ public class ItemPickup : MonoBehaviour
         pickingID = item.gameObject.GetComponent<ItemPickup>()._itemID;
         pickingCount = item.gameObject.GetComponent<ItemPickup>()._count;
 
-        Inventory.instance.GetAnItem(pickingID, pickingCount);
+        dialogue.StartDialogue(pickingID.ToString());
+
+//      Inventory.instance.GetAnItem(pickingID, pickingCount);
     }
 }

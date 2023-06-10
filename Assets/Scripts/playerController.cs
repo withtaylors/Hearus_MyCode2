@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using Yarn.Unity;
 
 public class playerController : MonoBehaviour
 {
@@ -16,6 +19,7 @@ public class playerController : MonoBehaviour
     bool isWalking = false;
     bool isRunning;
     bool grounded;
+    bool isInDialogue = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
 
@@ -26,6 +30,7 @@ public class playerController : MonoBehaviour
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
 
     ItemPickup itemPickup;
+    public DialogueRunner dialogue;
 
     void Start()
     {
@@ -36,16 +41,23 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dialogue.Dialogue.IsActive == true)
+            isInDialogue = true;
+        else
+            isInDialogue = false;
+
+        if (isInDialogue)
+            return;
+
         HandleMovement(); //플레이어 Movement
         HandleJump(); //플레이어 점프
-        CheckPicking();//아이템 줍기
-
+        CheckPicking(); //아이템 줍기
     }
 
     void HandleMovement()
     {
-        // 애니메이션이 실행 중일 때는 움직임을 막음
-        if (isPicking)
+        // 애니메이션/대화 실행 중일 때는 움직임을 막음
+        if (isPicking || isInDialogue)
             return;
 
         //방향키 감지
@@ -54,7 +66,20 @@ public class playerController : MonoBehaviour
         isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //어떤 방향키든지 감지해서 걷는 animation 실행
+        bool wasWalking = isWalking; // 이전 프레임에서 걸었는지 여부 저장
         isWalking = hmove != 0 || vmove != 0;
+
+        // 이전 프레임에서 걷지 않았는데 현재 프레임에서 걷는다면 애니메이션 변경
+        if (!wasWalking && isWalking)
+        {
+            myAnim.SetBool("isWalking", true);
+        }
+        // 이전 프레임에서 걸었는데 현재 프레임에서 걷지 않는다면 애니메이션 변경
+        else if (wasWalking && !isWalking)
+        {
+            myAnim.SetBool("isWalking", false);
+        }
+
         myAnim.SetBool("isWalking", isWalking);
         //shift감지 했다면 뛰는 animation 실행
         myAnim.SetBool("isRunning", isRunning);
@@ -80,8 +105,8 @@ public class playerController : MonoBehaviour
     //플레이어 점프
     void HandleJump()
     {
-        // 애니메이션이 실행 중일 때는 점프를 막음
-        if (isPicking)
+        // 애니메이션/대화 실행 중일 때는 점프를 막음
+        if (isPicking || isInDialogue)
             return;
 
         //스페이스바를 눌렀을 시 점프 실행
@@ -161,8 +186,18 @@ public class playerController : MonoBehaviour
         //        Destroy(item);
         //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
 
-        itemPickup.Pickup(item);
+        itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
+    }
+
+    public void StopMoving()
+    {
+        isInDialogue = true;
+    }
+
+    public void StartMoving()
+    {
+        isInDialogue = false;
     }
 }
