@@ -33,27 +33,33 @@ public class Crafting : MonoBehaviour
     {
         if (craftingItemList.Count > 0)
         {
-            if (craftingItemList.Count == 3)
+            if (craftingItemList.Count == 3)                 // 크래프팅 아이템 리스트가 다 찼는지 검사
             {
                 Debug.Log("빈 슬롯이 없습니다.");
                 return;
             }
+
             for (int i = 0; i < craftingItemList.Count; i++) // 크래프팅 아이템 리스트에 동일한 아이템이 있는지 검사
             {
-                if (craftingItemList[i].itemID == Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemID)
+                if (craftingItemList[i].itemID == Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemID) // 동일한 아이템이 있다면
                 {
-                    if (CheckItemAmount(i) == true)
+                    if (CheckItemAmount(i) == true)                                                                             // 수량 먼저 검사한 후 수량 추가
                     {
                         craftingItemList[i].itemCount += 1;
                         craftingSlots[i].UpdateItemCount(craftingItemList[i]);
                         return;
                     }
                     else
+                    {
                         Debug.Log("보유 수량 이상을 담을 수 없습니다.");
+                        return;
+                    }
                 }
             }
+            SelectItem(); // 동일한 아이템이 없다면 슬롯에 추가
+            return;
         }
-        else if (craftingItemList.Count == 0)
+        else if (craftingItemList.Count == 0) // 아이템 리스트가 비어 있으면 그냥 추가
         {
             SelectItem();
             return;
@@ -94,6 +100,8 @@ public class Crafting : MonoBehaviour
         {
             craftingSlots[craftingItemList.Count - 1].Additem(_item);
         }
+        else
+            Debug.Log("크래프팅 아이템 리스트가 비어 있습니다.");
         return;
     }
 
