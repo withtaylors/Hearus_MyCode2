@@ -33,7 +33,12 @@ public class TextLogs : MonoBehaviour
         CreateLog();
     }
 
-    public void GetJourneyLog() // 일지 업데이트 로그
+    public void GetTextLog(string _log)
+    {
+        log = _log;
+    }
+
+    public void UpdateJourneyLog() // 일지 업데이트 로그
     {
 
     }

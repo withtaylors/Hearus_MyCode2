@@ -43,10 +43,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogue.Dialogue.IsActive == true)
-            isInDialogue = true;
-        else
-            isInDialogue = false;
+        IsInDialogue();
 
         if (isInDialogue)
             return;
@@ -182,5 +179,13 @@ public class playerController : MonoBehaviour
         itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
+    }
+
+    private void IsInDialogue()
+    {
+        if (dialogue.Dialogue.IsActive == true)
+            isInDialogue = true;
+        else
+            isInDialogue = false;
     }
 }
