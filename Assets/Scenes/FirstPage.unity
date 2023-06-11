@@ -470,7 +470,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9f650e7afb9061c45b189ec8a8c34d17, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2e3a25777f0276248a83e2d651e021db, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 725031299}
   - component: {fileID: 725031298}
   - component: {fileID: 725031297}
+  - component: {fileID: 725031300}
   m_Layer: 5
   m_Name: GameBeforeBtn
   m_TagString: Untagged
@@ -853,6 +854,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725031295}
   m_CullTransparentMesh: 1
+--- !u!114 &725031300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725031295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
+  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
 --- !u!1 &735507730
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +881,7 @@ GameObject:
   - component: {fileID: 735507733}
   - component: {fileID: 735507732}
   - component: {fileID: 735507735}
+  - component: {fileID: 735507736}
   m_Layer: 5
   m_Name: NewGameBtn
   m_TagString: Untagged
@@ -1002,6 +1018,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fader: {fileID: 108602057}
   fader2: {fileID: 2012049425}
+--- !u!114 &735507736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735507730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
+  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
 --- !u!1 &857550990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1381,7 @@ GameObject:
   - component: {fileID: 999581939}
   - component: {fileID: 999581938}
   - component: {fileID: 999581937}
+  - component: {fileID: 999581940}
   m_Layer: 5
   m_Name: EndBtn
   m_TagString: Untagged
@@ -1461,6 +1492,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999581935}
   m_CullTransparentMesh: 1
+--- !u!114 &999581940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999581935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
+  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
 --- !u!1 &1168844134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1721,7 @@ GameObject:
   - component: {fileID: 1899867034}
   - component: {fileID: 1899867033}
   - component: {fileID: 1899867032}
+  - component: {fileID: 1899867035}
   m_Layer: 5
   m_Name: SettingBtn
   m_TagString: Untagged
@@ -1786,6 +1832,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899867030}
   m_CullTransparentMesh: 1
+--- !u!114 &1899867035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899867030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
+  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
 --- !u!1 &2012049424
 GameObject:
   m_ObjectHideFlags: 0
