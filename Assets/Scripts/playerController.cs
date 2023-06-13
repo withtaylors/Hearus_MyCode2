@@ -31,8 +31,8 @@ public class playerController : MonoBehaviour
 
     private ItemPickup itemPickup;
 
-    [SerializeField]
-    private DialogueRunner dialogue;
+    [SerializeField] private DialogueRunner dialogue;
+    [SerializeField] private LineView lineView;
 
     void Start()
     {
