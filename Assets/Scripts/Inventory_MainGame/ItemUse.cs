@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 // 아이템 사용을 구현한 스크립트. 아이템의 효과마다 다름.
 
