@@ -9,18 +9,17 @@ public class TutorialController : MonoBehaviour
     /// <summary>
     /// 수정중!!!!!!!
     /// </summary>
- 
+
+    private bool NEXT_STEP_POSSIBLE;
     private int tutorialStep;
-    private TextMeshProUGUI currentText;
     private static List<string> textList = new List<string> { "안녕하세요, 모험가님!\n히얼어스에 오신 것을 환영합니다.",
                                                               "이곳에서는 키보드의 상하좌우 키로 이동할 수 있습니다.\n한번 해 볼까요?" };
 
     [SerializeField] private GameObject infoSmall;
     [SerializeField] private GameObject infoLarge;
-    [SerializeField] private GameObject continueButton;    
     [SerializeField] private TextMeshProUGUI infoSmallText;
     [SerializeField] private TextMeshProUGUI infoLargeText;
-
+    [SerializeField] private GameObject keyboardImage;
     
     private void Start()
     {
@@ -30,18 +29,37 @@ public class TutorialController : MonoBehaviour
     
     private void NextStep()
     {
-        if (infoSmall.activeSelf)
-            FirstStep();
-        else if (infoLarge.activeSelf)
-            FirstStep();
+        switch(tutorialStep)
+        {
+            case 0:
+                break;
+            case 1:
+                SecondStep();
+                break;
+        }
     }
 
     private void FirstStep()
     {
         infoSmall.SetActive(true);
-        continueButton.SetActive(true);
+
         infoSmallText.text = textList[tutorialStep];
-        currentText = infoSmallText;
+
+        NEXT_STEP_POSSIBLE = true;
+    }
+
+    private void SecondStep()
+    {
+        NEXT_STEP_POSSIBLE = false;
+
+        infoSmall.SetActive(false);
+
+        infoLarge.SetActive(true);
+        keyboardImage.SetActive(true);
+
+        infoLargeText.text = textList[tutorialStep];
+
+        // if (상하좌우 입력 다 확인) NEXT_STEP_POSSIBLE, onClickContinueButton();
     }
 
     public void onClickContinueButton()
@@ -49,10 +67,11 @@ public class TutorialController : MonoBehaviour
         if (tutorialStep == textList.Count - 1)
             return;
         else
-        {
-            tutorialStep++;
-            NextStep();
-        }
+            if (NEXT_STEP_POSSIBLE)
+            {
+                tutorialStep++;
+                NextStep();
+            }
     }
 
     public void onClickExitButton()
