@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class Crafting : MonoBehaviour
 {
+    public static Crafting instance;
+
     private List<InventorySlot> craftingSlots; // 크래프팅 슬롯 리스트
     public Transform tf_craftingSlots; // 크래프팅 슬롯 관리를 위한 부모
 
@@ -17,6 +19,11 @@ public class Crafting : MonoBehaviour
     public CraftingCombination craftingCombination;
     public GameObject craftingLogPanel;
     public TextMeshProUGUI craftingLogText;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
