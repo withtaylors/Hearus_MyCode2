@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Item
 {
     // 아이템 클래스
-
     public int itemID; // 아이템 고유 ID 값
     public string itemName; // 아이템 이름
     public string itemDescription; // 아이템 설명
@@ -18,6 +17,8 @@ public class Item
     public int effectValue;
     public bool isMeet;
     public bool isPicking;
+
+    public string itemJourney;
 
     public enum ItemType
     {
