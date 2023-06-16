@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
-  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
+  hoverSound: {fileID: 8300000, guid: 304c0fe384663d342a69cfd1d4fd5894, type: 3}
+  clickSound: {fileID: 8300000, guid: 7f18d2cc0dd24274ca451ee30116482a, type: 3}
 --- !u!1 &735507730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
-  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
+  hoverSound: {fileID: 8300000, guid: 304c0fe384663d342a69cfd1d4fd5894, type: 3}
+  clickSound: {fileID: 8300000, guid: 7f18d2cc0dd24274ca451ee30116482a, type: 3}
 --- !u!1 &857550990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,8 +1504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
-  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
+  hoverSound: {fileID: 8300000, guid: 304c0fe384663d342a69cfd1d4fd5894, type: 3}
+  clickSound: {fileID: 8300000, guid: 7f18d2cc0dd24274ca451ee30116482a, type: 3}
 --- !u!1 &1168844134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,8 +1844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b7423754c52f44b8a81045814ec109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: 7740be54a9f44ec469d6f1d4950a19b2, type: 3}
-  clickSound: {fileID: 8300000, guid: eed1ae0222c89c8469993c8382793369, type: 3}
+  hoverSound: {fileID: 8300000, guid: 304c0fe384663d342a69cfd1d4fd5894, type: 3}
+  clickSound: {fileID: 8300000, guid: 7f18d2cc0dd24274ca451ee30116482a, type: 3}
 --- !u!1 &2012049424
 GameObject:
   m_ObjectHideFlags: 0
