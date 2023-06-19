@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using static UnityEngine.ParticleSystem;
 using Yarn.Unity;
+using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
@@ -25,18 +26,17 @@ public class TutorialController : MonoBehaviour
                                                        "조합 버튼을 눌러 주세요.\n만들어진 도구는 인벤토리에서 확인할 수 있습니다.\n도구를 만든 재료는 사라집니다.",
                                                        "튜토리얼이 모두 끝났습니다. 함께할 파트너를 선택해 주세요." };
 
-    public GameObject infoSmall;
-    public GameObject infoLarge;
-    public TextMeshProUGUI infoSmallText;
-    public TextMeshProUGUI infoLargeText;
+    public GameObject tutorialPanel;
+    public TextMeshProUGUI tutorialPanelText;
     public GameObject Button;
     public DialogueRunner dialogue;
 
-    [SerializeField] private GameObject keyboardImage;
-    [SerializeField] private GameObject SettingPanel;
-    [SerializeField] private GameObject SelectFrithPanel;
+    [SerializeField] private GameObject settingPanel;
+    [SerializeField] private GameObject selectFrithPanel;
     [SerializeField] private ParticleSystem settingButtonParticle;
     [SerializeField] private ParticleSystem inventoryButtonParticle;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject fader;
 
     private bool right = false;
     private bool left = false;
@@ -153,25 +153,23 @@ public class TutorialController : MonoBehaviour
 
     private void FirstStep() // 좌우 이동 텍스트
     {
-        infoLarge.SetActive(true);
-        infoLargeText.text = textList[tutorialStep];
+        tutorialPanel.SetActive(true);
+        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private void SecondStep() // 점프 텍스트
     {
-        infoLargeText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private void ThirdStep() // 아이템 습득 텍스트
     {
-        infoLarge.SetActive(false);
-        infoSmall.SetActive(true);
-        infoSmallText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private void FourthStep() // 인벤토리 활성화 텍스트
     {
-        infoSmallText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[tutorialStep];
         settingButtonParticle.gameObject.SetActive(true);
         settingButtonParticle.Play();
         inventoryButtonParticle.gameObject.SetActive(true);
@@ -180,42 +178,45 @@ public class TutorialController : MonoBehaviour
 
     private void FifthStep() // 넝쿨 세 개 텍스트
     {
-        infoSmallText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[tutorialStep];
         settingButtonParticle.gameObject.SetActive(false);
         inventoryButtonParticle.gameObject.SetActive(false);
     }
 
     private void SixthStep() // 도구 제작 텍스트
-    {
+    {        
+        tutorialPanelText.text = textList[tutorialStep];
         settingButtonParticle.gameObject.SetActive(true);
-        inventoryButtonParticle.gameObject.SetActive(true);
-        infoSmallText.text = textList[tutorialStep];
         settingButtonParticle.Play();
+        inventoryButtonParticle.gameObject.SetActive(true);
         inventoryButtonParticle.Play();
     }
 
     private void SeventhStep() // 크래프팅 슬롯에 넝쿨 세 개 텍스트
     {
-        infoSmallText.text = textList[tutorialStep];
+        settingButtonParticle.gameObject.SetActive(false);
+        inventoryButtonParticle.gameObject.SetActive(false);
+        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private void EightStep()  // 인벤토리에 밧줄 확인
     {
-        infoSmallText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private void NinthStep()
     {
-        infoSmallText.text = textList[tutorialStep];
+        continueButton.SetActive(true);
+        tutorialPanelText.text = textList[tutorialStep];
         NEXT_STEP_POSSIBLE = true;
     }
 
     // 프리스 선택
     private void SelectFrith()
     {
-        infoSmall.SetActive(false);
-        SettingPanel.SetActive(false);
-        SelectFrithPanel.SetActive(true);
+        tutorialPanel.SetActive(false);
+        settingPanel.SetActive(false);
+        selectFrithPanel.SetActive(true);
     }
 
     public void onClickContinueButton()
@@ -230,46 +231,66 @@ public class TutorialController : MonoBehaviour
 
     public void onClickExitButton()
     {
-        if (infoSmall.activeSelf)
-            infoSmall.SetActive(false);
-        else if (infoLarge.activeSelf)
-            infoLarge.SetActive(false);
+        if (tutorialPanel.activeSelf)
+            tutorialPanel.SetActive(false);
     }
 
     public void OnSelectEden()
     {
         ActiveSelectMessage();
-        infoSmallText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        tutorialPanelText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
     }
 
     public void OnSelectNoah()
     {
         ActiveSelectMessage();
-        infoSmallText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        tutorialPanelText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
     }
 
     public void OnSelectAdam()
     {
         ActiveSelectMessage();
-        infoSmallText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        tutorialPanelText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
     }
 
     public void OnSelectJonah()
     {
         ActiveSelectMessage();
-        infoSmallText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        tutorialPanelText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
     }
 
     private void ActiveSelectMessage()
     {
-        infoSmall.SetActive(true);
+        tutorialPanel.SetActive(true);
         Button.SetActive(true);
     }
 
     public void OnClickYesButton()
     {
-        infoSmall.SetActive(false);
-        SelectFrithPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
+        selectFrithPanel.SetActive(false);
         dialogue.StartDialogue("AfterSelectFrith");
+    }
+
+    public void OnClickNoButton()
+    {
+        tutorialPanel.SetActive(false);
+        Button.SetActive(false);
+    }
+
+    private IEnumerator FadeOutStart() // 튜토리얼 종료 시 페이드아웃 -> 스크립트
+    {
+        yield return new WaitForSecondsRealtime(2f); // 2초 뒤 페이드아웃
+
+        Color c = fader.GetComponent<Image>().color; // 페이드아웃을 위해 Fader의 컬러값을 받아 옴
+
+        for (float f = 0f; f <= 1f; f += 0.01f) // 페이드아웃
+        {
+            c.a = f;
+            fader.GetComponent<Image>().color = c;
+            yield return null;
+        }
+
+        dialogue.StartDialogue("AfterTutorial");
     }
 }
