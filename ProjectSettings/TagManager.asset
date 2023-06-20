@@ -7,6 +7,8 @@ TagManager:
   - ITEM_NE_MUSHROOM
   - ITEM_VINE
   - ITEM_DOLL
+  - InteractiveThing
+  - Map
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class TabPanel : MonoBehaviour
     public List<TabButton> tabButtons; // 탭 패널에 속한 모든 탭 버튼들의 리스트
     public List<GameObject> contentsPanels; // 탭 패널에 속한 모든 컨텐츠 패널들의 리스트
 
-    private int selectedTabIndex = -1;    // 선택된 탭 버튼의 인덱스 (-1은 초기 상태)
+    public int selectedTabIndex = -1;    // 선택된 탭 버튼의 인덱스 (-1은 초기 상태)
 
     public void Start()
     {
