@@ -21,7 +21,7 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         if (!audioSource.isPlaying)
         {
             audioSource.clip = hoverSound;
-            audioSource.enabled = true; // 수정된 부분
+            audioSource.enabled = true;
             audioSource.Play();
         }
     }
@@ -29,7 +29,7 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     public void OnPointerClick(PointerEventData eventData)
     {
         audioSource.clip = clickSound;
-        audioSource.enabled = true; // 수정된 부분
+        audioSource.enabled = true;
         audioSource.Play();
     }
 }

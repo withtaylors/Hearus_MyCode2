@@ -5,45 +5,47 @@ using TMPro;
 public class TextBlink : MonoBehaviour
 {
     TextMeshProUGUI flashingText;
+    bool isBlinking = false; // 깜빡임 상태 플래그
 
-    public Color startColor = Color.white; // 시작 색상 (흰색)
-    public Color endColor = Color.gray; // 종료 색상 (회색)
-    public float transitionDuration = 0.5f; // 색상 변화에 걸리는 시간
+    public Color firstColor = Color.white; // 첫 번째 색상
+    public Color secondColor = Color.gray; // 두 번째 색상
+    public float blinkInterval = 0.5f; // 깜빡임 간격
 
     // Use this for initialization
     void Start()
     {
         flashingText = GetComponent<TextMeshProUGUI>();
-        StartCoroutine(BlinkText());
     }
 
-    public IEnumerator BlinkText()
+    // 깜빡임을 시작하는 메서드
+    public void StartBlink()
     {
-        while (true)
+        if (!isBlinking)
         {
-            float elapsedTime = 0f;
-            while (elapsedTime < transitionDuration)
-            {
-                flashingText.color = Color.Lerp(startColor, endColor, elapsedTime / transitionDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
+            isBlinking = true;
+            StartCoroutine(BlinkText());
+        }
+    }
 
-            flashingText.color = endColor;
+    // 깜빡임을 멈추는 메서드
+    public void StopBlink()
+    {
+        if (isBlinking)
+        {
+            isBlinking = false;
+            flashingText.color = firstColor;
+        }
+    }
 
-            yield return new WaitForSeconds(0.5f); // 텍스트가 회색인 상태를 유지하는 시간
+    IEnumerator BlinkText()
+    {
+        while (isBlinking)
+        {
+            flashingText.color = secondColor;
+            yield return new WaitForSeconds(blinkInterval);
 
-            elapsedTime = 0f;
-            while (elapsedTime < transitionDuration)
-            {
-                flashingText.color = Color.Lerp(endColor, startColor, elapsedTime / transitionDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            flashingText.color = startColor;
-
-            yield return new WaitForSeconds(0.5f); // 텍스트가 흰색인 상태를 유지하는 시간
+            flashingText.color = firstColor;
+            yield return new WaitForSeconds(blinkInterval);
         }
     }
 }
