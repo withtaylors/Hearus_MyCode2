@@ -12,6 +12,8 @@ public class ItemPickup : MonoBehaviour
 
     public DialogueRunner dialogue;
 
+    ScriptManager scriptManager;
+
     private void Start()
     {
         dialogue = gameObject.GetComponent<DialogueRunner>();
@@ -25,8 +27,11 @@ public class ItemPickup : MonoBehaviour
         pickingID = item.gameObject.GetComponent<ItemPickup>()._itemID;
         pickingCount = item.gameObject.GetComponent<ItemPickup>()._count;
 
-        dialogue.StartDialogue(pickingID.ToString());
+//        dialogue.StartDialogue(pickingID.ToString());
 
         TextLogs.instance.GetItemLog(pickingID);
+
+        scriptManager.ShowScript(scriptManager.GetScript());
+        Inventory.instance.GetAnItem(pickingID, pickingCount);
     }
 }
