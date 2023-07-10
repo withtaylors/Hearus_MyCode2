@@ -27,11 +27,12 @@ public class ItemDatabase : MonoBehaviour
 
     void Start()
     {
-        itemList.Add(new Item(101, "질긴 덩굴", "질긴 덩굴. 잘라내기는 어렵지만 그만큼 질기고 잘 끊어지지 않는다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(102, "밧줄", "밧줄이다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0, 10));
+        itemList.Add(new Item(101, "넝쿨", "밧줄을 만들 수 있는 꽤 질긴 넝쿨.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(102, "밧줄", "넝쿨로 만든 꽤 튼튼한 밧줄. 여러 번 쓸 수 있다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0, 10));
         itemList.Add(new Item(103, "망가진 태엽 인형", "별 쓸모는 없는 태엽 인형. 속에 이끼가 잔뜩 꼈는지 잘 움직이지 않는다. 어릴 적 가지고 있던 인형과 비슷하게 생겼다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(104, "표고버섯", "행성에서도 자주 먹었던 표고버섯. 자연산이라 그런지 향이 진하다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
-/*
+        itemList.Add(new Item(104, "냄새무당버섯", "선명한 빨간색의 독버섯.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
+        itemList.Add(new Item(105, "버터넛", "부드럽고 달콤한 호박. 크기가 커 배부르게 먹을 수 있다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
+
         itemJourneyList.Add(new ItemJourney(103, "태엽 인형을 발견했다. 대여섯 살 무렵이었나? 그즈음 가지고 놀던 것과 꽤 비슷하게 생겼다. 아마 당시 엄청 인기 많던 캐릭터였지." + "워낙 인기가 많아 옆집에 살던 두어 살 어린애가 자기도 가지고 싶다며 볼 때마다 떼를 썼던 것도 기억난다.그렇게 아끼는 장난감은 아니었으나 그 애가 가지겠다 하니 무척 애틋해지고, 소중히 여기게 되었던 것 같다." +
             "지구에서도 같은 캐릭터가 있었던 걸까 ? 예전의 지구를 잘 알지 못하지만, 이걸 보니 그래도 지구와 행성의 공통점을 하나 발견한 기분이다.\n" + "일전 여기에 오기 전 읽은 책에서 타지에서는 고향이 사무치도록 그리워진다는 글을 봤다." +
             "그글은 아마 지구를 떠나고 얼마 지나지 않아 이곳을 그리워하며 썼으리라…. 그가 기억하던 지구는 이런 모습이 아니겠지.그렇다면 이곳을 본다면 그는 어떤 생각을 할까 ? " +

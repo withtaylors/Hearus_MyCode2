@@ -31,8 +31,8 @@ public class playerController : MonoBehaviour
 
     private ItemPickup itemPickup;
 
-    [SerializeField]
-    private DialogueRunner dialogue;
+    [SerializeField] private DialogueRunner dialogue;
+    [SerializeField] private LineView lineView;
 
     //private playerSound soundPlayer; // playerSound 스크립트를 참조하기 위한 변수
 
@@ -46,10 +46,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogue.Dialogue.IsActive == true)
-            isInDialogue = true;
-        else
-            isInDialogue = false;
+        IsInDialogue();
 
         if (isInDialogue)
             return;
@@ -187,5 +184,13 @@ public class playerController : MonoBehaviour
         itemPickup.Pickup(item, dialogue);
 
         Destroy(item);
+    }
+
+    private void IsInDialogue()
+    {
+        if (dialogue.Dialogue.IsActive == true)
+            isInDialogue = true;
+        else
+            isInDialogue = false;
     }
 }
