@@ -46,7 +46,7 @@ public class TutorialController : MonoBehaviour
     {
         FirstStep();
         tutorialStep = 0;
-        dialogue = FindObjectOfType<DialogueRunner>();
+        //dialogue = FindObjectOfType<DialogueRunner>();
     }
 
     private void LateUpdate() // 다음 스텝으로 넘어가기 위한 조건 확인
