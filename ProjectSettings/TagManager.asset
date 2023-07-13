@@ -9,6 +9,9 @@ TagManager:
   - ITEM_DOLL
   - InteractiveThing
   - Map
+  - FirstOption
+  - SecondOption
+  - ThirdOption
   layers:
   - Default
   - TransparentFX

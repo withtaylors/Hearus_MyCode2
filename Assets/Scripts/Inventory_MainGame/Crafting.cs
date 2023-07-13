@@ -39,8 +39,8 @@ public class Crafting : MonoBehaviour
             {
                 ResetCraftingSlot();
                 ResetCraftingList();
-                craftingLogPanel.SetActive(false);
-                craftingLogText.gameObject.SetActive(false);
+                //craftingLogPanel.SetActive(false);
+                //craftingLogText.gameObject.SetActive(false);
             }
         }
     }

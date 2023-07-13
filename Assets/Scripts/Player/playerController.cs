@@ -46,10 +46,10 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        IsInDialogue();
+        //IsInDialogue();
 
-        if (isInDialogue)
-            return;
+        //if (isInDialogue)
+        //    return;
 
         //soundPlayer.HandleMovement(isWalking, isRunning); // playerSound 스크립트의 HandleMovement 메서드 호출
 
@@ -181,7 +181,7 @@ public class playerController : MonoBehaviour
         //        Destroy(item);
         //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
 
-        itemPickup.Pickup(item, dialogue);
+        itemPickup.Pickup(item);
 
         Destroy(item);
     }
