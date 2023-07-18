@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScriptParser : MonoBehaviour
@@ -38,7 +39,7 @@ public class ScriptParser : MonoBehaviour
                     break;
             } while (row[0].ToString() == "");
 
-            option.optionID = optionID;            
+            option.optionID = optionID;
             option.sentences = sentenceList.ToArray();
             option.isExistNextScript = isExistNextScript.ToArray();
             option.nextScriptNumber = nextScriptNumber.ToArray();

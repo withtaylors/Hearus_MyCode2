@@ -2443,7 +2443,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2463,7 +2463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickOptionButton
+      value: OnOptionButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2475,7 +2475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Name
-      value: Option Button (1)
+      value: Second Option
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
+      propertyPath: m_TagString
+      value: SecondOption
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282629, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Pivot.x
@@ -15374,7 +15378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -15394,7 +15398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickOptionButton
+      value: OnOptionButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -15406,7 +15410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Name
-      value: Option Button (2)
+      value: Third Option
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
+      propertyPath: m_TagString
+      value: ThirdOption
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282629, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Pivot.x
@@ -66661,7 +66669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -66681,7 +66689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickOptionButton
+      value: OnOptionButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282626, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -66693,7 +66701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Name
-      value: Option Button
+      value: First Option
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966216638559282628, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
+      propertyPath: m_TagString
+      value: FirstOption
       objectReference: {fileID: 0}
     - target: {fileID: 4966216638559282629, guid: fe10c94d122011c419b895075e3ab7fd, type: 3}
       propertyPath: m_Pivot.x

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using static UnityEngine.ParticleSystem;
+using System.Linq;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -15,17 +17,18 @@ public class ScriptManager : MonoBehaviour
     [SerializeField] private OptionEvent option; // 스크립트
 
     private Script[] scripts; // 전체 스크립트 목록을 받아 올 배열
-    private Script currentScript; // 현재 스크립트를 받아 옴
+    [SerializeField] private Script currentScript; // 현재 스크립트를 받아 옴
 
     private Option[] options;
-    private Option currentOption; // 현재 옵션을 받아 옴
+    [SerializeField] private Option currentOption; // 현재 옵션을 받아 옴
+
+    private ScriptManager scriptManager;
 
     bool isDialogue = false; // 스크립트 재생 중일 경우 true
     bool isNext = false; // 특정 키 입력 대기. true가 되면 키 입력 가능
-
     int currentLine = 0;
 
-    private ScriptManager scriptManager;
+    //Coroutine runningCoroutine = null;
 
     private void Start()
     {
@@ -44,17 +47,33 @@ public class ScriptManager : MonoBehaviour
                 {
                     isNext = false;
                     if (++currentLine < currentScript.sentences.Length)
+                    {
+                        Debug.Log("문장이 남아 있을 때");
                         StartCoroutine(TypeWriter());
+                    }
                     else
                     {
                         if (currentScript.isExistOption == "Y")
                         {
-                            FindOption(currentScript.optionNumber);
+                            Debug.Log("옵션이 있을 때");
+                            FindOption(int.Parse(currentScript.optionNumber));
                             ShowOption();
                         }
+                        else if (currentScript.isExistNextScript == "Y")
+                        {
+                            Debug.Log("다음 스크립트가 있을 때");
+                            JumpToNextScript();
+                        }
+
+                        else
+                        {
+                            Debug.Log("아무것도 없을 때");
+                            ShowScriptUI(false);
+                        }
+
                     }
                 }
-            }
+            } 
         }
     }
 
@@ -68,12 +87,14 @@ public class ScriptManager : MonoBehaviour
         scriptText.text = t_ReplaceText;
 
         isNext = true;
-        yield return null;
+
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator OptionView()
     {
         optionText.Clear();
+
         ShowOptionUI(true);
 
         for (int i = 0; i < currentOption.sentences.Length; i++)
@@ -84,11 +105,10 @@ public class ScriptManager : MonoBehaviour
             optionText[i] = replacedText;
 
             optionPrefab[i].GetComponentInChildren<TextMeshProUGUI>().text = optionText[i];
-
             optionPrefab[i].SetActive(true);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void LoadScript(Script[] p_scripts)
@@ -103,53 +123,76 @@ public class ScriptManager : MonoBehaviour
 
     public void ShowScript()
     {
+        //if (runningCoroutine != null)
+            //StopCoroutine(runningCoroutine);
+
+        Debug.Log("대체 이건 실행되고 잇는건가");
+
         isDialogue = true;
         currentLine = 0;
         scriptText.text = "";
 
+        //runningCoroutine = StartCoroutine(TypeWriter());
         StartCoroutine(TypeWriter());
     }
 
     public void ShowOption()
     {
+        //if (runningCoroutine != null)
+            //StopCoroutine(runningCoroutine);
+
         optionText.Clear();
 
+        //runningCoroutine = StartCoroutine(OptionView());
         StartCoroutine(OptionView());
     }
 
-    public Script[] GetScript()
+    public Script[] GetScript() // 스크립트 파일의 x줄부터 y줄까지 불러오기
     {
         script.scripts = DatabaseManager.instance.GetScript((int)script.line.x, (int)script.line.y);
         return script.scripts;
     }
 
-    public Option[] GetOption()
+    public Option[] GetOption() // 옵션 파일의 x줄부터 y줄까지 불러오기
     {
         option.options = DatabaseManager.instance.GetOption((int)option.line.x, (int)option.line.y);
         return option.options;
     }
 
-    public void FindScriptByItemID(int _itemID)
+    public void FindScriptByItemID(int _itemID) // 아이템 아이디로 스크립트를 검색해 currentScript에 넣음
     {
         for (int i = 0; i < script.scripts.Length; i++)
             if (script.scripts[i].itemID == _itemID.ToString())
                 currentScript = script.scripts[i];
+        currentLine = 0;
     }
 
-    public void FindScriptByScriptID(string _scriptID)
+    public void FindScriptByScriptID(int _scriptID) // 스크립트 아이디로 스크립트를 검색해 currentScript에 넣음
     {
-        for (int i = 0; i < script.scripts.Length; i++)
-            if (script.scripts[i].scriptID == _scriptID.ToString())
-                currentScript = script.scripts[i];
+        Debug.Log("받은 스크립트 번호는: " + _scriptID);
+        Debug.Log("총 스크립트 개수는: " + script.scripts.Length);
+
+        for (int i = 1; i <= script.scripts.Length; i++)
+        {
+            Debug.Log(i + "번째 검색 중");
+            //if (script.scripts[i].scriptID == _scriptID)
+            if (i == _scriptID)
+            {
+                currentScript = script.scripts[i - 1];
+                Debug.Log("발견");
+                break;
+            }
+        }
+
+        Debug.Log(currentScript.sentences.Length);
+        currentLine = 0;
     }
 
-    public void FindOption(string optionNum)
+    public void FindOption(int optionNum)
     {
         for (int i = 0; i < option.options.Length; i++)
-            if (option.options[i].optionID == optionNum)
+            if (int.Parse(option.options[i].optionID) == optionNum)
                 currentOption = option.options[i];
-
-        ShowOptionUI(true);
     }
 
     private void ShowScriptUI(bool p_flag)
@@ -166,24 +209,36 @@ public class ScriptManager : MonoBehaviour
 
     private void JumpToNextScript()
     {
-
+        Debug.Log("JumpToNextScript()");
+        FindScriptByScriptID(int.Parse(currentScript.nextScriptNumber));
+        ShowScript();
     }
 
-    public void OnClickOptionButton()
+    public void OnOptionButtonClick()
     {
-        if (EventSystem.current.currentSelectedGameObject.CompareTag("FirstOption"))
-        {
-            FindScriptByScriptID(currentOption.nextScriptNumber[0]);
-            StartCoroutine(TypeWriter());
+        string buttonTag = EventSystem.current.currentSelectedGameObject.tag;
 
-        } else if (EventSystem.current.currentSelectedGameObject.CompareTag("SecondOption"))
+        if (buttonTag == "FirstOption")
         {
-            FindScriptByScriptID(currentOption.nextScriptNumber[1]);
-            StartCoroutine(TypeWriter());
-        } else if (EventSystem.current.currentSelectedGameObject.CompareTag("ThirdOption"))
-        {
-            FindScriptByScriptID(currentOption.nextScriptNumber[2]);
-            StartCoroutine(TypeWriter());
+            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[0]));
+            ShowScript();
         }
+        else if (buttonTag == "SecondOption")
+        {
+            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[1]));
+            ShowScript();
+        }
+        else if (buttonTag == "ThirdOption")
+        {
+            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[2]));
+            ShowScript();
+        }
+
+        ShowOptionUI(false);
+    }
+
+    public void EndScript()
+    {
+        
     }
 }

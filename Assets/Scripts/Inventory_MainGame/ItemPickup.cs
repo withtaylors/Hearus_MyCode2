@@ -25,13 +25,10 @@ public class ItemPickup : MonoBehaviour
         pickingID = item.gameObject.GetComponent<ItemPickup>()._itemID;
         pickingCount = item.gameObject.GetComponent<ItemPickup>()._count;
 
-//      dialogue.StartDialogue(pickingID.ToString());
-
-        TextLogs.instance.GetItemLog(pickingID);
-
         scriptManager.FindScriptByItemID(pickingID);
         scriptManager.ShowScript();
 
+        TextLogs.instance.GetItemLog(pickingID);
         Inventory.instance.GetAnItem(pickingID, pickingCount);
     }
 }
