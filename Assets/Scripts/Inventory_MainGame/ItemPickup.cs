@@ -15,21 +15,19 @@ public class ItemPickup : MonoBehaviour
     private UnityEngine.Camera selectedCamera;
     private Vector3 objectPosition;
     private Quaternion objectRotation;
-
-    public ParticleSystem particlePrefab;
+    private GameObject particlePrefab;
 
     private void Start()
     {
-        scriptManager = FindObjectOfType<ScriptManager>();
-        selectedCamera = UnityEngine.Camera.main;
+        scriptManager = FindObjectOfType<ScriptManager>(); // 스크립트 매니저: 아이템 스크립트를 재생할 때 쓰임
+        selectedCamera = UnityEngine.Camera.main; // 메인 카메라
 
-        objectPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-        objectRotation = new Quaternion(-90, 0, 0, 90);
+        objectPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z); // 해당 오브젝트의 위치 저장
+        objectRotation = new Quaternion(-90, 0, 0, 90); // 파티클이 위로 나오도록 Rotation 설정
 
-        //particlePrefab
-
+        particlePrefab = Resources.Load("Object_Particle") as GameObject; // Resources/Prefabs/Object Particle
+        Instantiate(particlePrefab, objectPosition, objectRotation);
         //particlePrefab.Pause();
-        //particlePrefab.GetComponent<ObjectParticleSystem>().StopParticle();
     }
 
     private void FixedUpdate()
@@ -38,7 +36,6 @@ public class ItemPickup : MonoBehaviour
         {
             Debug.Log("CheckObjectInCamera()");
             //particlePrefab.Play();
-            //particlePrefab.GetComponent<ObjectParticleSystem>().PlayParticle();
         }
     }
 

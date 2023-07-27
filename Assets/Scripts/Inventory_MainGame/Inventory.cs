@@ -199,9 +199,7 @@ public class Inventory : MonoBehaviour
                     CreateSlot();
                     slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);
                     for (int j = 0; j < _count - 1; j++)
-                    {
-                        slots[j].IncreaseCount(ItemDatabase.itemList[i]);
-                    }
+                        slots[slots.Count - 1].IncreaseCount(ItemDatabase.itemList[i]);
                 }
                 else if (_count == 1)
                 {
@@ -216,7 +214,6 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-
     }
 
     // CreateSlot(): 인벤토리 아이템 리스트에 새로운 아이템이 들어왔을 경우, 새로운 슬롯을 생성하는 메소드
