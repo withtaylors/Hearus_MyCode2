@@ -4,15 +4,26 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
+using TMPro;
+using UnityEngine.UI;
 
 public class Crafting : MonoBehaviour
 {
-    private List<InventorySlot> craftingSlots;
-    public Transform tf_craftingSlots;
+    public static Crafting instance;
 
-    public List<Item> craftingItemList;
+    private List<InventorySlot> craftingSlots; // 크래프팅 슬롯 리스트
+    public Transform tf_craftingSlots; // 크래프팅 슬롯 관리를 위한 부모
 
-    public CraftingCombination craftingCombination; // 크래프팅 조합 객체
+    public List<Item> craftingItemList; // 크래프팅 아이템 리스트
+
+    public CraftingCombination craftingCombination;
+    public GameObject craftingLogPanel;
+    public TextMeshProUGUI craftingLogText;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -20,25 +31,27 @@ public class Crafting : MonoBehaviour
         craftingItemList = new List<Item>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (craftingItemList.Count > 0)
         {
-            if (Inventory.instance.activated == false)
+            if (Inventory.instance.activated == false) // 인벤토리가 비활성화되면 크래프팅 슬롯 및 리스트가 초기화, 로그도 비활성화
             {
                 ResetCraftingSlot();
                 ResetCraftingList();
+                craftingLogPanel.SetActive(false);
+                craftingLogText.gameObject.SetActive(false);
             }
         }
     }
 
-    public void onCiickSelectButton()
+    public void onCiickSelectButton() // 선택 버튼을 눌렀을 때
     {
         if (craftingItemList.Count > 0)
         {
             if (craftingItemList.Count == 3)                 // 크래프팅 아이템 리스트가 다 찼는지 검사
             {
-                Debug.Log("빈 슬롯이 없습니다.");
+                GetCraftingLog("! 빈 슬롯이 없습니다. !");
                 return;
             }
 
@@ -54,7 +67,7 @@ public class Crafting : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("보유 수량 이상을 담을 수 없습니다.");
+                        GetCraftingLog("! 보유 수량 이상을 담을 수 없습니다. !");
                         return;
                     }
                 }
@@ -75,14 +88,14 @@ public class Crafting : MonoBehaviour
 
         if (craftingItemList.Count < 1)
         {
-            Debug.Log("아이템을 하나 이상 담으세요.");
+            GetCraftingLog("! 아이템을 하나 이상 선택하세요. !");
             return;
         }
         else
         {
             if (returnID == 0)
             {
-                Debug.Log("유효하지 않은 조합입니다.");
+                GetCraftingLog("! 유효하지 않은 조합입니다. !");
                 return;
             }
             else
@@ -103,8 +116,8 @@ public class Crafting : MonoBehaviour
         {
             craftingSlots[craftingItemList.Count - 1].Additem(_item);
         }
-        else
-            Debug.Log("크래프팅 아이템 리스트가 비어 있습니다.");
+        else 
+            GetCraftingLog("! 조합 리스트가 비어 있습니다. !");
         return;
     }
 
@@ -179,8 +192,8 @@ public class Crafting : MonoBehaviour
                 }
             }
         }
-            Debug.Log("유효하지 않은 조합입니다.");
-            return 0;
+        GetCraftingLog("! 유효하지 않은 조합입니다. !");
+        return 0;
     }
 
     public void SelectItem() // 아이템을 선택해 조합 슬롯으로 복사
@@ -233,5 +246,13 @@ public class Crafting : MonoBehaviour
     {
         Item clonedItem = new Item(_item.itemID, _item.itemName, _item.itemDescription, _item.itemType, _item.itemEffect, _item.effectValue, 1, _item.isMeet, _item.isPicking);
         return clonedItem;
+    }
+
+    private void GetCraftingLog(string _log)
+    {
+        craftingLogPanel.SetActive(true);
+        craftingLogText.gameObject.SetActive(true);
+
+        craftingLogText.text = _log;
     }
 }
