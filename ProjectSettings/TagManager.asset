@@ -9,11 +9,9 @@ TagManager:
   - ITEM_DOLL
   - InteractiveThing
   - Map
-  - ITEM_ROPE
-  - ITEM_BUTTERNUT
-  - "ITEM_\uACE0\uBE44"
-  - "ITEM_\uC1A1\uC774\uBC84\uC12F"
-  - "ITEM_\uC5B4\uB9B0\uAE4C\uB9C8\uC911\uC904\uAE30"
+  - FirstOption
+  - SecondOption
+  - ThirdOption
   layers:
   - Default
   - TransparentFX

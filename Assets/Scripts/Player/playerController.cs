@@ -72,10 +72,10 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        IsInDialogue();
+        //IsInDialogue();
 
-        if (isInDialogue)
-            return;
+        //if (isInDialogue)
+        //    return;
 
         // 로프 클라이밍 상태에서는 움직임 처리를 건너뜁니다.
         if (!isClimbing)
@@ -202,7 +202,7 @@ public class playerController : MonoBehaviour
                 {
                     if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM")
                     {
-                        Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
+                        // Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
                     }
                 }
             }
@@ -289,7 +289,7 @@ public class playerController : MonoBehaviour
         //        Destroy(item);
         //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
 
-        itemPickup.Pickup(item, dialogue);
+        itemPickup.Pickup(item);
 
         Destroy(item);
     }
