@@ -77,7 +77,7 @@ public class playerController : MonoBehaviour
         //if (isInDialogue)
         //    return;
 
-        // 로프 클라이밍 상태에서는 움직임 처리를 건너뜁니다.
+        // 로프 클라이밍 상태에서는 움직임 처리를 건너뛰기
         if (!isClimbing)
         {
             HandleMovement(); //플레이어 Movement
@@ -92,11 +92,21 @@ public class playerController : MonoBehaviour
         // 애니메이션/대화 실행 중일 때는 움직임을 막음
         if (isPicking || isInDialogue || isClimbing == true)
         {
+            if (isClimbing)
+        {
+            myAnim.SetBool("isWalking", false);
+            myAnim.SetBool("isRunning", false);
+            myAnim.SetBool("isClimbing", true);
+        }
+        else
+        {
             isWalking = false;
             myAnim.SetBool("isWalking", false);
-            return;
         }
-
+        
+        return;
+        }
+    
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
         float vmove = Input.GetAxis("Vertical");
