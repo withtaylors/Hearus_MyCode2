@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;  // 추가
 
 public class AudioManagerTutorial : MonoBehaviour
 {
-    //게임 시작시 나오는 소리
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
@@ -14,29 +14,26 @@ public class AudioManagerTutorial : MonoBehaviour
     public Slider backgroundSlider, soundEffectsSlider;
     private float backgroundFloat, soundEffectsFloat;
 
-    public AudioSource backgroundAudio;
+    public AudioSource[] backgroundAudio;
     public AudioSource[] soundEffectsAudio;
 
-    //게임 시작시 불러올 소리 있는지 확인
+    private int currentArea = -1;  // 추가
+
     void Start()
     {
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        //처음 시작
-        if(firstPlayInt == 0)
+        if (firstPlayInt == 0)
         {
-            //DEFAULT VOLUME 설정
             backgroundFloat = .125f;
             soundEffectsFloat = .75f;
 
-            //background/soundeffectfloat이랑 slider value 일치시키기
             backgroundSlider.value = backgroundFloat;
             soundEffectsSlider.value = soundEffectsFloat;
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-        //시작 경험 있음
         else
         {
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
@@ -60,14 +57,49 @@ public class AudioManagerTutorial : MonoBehaviour
         }
     }
 
-    //음량조절시마다 불림
     public void UpdateSound()
     {
-        backgroundAudio.volume = backgroundSlider.value;
+        for (int i = 0; i < backgroundAudio.Length; i++)
+        {
+            backgroundAudio[i].volume = backgroundSlider.value;
+        }
 
-        for(int i=0; i<soundEffectsAudio.Length; i++)
+        for (int i = 0; i < soundEffectsAudio.Length; i++)
         {
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
+        }
+    }
+
+    // 추가
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Area"))
+        {
+            int debug_previousArea = currentArea;
+            currentArea = other.GetComponent<AreaTrigger>().areaIndex;
+
+            if (debug_previousArea != currentArea)
+            {
+                Debug.Log($"Area changed from {debug_previousArea} to {currentArea}");
+            }
+
+            ChangeBackgroundMusic(currentArea);
+        }
+    }
+
+    // 추가
+    public void ChangeBackgroundMusic(int index)
+    {
+        for (int i = 0; i < backgroundAudio.Length; i++)
+        {
+            if (i == index)
+            {
+                backgroundAudio[i].Play();
+            }
+            else
+            {
+                backgroundAudio[i].Stop();
+            }
         }
     }
 }
