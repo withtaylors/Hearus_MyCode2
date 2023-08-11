@@ -11,9 +11,9 @@ public class PlayerData
     public int item;
 
     //플레이어 위치
-    public float x = 27f;
+/*    public float x = 27f;
     public float y = 31f;
-    public float z = -73f;
+    public float z = -73f;*/
 }
 
 [Serializable]
@@ -79,9 +79,9 @@ public class DataManager : MonoBehaviour
         #endregion
 
         // 기본 플레이어 위치 설정
-        nowPlayerDefault.x = 27f;
+/*        nowPlayerDefault.x = 27f;
         nowPlayerDefault.y = 31f;
-        nowPlayerDefault.z = -73f;
+        nowPlayerDefault.z = -73f;*/
 
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);

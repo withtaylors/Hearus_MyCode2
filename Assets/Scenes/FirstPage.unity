@@ -728,8 +728,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -4057,8 +4057,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -4758,7 +4758,6 @@ GameObject:
   - component: {fileID: 1375317052}
   - component: {fileID: 1375317051}
   - component: {fileID: 1375317054}
-  - component: {fileID: 1375317055}
   m_Layer: 5
   m_Name: FileCanvas
   m_TagString: Untagged
@@ -4879,22 +4878,8 @@ MonoBehaviour:
   - {fileID: 1178246091}
   - {fileID: 1867276429}
   - {fileID: 201064932}
-  dataExistsImage: {fileID: 21300000, guid: bc7c0d4a8ef89bd42aa9fae0e2970d31, type: 3}
+  dataExistsImage: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
   dataEmptyImage: {fileID: 21300000, guid: 4ab793a6abea91a488d4c55e7072e3bc, type: 3}
---- !u!114 &1375317055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375317049}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7e47f86a3deb0409a3012baf146a9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fader: {fileID: 184112833}
-  fader2: {fileID: 676428856}
 --- !u!1 &1383442181
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,8 +6836,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 456af2bc5de0eb94bb4a72e3b68da454, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b542f3647198cea49a9eff415b6dfaa0, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
