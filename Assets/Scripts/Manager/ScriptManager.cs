@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using static UnityEngine.ParticleSystem;
 using System.Linq;
+using DG.Tweening;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -79,16 +81,20 @@ public class ScriptManager : MonoBehaviour
 
     IEnumerator TypeWriter()
     {
-        ShowScriptUI(true);
+        scriptText.DOKill();
+        scriptText.text = "";
+
+        yield return new WaitForSeconds(0.5f);
 
         string t_ReplaceText = currentScript.sentences[currentLine];
         t_ReplaceText = t_ReplaceText.Replace("'", ","); // csv 파일에는 쉼표가 들어가면 안 되므로 '를 ,로 치환해 줌
-
         scriptText.text = t_ReplaceText;
 
-        isNext = true;
+        ShowScriptUI(true);
 
-        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.1f));
+
+        isNext = true;
     }
 
     IEnumerator OptionView()
@@ -123,27 +129,16 @@ public class ScriptManager : MonoBehaviour
 
     public void ShowScript()
     {
-        //if (runningCoroutine != null)
-            //StopCoroutine(runningCoroutine);
-
-        Debug.Log("대체 이건 실행되고 잇는건가");
-
         isDialogue = true;
         currentLine = 0;
-        scriptText.text = "";
 
-        //runningCoroutine = StartCoroutine(TypeWriter());
         StartCoroutine(TypeWriter());
     }
 
     public void ShowOption()
     {
-        //if (runningCoroutine != null)
-            //StopCoroutine(runningCoroutine);
-
         optionText.Clear();
 
-        //runningCoroutine = StartCoroutine(OptionView());
         StartCoroutine(OptionView());
     }
 
@@ -169,22 +164,15 @@ public class ScriptManager : MonoBehaviour
 
     public void FindScriptByScriptID(int _scriptID) // 스크립트 아이디로 스크립트를 검색해 currentScript에 넣음
     {
-        Debug.Log("받은 스크립트 번호는: " + _scriptID);
-        Debug.Log("총 스크립트 개수는: " + script.scripts.Length);
-
         for (int i = 1; i <= script.scripts.Length; i++)
         {
-            Debug.Log(i + "번째 검색 중");
             //if (script.scripts[i].scriptID == _scriptID)
             if (i == _scriptID)
             {
                 currentScript = script.scripts[i - 1];
-                Debug.Log("발견");
                 break;
             }
         }
-
-        Debug.Log(currentScript.sentences.Length);
         currentLine = 0;
     }
 
@@ -236,9 +224,38 @@ public class ScriptManager : MonoBehaviour
 
         ShowOptionUI(false);
     }
-
-    public void EndScript()
+    public static void DoText(TextMeshProUGUI _text, float _duration)
     {
-        
+        _text.maxVisibleCharacters = 0;
+
+        int totalCharacters = _text.text.Length;
+        int charactersToShow = 1;
+        float dynamicDuration = _duration / totalCharacters;
+
+        DOTween.To(() => _text.maxVisibleCharacters, x => _text.maxVisibleCharacters = x, totalCharacters, _duration)
+            .SetEase(Ease.Linear)
+            .SetUpdate(true)
+            .OnUpdate(() =>
+            {
+                if (_text.maxVisibleCharacters >= charactersToShow)
+                {
+                    charactersToShow++;
+                    DOTween.To(() => _text.maxVisibleCharacters, x => _text.maxVisibleCharacters = x, charactersToShow, dynamicDuration)
+                        .SetEase(Ease.Linear);
+                }
+            });
+    }
+
+    private IEnumerator ShowTextCoroutine(string completeText, float timePerCharacter)
+    {
+        scriptText.maxVisibleCharacters = 0;
+
+        int totalCharacters = completeText.Length;
+
+        for (int i = 0; i <= totalCharacters; i++)
+        {
+            scriptText.maxVisibleCharacters = i;
+            yield return new WaitForSeconds(timePerCharacter);
+        }
     }
 }

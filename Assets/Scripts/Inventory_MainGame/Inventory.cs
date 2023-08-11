@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,6 +42,11 @@ public class Inventory : MonoBehaviour
         inventoryItemList = new List<Item>();                                           // 인벤토리 아이템 리스트
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   //
         selectedSlot = 0;                                                               // 현재 선택된 슬롯을 나타내는 값, 디폴트는 0
+        if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
+        {
+            for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
+                LoadItem(InventoryDataManager.Instance.inventoryItemList[i].itemID, InventoryDataManager.Instance.inventoryItemList[i].itemCount);
+        }
     }
 
     void Update()
@@ -124,18 +130,90 @@ public class Inventory : MonoBehaviour
                     if (inventoryItemList[j].itemID == _itemID)     // 같은 아이템이 있다면 개수만 증가
                     {
                         slots[j].IncreaseCount(inventoryItemList[j]);
+                        for (int k = 0; k < InventoryDataManager.Instance.inventoryItemList.Count; k++)
+                        {
+                            if (InventoryDataManager.Instance.inventoryItemList[k].itemID == _itemID)
+                            {
+                                InventoryDataManager.Instance.inventoryItemList[k].itemCount += 1;
+                                break;
+                            }
+                        }
+                        return;
+                    }
+                    else
+                    {
+                        inventoryItemList.Add(ItemDatabase.itemList[i]);            // 없다면 인벤토리 아이템 리스트에 해당 아이템 추가
+                        CreateSlot();                                               // 슬롯 생성
+                        slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
+                        InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]);
                         //ItemDatabase.itemList[i].isPicking = false;
                         return;
                     }
                 }
-                inventoryItemList.Add(ItemDatabase.itemList[i]);            // 없다면 인벤토리 아이템 리스트에 해당 아이템 추가
-                CreateSlot();                                               // 슬롯 생성
-                slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
-                //ItemDatabase.itemList[i].isPicking = false;               
                 return;
             }
         }
         Debug.LogError("데이터베이스에 해당 ID 값을 가진 아이템이 존재하지 않습니다."); // 데이터베이스에 해당하는 아이템 ID가 존재하지 않는 경우
+    }
+
+    /*
+    public void GetAnItem(int _itemID, int _count = 1)
+    {
+        for (int i = 0; i < inventoryItemList.Count; i++)
+        {
+            if (inventoryItemList[i].itemID == _itemID)
+            {
+                slots[i].IncreaseCount(inventoryItemList[i]);
+                for (int j = 0; j < InventoryDataManager.Instance.inventoryItemList.Count; j++)
+                {
+                    if (InventoryDataManager.Instance.inventoryItemList[j].itemID == _itemID)
+                    {
+                        InventoryDataManager.Instance.inventoryItemList[j].itemCount += 1;
+                        break;
+                    }
+                }
+                return;
+            }
+            else
+            {
+                inventoryItemList.Add(ItemDatabase.itemList[i]);            // 없다면 인벤토리 아이템 리스트에 해당 아이템 추가
+                CreateSlot();                                               // 슬롯 생성
+                slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
+                InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]);
+                //ItemDatabase.itemList[i].isPicking = false;
+                return;
+            }
+        }
+    }
+    */
+
+    public void LoadItem(int _itemID, int _count)
+    {
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        {
+            if (_itemID == ItemDatabase.itemList[i].itemID)
+            {
+                if (_count > 1)
+                {
+                    inventoryItemList.Add(ItemDatabase.itemList[i]);
+                    CreateSlot();
+                    slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);
+                    for (int j = 0; j < _count - 1; j++)
+                        slots[slots.Count - 1].IncreaseCount(ItemDatabase.itemList[i]);
+                }
+                else if (_count == 1)
+                {
+                    inventoryItemList.Add(ItemDatabase.itemList[i]);
+                    CreateSlot();
+                    slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);
+                }
+                else
+                {
+                    Debug.Log("유효하지 않은 값입니다.");
+                    return;
+                }
+            }
+        }
     }
 
     // CreateSlot(): 인벤토리 아이템 리스트에 새로운 아이템이 들어왔을 경우, 새로운 슬롯을 생성하는 메소드

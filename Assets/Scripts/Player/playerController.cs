@@ -43,6 +43,7 @@ public class playerController : MonoBehaviour
     private DialogueRunner dialogue;
     private float ropeInteractionDistance = 2f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f;
+
     //private playerSound soundPlayer; // playerSound 스크립트를 참조하기 위한 변수
 
     private string colliderTag;
@@ -312,3 +313,4 @@ public class playerController : MonoBehaviour
             isInDialogue = false;
     }
 }
+
