@@ -12,6 +12,8 @@ public class playerSound : MonoBehaviour
     public AudioSource pickSound;
     private bool wasPicking;
 
+    public AudioSource climbSound;
+
     private playerController player;
 
     void Start()
@@ -34,7 +36,7 @@ public class playerSound : MonoBehaviour
                 walkSound.Play();
             }
         }
-        else
+            else if (!player.isRunning || !Input.GetKey(KeyCode.LeftShift)) // 수정된 부분
         {
             if (walkSound.isPlaying)
             {
@@ -42,7 +44,7 @@ public class playerSound : MonoBehaviour
             }
         }
 
-        if (player.isRunning && !Input.GetKey(KeyCode.LeftShift)) // Shift 키를 누르지 않은 상태에서만 뛰는 소리 재생
+            if (player.isRunning && Input.GetKey(KeyCode.LeftShift)) // 수정된 부분: Shift 키를 누른 상태에서 뛰는 소리 재생
         {
             if (!runSound.isPlaying)
             {
@@ -88,6 +90,22 @@ public class playerSound : MonoBehaviour
             }
         }
         wasPicking = player.isPicking;
+
+         // 밧줄 타기 소리를 재생하거나 정지합니다.
+        if (player.isClimbing)
+        {
+            if (!climbSound.isPlaying)
+            {
+                climbSound.Play();
+            }
+        }
+        else
+        {
+            if (climbSound.isPlaying)
+            {
+                climbSound.Stop();
+            }
+        }
     }
 
     IEnumerator PlayPickSoundDelayed(float delay)
