@@ -39,8 +39,6 @@ public class playerController : MonoBehaviour
 
     private ItemPickup itemPickup;
 
-    [SerializeField]
-    private DialogueRunner dialogue;
     private float ropeInteractionDistance = 2f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f;
 
@@ -211,7 +209,7 @@ public class playerController : MonoBehaviour
                 }
                 else
                 {
-                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM")
+                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT")
                     {
                         Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
                     }
@@ -296,21 +294,9 @@ public class playerController : MonoBehaviour
         // 일정 시간이 지난 후에 isPicking을 다시 false로 설정
         isPicking = false;
 
-        // 아이템 삭제
-        //        Destroy(item);
-        //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
-
+        // 아이템 습득 및 오브젝트 제거
         itemPickup.Pickup(item);
-
         Destroy(item);
-    }
-
-    private void IsInDialogue()
-    {
-        if (dialogue.Dialogue.IsActive == true)
-            isInDialogue = true;
-        else
-            isInDialogue = false;
     }
 }
 
