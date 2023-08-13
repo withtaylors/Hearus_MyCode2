@@ -19,10 +19,11 @@ public class playerController : MonoBehaviour
     //걷기, 뛰기, 점프를 위한 땅 착지 여부를 확인할 수 있는 grounded 변수
     public bool isWalking = false;
     public bool isRunning = false;
-    public bool grounded;
+    public bool grounded=false;
     public bool isInDialogue = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
+    public bool isJumping;
 
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
@@ -41,8 +42,6 @@ public class playerController : MonoBehaviour
 
     private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f;
-
-    //private playerSound soundPlayer; // playerSound 스크립트를 참조하기 위한 변수
 
     private string colliderTag;
 
@@ -120,17 +119,17 @@ public class playerController : MonoBehaviour
         }
     }
 
-    //플레이어 점프
     void HandleJump()
     {
         // 애니메이션/대화 실행 중일 때는 점프를 막음
         if (isPicking || isInDialogue)
             return;
 
-        //스페이스바를 눌렀을 시 점프 실행
+        // 스페이스바를 눌렀을 시 점프 실행
         if (grounded && Input.GetButtonDown("Jump"))
         {
-            //grounded - false (땅과 닿지않음) 이므로 jump animation 실행
+            isJumping = true;
+            // grounded - false (땅과 닿지않음) 이므로 jump animation 실행
             grounded = false;
             myAnim.SetBool("grounded", grounded);
             myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -152,6 +151,17 @@ public class playerController : MonoBehaviour
             grounded = true;
             myAnim.SetBool("grounded", grounded);
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        // // GroundLayer와 떨어졌다면
+        // if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
+        // {
+        //     // grounded - false (땅과 닿지않음)
+        //     grounded = false;
+        //     myAnim.SetBool("grounded", grounded);
+        // }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -296,4 +306,3 @@ public class playerController : MonoBehaviour
         Destroy(item);
     }
 }
-
