@@ -46,7 +46,7 @@ public class TextLogs : MonoBehaviour
     private void CreateLog(string _log) // 로그 생성
     {
         GameObject log = Instantiate(logPrefab, tf_logPrefab);
-        TextMeshProUGUI logText = log.transform.Find("TextPrefab").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI logText = log.GetComponent<TextMeshProUGUI>();
         logText.text = _log;
         log.SetActive(true);
         logText.color = Color.white;
