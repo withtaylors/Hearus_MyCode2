@@ -170,7 +170,7 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("grounded", grounded);
         }
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         colliderTag = other.tag;
@@ -180,6 +180,7 @@ public class playerController : MonoBehaviour
     {
         colliderTag = "";
     }
+    */
 
     void CheckPicking()
     {
@@ -189,6 +190,8 @@ public class playerController : MonoBehaviour
         {
             foreach (Collider collider in colliders)
             {
+                colliderTag = collider.tag;
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (colliderTag == "ITEM_VINE")
@@ -300,7 +303,8 @@ public class playerController : MonoBehaviour
         //        Destroy(item);
         //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
 
-        itemPickup.Pickup(item);
+        //itemPickup.Pickup(item);
+        item.GetComponent<ItemPickup>().Pickup();
 
         Destroy(item);
     }

@@ -2,7 +2,9 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Sprites;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class ItemPickup : MonoBehaviour
@@ -11,6 +13,8 @@ public class ItemPickup : MonoBehaviour
 
     public int _itemID;
     public int _count;
+
+    public UnityEvent Picked;
 
     private ScriptManager scriptManager;
     private UnityEngine.Camera selectedCamera;
@@ -28,7 +32,8 @@ public class ItemPickup : MonoBehaviour
         objectRotation = new Quaternion(-90, 0, 0, 90); // 파티클이 위로 나오도록 Rotation 설정
 
         particlePrefab = Resources.Load("Object_Particle") as GameObject; // Resources/Prefabs/Object Particle 로드
-        Instantiate(particlePrefab, objectPosition, objectRotation); // 인스턴스화
+        GameObject instantiatedParticle = Instantiate(particlePrefab, objectPosition, objectRotation); // 인스턴스화
+        instantiatedParticle.transform.SetParent(transform); // 파티클을 현재 오브젝트의 자식으로 지정함
         particleSystem = particlePrefab.GetComponent<ParticleSystem>(); // ParticleSystem 컴포넌트 가져오기
         particleSystem.Play();
     }
@@ -37,23 +42,22 @@ public class ItemPickup : MonoBehaviour
     {
         if (CheckObjectInCamera(gameObject))
         {
-            Debug.Log("CheckObjectInCamera() " + gameObject.GetComponent<ItemPickup>()._itemID);
+            //Debug.Log("CheckObjectInCamera() " + gameObject.GetComponent<ItemPickup>()._itemID);
         }
     }
 
-    public void Pickup(GameObject item) // 아이템 줍기
+    public void Pickup() // 아이템 줍기
     {
-        int pickingID;
-        int pickingCount;
+        //pickingID = item.GetComponent<ItemPickup>()._itemID;
+        //pickingCount = item.GetComponent<ItemPickup>()._count;
 
-        pickingID = item.gameObject.GetComponent<ItemPickup>()._itemID;
-        pickingCount = item.gameObject.GetComponent<ItemPickup>()._count;
+        Picked.Invoke();
 
-        scriptManager.FindScriptByItemID(pickingID);
+        scriptManager.FindScriptByItemID(_itemID);
         scriptManager.ShowScript();
 
-        TextLogs.instance.GetItemLog(pickingID);
-        Inventory.instance.GetAnItem(pickingID, pickingCount);
+        TextLogs.instance.GetItemLog(_itemID);
+        Inventory.instance.GetAnItem(_itemID, _count);
     }
 
     private bool CheckObjectInCamera(GameObject item) // 오브젝트가 카메라 안에 있는지 확인
@@ -65,5 +69,10 @@ public class ItemPickup : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void CheckConditions()
+    {
+
     }
 }

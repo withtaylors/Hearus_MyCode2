@@ -85,39 +85,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        IsPicking();
-    }
-
-    // GetAnItemYarn(int): Yarn Script(스크립트 및 선택지 관리 API)에서 호출하기 위한 정적 메소드
-    [YarnCommand("getAnItem")]
-    public static void GetAnItemYarn(int _itemID)
-    {
-        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
-        {
-            if (ItemDatabase.itemList[i].itemID == _itemID)         // 아이템 데이터베이스에 해당 아이템 ID 검색
-            {
-                ItemDatabase.itemList[i].isMeet = true;             // isMeet: 이전에 발견했던 아이템인지
-                ItemDatabase.itemList[i].isPicking = true;          // isPicking: isPicking() 메소드에서 어떤 아이템을 습득시켜야 할지 전달
-            }
-        }
-    }
-
-    // IsPicking(): GetAnItemYarn() 메소드에서 GetAnItem() 메소드를 바로 호출할 수 없으므로 중간 다리 역할을 하는 메소드
-    private void IsPicking()
-    {
-        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
-        {
-            if (ItemDatabase.itemList[i].isPicking == true)         // isPicking == true인 아이템이 있다면
-            {
-                GetAnItem(ItemDatabase.itemList[i].itemID);         // GetAnItem() 메소드로 아이템 ID 전달
-                ItemDatabase.itemList[i].isPicking = false;         // isPicking == false로 전환
-            }
-        }
-    }
-
-
     // GetAnItem(int, int): 인벤토리 아이템 리스트에 아이템을 실질적으로 추가시키는 메소드
     public void GetAnItem(int _itemID, int _count = 1)
     {
