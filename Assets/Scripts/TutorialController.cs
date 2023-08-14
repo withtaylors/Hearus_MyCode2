@@ -21,22 +21,21 @@ public class TutorialController : MonoBehaviour
                                                        "E 키를 눌러 아이템을 조사할 수 있습니다.",
                                                        "습득한 아이템은 인벤토리 창에서 확인할 수 있습니다.",
                                                        "이제 넝쿨을 세 개 모아 봅시다.",
-                                                       "습득한 아이템으로 도구를 만들 수 있습니다. 인벤토리를 열어 보세요.",
-                                                       "모은 넝쿨을 선택하여 조합할 수 있습니다. 선택 버튼을 눌러 주세요.",
+                                                       "습득한 아이템으로 도구를 만들 수 있습니다.\n인벤토리를 열어 보세요.",
+                                                       "모은 넝쿨을 선택하여 조합할 수 있습니다.\n선택 버튼을 눌러 주세요.",
                                                        "조합 버튼을 눌러 주세요.\n만들어진 도구는 인벤토리에서 확인할 수 있습니다.\n도구를 만든 재료는 사라집니다.",
-                                                       "튜토리얼이 모두 끝났습니다. 함께할 파트너를 선택해 주세요." };
+                                                       "튜토리얼이 모두 끝났습니다.\n함께할 파트너를 선택해 주세요." };
 
     public GameObject tutorialPanel;
     public TextMeshProUGUI tutorialPanelText;
     public GameObject Button;
-    public DialogueRunner dialogue;
 
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject selectFrithPanel;
     [SerializeField] private ParticleSystem settingButtonParticle;
     [SerializeField] private ParticleSystem inventoryButtonParticle;
-    [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject fader;
+    private ScriptManager scriptManager;
 
     private bool right = false;
     private bool left = false;
@@ -44,9 +43,7 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        FirstStep();
-        tutorialStep = 0;
-        //dialogue = FindObjectOfType<DialogueRunner>();
+        StartTutorial();
     }
 
     private void LateUpdate() // 다음 스텝으로 넘어가기 위한 조건 확인
@@ -113,11 +110,14 @@ public class TutorialController : MonoBehaviour
     {
         FirstStep();
         tutorialStep = 0;
+
+        //scriptManager.FindScriptByScriptID(94);
+        //scriptManager.ShowScript();
     }
-    
+
     private void NextStep()
     {
-        switch(tutorialStep)
+        switch (tutorialStep)
         {
             case 0:
                 break;
@@ -184,7 +184,7 @@ public class TutorialController : MonoBehaviour
     }
 
     private void SixthStep() // 도구 제작 텍스트
-    {        
+    {
         tutorialPanelText.text = textList[tutorialStep];
         settingButtonParticle.gameObject.SetActive(true);
         settingButtonParticle.Play();
@@ -206,7 +206,6 @@ public class TutorialController : MonoBehaviour
 
     private void NinthStep()
     {
-        continueButton.SetActive(true);
         tutorialPanelText.text = textList[tutorialStep];
         NEXT_STEP_POSSIBLE = true;
     }
@@ -222,11 +221,11 @@ public class TutorialController : MonoBehaviour
     public void onClickContinueButton()
     {
         if (NEXT_STEP_POSSIBLE)
-            {
-                tutorialStep++;
-                NextStep();
-                NEXT_STEP_POSSIBLE = false;
-            }
+        {
+            tutorialStep++;
+            NextStep();
+            NEXT_STEP_POSSIBLE = false;
+        }
     }
 
     public void onClickExitButton()
@@ -269,7 +268,6 @@ public class TutorialController : MonoBehaviour
     {
         tutorialPanel.SetActive(false);
         selectFrithPanel.SetActive(false);
-        dialogue.StartDialogue("AfterSelectFrith");
     }
 
     public void OnClickNoButton()
@@ -290,7 +288,5 @@ public class TutorialController : MonoBehaviour
             fader.GetComponent<Image>().color = c;
             yield return null;
         }
-
-        dialogue.StartDialogue("AfterTutorial");
     }
 }

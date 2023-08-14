@@ -19,10 +19,11 @@ public class playerController : MonoBehaviour
     //걷기, 뛰기, 점프를 위한 땅 착지 여부를 확인할 수 있는 grounded 변수
     public bool isWalking = false;
     public bool isRunning = false;
-    public bool grounded;
+    public bool grounded=false;
     public bool isInDialogue = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
+    public bool isJumping;
 
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
@@ -39,12 +40,8 @@ public class playerController : MonoBehaviour
 
     private ItemPickup itemPickup;
 
-    [SerializeField]
-    private DialogueRunner dialogue;
-    private float ropeInteractionDistance = 2f; // 로프와 상호 작용하는 최대 거리
+    private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f;
-
-    //private playerSound soundPlayer; // playerSound 스크립트를 참조하기 위한 변수
 
     private string colliderTag;
 
@@ -73,11 +70,6 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //IsInDialogue();
-
-        //if (isInDialogue)
-        //    return;
-
         // 로프 클라이밍 상태에서는 움직임 처리를 건너뛰기
         if (!isClimbing)
         {
@@ -91,21 +83,11 @@ public class playerController : MonoBehaviour
     void HandleMovement()
     {
         // 애니메이션/대화 실행 중일 때는 움직임을 막음
-        if (isPicking || isInDialogue || isClimbing == true)
-        {
-            if (isClimbing)
+        if (isPicking || isInDialogue || isClimbing)
         {
             myAnim.SetBool("isWalking", false);
             myAnim.SetBool("isRunning", false);
-            myAnim.SetBool("isClimbing", true);
-        }
-        else
-        {
-            isWalking = false;
-            myAnim.SetBool("isWalking", false);
-        }
-        
-        return;
+            return;
         }
     
         //방향키 감지
@@ -137,17 +119,17 @@ public class playerController : MonoBehaviour
         }
     }
 
-    //플레이어 점프
     void HandleJump()
     {
         // 애니메이션/대화 실행 중일 때는 점프를 막음
         if (isPicking || isInDialogue)
             return;
 
-        //스페이스바를 눌렀을 시 점프 실행
+        // 스페이스바를 눌렀을 시 점프 실행
         if (grounded && Input.GetButtonDown("Jump"))
         {
-            //grounded - false (땅과 닿지않음) 이므로 jump animation 실행
+            isJumping = true;
+            // grounded - false (땅과 닿지않음) 이므로 jump animation 실행
             grounded = false;
             myAnim.SetBool("grounded", grounded);
             myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -169,6 +151,17 @@ public class playerController : MonoBehaviour
             grounded = true;
             myAnim.SetBool("grounded", grounded);
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        // // GroundLayer와 떨어졌다면
+        // if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
+        // {
+        //     // grounded - false (땅과 닿지않음)
+        //     grounded = false;
+        //     myAnim.SetBool("grounded", grounded);
+        // }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -211,9 +204,9 @@ public class playerController : MonoBehaviour
                 }
                 else
                 {
-                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM")
+                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT")
                     {
-                        // Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
+                        Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
                     }
                 }
             }
@@ -222,18 +215,24 @@ public class playerController : MonoBehaviour
 
     private void ToggleClimbing()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        // 밧줄과의 거리를 계산합니다.
+        float distanceToRope = Vector3.Distance(transform.position, rope.position);
+
+        // 밧줄에서 설정된 거리 이내에 있고 키를 누르면 밧줄을 타거나 내립니다.
+        if (Input.GetKeyDown(KeyCode.C) && distanceToRope <= ropeInteractionDistance)
         {
             Debug.Log("C 누름");
-
-            Debug.Log("클라이밍 상태: " + (isClimbing ? "타기" : "내리기"));
             isClimbing = !isClimbing;
+            myAnim.SetBool("isWalking", false);
+            myAnim.SetBool("isRunning", false);
             myAnim.SetBool("isClimbing", isClimbing);
 
             // 로프에서 떨어지고 중력을 다시 적용하려고 할 때
             if (!isClimbing)
             {
                 myRB.useGravity = true;
+                myAnim.SetBool("isWalking", false);
+                myAnim.SetBool("isRunning", false);
             }
             // 로프를 타고 중력을 해제하려고 할 때
             else
@@ -241,6 +240,12 @@ public class playerController : MonoBehaviour
                 myRB.useGravity = false;
                 myRB.velocity = Vector3.zero;
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.C) && isClimbing) // 추가된 부분
+        {
+            isClimbing = false;
+            myAnim.SetBool("isClimbing", isClimbing);
+            myRB.useGravity = true;
         }
 
         if (colliderTag == "ITEM_ROPE")
@@ -296,21 +301,8 @@ public class playerController : MonoBehaviour
         // 일정 시간이 지난 후에 isPicking을 다시 false로 설정
         isPicking = false;
 
-        // 아이템 삭제
-        //        Destroy(item);
-        //        pickedItems.Add(item); // 선택한 아이템 리스트에 추가
-
+        // 아이템 습득 및 오브젝트 제거
         itemPickup.Pickup(item);
-
         Destroy(item);
     }
-
-    private void IsInDialogue()
-    {
-        if (dialogue.Dialogue.IsActive == true)
-            isInDialogue = true;
-        else
-            isInDialogue = false;
-    }
 }
-
