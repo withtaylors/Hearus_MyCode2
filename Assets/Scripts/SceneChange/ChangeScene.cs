@@ -36,7 +36,6 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToGame()
     {
-        Debug.Log("여기까진옴");
         fader2.gameObject.SetActive(true);
 
         LeanTween.scale(fader2, Vector3.zero, 0f);

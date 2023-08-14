@@ -38,7 +38,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (CheckObjectInCamera(gameObject))
         {
-            Debug.Log("CheckObjectInCamera() " + gameObject.GetComponent<ItemPickup>()._itemID);
+            //Debug.Log("CheckObjectInCamera() " + gameObject.GetComponent<ItemPickup>()._itemID);
         }
     }
 
