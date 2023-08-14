@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class bgmSound : MonoBehaviour
+public class BGMSound : MonoBehaviour
 {
     public AudioSource audioSource;
     public Slider volumeSlider;

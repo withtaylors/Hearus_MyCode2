@@ -1,63 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    //게임 시작시 나오는 소리
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string BackgroundPref = "BackgroundPref";
+    private static readonly string SoundEffectsPref = "SoundEffectsPref";
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    private int firstPlayInt;
+    public Slider backgroundSlider, soundEffectsSlider;
+    private float backgroundFloat, soundEffectsFloat;
 
-    private void Awake()
+    public AudioSource backgroundAudio;
+    public AudioSource[] soundEffectsAudio;
+
+    //게임 시작시 불러올 소리 있는지 확인
+    void Start()
     {
-        if (Instance == null)
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+
+        //처음 시작
+        if(firstPlayInt == 0)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DEFAULT VOLUME 설정
+            backgroundFloat = .125f;
+            soundEffectsFloat = .75f;
+
+            //background/soundeffectfloat이랑 slider value 일치시키기
+            backgroundSlider.value = backgroundFloat;
+            soundEffectsSlider.value = soundEffectsFloat;
+            PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
+            PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
+            PlayerPrefs.SetInt(FirstPlay, -1);
         }
+        //시작 경험 있음
         else
         {
-            Destroy(gameObject);
+            backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
+            backgroundSlider.value = backgroundFloat;
+            soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
+            soundEffectsSlider.value = soundEffectsFloat;
         }
     }
 
-    private void Start()
+    public void SaveSoundSettings()
     {
-        PlayMusic("Theme");
+        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 
-    public void PlayMusic(string name)
+    void onApplicationFocus(bool inFocus)
     {
-        Sound s = FindSoundByName(musicSounds, name);
-
-        if (s == null)
+        if (!inFocus)
         {
-            Debug.Log("Sound Not Found");
-        }
-        else
-        {
-            musicSource.clip = s.clip;
-            musicSource.Play();
+            SaveSoundSettings();
         }
     }
 
-    public void PlaySFX(string name)
+    //음량조절시마다 불림
+    public void UpdateSound()
     {
-        Sound s = FindSoundByName(sfxSounds, name);
+        backgroundAudio.volume = backgroundSlider.value;
 
-        if (s == null)
+        for(int i=0; i<soundEffectsAudio.Length; i++)
         {
-            Debug.Log("Sound Not Found");
+            soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
-        else
-        {
-            sfxSource.PlayOneShot(s.clip);
-        }
-    }
-
-    private Sound FindSoundByName(Sound[] soundArray, string name)
-    {
-        return System.Array.Find(soundArray, sound => sound.name == name);
     }
 }
