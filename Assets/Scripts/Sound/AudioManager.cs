@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
         if(firstPlayInt == 0)
         {
             //DEFAULT VOLUME 설정
-            backgroundFloat = .125f;
+            backgroundFloat = .5f;
             soundEffectsFloat = .75f;
 
             //background/soundeffectfloat이랑 slider value 일치시키기
@@ -69,5 +69,8 @@ public class AudioManager : MonoBehaviour
         {
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
+
+        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 }

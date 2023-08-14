@@ -66,7 +66,7 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
-        #region 싱글톤
+        //region 싱글톤
         if (instance == null)
         {
             instance = this;
@@ -76,7 +76,7 @@ public class DataManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        #endregion
+        //endregion
 
         // 기본 플레이어 위치 설정
 /*        nowPlayerDefault.x = 27f;

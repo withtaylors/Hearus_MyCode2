@@ -72,7 +72,5 @@ public class Select : MonoBehaviour
             DataManager.instance.SaveData(); // 현재 정보를 저장함.
         }
         ChangeScene.target() ;
-        //ChangeScene.instance.MoveToGame(); // ChangeScene.cs의 MoveToGame() 메서드 호출
-        //SceneManager.LoadScene(1); // 게임씬으로 이동
     }
 }

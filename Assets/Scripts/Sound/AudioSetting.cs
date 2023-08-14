@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class AudioSetting : MonoBehaviour
 {
     //게임 시작시 나오는 소리

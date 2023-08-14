@@ -16,32 +16,48 @@ public class Save : MonoBehaviour
 
     bool[] savefile = new bool[3]; // 세이브파일 존재유무 저장
 
-    public Sprite dataExistsImage; // 이미 데이터가 있 는 경우의 이미지
+    public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
+
+    private void Awake()
+    {
+        // DataManager 스크립트를 참조하고 있는 게임 오브젝트로부터 DataManager 클래스의 instance를 얻습니다.
+        DataManager.instance = FindObjectOfType<DataManager>();
+
+        // 초기 데이터 설정
+        DataManager.instance.DataClear();
+    }
 
     void Start()
     {
-        // 슬롯별로 저장된 데이터가 존재하는지 판단.
-        for (int i = 0; i < 3; i++)
+        StartCoroutine(UpdateSlotTextsWithDelay());
+    }
+
+    IEnumerator UpdateSlotTextsWithDelay()
+    {
+        while (true)
         {
-            if (File.Exists(DataManager.instance.path + $"{i}")) // 데이터가 있는 경우
+            for (int i = 0; i < 3; i++)
             {
-                savefile[i] = true; // 해당 슬롯 번호의 bool배열 true로 변환
-                DataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
-                DataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
-                slotText[i].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
-                slotText2[i].text = "이어서 저장";
-                slotImages[i].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
+                if (File.Exists(DataManager.instance.path + $"{i}_player.json")) // 데이터가 있는 경우
+                {
+                    savefile[i] = true; // 해당 슬롯 번호의 bool배열 true로 변환
+                    DataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
+                    DataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
+                    slotText[i].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
+                    slotText2[i].text = "이어서 저장";
+                    slotImages[i].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
+                }
+                else // 데이터가 없는 경우
+                {
+                    slotText[i].text = "Empty";
+                    slotText2[i].text = "새로 저장";
+                    slotImages[i].sprite = dataEmptyImage; // 데이터가 없는 경우의 이미지로 변경
+                }
             }
-            else // 데이터가 없는 경우
-            {
-                slotText[i].text = "Empty";
-                slotText2[i].text = "새로 저장";
-                slotImages[i].sprite = dataEmptyImage; // 데이터가 없는 경우의 이미지로 변경
-            }
+            
+            yield return new WaitForSeconds(1f); // 1초마다 슬롯 정보 업데이트
         }
-        // 불러온 데이터를 초기화시킴
-        DataManager.instance.DataClear();
     }
 
     public void Slot(int number) // 슬롯의 기능 구현
@@ -52,20 +68,41 @@ public class Save : MonoBehaviour
         {
             DataManager.instance.LoadData(); // 데이터를 로드하고
         }
+
         else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
-        {
-            //creat.SetActive(true); ; // 파일 이름 입력 UI 활성화
+        {           
             if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
             {
-                DataManager.instance.nowPlayer.filename = fileName.text; // 입력한 이름을 복사해옴
-                Debug.Log("이름입력은 인식함");
-                DataManager.instance.SaveData(); // 현재 정보를 저장함
-
+                Creat();
+                
                 if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
                 {
                     DataManager.instance.LoadData(); // 데이터를 로드하고
                 }
             }
+        }
+    }
+
+    public void Creat() // 파일 이름 입력 UI를 활성화하는 메소드
+    {
+        creat.gameObject.SetActive(true);
+    }
+
+    public void OnOKButtonClick()
+    {
+        if (fileName.text != "")
+        {
+            DataManager.instance.nowPlayer.filename = fileName.text;
+            Debug.Log(fileName.text + ": 파일 이름임");
+            DataManager.instance.SaveData();
+
+            int slotNumber = DataManager.instance.nowSlot;
+            savefile[slotNumber] = true; // 해당 슬롯 번호의 bool배열 true로 변환
+            slotText[slotNumber].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
+            slotText2[slotNumber].text = "이어서 저장";
+            slotImages[slotNumber].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
+
+            creat.gameObject.SetActive(false);
         }
     }
 }
