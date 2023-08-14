@@ -152,7 +152,7 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("grounded", grounded);
         }
     }
-
+    /*
     void OnCollisionExit(Collision collision)
     {
         // // GroundLayer와 떨어졌다면
@@ -173,6 +173,7 @@ public class playerController : MonoBehaviour
     {
         colliderTag = "";
     }
+    */
 
     void CheckPicking()
     {
@@ -182,6 +183,8 @@ public class playerController : MonoBehaviour
         {
             foreach (Collider collider in colliders)
             {
+                colliderTag = collider.tag;
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (colliderTag == "ITEM_VINE")
@@ -302,7 +305,8 @@ public class playerController : MonoBehaviour
         isPicking = false;
 
         // 아이템 습득 및 오브젝트 제거
-        itemPickup.Pickup(item);
+        //itemPickup.Pickup(item);
+        item.GetComponent<ItemPickup>().Pickup();
         Destroy(item);
     }
 }
