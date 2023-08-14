@@ -47,6 +47,10 @@ public class Inventory : MonoBehaviour
             for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
                 LoadItem(InventoryDataManager.Instance.inventoryItemList[i].itemID, InventoryDataManager.Instance.inventoryItemList[i].itemCount);
         }
+        else
+        {
+            Debug.Log("Inventory None");
+        }
     }
 
     void Update()
