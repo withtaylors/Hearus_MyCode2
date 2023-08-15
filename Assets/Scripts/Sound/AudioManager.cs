@@ -35,6 +35,12 @@ public class AudioManager : MonoBehaviour
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
+
+            Debug.Log("FP 배경음볼륨: "+ backgroundFloat);
+            Debug.Log("FP 효과음볼륨: "+ soundEffectsFloat );
+
+            Debug.Log("FP 배경음볼륨: "+ backgroundFloat);
+            Debug.Log("FP 효과음볼륨: "+ soundEffectsSlider.value );
         }
         //시작 경험 있음
         else
@@ -43,6 +49,12 @@ public class AudioManager : MonoBehaviour
             backgroundSlider.value = backgroundFloat;
             soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
             soundEffectsSlider.value = soundEffectsFloat;
+
+            Debug.Log("NFP 배경음볼륨: "+ backgroundFloat);
+            Debug.Log("NFP 효과음볼륨: "+ soundEffectsFloat );
+
+            Debug.Log("NFP 배경음볼륨2: "+ backgroundSlider.value);
+            Debug.Log("NFP 효과음볼륨2: "+ soundEffectsSlider.value );
         }
     }
 
@@ -50,6 +62,9 @@ public class AudioManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+
+        Debug.Log("SAVE 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("SAVE 효과음볼륨: "+ soundEffectsSlider.value );
     }
 
     void onApplicationFocus(bool inFocus)
@@ -70,7 +85,7 @@ public class AudioManager : MonoBehaviour
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
 
-        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+        Debug.Log("AM US 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("AM US 효과음볼륨: "+ soundEffectsSlider.value );
     }
 }

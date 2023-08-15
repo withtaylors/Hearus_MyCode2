@@ -28,54 +28,45 @@ public class AudioSettingTest : MonoBehaviour
         {
             backgroundAudio[i].volume = backgroundFloat;
         }
+        
         for (int i = 0; i < soundEffectsAudio.Length; i++)
         {
             soundEffectsAudio[i].volume = soundEffectsFloat;
         }
 
-        backgroundSlider.value = backgroundFloat;
-        soundEffectsSlider.value = soundEffectsFloat;
-
-        backgroundSlider.onValueChanged.AddListener(delegate { UpdateSound(); });
-        soundEffectsSlider.onValueChanged.AddListener(delegate { UpdateSound(); });
+        Debug.Log("CS 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("CS 효과음볼륨: "+ soundEffectsSlider.value );
     }
 
-
-    // //게임 시작시 불러올 소리 있는지 확인
-    // void Start()
+    // public void SaveSoundSettings()
     // {
-    //     backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
-    //     backgroundSlider.value = backgroundFloat;
-    //     soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
-    //     soundEffectsSlider.value = soundEffectsFloat;
+    //     PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+    //     PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+
+    //     Debug.Log("Test SAVE 배경음볼륨: "+ backgroundSlider.value);
+    //     Debug.Log("Test SAVE 효과음볼륨: "+ soundEffectsSlider.value );
     // }
 
-    public void SaveSoundSettings()
-    {
-        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
-    }
+    // void OnApplicationFocus(bool inFocus)
+    // {
+    //     if (!inFocus)
+    //     {
+    //         SaveSoundSettings();
+    //     }
+    // }
 
-    void onApplicationFocus(bool inFocus)
-    {
-        if (!inFocus)
-        {
-            SaveSoundSettings();
-        }
-    }
+    // public void UpdateSound()
+    // {
+    //     for (int i = 0; i < backgroundAudio.Length; i++)
+    //     {
+    //         backgroundAudio[i].volume = backgroundSlider.value;
+    //     }
+    //     for (int i = 0; i < soundEffectsAudio.Length; i++)
+    //     {
+    //         soundEffectsAudio[i].volume = soundEffectsSlider.value;
+    //     }
 
-    public void UpdateSound()
-    {
-        for (int i = 0; i < backgroundAudio.Length; i++)
-        {
-            backgroundAudio[i].volume = backgroundSlider.value;
-        }
-        for (int i = 0; i < soundEffectsAudio.Length; i++)
-        {
-            soundEffectsAudio[i].volume = soundEffectsSlider.value;
-        }
-
-        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
-    }
+    //     Debug.Log("US 배경음볼륨: "+ backgroundSlider.value);
+    //     Debug.Log("US 효과음볼륨: "+ soundEffectsSlider.value );
+    // }
 }
