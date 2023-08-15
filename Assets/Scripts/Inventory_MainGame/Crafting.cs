@@ -35,12 +35,10 @@ public class Crafting : MonoBehaviour
     {
         if (craftingItemList.Count > 0)
         {
-            if (Inventory.instance.activated == false) // 인벤토리가 비활성화되면 크래프팅 슬롯 및 리스트가 초기화, 로그도 비활성화
+            if (!Inventory.instance.activated) // 인벤토리가 비활성화되면 크래프팅 슬롯 및 리스트가 초기화, 로그도 비활성화
             {
                 ResetCraftingSlot();
                 ResetCraftingList();
-                //craftingLogPanel.SetActive(false);
-                //craftingLogText.gameObject.SetActive(false);
             }
         }
     }
@@ -240,6 +238,8 @@ public class Crafting : MonoBehaviour
         {
             craftingSlots[i].RemoveItem();
         }
+        craftingLogPanel.SetActive(false);
+        craftingLogText.text = string.Empty;
     }
 
     public Item CloneItem(Item _item) // 아이템 복사
