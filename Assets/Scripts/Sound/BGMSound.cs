@@ -12,13 +12,10 @@ public class BGMSound : MonoBehaviour
 
     void Awake()
     {
-        // AudioSource의 기본적인 소리크기 설정
-        audioSource.volume = 0.2f;
-
-        // 슬라이더 초기 값을 AudioSource의 볼륨과 일치시킵니다.
         if (volumeSlider != null) // 슬라이더가 할당되어 있어야 함을 확인합니다.
         {
-            volumeSlider.value = audioSource.volume;
+            // AudioSource의 볼륨을 슬라이더 값에 맞게 설정합니다.
+            audioSource.volume = volumeSlider.value;
         }
     }
 
@@ -53,13 +50,13 @@ public class BGMSound : MonoBehaviour
         float startVolume = 0.0f;
         audioSource.volume = startVolume;
 
-        while (audioSource.volume < 0.2f)
+        while (audioSource.volume < volumeSlider.value) // 0.2f를 슬라이더 값으로 변경
         {
             audioSource.volume += 0.3f * Time.deltaTime / duration;
             yield return null;
         }
 
-        audioSource.volume = 0.2f;
+        audioSource.volume = volumeSlider.value; // 0.2f를 슬라이더 값으로 변경
     }
 
     IEnumerator FadeOut(AudioSource audioSource, float duration)

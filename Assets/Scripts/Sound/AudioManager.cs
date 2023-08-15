@@ -73,14 +73,4 @@ public class AudioManager : MonoBehaviour
         // PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         // PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
-
-    //     public static float GetBackgroundVolume()
-    // {
-    //     return PlayerPrefs.GetFloat(BackgroundPref);
-    // }
-
-    // public static float GetSoundEffectsVolume()
-    // {
-    //     return PlayerPrefs.GetFloat(SoundEffectsPref);
-    // }
 }
