@@ -80,7 +80,7 @@ public class playerController : MonoBehaviour
         CheckPicking(); //아이템 줍기
     }
 
-    void HandleMovement()
+void HandleMovement()
     {
         // 애니메이션/대화 실행 중일 때는 움직임을 막음
         if (isPicking || isInDialogue || isClimbing)
@@ -93,12 +93,13 @@ public class playerController : MonoBehaviour
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
         float vmove = Input.GetAxis("Vertical");
-        isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //어떤 방향키든지 감지해서 걷는 animation 실행
         isWalking = hmove != 0 || vmove != 0;
         myAnim.SetBool("isWalking", isWalking);
-        //shift감지 했다면 뛰는 animation 실행
+
+		// 수정된 부분: 방향키를 누른 상태에서만 isRunning이 true가 됩니다.
+        isRunning = isWalking && Input.GetKey(KeyCode.LeftShift);
         myAnim.SetBool("isRunning", isRunning);
 
         //걷기, 뛰기 속도를 사용자 설정에 따르게 함

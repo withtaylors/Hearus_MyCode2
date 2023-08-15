@@ -29,30 +29,44 @@ public class playerSound : MonoBehaviour
             return;
         }
 
-        if (player.isWalking && !player.isRunning && !Input.GetKey(KeyCode.LeftShift)) // Shift 키를 누르지 않은 상태에서만 걷는 소리 재생
+        if (player.grounded)
         {
-            if (!walkSound.isPlaying)
+            if (player.isWalking && !player.isRunning && !Input.GetKey(KeyCode.LeftShift)) // Shift 키를 누르지 않은 상태에서만 걷는 소리 재생
             {
-                walkSound.Play();
+                if (!walkSound.isPlaying)
+                {
+                    walkSound.Play();
+                }
+            }
+            else if (!player.isRunning || !Input.GetKey(KeyCode.LeftShift)) 
+            {
+                if (walkSound.isPlaying)
+                {
+                    walkSound.Stop();
+                }
+            }
+
+            if (player.isRunning && Input.GetKey(KeyCode.LeftShift)) //Shift 키를 누른 상태에서 뛰는 소리 재생
+            {
+                if (!runSound.isPlaying)
+                {
+                    runSound.Play();
+                }
+            }
+            else
+            {
+                if (runSound.isPlaying)
+                {
+                    runSound.Stop();
+                }
             }
         }
-            else if (!player.isRunning || !Input.GetKey(KeyCode.LeftShift)) // 수정된 부분
+        else
         {
             if (walkSound.isPlaying)
             {
                 walkSound.Stop();
             }
-        }
-
-            if (player.isRunning && Input.GetKey(KeyCode.LeftShift)) // 수정된 부분: Shift 키를 누른 상태에서 뛰는 소리 재생
-        {
-            if (!runSound.isPlaying)
-            {
-                runSound.Play();
-            }
-        }
-        else
-        {
             if (runSound.isPlaying)
             {
                 runSound.Stop();
