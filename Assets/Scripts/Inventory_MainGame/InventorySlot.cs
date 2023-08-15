@@ -38,7 +38,13 @@ public class InventorySlot : MonoBehaviour
             itemCount_Text.text = _item.itemCount.ToString();
         }
         else
-            itemCount_Text.text = "";
+            itemCount_Text.text = string.Empty;
+    }
+
+    public void UncountableItem(Item _item)
+    {
+        if (_item.isCountable == false)
+            itemCount_Text.text = string.Empty;
     }
 
     public void IncreaseCount(Item _item)

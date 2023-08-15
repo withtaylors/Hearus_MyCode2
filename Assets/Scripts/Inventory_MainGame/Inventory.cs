@@ -98,65 +98,33 @@ public class Inventory : MonoBehaviour
             {
                 for (int j = 0; j < inventoryItemList.Count; j++)   // 먼저 소지품 중 같은 아이템이 있는지 검색
                 {
-                    if (inventoryItemList[j].itemID == _itemID)     // 같은 아이템이 있다면 개수만 증가
+                    if (inventoryItemList[j].itemID == _itemID)     // 셀 수 있는 아이템이고, 같은 아이템이 있다면 개수만 증가
                     {
-                        slots[j].IncreaseCount(inventoryItemList[j]);
-                        for (int k = 0; k < InventoryDataManager.Instance.inventoryItemList.Count; k++)
+                        if (inventoryItemList[j].isCountable == true)
                         {
-                            if (InventoryDataManager.Instance.inventoryItemList[k].itemID == _itemID)
+                            slots[j].IncreaseCount(inventoryItemList[j]);
+                            for (int k = 0; k < InventoryDataManager.Instance.inventoryItemList.Count; k++) // 인벤토리 데이터 매니저에 넣기
                             {
-                                InventoryDataManager.Instance.inventoryItemList[k].itemCount += 1;
-                                break;
+                                if (InventoryDataManager.Instance.inventoryItemList[k].itemID == _itemID)
+                                {
+                                    InventoryDataManager.Instance.inventoryItemList[k].itemCount += 1;
+                                    break;
+                                }
                             }
+                            return;
                         }
-                        return;
-                    }
-                    else
-                    {
-                        inventoryItemList.Add(ItemDatabase.itemList[i]);            // 없다면 인벤토리 아이템 리스트에 해당 아이템 추가
-                        CreateSlot();                                               // 슬롯 생성
-                        slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
-                        InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]);
-                        //ItemDatabase.itemList[i].isPicking = false;
-                        return;
                     }
                 }
+                inventoryItemList.Add(ItemDatabase.itemList[i]);            // 같은 아이템이 없다면/셀 수 없는 아이템이라면 슬롯 추가
+                CreateSlot();                                               // 슬롯 생성
+                slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
+                slots[slots.Count - 1].UncountableItem(ItemDatabase.itemList[i]);
+                InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]); // 인벤토리 데이터 매니저에 넣기
                 return;
             }
         }
         Debug.LogError("데이터베이스에 해당 ID 값을 가진 아이템이 존재하지 않습니다."); // 데이터베이스에 해당하는 아이템 ID가 존재하지 않는 경우
     }
-
-    /*
-    public void GetAnItem(int _itemID, int _count = 1)
-    {
-        for (int i = 0; i < inventoryItemList.Count; i++)
-        {
-            if (inventoryItemList[i].itemID == _itemID)
-            {
-                slots[i].IncreaseCount(inventoryItemList[i]);
-                for (int j = 0; j < InventoryDataManager.Instance.inventoryItemList.Count; j++)
-                {
-                    if (InventoryDataManager.Instance.inventoryItemList[j].itemID == _itemID)
-                    {
-                        InventoryDataManager.Instance.inventoryItemList[j].itemCount += 1;
-                        break;
-                    }
-                }
-                return;
-            }
-            else
-            {
-                inventoryItemList.Add(ItemDatabase.itemList[i]);            // 없다면 인벤토리 아이템 리스트에 해당 아이템 추가
-                CreateSlot();                                               // 슬롯 생성
-                slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
-                InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]);
-                //ItemDatabase.itemList[i].isPicking = false;
-                return;
-            }
-        }
-    }
-    */
 
     public void LoadItem(int _itemID, int _count)
     {

@@ -27,10 +27,11 @@ public class InventoryData
     public ItemType itemType;
     public ItemEffect itemEffect;
     public int effectValue;
+    public bool isCountable;
     public bool isMeet;
     public bool isPicking;
 
-    public InventoryData(int _itemID, string _itemName, string _itemDes, ItemType _itemType, ItemEffect _itemEffect, int _effectValue, int _itemCount = 1, bool _isMeet = false, bool _isPicking = false)   // 생성자
+    public InventoryData(int _itemID, string _itemName, string _itemDes, ItemType _itemType, ItemEffect _itemEffect, int _effectValue, bool _isCountable = true, int _itemCount = 1, bool _isMeet = false, bool _isPicking = false)   // 생성자
     {
         // itemID는 아이콘 파일의 이름과 같게 함
         itemID = _itemID;
@@ -41,6 +42,7 @@ public class InventoryData
         itemIcon = Resources.Load("ItemIcon/" + _itemID.ToString(), typeof(Sprite)) as Sprite;
         itemEffect = _itemEffect;
         effectValue = _effectValue;
+        isCountable = _isCountable;
         isMeet = _isMeet;
         isPicking = _isPicking;
     }
@@ -97,7 +99,7 @@ public class DataManager : MonoBehaviour
         {
             Item _item = InventoryDataManager.Instance.inventoryItemList[i];
             InventoryData _inventoryData = new InventoryData(_item.itemID, _item.itemName, _item.itemDescription,
-                _item.itemType, _item.itemEffect, _item.effectValue, _item.itemCount, _item.isMeet, _item.isPicking);
+                _item.itemType, _item.itemEffect, _item.effectValue, _item.isCountable, _item.itemCount, _item.isMeet, _item.isPicking);
             dataWrapper.items.Add(_inventoryData);
             Debug.Log(_inventoryData.itemID);
         }
@@ -121,8 +123,8 @@ public class DataManager : MonoBehaviour
                 for (int i = 0; i < itemsToLoad.Count; i++)
                 {
                     Item _item = new Item(itemsToLoad[i].itemID, itemsToLoad[i].itemName, itemsToLoad[i].itemDescription,
-                    itemsToLoad[i].itemType, itemsToLoad[i].itemEffect, itemsToLoad[i].effectValue, itemsToLoad[i].itemCount,
-                    itemsToLoad[i].isMeet, itemsToLoad[i].isPicking);
+                    itemsToLoad[i].itemType, itemsToLoad[i].itemEffect, itemsToLoad[i].effectValue, itemsToLoad[i].isCountable,
+                    itemsToLoad[i].itemCount, itemsToLoad[i].isMeet, itemsToLoad[i].isPicking);
 
                     InventoryDataManager.Instance.inventoryItemList.Add(_item);
                 }

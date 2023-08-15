@@ -244,7 +244,9 @@ public class Crafting : MonoBehaviour
 
     public Item CloneItem(Item _item) // 아이템 복사
     {
-        Item clonedItem = new Item(_item.itemID, _item.itemName, _item.itemDescription, _item.itemType, _item.itemEffect, _item.effectValue, 1, _item.isMeet, _item.isPicking);
+        Item clonedItem = new Item(_item.itemID, _item.itemName, _item.itemDescription, 
+            _item.itemType, _item.itemEffect, _item.effectValue, _item.isCountable, 1, 
+            _item.isMeet, _item.isPicking);
         return clonedItem;
     }
 

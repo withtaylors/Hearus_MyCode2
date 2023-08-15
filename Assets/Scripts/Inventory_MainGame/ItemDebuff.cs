@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemDebuff : MonoBehaviour
 {
     public bool hasPassedTime_113; // 송이버섯 습득 후 시간 경과 여부.
+    public UnityEvent HasPassedTime_113;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
@@ -28,13 +30,13 @@ public class ItemDebuff : MonoBehaviour
 
     IEnumerator ChangeItemEffectToDamage() // 일정 시간 이후 아이템 이펙트를 "피해"로 바꾸는 코루틴.
     {
-        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        for (int i = 0; i < Inventory.instance.inventoryItemList.Count; i++)
         {
-            if (ItemDatabase.itemList[i].itemID == 113)
+            if (Inventory.instance.inventoryItemList[i].itemID == 113) // 제일 먼저 발견되는 송이버섯
             {
                 yield return new WaitForSeconds(1200f); // 20분 뒤 먹을 수 먹을 수 없는 음식으로 바뀜.
                 hasPassedTime_113 = true;
-                ItemDatabase.itemList[i].itemEffect = Item.ItemEffect.피해;
+                Inventory.instance.inventoryItemList[i].itemEffect = Item.ItemEffect.피해;
                 Debug.Log("송이버섯이 먹을 수 없는 음식으로 바뀌었다.");
             }
         }

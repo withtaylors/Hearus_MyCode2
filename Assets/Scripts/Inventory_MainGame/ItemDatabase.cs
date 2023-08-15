@@ -28,7 +28,7 @@ public class ItemDatabase : MonoBehaviour
     void Start()
     {
         itemList.Add(new Item(101, "넝쿨", "밧줄을 만들 수 있는 꽤 질긴 넝쿨.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(102, "밧줄", "넝쿨로 만든 꽤 튼튼한 밧줄. 여러 번 쓸 수 있다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0, 10));
+        itemList.Add(new Item(102, "밧줄", "넝쿨로 만든 꽤 튼튼한 밧줄. 여러 번 쓸 수 있다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0, true, 10));
         itemList.Add(new Item(103, "망가진 태엽 인형", "별 쓸모는 없는 태엽 인형. 속에 이끼가 잔뜩 꼈는지 잘 움직이지 않는다. 어릴 적 가지고 있던 인형과 비슷하게 생겼다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(104, "냄새무당버섯", "선명한 빨간색의 독버섯.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
         itemList.Add(new Item(105, "버터넛", "부드럽고 달콤한 호박. 크기가 커 배부르게 먹을 수 있다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
@@ -39,7 +39,7 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(110, "고비", "동그랗게 말린 모양의 양치식물. 연하고 독성도 없다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(111, "어린 까마중 줄기", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
         itemList.Add(new Item(112, "표고버섯", "행성에서도 자주 먹었던 표고버섯. 자연산이라 그런지 향이 진하다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
-        itemList.Add(new Item(113, "송이버섯", "행성에서는 매우 비싸게 팔리는 송이버섯. 버섯이라 빨리 먹는 편이 좋다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
+        itemList.Add(new Item(113, "송이버섯", "행성에서는 매우 비싸게 팔리는 송이버섯. 버섯이라 빨리 먹는 편이 좋다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10, false));
         // 시간 경과 시 HP -10 구현 필요
         itemList.Add(new Item(114, "까마중", "까맣고 동그란 열매. 약한 독성이 있어 먹으면 배탈이 난다.", Item.ItemType.소모품, Item.ItemEffect.피해, 5));
         itemList.Add(new Item(115, "고사리", "잘 말려서 익히면 먹을 수 있는 고사리. 말릴 시간이 없기 때문에 아예 먹지 않는 편이 좋다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));

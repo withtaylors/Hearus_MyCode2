@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,10 @@ public class Item
     public ItemType itemType; // 아이템 타입
     public ItemEffect itemEffect; // 아이템 사용 시 효과, 소모품이 아닐 경우 기타로 한다
     public int effectValue;
+    public bool isCountable;
     public bool isMeet;
     public bool isPicking;
+
 
     public string itemJourney;
 
@@ -37,7 +40,9 @@ public class Item
         기타
     }
 
-    public Item(int _itemID, string _itemName, string _itemDes, ItemType _itemType, ItemEffect _itemEffect, int _effectValue, int _itemCount = 1, bool _isMeet = false, bool _isPicking = false)   // 생성자
+    public Item(int _itemID, string _itemName, string _itemDes, ItemType _itemType, 
+        ItemEffect _itemEffect, int _effectValue, bool _isCountable = true, 
+        int _itemCount = 1, bool _isMeet = false, bool _isPicking = false)   // 생성자
     {
         // itemID는 아이콘 파일의 이름과 같게 함
         itemID = _itemID;
@@ -48,6 +53,7 @@ public class Item
         itemIcon = Resources.Load("ItemIcon/" + _itemID.ToString(), typeof(Sprite)) as Sprite;
         itemEffect = _itemEffect;
         effectValue = _effectValue;
+        isCountable = _isCountable;
         isMeet = _isMeet;
         isPicking = _isPicking;
     }

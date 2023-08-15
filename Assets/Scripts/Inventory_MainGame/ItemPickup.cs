@@ -53,13 +53,14 @@ public class ItemPickup : MonoBehaviour
         //pickingID = item.GetComponent<ItemPickup>()._itemID;
         //pickingCount = item.GetComponent<ItemPickup>()._count;
 
-        Picked.Invoke();
+        Picked.Invoke(); // 아이템 습득 Invoke
 
-        scriptManager.FindScriptByItemID(_itemID);
-        scriptManager.ShowScript();
+        scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
+        scriptManager.ShowScript(); // 스크립트 재생
 
-        TextLogs.instance.GetItemLog(_itemID);
-        Inventory.instance.GetAnItem(_itemID, _count);
+        TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
+        Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
+        ChangeConditionMeet(_itemID); // isMeet이 false라면 true로 바꾸기
     }
 
     private bool CheckObjectInCamera(GameObject item) // 오브젝트가 카메라 안에 있는지 확인
@@ -71,6 +72,18 @@ public class ItemPickup : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private void ChangeConditionMeet(int _itemID)
+    {
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        {
+            if (_itemID == ItemDatabase.itemList[i].itemID)
+            {
+                if (ItemDatabase.itemList[i].isMeet == false)
+                    ItemDatabase.itemList[i].isMeet = true;
+            }
+        }
     }
 
     public void CheckConditions()

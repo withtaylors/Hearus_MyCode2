@@ -202,7 +202,7 @@ void HandleMovement()
                         break; // 첫 번째로 발견된 아이템만 처리하고 반복문 종료
                     }
 
-                    if (colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM")
+                    if (colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT")
                     {
                         // "isPicking" 애니메이션 실행
                         myAnim.SetTrigger("isPicking");
