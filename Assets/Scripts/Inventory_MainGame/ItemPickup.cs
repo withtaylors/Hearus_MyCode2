@@ -34,8 +34,10 @@ public class ItemPickup : MonoBehaviour
         particlePrefab = Resources.Load("Object_Particle") as GameObject; // Resources/Prefabs/Object Particle 로드
         GameObject instantiatedParticle = Instantiate(particlePrefab, objectPosition, objectRotation); // 인스턴스화
         instantiatedParticle.transform.SetParent(transform); // 파티클을 현재 오브젝트의 자식으로 지정함
+        instantiatedParticle.transform.localScale = new Vector3(1, 1, 1);
         particleSystem = instantiatedParticle.GetComponent<ParticleSystem>(); // ParticleSystem 컴포넌트 가져오기
-        particleSystem.Play();
+        if (!particleSystem.isPlaying)
+            particleSystem.Play();
     }
 
     private void FixedUpdate()
