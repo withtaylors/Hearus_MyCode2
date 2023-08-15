@@ -153,28 +153,33 @@ void HandleMovement()
             myAnim.SetBool("grounded", grounded);
         }
     }
-    /*
-    void OnCollisionExit(Collision collision)
-    {
-        // // GroundLayer와 떨어졌다면
-        // if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
-        // {
-        //     // grounded - false (땅과 닿지않음)
-        //     grounded = false;
-        //     myAnim.SetBool("grounded", grounded);
-        // }
-    }
+    
+    // void OnCollisionExit(Collision collision)
+    // {
+    //     // GroundLayer와 떨어졌다면
+    //     if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
+    //     {
+    //         if (isClimbing == false){
+    //         // grounded - false (땅과 닿지않음)
+    //         grounded = false;
+    //         myAnim.SetBool("grounded", grounded);
+    //         }
+    //         else {
+                
+    //         }
+    //     }
+    // }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        colliderTag = other.tag;
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     colliderTag = other.tag;
+    // }
 
-    private void OnTriggerExit(Collider other)
-    {
-        colliderTag = "";
-    }
-    */
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     colliderTag = "";
+    // }
+    
 
     void CheckPicking()
     {
