@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 
-    void onApplicationFocus(bool inFocus)
+    void OnApplicationFocus(bool inFocus)
     {
         if (!inFocus)
         {
@@ -70,7 +70,17 @@ public class AudioManager : MonoBehaviour
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
 
-        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+        // PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+        // PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
+
+    //     public static float GetBackgroundVolume()
+    // {
+    //     return PlayerPrefs.GetFloat(BackgroundPref);
+    // }
+
+    // public static float GetSoundEffectsVolume()
+    // {
+    //     return PlayerPrefs.GetFloat(SoundEffectsPref);
+    // }
 }

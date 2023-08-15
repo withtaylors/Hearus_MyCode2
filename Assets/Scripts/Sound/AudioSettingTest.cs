@@ -14,6 +14,28 @@ public class AudioSettingTest : MonoBehaviour
     public AudioSource[] backgroundAudio;
     public AudioSource[] soundEffectsAudio;
 
+    void Start()
+    {
+        // 볼륨 설정을 불러옵니다.
+        float backgroundVolume = PlayerPrefs.GetFloat(BackgroundPref);
+        float soundEffectsVolume = PlayerPrefs.GetFloat(SoundEffectsPref);
+
+        // 오디오 소스의 볼륨을 설정합니다.
+        for (int i = 0; i < backgroundAudio.Length; i++)
+        {
+            backgroundAudio[i].volume = backgroundVolume;
+        }
+
+        for (int i = 0; i < soundEffectsAudio.Length; i++)
+        {
+            soundEffectsAudio[i].volume = soundEffectsVolume;
+        }
+
+        // 슬라이더 값 업데이트
+        backgroundSlider.value = backgroundVolume;
+        soundEffectsSlider.value = soundEffectsVolume;
+    }
+
     void Awake()
     {
         ContinueSettings();
@@ -28,35 +50,29 @@ public class AudioSettingTest : MonoBehaviour
         {
             backgroundAudio[i].volume = backgroundFloat;
         }
+        
         for (int i = 0; i < soundEffectsAudio.Length; i++)
         {
             soundEffectsAudio[i].volume = soundEffectsFloat;
         }
 
+        Debug.Log("CS 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("CS 효과음볼륨: "+ soundEffectsSlider.value );
+
         backgroundSlider.value = backgroundFloat;
         soundEffectsSlider.value = soundEffectsFloat;
-
-        backgroundSlider.onValueChanged.AddListener(delegate { UpdateSound(); });
-        soundEffectsSlider.onValueChanged.AddListener(delegate { UpdateSound(); });
     }
-
-
-    // //게임 시작시 불러올 소리 있는지 확인
-    // void Start()
-    // {
-    //     backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
-    //     backgroundSlider.value = backgroundFloat;
-    //     soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
-    //     soundEffectsSlider.value = soundEffectsFloat;
-    // }
 
     public void SaveSoundSettings()
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+
+        Debug.Log("Test SAVE 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("Test SAVE 효과음볼륨: "+ soundEffectsSlider.value );
     }
 
-    void onApplicationFocus(bool inFocus)
+    void OnApplicationFocus(bool inFocus)
     {
         if (!inFocus)
         {
@@ -75,7 +91,7 @@ public class AudioSettingTest : MonoBehaviour
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
 
-        PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
+        Debug.Log("US 배경음볼륨: "+ backgroundSlider.value);
+        Debug.Log("US 효과음볼륨: "+ soundEffectsSlider.value );
     }
 }
