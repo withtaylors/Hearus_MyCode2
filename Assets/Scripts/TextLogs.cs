@@ -9,7 +9,6 @@ public class TextLogs : MonoBehaviour
 {
     public static TextLogs instance;
     [SerializeField] private GameObject logPrefab;
-    [SerializeField] private TextMeshProUGUI logPrefabText;
     [SerializeField] private Transform tf_logPrefab;
 
     //private List<GameObject> logList = new List<GameObject>();
@@ -46,7 +45,7 @@ public class TextLogs : MonoBehaviour
     private void CreateLog(string _log) // 로그 생성
     {
         GameObject log = Instantiate(logPrefab, tf_logPrefab);
-        TextMeshProUGUI logText = log.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI logText = log.GetComponentInChildren<TextMeshProUGUI>();
         logText.text = _log;
         log.SetActive(true);
         logText.color = Color.white;

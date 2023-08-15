@@ -17,7 +17,7 @@ public class ItemDebuff : MonoBehaviour
         if (_itemID == 113)
         {
             Debug.Log("송이버섯을 습득했다.");
-            StartCoroutine("ChangeItemEffectToDamage", 113); 
+            StartCoroutine("ChangeItemEffectToDamage"); 
         }
     }
 
@@ -26,12 +26,12 @@ public class ItemDebuff : MonoBehaviour
 
     }
 
-    IEnumerable ChangeItemEffectToDamage(int _itemID) // 일정 시간 이후 아이템 이펙트를 "피해"로 바꾸는 코루틴.
+    IEnumerable ChangeItemEffectToDamage() // 일정 시간 이후 아이템 이펙트를 "피해"로 바꾸는 코루틴.
     {
         Debug.Log("코루틴이 실행되었다.");
         for (int i = 0; i < ItemDatabase.itemList.Count; i++)
         {
-            if (_itemID == ItemDatabase.itemList[i].itemID)
+            if (ItemDatabase.itemList[i].itemID == 113)
             {
                 //yield return new WaitForSeconds(1200f);
                 yield return new WaitForSeconds(3f);
