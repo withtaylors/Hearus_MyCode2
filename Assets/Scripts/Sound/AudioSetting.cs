@@ -56,9 +56,6 @@ public class AudioSetting : MonoBehaviour
             soundEffectsAudio[i].volume = soundEffectsFloat;
         }
 
-        Debug.Log("CS 배경음볼륨: "+ backgroundSlider.value);
-        Debug.Log("CS 효과음볼륨: "+ soundEffectsSlider.value );
-
         backgroundSlider.value = backgroundFloat;
         soundEffectsSlider.value = soundEffectsFloat;
     }
@@ -67,9 +64,6 @@ public class AudioSetting : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
-
-        Debug.Log("Test SAVE 배경음볼륨: "+ backgroundSlider.value);
-        Debug.Log("Test SAVE 효과음볼륨: "+ soundEffectsSlider.value );
     }
 
     void OnApplicationFocus(bool inFocus)
@@ -90,8 +84,5 @@ public class AudioSetting : MonoBehaviour
         {
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
-
-        Debug.Log("US 배경음볼륨: "+ backgroundSlider.value);
-        Debug.Log("US 효과음볼륨: "+ soundEffectsSlider.value );
     }
 }

@@ -69,8 +69,5 @@ public class AudioManager : MonoBehaviour
         {
             soundEffectsAudio[i].volume = soundEffectsSlider.value;
         }
-
-        // PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
-        // PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 }
