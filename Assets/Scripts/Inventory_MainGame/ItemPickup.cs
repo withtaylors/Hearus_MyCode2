@@ -87,7 +87,5 @@ public class ItemPickup : MonoBehaviour
     }
 
     public void CheckConditions()
-    {
-
-    }
+    { }
 }
