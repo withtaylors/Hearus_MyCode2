@@ -5,7 +5,7 @@ using static DataManager;
 
 public class PlayerLocation : MonoBehaviour
 {    
-    public Transform playerTransform; // Reference to the player's transform
+    public Transform playerTransform;
 
     private void Start()
     {
