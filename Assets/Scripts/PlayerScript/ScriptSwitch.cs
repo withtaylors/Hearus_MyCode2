@@ -8,4 +8,11 @@ public class ScriptSwitch : MonoBehaviour
     public bool noticesHerb_122; // 까마중 줄기 약초 인지 여부
     public bool noticesHerb_123; // 골쇄보 약초 인지 여부
     public bool noticesHerb_124; // 쐐기풀 약초 인지 여부
+
+    public static ScriptSwitch instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
 }
