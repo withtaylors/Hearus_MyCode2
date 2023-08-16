@@ -9,6 +9,10 @@ public class Cleaner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Player.transform.position = respawnPoint.transform.position;
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("OnTriggerEnter 호출됨");
+            Player.transform.position = respawnPoint.transform.position;
+        }
     }
 }

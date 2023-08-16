@@ -14,7 +14,8 @@ public class EndGame : MonoBehaviour
     public void ExitGame()
     {
         Time.timeScale = 1;
-        changeScene.MoveToFirst();
+        //changeScene.MoveToFirst();
+        ChangeScene.target2() ;
     }
 
     public void EndingGame()

@@ -14,7 +14,7 @@ public class Select : MonoBehaviour
     public TMP_Text fileName; // 새로 입력된 파일 이름
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
-    bool[] savefile = new bool[3]; // 세이브파일 존재유무 저장
+    bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
 
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
@@ -22,7 +22,7 @@ public class Select : MonoBehaviour
     void Start()
     {
         // 슬롯별로 저장된 데이터가 존재하는지 판단.
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             if (File.Exists(DataManager.instance.path + $"{i}" + "_player.json")) // 데이터가 있는 경우
             {
