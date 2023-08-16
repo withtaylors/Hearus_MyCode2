@@ -2799,7 +2799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7e47f86a3deb0409a3012baf146a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 108602057}
+  fader: {fileID: 0}
   fader2: {fileID: 2012049425}
 --- !u!114 &735507736
 MonoBehaviour:

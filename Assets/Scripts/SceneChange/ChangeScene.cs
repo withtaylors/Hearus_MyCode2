@@ -26,12 +26,12 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToMenu()
     {
-        fader.gameObject.SetActive(true);
-        LeanTween.alpha(fader, 0, 0);
-        LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() =>
-        {
-            SceneManager.LoadScene(2);
-        });
+        // fader.gameObject.SetActive(true);
+        // LeanTween.alpha(fader, 0, 0);
+        // LeanTween.alpha(fader, 1, 0.5f).setOnComplete(() =>
+        // {
+        //     SceneManager.LoadScene(2);
+        // });
     }
 
     public void MoveToGame()
@@ -52,10 +52,13 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToFirst()
     {
+        fader.gameObject.SetActive(false);
         fader2.gameObject.SetActive(true);
 
+        fader2.localScale = Vector3.zero; // 이 줄 추가
+
         LeanTween.scale(fader2, Vector3.zero, 0f);
-        LeanTween.scale(fader2, new Vector3(1, 1, 1), 2f).setEase(LeanTweenType.easeInOutExpo).setOnComplete(() =>
+        LeanTween.scale(fader2, new Vector3(1, 1, 1), 2.5f).setEase(LeanTweenType.easeInOutExpo).setOnComplete(() =>
         {
             Invoke("LoadFirst", 0.5f);
         });

@@ -15,5 +15,4 @@ public class Cleaner : MonoBehaviour
             Player.transform.position = respawnPoint.transform.position;
         }
     }
-
 }
