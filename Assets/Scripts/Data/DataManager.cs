@@ -10,9 +10,9 @@ public class PlayerData
     public string filename;
 
     //플레이어 위치
-    public float x = 30f;
-    public float y = 16.5f;
-    public float z = 0f;
+    public float x = 40.6f;
+    public float y = 8.5f;
+    public float z = 0.5f;
 }
 
 public class DataManager : MonoBehaviour
@@ -38,9 +38,9 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         // 기본 플레이어 위치 설정
-        nowPlayerDefault.x = 30f;
-        nowPlayerDefault.y = 16.5f;
-        nowPlayerDefault.z = 0f;
+        nowPlayerDefault.x = 40.6f;
+        nowPlayerDefault.y = 8.5f;
+        nowPlayerDefault.z = 0.5f;
 
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);
@@ -50,11 +50,11 @@ public class DataManager : MonoBehaviour
     {
         if (File.Exists(path + nowSlot.ToString() + "_player.json")) // 파일이 이미 있는 경우
         {
-            // 기존 파일에서 'filename' 속성만 가져옵니다.
+            // 기존 파일에서 'filename' 속성만 가져옴
             string existingFileData = File.ReadAllText(path + nowSlot.ToString() + "_player.json");
             PlayerData existingPlayerData = JsonUtility.FromJson<PlayerData>(existingFileData);
 
-            // 현재 파일에 'filename'을 적용하고 저장합니다.
+            // 현재 파일에 'filename'을 적용하고 저장
             nowPlayer.filename = existingPlayerData.filename;
         }
 
