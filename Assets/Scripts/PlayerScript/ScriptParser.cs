@@ -69,6 +69,8 @@ public class ScriptParser : MonoBehaviour
             string optionNumber;
             string isExistNextScript;
             string nextScriptNumber;
+            string eventName;
+            string scriptSwitch;
             List<string> sentenceList = new List<string>();
 
             scriptID = row[0];
@@ -77,6 +79,8 @@ public class ScriptParser : MonoBehaviour
             optionNumber = row[4];
             isExistNextScript = row[5];
             nextScriptNumber = row[6];
+            eventName = row[7];
+            scriptSwitch = row[8];
 
             do
             {
@@ -96,6 +100,9 @@ public class ScriptParser : MonoBehaviour
             script.isExistNextScript = isExistNextScript;
             script.nextScriptNumber = nextScriptNumber;
             script.sentences = sentenceList.ToArray();
+            script.eventName = eventName;
+            script.scriptSwitch = scriptSwitch;
+
 
             scriptList.Add(script);
         }

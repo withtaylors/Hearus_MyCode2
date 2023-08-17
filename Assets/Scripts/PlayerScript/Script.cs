@@ -21,8 +21,14 @@ public class Script
     public string isExistNextScript;
 
     [Tooltip("다음 스크립트 번호")]
-    public string nextScriptNumber;    
-    
+    public string nextScriptNumber;
+
+    [Tooltip("이벤트 이름")]
+    public string eventName;
+
+    [Tooltip("스크립트 스위치")]
+    public string scriptSwitch;
+
     [Tooltip("대사 내용")]
     public string[] sentences;
 }
