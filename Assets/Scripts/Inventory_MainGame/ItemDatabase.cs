@@ -49,9 +49,9 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(119, "붉은사슴뿔버섯", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
         itemList.Add(new Item(120, "광대버섯", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
         itemList.Add(new Item(121, "화경버섯", "독이 있는 버섯. 먹으면 죽진 않지만 배탈이 난다. 밤엔 빛이 나 주위를 밝힌다.", Item.ItemType.소모품, Item.ItemEffect.피해, 5));
-        //itemList.Add(new Item(122, "까마중 줄기", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        //itemList.Add(new Item(123, "골쇄보", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        //itemList.Add(new Item(124, "쐐기풀", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(122, "까마중 줄기", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(123, "골쇄보", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(124, "쐐기풀", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
         itemList.Add(new Item(125, "큰 나무껍질", "커다랗게 떨어져 나온 나무 껍질. 여기의 나무들이 매우 크기에 껍질도 두껍고 큰 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(126, "두꺼운 나뭇가지", "얇은 장작 정도 두께의 매우 두꺼운 나뭇가지. 여기의 나무들이 매우 크기에 나뭇가지도 두꺼운 것이 나오는 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(127, "나뭇가지", "행성에서도 볼 수 있는 평범한 두께의 나뭇가지. 여기의 나무들에 비해서는 아주 얇은 잔가지 정도인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));

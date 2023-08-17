@@ -55,8 +55,7 @@ public class ItemPickup : MonoBehaviour
 
         Picked.Invoke(); // 아이템 습득 Invoke
 
-        scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
-        scriptManager.ShowScript(); // 스크립트 재생
+        CheckSwitch();
 
         TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
         Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
@@ -86,6 +85,69 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    public void CheckConditions()
-    { }
+    public void CheckSwitch()
+    {
+        if (_itemID == 122)
+        {
+            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            {
+                if (ItemDatabase.itemList[i].itemID == 122)
+                {
+                    if (ItemDatabase.itemList[i].isMeet == true)
+                    {
+                        if (ScriptSwitch.instance.switchs[0].switchValue == false)
+                        {
+                            scriptManager.FIndScriptByEventName("MEET_AGAIN_122");
+                            scriptManager.ShowScript();
+                            return;
+                        }
+                        else return; // isMeet == true || switchValue == true
+                    }
+                }
+            }
+        }
+
+        if (_itemID == 123)
+        {
+            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            {
+                if (ItemDatabase.itemList[i].itemID == 123)
+                {
+                    if (ItemDatabase.itemList[i].isMeet == true)
+                    {
+                        if (ScriptSwitch.instance.switchs[1].switchValue == false)
+                        {
+                            scriptManager.FIndScriptByEventName("MEET_AGAIN_123");
+                            scriptManager.ShowScript();
+                            return;
+                        }
+                        else return; // isMeet == true || switchValue == true
+                    }
+                }
+            }
+        }
+
+        if (_itemID == 124)
+        {
+            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            {
+                if (ItemDatabase.itemList[i].itemID == 124)
+                {
+                    if (ItemDatabase.itemList[i].isMeet == true)
+                    {
+                        if (ScriptSwitch.instance.switchs[2].switchValue == false)
+                        {
+                            scriptManager.FIndScriptByEventName("MEET_AGAIN_124");
+                            scriptManager.ShowScript();
+                            return;
+                        }
+                        else return; // isMeet == true || switchValue == true
+                    }
+                }
+            }
+        }
+
+        scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
+        scriptManager.ShowScript(); // 스크립트 재생
+    }
 }

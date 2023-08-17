@@ -132,6 +132,9 @@ public class ScriptManager : MonoBehaviour
         isDialogue = true;
         currentLine = 0;
 
+        if (currentScript.scriptSwitch != string.Empty)
+            SwitchOn(currentScript.scriptSwitch);
+
         StartCoroutine(TypeWriter());
     }
 
@@ -176,6 +179,19 @@ public class ScriptManager : MonoBehaviour
         currentLine = 0;
     }
 
+    public void FIndScriptByEventName(string _eventName) // 아이템과 관련된 스크립트가 아닐 때는 이벤트 이름으로 검색함
+    {
+        for (int i = 1; i <= script.scripts.Length; i++)
+        {
+            if (script.scripts[i].eventName == _eventName)
+            {
+                currentScript = script.scripts[i];
+                break;
+            }
+        }
+        currentLine = 0;
+    }
+
     public void FindOption(int optionNum)
     {
         for (int i = 0; i < option.options.Length; i++)
@@ -200,6 +216,14 @@ public class ScriptManager : MonoBehaviour
         Debug.Log("JumpToNextScript()");
         FindScriptByScriptID(int.Parse(currentScript.nextScriptNumber));
         ShowScript();
+    }
+
+    private void SwitchOn(string _switch) // 스크립트 조건 제어 스위치
+    {
+        for (int i = 0; i < ScriptSwitch.instance.switchs.Count; i++)
+            if (ScriptSwitch.instance.switchs[i].switchName == _switch)
+                ScriptSwitch.instance.switchs[i].switchValue = true;
+
     }
 
     public void OnOptionButtonClick()
