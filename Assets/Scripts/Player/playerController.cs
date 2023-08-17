@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
@@ -28,7 +26,7 @@ public class playerController : MonoBehaviour
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
     public bool isClimbing = false;
-    private bool canClimb = false; // 로프와 상호 작용할 수 있는지 여부를 저장합니다.
+    private bool canClimb = false; // 로프와 상호 작용할 수 있는지 여부를 저장
 
     private Rigidbody playerRigidbody;
 
@@ -42,6 +40,7 @@ public class playerController : MonoBehaviour
 
     private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f;
+    private float newClimbSpeed = 0;
 
     private string colliderTag;
 
@@ -50,7 +49,6 @@ public class playerController : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
         itemPickup = FindObjectOfType<ItemPickup>();
-        //soundPlayer = GetComponent<playerSound>(); // playerSound 스크립트를 가져옴
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
@@ -66,8 +64,7 @@ public class playerController : MonoBehaviour
         CheckRopeDistance();
         // 로프 클라이밍 처리
         if (isClimbing){
-                    ProcessClimbing();
-
+            ProcessClimbing();
         }
     }
 
@@ -83,28 +80,28 @@ public class playerController : MonoBehaviour
         CheckPicking(); //아이템 줍기
     }
 
-void HandleMovement()
+    void HandleMovement()
     {
-     // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
-    if (isPicking || isInDialogue || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
-    {
-        myAnim.SetBool("isWalking", false);
-        myAnim.SetBool("isRunning", false);
+        // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
+        if (isPicking || isInDialogue || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
+        {
+            myAnim.SetBool("isWalking", false);
+            myAnim.SetBool("isRunning", false);
 
-        myRB.velocity = new Vector3(0, myRB.velocity.y, 0);
-        return;
-    }
+            myRB.velocity = new Vector3(0, myRB.velocity.y, 0);
+            return;
+        }
     
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
         float vmove = Input.GetAxis("Vertical");
 
-        //어떤 방향키든지 감지해서 걷는 animation 실행
-        isWalking = hmove != 0 || vmove != 0;
+        //grounded이며 방향키를 누른 상태에서만 isWalking이 true가 됨
+        isWalking = grounded && (hmove != 0 || vmove != 0);
         myAnim.SetBool("isWalking", isWalking);
 
-		// 수정된 부분: 방향키를 누른 상태에서만 isRunning이 true가 됩니다.
-        isRunning = isWalking && Input.GetKey(KeyCode.LeftShift);
+        //grounded이며 방향키를 누른 상태에서만 isRunning이 true가 됨
+        isRunning = grounded && isWalking && Input.GetKey(KeyCode.LeftShift);
         myAnim.SetBool("isRunning", isRunning);
 
         //걷기, 뛰기 속도를 사용자 설정에 따르게 함
@@ -138,6 +135,7 @@ void HandleMovement()
             // grounded - false (땅과 닿지않음) 이므로 jump animation 실행
             grounded = false;
             myAnim.SetBool("grounded", grounded);
+
             myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }
@@ -156,6 +154,7 @@ void HandleMovement()
             //grounded - true (땅과 닿았음) 이므로 falling to land animation 실행
             grounded = true;
             myAnim.SetBool("grounded", grounded);
+            isJumping = false;
         }
     }
     
@@ -174,17 +173,6 @@ void HandleMovement()
     //         }
     //     }
     // }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     colliderTag = other.tag;
-    // }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     colliderTag = "";
-    // }
-    
 
     void CheckPicking()
     {
@@ -228,33 +216,34 @@ void HandleMovement()
     }
 
     private void ToggleClimbing()
-{
-    // 밧줄과의 거리를 계산합니다.
-    float distanceToRope = Vector3.Distance(transform.position, rope.position);
+    {
+        if (isClimbing)
+        {
+            isClimbing = false;
+            myAnim.SetBool("isClimbing", isClimbing);
+            myRB.useGravity = true;
+            isJumping = false; // 로프를 타고 C로 상태 해제 시, isJumping도 false로 변경
+            myAnim.speed = 1; //애니메이션 속도를 복원
+        }
+        else
+        {
+            float distanceToRope = Vector3.Distance(transform.position, rope.position);
 
-    // 밧줄에서 설정된 거리 이내에 있고 키를 누르면 밧줄을 타거나 내립니다.
-    if (Input.GetKeyDown(KeyCode.C) && distanceToRope <= ropeInteractionDistance)
-    {
-        Debug.Log("C 누름");
-        isClimbing = !isClimbing;
-        myAnim.SetBool("isWalking", false);
-        myAnim.SetBool("isRunning", false);
-        myAnim.SetBool("isClimbing", isClimbing);
+            if (distanceToRope <= ropeInteractionDistance)
+            {
+                isClimbing = true;
+                myAnim.SetBool("isClimbing", isClimbing);
+                myRB.useGravity = false;
+                myRB.velocity = Vector3.zero;
 
-    if (!isClimbing)
-    {
-        myRB.useGravity = true;
-        myAnim.SetBool("isWalking", false);
-        myAnim.SetBool("isRunning", false);
+                // isWalking과 isRunning을 false로 설정
+                isWalking = false;
+                isRunning = false;
+                myAnim.SetBool("isWalking", isWalking);
+                myAnim.SetBool("isRunning", isRunning);
+            }
+        }
     }
-    else
-    {
-        myRB.useGravity = false;
-        myRB.velocity = Vector3.zero;
-        myAnim.SetBool("isClimbing", isClimbing);
-    }
-    }
-}
 
 
     private void CheckRopeDistance()
@@ -267,30 +256,34 @@ void HandleMovement()
         }
     }
 
-private void ProcessClimbing()
-{
-    if (isClimbing)
+    private void ProcessClimbing()
     {
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Mathf.Abs(verticalInput) > 0)
+        if (isClimbing)
         {
-            myAnim.SetFloat("ClimbSpeed", Mathf.Abs(climbSpeed * verticalInput));
-            Vector3 climbMovement = new Vector3(0, verticalInput * climbSpeed * Time.deltaTime, 0);
-            transform.position += climbMovement;
+            float verticalInput = Input.GetAxisRaw("Vertical");
+
+            if (Mathf.Abs(verticalInput) > 0)
+            {
+                myAnim.speed = Mathf.Abs(climbSpeed * verticalInput);
+                Vector3 climbMovement = new Vector3(0, verticalInput * climbSpeed * Time.deltaTime, 0);
+                transform.position += climbMovement;
+            }
+            else
+            {
+                // 애니메이션이 0.5초 위치에서 멈추도록 설정
+                myAnim.Play("Climbing", 0, 0.5f);
+                myAnim.speed = 0;
+                if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("Climbing"))
+                {
+                    myAnim.Play("Climbing", 0, 0.5f);
+                }
+            }
         }
         else
         {
-            myAnim.SetFloat("ClimbSpeed", 0);  // 방향키가 눌리지 않은 경우 애니메이션 속도를 0으로 설정
+            myAnim.speed = 1;
         }
     }
-    else
-    {
-        myAnim.SetFloat("ClimbSpeed", 0);
-    }
-}
-
-
 
     IEnumerator ResetPicking(GameObject item)
     {
