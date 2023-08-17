@@ -117,9 +117,8 @@ public class Save : MonoBehaviour
         }
     }
 
-        public void Cancel() 
-        {
+    public void Cancel() 
+    {
         creat.gameObject.SetActive(false);
     }
-
 }
