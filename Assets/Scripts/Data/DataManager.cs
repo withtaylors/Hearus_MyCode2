@@ -27,7 +27,6 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
-        //region 싱글톤
         if (instance == null)
         {
             instance = this;
@@ -37,7 +36,6 @@ public class DataManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        //endregion
 
         // 기본 플레이어 위치 설정
         nowPlayerDefault.x = 30f;
@@ -50,9 +48,20 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
+        if (File.Exists(path + nowSlot.ToString() + "_player.json")) // 파일이 이미 있는 경우
+        {
+            // 기존 파일에서 'filename' 속성만 가져옵니다.
+            string existingFileData = File.ReadAllText(path + nowSlot.ToString() + "_player.json");
+            PlayerData existingPlayerData = JsonUtility.FromJson<PlayerData>(existingFileData);
+
+            // 현재 파일에 'filename'을 적용하고 저장합니다.
+            nowPlayer.filename = existingPlayerData.filename;
+        }
+
         string playerData = JsonUtility.ToJson(nowPlayer);
         File.WriteAllText(path + nowSlot.ToString() + "_player.json", playerData);
     }
+
 
     public void LoadData()
     {

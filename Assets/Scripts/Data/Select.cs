@@ -73,4 +73,9 @@ public class Select : MonoBehaviour
         }
         ChangeScene.target() ;
     }
+
+    public void Cancel() 
+    {
+        creat.gameObject.SetActive(false);
+    }
 }

@@ -66,7 +66,7 @@ public class Save : MonoBehaviour
 
         if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
         {
-            DataManager.instance.LoadData(); // 데이터를 로드하고
+                    DataManager.instance.SaveData();
         }
 
         else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
@@ -105,4 +105,21 @@ public class Save : MonoBehaviour
             creat.gameObject.SetActive(false);
         }
     }
+
+    public void SaveAgain()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (File.Exists(DataManager.instance.path + $"{i}_player.json")) // 이어서저장기능 구현
+                {
+                    DataManager.instance.SaveData();
+                }
+        }
+    }
+
+        public void Cancel() 
+        {
+        creat.gameObject.SetActive(false);
+    }
+
 }
