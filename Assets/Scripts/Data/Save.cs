@@ -15,6 +15,7 @@ public class Save : MonoBehaviour
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
     bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
+    int selectedSlot; // 추가: 선택한 슬롯 번호 저장
 
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
@@ -60,24 +61,27 @@ public class Save : MonoBehaviour
         }
     }
 
-    public void Slot(int number) // 슬롯의 기능 구현
+    public void Slot(int number)
     {
-        DataManager.instance.nowSlot = number; // 슬롯의 번호를 슬롯번호로 입력함.
+        selectedSlot = number; // 선택한 슬롯 번호 저장
 
-        if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
+        DataManager.instance.nowSlot = number;
+
+        if (savefile[number])
         {
-                    DataManager.instance.SaveData();
+            DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
         }
-
-        else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
-        {           
-            if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
+        else
+        {
+            if (!savefile[DataManager.instance.nowSlot])
             {
                 Creat();
-                
-                if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
+
+                // 이어서 저장 기능 구현
+                if (savefile[number])
                 {
-                    DataManager.instance.LoadData(); // 데이터를 로드하고
+                    DataManager.instance.nowSlot = selectedSlot; // 선택한 슬롯으로 변경
+                    DataManager.instance.LoadData();
                 }
             }
         }
@@ -94,7 +98,7 @@ public class Save : MonoBehaviour
         {
             DataManager.instance.nowPlayer.filename = fileName.text;
             Debug.Log(fileName.text + ": 파일 이름임");
-            DataManager.instance.SaveData();
+            DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
 
             int slotNumber = DataManager.instance.nowSlot;
             savefile[slotNumber] = true; // 해당 슬롯 번호의 bool배열 true로 변환
@@ -106,16 +110,22 @@ public class Save : MonoBehaviour
         }
     }
 
-    public void SaveAgain()
+public void SaveAgain()
     {
         for (int i = 0; i < 6; i++)
         {
-            if (File.Exists(DataManager.instance.path + $"{i}_player.json")) // 이어서저장기능 구현
-                {
-                    DataManager.instance.SaveData();
-                }
+            if (File.Exists(DataManager.instance.path + $"{i}_player.json"))
+            {
+                DataManager.instance.SaveData(i); // 파라미터 추가
+            }
+        }
+
+        if (File.Exists(DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json"))
+        {
+            DataManager.instance.SaveData(DataManager.instance.nowSlot); // 파라미터 추가
         }
     }
+
 
     public void Cancel() 
     {

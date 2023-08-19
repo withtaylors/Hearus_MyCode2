@@ -30,6 +30,6 @@ public class PlayerLocation : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        DataManager.instance.SaveData();
+        DataManager.instance.SaveData(DataManager.instance.nowSlot); // 파라미터 추가
     }
 }

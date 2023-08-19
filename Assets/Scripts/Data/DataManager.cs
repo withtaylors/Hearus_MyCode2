@@ -46,12 +46,14 @@ public class DataManager : MonoBehaviour
         print(path);
     }
 
-    public void SaveData()
+    public void SaveData(int slotNumber)
     {
-        if (File.Exists(path + nowSlot.ToString() + "_player.json")) // 파일이 이미 있는 경우
+        nowSlot = slotNumber;
+
+        if (File.Exists(path + $"{nowSlot}_player.json")) // 파일이 이미 있는 경우
         {
             // 기존 파일에서 'filename' 속성만 가져옴
-            string existingFileData = File.ReadAllText(path + nowSlot.ToString() + "_player.json");
+            string existingFileData = File.ReadAllText(path + $"{nowSlot}_player.json");
             PlayerData existingPlayerData = JsonUtility.FromJson<PlayerData>(existingFileData);
 
             // 현재 파일에 'filename'을 적용하고 저장
@@ -59,9 +61,8 @@ public class DataManager : MonoBehaviour
         }
 
         string playerData = JsonUtility.ToJson(nowPlayer);
-        File.WriteAllText(path + nowSlot.ToString() + "_player.json", playerData);
+        File.WriteAllText(path + $"{nowSlot}_player.json", playerData);
     }
-
 
     public void LoadData()
     {

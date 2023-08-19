@@ -69,10 +69,11 @@ public class Select : MonoBehaviour
         if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
         {
             DataManager.instance.nowPlayer.filename = fileName.text; // 입력한 이름을 복사해옴
-            DataManager.instance.SaveData(); // 현재 정보를 저장함.
+            DataManager.instance.SaveData(DataManager.instance.nowSlot); // 현재 슬롯 정보를 저장함.
         }
-        ChangeScene.target() ;
+        ChangeScene.target(); // ChangeScene에 대한 처리 코드가 빠져있어서 별도로 구현해야 합니다.
     }
+
 
     public void Cancel() 
     {
