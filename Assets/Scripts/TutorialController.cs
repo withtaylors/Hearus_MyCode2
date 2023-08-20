@@ -16,15 +16,17 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private bool NEXT_STEP_POSSIBLE;
 
     private int tutorialStep;
-    private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.",
-                                                       "스페이스바 키를 눌러 점프할 수 있습니다.",
-                                                       "E 키를 눌러 아이템을 조사할 수 있습니다.",
-                                                       "습득한 아이템은 인벤토리 창에서 확인할 수 있습니다.",
-                                                       "이제 넝쿨을 세 개 모아 봅시다.",
-                                                       "습득한 아이템으로 도구를 만들 수 있습니다.\n인벤토리를 열어 보세요.",
-                                                       "모은 넝쿨을 선택하여 조합할 수 있습니다.\n선택 버튼을 눌러 주세요.",
-                                                       "조합 버튼을 눌러 주세요.\n만들어진 도구는 인벤토리에서 확인할 수 있습니다.\n도구를 만든 재료는 사라집니다.",
-                                                       "튜토리얼이 모두 끝났습니다.\n함께할 파트너를 선택해 주세요." };
+    private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.", // 0
+                                                       "스페이스바 키를 눌러 점프할 수 있습니다.", // 1
+                                                       "E 키를 눌러 아이템을 조사할 수 있습니다.", // 2
+                                                       "습득한 아이템은 인벤토리 창에서 확인할 수 있습니다.", // 3
+                                                       "이제 넝쿨을 세 개 모아 봅시다.", // 4
+                                                       "습득한 아이템으로 도구를 만들 수 있습니다.\n인벤토리를 열어 보세요.", // 5
+                                                       "모은 넝쿨을 선택하여 조합할 수 있습니다.\n선택 버튼을 눌러 주세요.", // 6
+                                                       "조합 버튼을 눌러 주세요.\n만들어진 도구는 인벤토리에서 확인할 수 있습니다.\n도구를 만든 재료는 사라집니다.", // 7
+                                                       "아까 만든 밧줄을 사용해 건너가 봅시다.", // 8
+                                                       "인벤토리 창에서 아이템을 선택하면 사용할 수 있습니다.", // 9
+                                                       "튜토리얼이 모두 끝났습니다.\n함께할 파트너를 선택해 주세요." }; // 10
 
     public GameObject tutorialPanel;
     public TextMeshProUGUI tutorialPanelText;
@@ -99,9 +101,14 @@ public class TutorialController : MonoBehaviour
                         NEXT_STEP_POSSIBLE = true;
                 onClickContinueButton();
                 break;
-            case 8:
-                if (!NEXT_STEP_POSSIBLE)
+            case 8: // 조건: 인벤토리 활성화
+                if (Inventory.instance.go_Inventory.activeSelf)
                     NEXT_STEP_POSSIBLE = true;
+                onClickContinueButton();
+                break;
+            case 9: // 조건: 밧줄을 사용해 건너가기
+                break;
+            case 10: // 조건 X 
                 break;
         }
     }
@@ -111,8 +118,8 @@ public class TutorialController : MonoBehaviour
         FirstStep();
         tutorialStep = 0;
 
-        //scriptManager.FindScriptByScriptID(94);
-        //scriptManager.ShowScript();
+        scriptManager.FIndScriptByEventName("START_TUTORIAL"); // 스크립트 재생
+        scriptManager.ShowScript();
     }
 
     private void NextStep()
@@ -199,12 +206,12 @@ public class TutorialController : MonoBehaviour
         tutorialPanelText.text = textList[tutorialStep];
     }
 
-    private void EightStep()  // 인벤토리에 밧줄 확인
+    private void EightStep()  // 인벤토리에 밧줄 확인 텍스트
     {
         tutorialPanelText.text = textList[tutorialStep];
     }
 
-    private void NinthStep()
+    private void NinthStep() // 밧줄 사용 텍스트
     {
         tutorialPanelText.text = textList[tutorialStep];
         NEXT_STEP_POSSIBLE = true;
