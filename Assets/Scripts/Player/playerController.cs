@@ -295,7 +295,6 @@ public class playerController : MonoBehaviour
         isPicking = false;
 
         // 아이템 습득 및 오브젝트 제거
-        //itemPickup.Pickup(item);
         item.GetComponent<ItemPickup>().Pickup();
         Destroy(item);
     }
