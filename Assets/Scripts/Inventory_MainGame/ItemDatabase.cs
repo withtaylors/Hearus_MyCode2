@@ -37,21 +37,24 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(108, "죽순", "대나무의 어린 싹. 아삭아삭한 식감이 일품이다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(109, "대나무 잎", "대나무의 이파리. 특유의 향이 난다.", Item.ItemType.소모품, Item.ItemEffect.회복, 5));
         itemList.Add(new Item(110, "고비", "동그랗게 말린 모양의 양치식물. 연하고 독성도 없다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
-        itemList.Add(new Item(111, "어린 까마중 줄기", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(111, "어린 까마중 줄기", "까마중의 어린 줄기. 열매는 먹을 수 없으나 어린 줄기는 먹을 수 있다.", Item.ItemType.소모품, Item.ItemEffect.회복, 5));
         itemList.Add(new Item(112, "표고버섯", "행성에서도 자주 먹었던 표고버섯. 자연산이라 그런지 향이 진하다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(113, "송이버섯", "행성에서는 매우 비싸게 팔리는 송이버섯. 버섯이라 빨리 먹는 편이 좋다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10, false));
         // 시간 경과 시 HP -10 구현 필요
         itemList.Add(new Item(114, "까마중", "까맣고 동그란 열매. 약한 독성이 있어 먹으면 배탈이 난다.", Item.ItemType.소모품, Item.ItemEffect.피해, 5));
         itemList.Add(new Item(115, "고사리", "잘 말려서 익히면 먹을 수 있는 고사리. 말릴 시간이 없기 때문에 아예 먹지 않는 편이 좋다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
         itemList.Add(new Item(116, "은방울꽃", "향기가 좋은 은방울꽃. 행성에서는 향수의 재료로 많이 쓰이나 독이 있어 식용으로는 쓰이지 않는다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
-        itemList.Add(new Item(117, "여로", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        itemList.Add(new Item(118, "붉은대자리공 잎", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        itemList.Add(new Item(119, "붉은사슴뿔버섯", "", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        itemList.Add(new Item(120, "광대버섯", "하얀 점박이 무늬가 있는 빨간 버섯. 강한 독성을 띄고 있다.", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(117, "여로", "크고 기다란 여러 이파리가 모여있는 식물. 약한 독성을 띈다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
+        itemList.Add(new Item(118, "붉은대자리공 잎", "붉은 줄기를 가진 식물의 이파리. 강한 독성을 띈다.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
+        itemList.Add(new Item(119, "붉은사슴뿔버섯", "사슴 뿔처럼 생긴 붉은 버섯. 매우 강한 독성이 있다.", Item.ItemType.소모품, Item.ItemEffect.피해, 20));
+        itemList.Add(new Item(120, "광대버섯", "하얀 점박이 무늬가 있는 빨간 버섯. 강한 독성을 띄고 있다.", Item.ItemType.소모품, Item.ItemEffect.피해, 15));
         itemList.Add(new Item(121, "화경버섯", "독이 있는 버섯. 먹으면 죽진 않지만 배탈이 난다. 밤엔 빛이 나 주위를 밝힌다.", Item.ItemType.소모품, Item.ItemEffect.피해, 5));
-        itemList.Add(new Item(122, "까마중 줄기", "까마중의 줄기. 통증을 완화시켜 준다.", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        itemList.Add(new Item(123, "골쇄보", "고사리와 비슷하게 생긴 식물. 찧어서 바르면 지혈된다.", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
-        itemList.Add(new Item(124, "쐐기풀", "겉에 작은 털들이 있는 풀. 먹거나 다친 부위에 찧어서 바르면 해독된다.", Item.ItemType.소모품, Item.ItemEffect.회복, 15));
+        itemList.Add(new Item(122, "까마중 줄기", "까마중의 줄기. 통증을 완화시켜 준다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0));
+        // 까마중 줄기: 통증 디버프 해제
+        itemList.Add(new Item(123, "골쇄보", "고사리와 비슷하게 생긴 식물. 찧어서 바르면 지혈된다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0));
+        // 골쇄보: 타박상 디버프 해제
+        itemList.Add(new Item(124, "쐐기풀", "겉에 작은 털들이 있는 풀. 먹거나 다친 부위에 찧어서 바르면 해독된다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0));
+        // 쐐기풀: 타박상 디버프 해제
         itemList.Add(new Item(125, "큰 나무껍질", "커다랗게 떨어져 나온 나무 껍질. 여기의 나무들이 매우 크기에 껍질도 두껍고 큰 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(126, "두꺼운 나뭇가지", "얇은 장작 정도 두께의 매우 두꺼운 나뭇가지. 여기의 나무들이 매우 크기에 나뭇가지도 두꺼운 것이 나오는 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(127, "나뭇가지", "행성에서도 볼 수 있는 평범한 두께의 나뭇가지. 여기의 나무들에 비해서는 아주 얇은 잔가지 정도인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
