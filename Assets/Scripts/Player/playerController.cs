@@ -22,7 +22,6 @@ public class playerController : MonoBehaviour
     public bool isInDialogue = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
-    public bool isJumping;
 
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
@@ -132,21 +131,23 @@ public class playerController : MonoBehaviour
         if (isPicking || isInDialogue)
             return;
 
-        // 스페이스바를 눌렀을 시 점프 실행
-        if (grounded && Input.GetButtonDown("Jump"))
+        if (!grounded) // 플레이어가 땅과 닿지 않은 상태일 때
         {
-            isJumping = true;
-            // grounded - false (땅과 닿지않음) 이므로 jump animation 실행
             grounded = false;
             myAnim.SetBool("grounded", grounded);
-
-            myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
-    }
+        else // 플레이어가 땅에 닿은 상태일 때
+        {
+            // 스페이스바를 눌렀을 시 점프 실행
+            if (grounded && Input.GetButtonDown("Jump"))
+            {
+                // grounded - false (땅과 닿지않음) 이므로 jump animation 실행
+                grounded = false;
+                myAnim.SetBool("grounded", grounded);
 
-    public void SetCanClimb(bool value)
-    {
-        canClimb = value;
+                myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            }
+        }
     }
 
     //플레이어 점프 - 땅과 충돌 감지
@@ -155,10 +156,9 @@ public class playerController : MonoBehaviour
         //GroundLayer와 만났다면 
         if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
         {
-            //grounded - true (땅과 닿았음) 이므로 falling to land animation 실행
+            // 플레이어가 착지하였으므로 grounded - true (땅과 닿았음)
             grounded = true;
             myAnim.SetBool("grounded", grounded);
-            isJumping = false;
         }
 
         if (collision.gameObject.name.Equals("Island_B_Cube")) // 로프를 사용하여 목적지에 닿으면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
@@ -167,7 +167,7 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
             arriveRopeField.Invoke();
     }
-    
+
     // void OnCollisionExit(Collision collision)
     // {
     //     // GroundLayer와 떨어졌다면
@@ -177,9 +177,6 @@ public class playerController : MonoBehaviour
     //         // grounded - false (땅과 닿지않음)
     //         grounded = false;
     //         myAnim.SetBool("grounded", grounded);
-    //         }
-    //         else {
-                
     //         }
     //     }
     // }
@@ -232,7 +229,6 @@ public class playerController : MonoBehaviour
             isClimbing = false;
             myAnim.SetBool("isClimbing", isClimbing);
             myRB.useGravity = true;
-            isJumping = false; // 로프를 타고 C로 상태 해제 시, isJumping도 false로 변경
             myAnim.speed = 1; //애니메이션 속도를 복원
         }
         else
@@ -307,5 +303,12 @@ public class playerController : MonoBehaviour
         // 아이템 습득 및 오브젝트 제거
         item.GetComponent<ItemPickup>().Pickup();
         Destroy(item);
+    }
+
+    public void UpdateGrounded(bool isCollidingWithGround)
+    {
+        grounded = false;
+        myAnim.SetBool("grounded", grounded);
+        Debug.Log("여기까지옴");
     }
 }
