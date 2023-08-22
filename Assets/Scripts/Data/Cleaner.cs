@@ -17,7 +17,6 @@ public class Cleaner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("OnTriggerEnter 호출됨");
             Player.transform.position = respawnPoint.transform.position;
 
             if (respawnParticlesPrefab != null)
