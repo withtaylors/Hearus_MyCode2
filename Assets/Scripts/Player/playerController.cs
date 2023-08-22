@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
+using UnityEngine.Events;
 
 public class playerController : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class playerController : MonoBehaviour
     private float newClimbSpeed = 0;
 
     private string colliderTag;
+
+    public UnityEvent useRope;
+    public UnityEvent arriveRopeField;
 
     void Start()
     {
@@ -156,6 +160,12 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("grounded", grounded);
             isJumping = false;
         }
+
+        if (collision.gameObject.name.Equals("Island_B_Cube")) // 로프를 사용하여 목적지에 닿으면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
+            useRope.Invoke();
+
+        if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
+            arriveRopeField.Invoke();
     }
     
     // void OnCollisionExit(Collision collision)
