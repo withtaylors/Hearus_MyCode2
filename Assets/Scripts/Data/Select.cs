@@ -14,7 +14,10 @@ public class Select : MonoBehaviour
 
     public TextMeshProUGUI[] slotText; // 슬롯버튼 아래에 존재하는 Text들
     public TextMeshProUGUI[] slotText2; // 슬롯버튼 아래에 존재하는 Text들
+
     public TMP_Text fileName; // 새로 입력된 파일 이름
+    public TMP_InputField inputField; // InputField 컴포넌트를 드래그 앤 드롭으로 연결
+
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
     bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
@@ -77,9 +80,9 @@ public class Select : MonoBehaviour
 
     private IEnumerator DisplayAndHideCanvas()
     {
-        creat3.gameObject.SetActive(true); // Show creat3 canvas
-        yield return new WaitForSeconds(displayDuration); // Wait for the display duration
-        creat3.gameObject.SetActive(false); // Hide creat3 canvas after the display duration
+        creat3.gameObject.SetActive(true); 
+        yield return new WaitForSeconds(displayDuration); 
+        creat3.gameObject.SetActive(false); 
     }
 
     public void GoGame() // 게임씬으로 이동
@@ -95,6 +98,10 @@ public class Select : MonoBehaviour
     public void Cancel() 
     {
         creat.gameObject.SetActive(false);
+        if (inputField != null)
+        {
+            inputField.text = ""; // 입력된 텍스트를 비워줍니다.
+        }  
     }
 
     public void DeleteSlot()
@@ -103,7 +110,6 @@ public class Select : MonoBehaviour
 
         if (File.Exists(filePath))
         {
-            Debug.Log("파일 존재함");
             File.Delete(filePath);
             savefile[DataManager.instance.nowSlot] = false;
             slotText[DataManager.instance.nowSlot].text = "Empty";

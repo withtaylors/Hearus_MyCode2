@@ -6742,6 +6742,7 @@ MonoBehaviour:
   - {fileID: 2025914393}
   - {fileID: 1493860931}
   fileName: {fileID: 1611233373}
+  inputField: {fileID: 1508307558}
   slotImages:
   - {fileID: 1178246091}
   - {fileID: 1867276429}
