@@ -110,7 +110,7 @@ public class Save : MonoBehaviour
         }
     }
 
-public void SaveAgain()
+    public void SaveAgain()
     {
         for (int i = 0; i < 6; i++)
         {

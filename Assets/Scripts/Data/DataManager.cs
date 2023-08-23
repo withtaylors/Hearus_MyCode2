@@ -27,6 +27,10 @@ public class DataManager : MonoBehaviour
     public string path; // 경로
     public int nowSlot; // 현재 슬롯번호
 
+    //selectedSlot 변수와 OnSelectedSlotChanged 이벤트 추가
+    public int selectedSlot;
+    public event Action<int> OnSelectedSlotChanged;
+
     private void Awake()
     {
         if (instance == null)
@@ -47,6 +51,14 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);
     }
+
+    //SetSelectedSlot 함수 추가
+    public void SetSelectedSlot(int slotNumber)
+    {
+        selectedSlot = slotNumber;
+        OnSelectedSlotChanged?.Invoke(selectedSlot);
+    }
+
 
     public void SaveData(int slotNumber)
     {

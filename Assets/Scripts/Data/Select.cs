@@ -19,43 +19,74 @@ public class Select : MonoBehaviour
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
 
-    void Start()
+    public static Select instance; // 싱글톤 인스턴스 추가
+
+    private void Awake()
     {
-        // 슬롯별로 저장된 데이터가 존재하는지 판단.
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+
+    private void Start()
+    {
+        DataManager.instance.OnSelectedSlotChanged += UpdateSelectedSlotUI;
+        UpdateSlotTexts();
+    }
+
+    private void UpdateSlotTexts()
+    {
         for (int i = 0; i < 6; i++)
         {
-            if (File.Exists(DataManager.instance.path + $"{i}" + "_player.json")) // 데이터가 있는 경우
+            if (File.Exists(DataManager.instance.path + $"{i}_player.json"))
             {
-                savefile[i] = true; // 해당 슬롯 번호의 bool배열 true로 변환
-                DataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
-                DataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
-                slotText[i].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
+                savefile[i] = true;
+                DataManager.instance.nowSlot = i;
+                DataManager.instance.LoadData();
+                slotText[i].text = DataManager.instance.nowPlayer.filename;
                 slotText2[i].text = "이어서 하기";
-                slotImages[i].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
+                slotImages[i].sprite = dataExistsImage;
             }
-            else // 데이터가 없는 경우
+            else
             {
                 slotText[i].text = "Empty";
                 slotText2[i].text = "새로 하기";
-                slotImages[i].sprite = dataEmptyImage; // 데이터가 없는 경우의 이미지로 변경
+                slotImages[i].sprite = dataEmptyImage;
             }
         }
-        // 불러온 데이터를 초기화시킴
         DataManager.instance.DataClear();
     }
 
-    public void Slot(int number) // 슬롯의 기능 구현
+    public void Slot(int number)
     {
-        DataManager.instance.nowSlot = number; // 슬롯의 번호를 슬롯번호로 입력함.
-
-        if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
+        DataManager.instance.SetSelectedSlot(number);
+        if (savefile[number])
         {
-            DataManager.instance.LoadData(); // 데이터를 로드하고
-            GoGame(); // 게임씬으로 이동
+            DataManager.instance.LoadData();
+            GoGame();
         }
-        else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
+        else
         {
-            Creat(); // 파일 이름 입력 UI 활성화
+            Creat();
+        }
+    }
+
+    private void UpdateSelectedSlotUI(int selectedSlot)
+    {
+        // 선택된 슬롯에 대한 UI 업데이트
+        if (selectedSlot >= 0 && selectedSlot < savefile.Length)
+        {
+            // 해당 슬롯의 UI를 업데이트
+            slotText[selectedSlot].text = DataManager.instance.nowPlayer.filename;
+            slotText2[selectedSlot].text = "이어서 하기";
+            slotImages[selectedSlot].sprite = dataExistsImage;
         }
     }
 
@@ -74,9 +105,31 @@ public class Select : MonoBehaviour
         ChangeScene.target(); // ChangeScene에 대한 처리 코드가 빠져있어서 별도로 구현해야 합니다.
     }
 
-
     public void Cancel() 
     {
         creat.gameObject.SetActive(false);
+    }
+
+    public void DeleteSelectedSlot() // 이 함수에서 오른쪽 마우스 클릭으로 슬롯 삭제 기능을 구현
+    {
+        int selectedSlot = DataManager.instance.nowSlot; // 현재 선택된 슬롯 번호를 가져옴
+
+        if (selectedSlot >= 0 && selectedSlot < savefile.Length)
+        {
+            if (File.Exists(DataManager.instance.path + $"{selectedSlot}_player.json"))
+            {
+                File.Delete(DataManager.instance.path + $"{selectedSlot}_player.json");
+
+                // savefile 배열 업데이트
+                savefile[selectedSlot] = false;
+
+                // 해당 슬롯의 UI 업데이트
+                slotText[selectedSlot].text = "Empty";
+                slotText2[selectedSlot].text = "새로 저장";
+                slotImages[selectedSlot].sprite = dataEmptyImage;
+
+                Debug.Log($"Slot {selectedSlot}의 파일이 삭제되었습니다.");
+            }
+        }
     }
 }
