@@ -97,7 +97,7 @@ public class ItemPickup : MonoBehaviour
                     {
                         if (ScriptSwitch.instance.switchs[0].switchValue == false)
                         {
-                            scriptManager.FIndScriptByEventName("MEET_AGAIN_122");
+                            scriptManager.FindScriptByEventName("MEET_AGAIN_122");
                             scriptManager.ShowScript();
                             return;
                         }
@@ -117,7 +117,7 @@ public class ItemPickup : MonoBehaviour
                     {
                         if (ScriptSwitch.instance.switchs[1].switchValue == false)
                         {
-                            scriptManager.FIndScriptByEventName("MEET_AGAIN_123");
+                            scriptManager.FindScriptByEventName("MEET_AGAIN_123");
                             scriptManager.ShowScript();
                             return;
                         }
@@ -137,7 +137,7 @@ public class ItemPickup : MonoBehaviour
                     {
                         if (ScriptSwitch.instance.switchs[2].switchValue == false)
                         {
-                            scriptManager.FIndScriptByEventName("MEET_AGAIN_124");
+                            scriptManager.FindScriptByEventName("MEET_AGAIN_124");
                             scriptManager.ShowScript();
                             return;
                         }

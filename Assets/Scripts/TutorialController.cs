@@ -45,6 +45,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private ParticleSystem settingButtonParticle;
     [SerializeField] private ParticleSystem inventoryButtonParticle;
     [SerializeField] private GameObject fader;
+    
     [SerializeField] private ScriptManager scriptManager;
 
 
@@ -135,8 +136,8 @@ public class TutorialController : MonoBehaviour
         FirstStep();
         tutorialStep = 0;
 
-        scriptManager.FIndScriptByEventName("START_TUTORIAL"); // 스크립트 재생
-        //scriptManager.ShowScript();
+        scriptManager.FindScriptByEventName("START_TUTORIAL"); // 스크립트 재생
+        scriptManager.ShowScript();
     }
 
     private void NextStep()
@@ -356,7 +357,8 @@ public class TutorialController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
 
-
+        scriptManager.FindScriptByEventName("MEET_FRITH");
+        scriptManager.ShowScript();
     }
 
     private IEnumerator FadeOutStart() // 튜토리얼 종료 시 페이드아웃 -> 스크립트

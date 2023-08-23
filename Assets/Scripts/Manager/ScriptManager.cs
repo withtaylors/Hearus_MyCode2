@@ -75,7 +75,7 @@ public class ScriptManager : MonoBehaviour
 
                     }
                 }
-            } 
+            }
         }
     }
 
@@ -167,7 +167,7 @@ public class ScriptManager : MonoBehaviour
 
     public void FindScriptByScriptID(int _scriptID) // 스크립트 아이디로 스크립트를 검색해 currentScript에 넣음
     {
-        for (int i = 1; i < script.scripts.Length; i++)
+        for (int i = 1; i <= script.scripts.Length; i++)
         {
             //if (script.scripts[i].scriptID == _scriptID)
             if (i == _scriptID)
@@ -179,9 +179,9 @@ public class ScriptManager : MonoBehaviour
         currentLine = 0;
     }
 
-    public void FIndScriptByEventName(string _eventName) // 아이템과 관련된 스크립트가 아닐 때는 이벤트 이름으로 검색함
+    public void FindScriptByEventName(string _eventName) // 아이템과 관련된 스크립트가 아닐 때는 이벤트 이름으로 검색함
     {
-        for (int i = 1; i < script.scripts.Length; i++)
+        for (int i = 0; i < script.scripts.Length; i++)
         {
             if (script.scripts[i].eventName == _eventName)
             {
