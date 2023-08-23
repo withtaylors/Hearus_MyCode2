@@ -29,6 +29,7 @@ public class TutorialController : MonoBehaviour
                                                        "인벤토리 창에서 아이템을 선택하면 사용할 수 있습니다.", // 10
                                                        "튜토리얼이 모두 끝났습니다.\n함께할 파트너를 선택해 주세요." }; // 11
 
+
     public GameObject tutorialPanel;
     public TextMeshProUGUI tutorialPanelText;
     public GameObject Button;
@@ -105,28 +106,19 @@ public class TutorialController : MonoBehaviour
                         NEXT_STEP_POSSIBLE = true;
                 onClickContinueButton();
                 break;
-            case 8: // 조건: 밧줄 사용 지점에 도달하기(NinthStep)
+            case 8:
+                break;
+            case 9: // 조건: 밧줄 사용 지점에 도달하기(NinthStep)
                 if (arriveRopeField)
-                {
-                    NEXT_STEP_POSSIBLE = true;
                     TenthStep();
-                }
                 break;
-            case 9: // 조건: 인벤토리 활성화(TenthStep)
-                break;
-            case 10: // 조건: 밧줄 사용하기(EleventhStep)
+            case 10: // 조건: 인벤토리 활성화(TenthStep)
                 if (Inventory.instance.go_Inventory.activeSelf)
-                {
-                    NEXT_STEP_POSSIBLE = true;
                     EleventhStep();
-                }
                 break;
-            case 11:
+            case 11: // 조건: 밧줄 사용하기(EleventhStep)
                 if (useRope)
-                    NEXT_STEP_POSSIBLE = true;
-                onClickContinueButton();
-                break;
-            case 12:
+                    TwelfthStep();
                 break;
         }
     }
@@ -178,9 +170,6 @@ public class TutorialController : MonoBehaviour
                 break;
             case 11:
                 TwelfthStep();
-                break;
-            case 12:
-                SelectFrith();
                 break;
 
         }
@@ -234,41 +223,51 @@ public class TutorialController : MonoBehaviour
         tutorialPanelText.text = textList[tutorialStep];
     }
 
-    private void EighthStep()  // 인벤토리에 밧줄 확인 텍스트
+    private void EighthStep()  // 밧줄 제작 텍스트
     {
         tutorialPanelText.text = textList[tutorialStep];
     }
 
-    private void NinthStep() // 밧줄 제작 텍스트
+    private void NinthStep() // 밧줄 제작 완료 텍스트
     {
         tutorialPanelText.text = textList[tutorialStep];
         StartCoroutine("FadeOutPanel");
     }
     private void TenthStep() // 밧줄 사용 텍스트
     {
-        onClickContinueButton();
-        tutorialPanelText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[9];
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
         c.a = 1f;
         c2.a = 1f;
         tutorialPanel.GetComponent<Image>().color = c;
         tutorialPanelText.color = c2;
+
+        settingButtonParticle.gameObject.SetActive(true);
+        settingButtonParticle.Play();
+        inventoryButtonParticle.gameObject.SetActive(true);
+        inventoryButtonParticle.Play();
+
+        tutorialStep++;
     }
 
-    private void EleventhStep()
+    private void EleventhStep() // 인벤토리 밧줄 텍스트
     {
-        tutorialPanelText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[10];
+
+        tutorialStep++;
     }
 
-    private void TwelfthStep()
+    private void TwelfthStep() // 튜토리얼 완료 텍스트
     {
-        tutorialPanelText.text = textList[tutorialStep];
+        tutorialPanelText.text = textList[11];
         nextButton.SetActive(true);
+        settingButtonParticle.gameObject.SetActive(false);
+        inventoryButtonParticle.gameObject.SetActive(false);
     }
 
     // 프리스 선택
-    private void SelectFrith()
+    public void SelectFrith()
     {
         tutorialPanel.SetActive(false);
         settingPanel.SetActive(false);
@@ -303,44 +302,54 @@ public class TutorialController : MonoBehaviour
 
     public void OnSelectEden()
     {
-        ActiveSelectMessage();
         tutorialPanelText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        ActiveSelectMessage();
     }
 
     public void OnSelectNoah()
     {
-        ActiveSelectMessage();
         tutorialPanelText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        ActiveSelectMessage();
     }
 
     public void OnSelectAdam()
     {
-        ActiveSelectMessage();
         tutorialPanelText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        ActiveSelectMessage();
     }
 
     public void OnSelectJonah()
     {
-        ActiveSelectMessage();
         tutorialPanelText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        ActiveSelectMessage();
     }
 
     private void ActiveSelectMessage()
     {
         tutorialPanel.SetActive(true);
         Button.SetActive(true);
+        nextButton.SetActive(false);
     }
 
     public void OnClickYesButton()
     {
         tutorialPanel.SetActive(false);
         selectFrithPanel.SetActive(false);
+
+        StartCoroutine("EndTutorial");
     }
 
     public void OnClickNoButton()
     {
         tutorialPanel.SetActive(false);
         Button.SetActive(false);
+    }
+
+    private IEnumerator EndTutorial()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+
+
     }
 
     private IEnumerator FadeOutStart() // 튜토리얼 종료 시 페이드아웃 -> 스크립트
@@ -375,6 +384,7 @@ public class TutorialController : MonoBehaviour
             yield return null;
         }
 
+        tutorialStep++;
         tutorialPanelText.text = textList[tutorialStep];
 
     }

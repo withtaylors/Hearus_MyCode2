@@ -168,7 +168,7 @@ RectTransform:
   m_Children:
   - {fileID: 2850899301298964604}
   m_Father: {fileID: 6785200800244391720}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -387,7 +387,7 @@ RectTransform:
   - {fileID: 9132657706005295316}
   - {fileID: 9214009556289568307}
   m_Father: {fileID: 6785200800244391720}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1268,8 +1268,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7192666492490120338}
   - {fileID: 4729284561578335520}
+  - {fileID: 7192666492490120338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1352,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NEXT_STEP_POSSIBLE: 0
+  tutorialStep: 0
   tutorialPanel: {fileID: 429174556765068410}
   tutorialPanelText: {fileID: 4270957147970274713}
   Button: {fileID: 0}
@@ -1360,6 +1361,9 @@ MonoBehaviour:
   settingButtonParticle: {fileID: 0}
   inventoryButtonParticle: {fileID: 0}
   fader: {fileID: 0}
+  scriptManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  arriveRopeField: 0
 --- !u!1 &8314561513829319652
 GameObject:
   m_ObjectHideFlags: 0
