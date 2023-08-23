@@ -14,7 +14,8 @@ public class TutorialController : MonoBehaviour
     /// </summary>
 
     [SerializeField] private bool NEXT_STEP_POSSIBLE;
-    [SerializeField] private int tutorialStep;
+
+    private int tutorialStep;
 
     private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.", // 0
                                                        "스페이스바 키를 눌러 점프할 수 있습니다.", // 1
@@ -32,7 +33,12 @@ public class TutorialController : MonoBehaviour
 
     public GameObject tutorialPanel;
     public TextMeshProUGUI tutorialPanelText;
+
+    [SerializeField] private GameObject frithCheckPanel;
+    [SerializeField] private TextMeshProUGUI frithCheckText;
+
     public GameObject Button;
+    [SerializeField] private GameObject nextButton;
 
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject selectFrithPanel;
@@ -40,7 +46,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private ParticleSystem inventoryButtonParticle;
     [SerializeField] private GameObject fader;
     [SerializeField] private ScriptManager scriptManager;
-    [SerializeField] private GameObject nextButton;
+
+
 
     private bool right = false;
     private bool left = false;
@@ -264,6 +271,8 @@ public class TutorialController : MonoBehaviour
         nextButton.SetActive(true);
         settingButtonParticle.gameObject.SetActive(false);
         inventoryButtonParticle.gameObject.SetActive(false);
+
+        tutorialStep++;
     }
 
     // 프리스 선택
@@ -302,47 +311,45 @@ public class TutorialController : MonoBehaviour
 
     public void OnSelectEden()
     {
-        tutorialPanelText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        frithCheckText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectNoah()
     {
-        tutorialPanelText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        frithCheckText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectAdam()
     {
-        tutorialPanelText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        frithCheckText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectJonah()
     {
-        tutorialPanelText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
+        frithCheckText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     private void ActiveSelectMessage()
     {
-        tutorialPanel.SetActive(true);
-        Button.SetActive(true);
-        nextButton.SetActive(false);
+        frithCheckPanel.SetActive(true);
+        selectFrithPanel.SetActive(false);
     }
 
     public void OnClickYesButton()
     {
-        tutorialPanel.SetActive(false);
-        selectFrithPanel.SetActive(false);
+        frithCheckPanel.SetActive(false);
 
         StartCoroutine("EndTutorial");
     }
 
     public void OnClickNoButton()
     {
-        tutorialPanel.SetActive(false);
-        Button.SetActive(false);
+        frithCheckPanel.SetActive(false);
+        selectFrithPanel.SetActive(true);
     }
 
     private IEnumerator EndTutorial()
