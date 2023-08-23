@@ -9,6 +9,10 @@ using System.IO;
 public class Save : MonoBehaviour
 {
     public GameObject creat; // 파일 이름 입력UI
+    public GameObject creat2; // 파일 삭제 게임시작 선택 UI
+    public GameObject creat3; // 파일 삭제완료 메세지 UI
+    public GameObject creat4; // 파일 저장완료 메세지 UI
+
     public TextMeshProUGUI[] slotText; // 슬롯버튼 아래에 존재하는 Text들
     public TextMeshProUGUI[] slotText2; // 슬롯버튼 아래에 존재하는 Text들
     public TMP_Text fileName; // 새로 입력된 파일 이름
@@ -69,7 +73,8 @@ public class Save : MonoBehaviour
 
         if (savefile[number])
         {
-            DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
+            Creat2();
+            //DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
         }
         else
         {
@@ -90,6 +95,39 @@ public class Save : MonoBehaviour
     public void Creat() // 파일 이름 입력 UI를 활성화하는 메소드
     {
         creat.gameObject.SetActive(true);
+    }
+
+    public float displayDuration = 2.0f;
+
+    public void Creat2() // 파일 삭제 or 게임시작 선택 UI
+    {
+        creat2.gameObject.SetActive(true);
+    }
+
+    public void Creat3() // 파일 삭제완료 메세지 UI
+    {
+        StartCoroutine(DisplayAndHideDeleteCanvas());
+        creat2.gameObject.SetActive(false);
+    }
+
+    public void Creat4() // 파일 저장완료 메세지 UI
+    {
+        StartCoroutine(DisplayAndHideSaveCanvas());
+        creat2.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DisplayAndHideDeleteCanvas()
+    {
+        creat3.gameObject.SetActive(true); // Show creat3 canvas
+        yield return new WaitForSeconds(displayDuration); // Wait for the display duration
+        creat3.gameObject.SetActive(false); // Hide creat3 canvas after the display duration
+    }
+
+    private IEnumerator DisplayAndHideSaveCanvas()
+    {
+        creat4.gameObject.SetActive(true); // Show creat3 canvas
+        yield return new WaitForSeconds(displayDuration); // Wait for the display duration
+        creat4.gameObject.SetActive(false); // Hide creat3 canvas after the display duration
     }
 
     public void OnOKButtonClick()
@@ -126,9 +164,28 @@ public class Save : MonoBehaviour
         }
     }
 
-
     public void Cancel() 
     {
         creat.gameObject.SetActive(false);
+    }
+
+    public void SaveFileAgain()
+    {
+        DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
+    }
+
+    public void DeleteSlot()
+    {
+        string filePath = DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json";
+
+        if (File.Exists(filePath))
+        {
+            Debug.Log("파일 존재함");
+            File.Delete(filePath);
+            savefile[DataManager.instance.nowSlot] = false;
+            slotText[DataManager.instance.nowSlot].text = "Empty";
+            slotText2[DataManager.instance.nowSlot].text = "새로 하기";
+            slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
+        }
     }
 }

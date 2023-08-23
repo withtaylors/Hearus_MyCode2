@@ -9,6 +9,9 @@ using System.IO;
 public class Select : MonoBehaviour
 {
     public GameObject creat; // 파일 이름 입력UI
+    public GameObject creat2; // 파일 삭제 게임시작 선택 UI
+    public GameObject creat3; // 파일 삭제완료 메세지 UI
+
     public TextMeshProUGUI[] slotText; // 슬롯버튼 아래에 존재하는 Text들
     public TextMeshProUGUI[] slotText2; // 슬롯버튼 아래에 존재하는 Text들
     public TMP_Text fileName; // 새로 입력된 파일 이름
@@ -19,80 +22,64 @@ public class Select : MonoBehaviour
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
 
-    public static Select instance; // 싱글톤 인스턴스 추가
-
-    private void Awake()
+    void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-
-    private void Start()
-    {
-        DataManager.instance.OnSelectedSlotChanged += UpdateSelectedSlotUI;
-        UpdateSlotTexts();
-    }
-
-    private void UpdateSlotTexts()
-    {
+        // 슬롯별로 저장된 데이터가 존재하는지 판단.
         for (int i = 0; i < 6; i++)
         {
-            if (File.Exists(DataManager.instance.path + $"{i}_player.json"))
+            if (File.Exists(DataManager.instance.path + $"{i}" + "_player.json")) // 데이터가 있는 경우
             {
-                savefile[i] = true;
-                DataManager.instance.nowSlot = i;
-                DataManager.instance.LoadData();
-                slotText[i].text = DataManager.instance.nowPlayer.filename;
+                savefile[i] = true; // 해당 슬롯 번호의 bool배열 true로 변환
+                DataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
+                DataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
+                slotText[i].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
                 slotText2[i].text = "이어서 하기";
-                slotImages[i].sprite = dataExistsImage;
+                slotImages[i].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
             }
-            else
+            else // 데이터가 없는 경우
             {
                 slotText[i].text = "Empty";
                 slotText2[i].text = "새로 하기";
-                slotImages[i].sprite = dataEmptyImage;
+                slotImages[i].sprite = dataEmptyImage; // 데이터가 없는 경우의 이미지로 변경
             }
         }
+        // 불러온 데이터를 초기화시킴
         DataManager.instance.DataClear();
     }
 
-    public void Slot(int number)
+    public void Slot(int number) // 슬롯의 기능 구현
     {
-        DataManager.instance.SetSelectedSlot(number);
-        if (savefile[number])
+        DataManager.instance.nowSlot = number; // 슬롯의 번호를 슬롯번호로 입력함
+
+        if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
         {
-            DataManager.instance.LoadData();
-            GoGame();
+            DataManager.instance.LoadData(); // 데이터를 로드하고
+            Creat2();
         }
-        else
+        else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
         {
-            Creat();
+            creat.gameObject.SetActive(true);
         }
     }
 
-    private void UpdateSelectedSlotUI(int selectedSlot)
+    public float displayDuration = 2.0f;
+
+    public void Creat2() // 파일 삭제 or 게임시작 선택 UI
     {
-        // 선택된 슬롯에 대한 UI 업데이트
-        if (selectedSlot >= 0 && selectedSlot < savefile.Length)
-        {
-            // 해당 슬롯의 UI를 업데이트
-            slotText[selectedSlot].text = DataManager.instance.nowPlayer.filename;
-            slotText2[selectedSlot].text = "이어서 하기";
-            slotImages[selectedSlot].sprite = dataExistsImage;
-        }
+        creat2.gameObject.SetActive(true);
     }
 
-    public void Creat() // 파일 이름 입력 UI를 활성화하는 메소드
+    public void Creat3() // 파일 삭제완료 메세지 UI
     {
-        creat.gameObject.SetActive(true);
+        StartCoroutine(DisplayAndHideCanvas());
+        creat2.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DisplayAndHideCanvas()
+    {
+        creat3.gameObject.SetActive(true); // Show creat3 canvas
+        yield return new WaitForSeconds(displayDuration); // Wait for the display duration
+        creat3.gameObject.SetActive(false); // Hide creat3 canvas after the display duration
     }
 
     public void GoGame() // 게임씬으로 이동
@@ -110,26 +97,18 @@ public class Select : MonoBehaviour
         creat.gameObject.SetActive(false);
     }
 
-    public void DeleteSelectedSlot() // 이 함수에서 오른쪽 마우스 클릭으로 슬롯 삭제 기능을 구현
+    public void DeleteSlot()
     {
-        int selectedSlot = DataManager.instance.nowSlot; // 현재 선택된 슬롯 번호를 가져옴
+        string filePath = DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json";
 
-        if (selectedSlot >= 0 && selectedSlot < savefile.Length)
+        if (File.Exists(filePath))
         {
-            if (File.Exists(DataManager.instance.path + $"{selectedSlot}_player.json"))
-            {
-                File.Delete(DataManager.instance.path + $"{selectedSlot}_player.json");
-
-                // savefile 배열 업데이트
-                savefile[selectedSlot] = false;
-
-                // 해당 슬롯의 UI 업데이트
-                slotText[selectedSlot].text = "Empty";
-                slotText2[selectedSlot].text = "새로 저장";
-                slotImages[selectedSlot].sprite = dataEmptyImage;
-
-                Debug.Log($"Slot {selectedSlot}의 파일이 삭제되었습니다.");
-            }
+            Debug.Log("파일 존재함");
+            File.Delete(filePath);
+            savefile[DataManager.instance.nowSlot] = false;
+            slotText[DataManager.instance.nowSlot].text = "Empty";
+            slotText2[DataManager.instance.nowSlot].text = "새로 하기";
+            slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
         }
     }
 }

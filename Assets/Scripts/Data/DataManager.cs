@@ -7,8 +7,6 @@ using System;
 
 public class PlayerData
 {
-    public static DataManager instance2; // 싱글톤패턴
-
     public string filename;
 
     //플레이어 위치
@@ -58,7 +56,6 @@ public class DataManager : MonoBehaviour
         selectedSlot = slotNumber;
         OnSelectedSlotChanged?.Invoke(selectedSlot);
     }
-
 
     public void SaveData(int slotNumber)
     {
