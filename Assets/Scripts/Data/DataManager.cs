@@ -25,7 +25,6 @@ public class DataManager : MonoBehaviour
     public string path; // 경로
     public int nowSlot; // 현재 슬롯번호
 
-    //selectedSlot 변수와 OnSelectedSlotChanged 이벤트 추가
     public int selectedSlot;
     public event Action<int> OnSelectedSlotChanged;
 

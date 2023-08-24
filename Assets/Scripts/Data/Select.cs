@@ -52,17 +52,30 @@ public class Select : MonoBehaviour
 
     public void Slot(int number) // 슬롯의 기능 구현
     {
+        Debug.Log("Select - Slot number : " + number);
+        Debug.Log("Select - Slot instance nowSlot : " + DataManager.instance.nowSlot);
+
         DataManager.instance.nowSlot = number; // 슬롯의 번호를 슬롯번호로 입력함
+
+        Debug.Log("Select - Slot number 2222 : " + number);
+        Debug.Log("Select - Slot instance nowSlot 2222: " + DataManager.instance.nowSlot);
 
         if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
         {
             DataManager.instance.LoadData(); // 데이터를 로드하고
+            Debug.Log("현재 슬롯에 데이터 YES-----");
             Creat2();
         }
         else // bool 배열에서 현재 슬롯번호가 false라면 데이터가 없다는 뜻
         {
-            creat.gameObject.SetActive(true);
+            Debug.Log("현재 슬롯에 데이터 NONE-----");
+            Creat();
         }
+    }
+
+    public void Creat() // 파일 이름 UI
+    {
+        creat.gameObject.SetActive(true);
     }
 
     public float displayDuration = 2.0f;
@@ -87,6 +100,7 @@ public class Select : MonoBehaviour
 
     public void GoGame() // 게임씬으로 이동
     {
+        Debug.Log("GoGame instance nowSlot : " + DataManager.instance.nowSlot);
         if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
         {
             DataManager.instance.nowPlayer.filename = fileName.text; // 입력한 이름을 복사해옴
@@ -106,6 +120,8 @@ public class Select : MonoBehaviour
 
     public void DeleteSlot()
     {
+        Debug.Log("Select -- DeletSlot nowSlot : " + DataManager.instance.nowSlot);
+
         string filePath = DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json";
 
         if (File.Exists(filePath))
@@ -116,5 +132,7 @@ public class Select : MonoBehaviour
             slotText2[DataManager.instance.nowSlot].text = "새로 하기";
             slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
         }
+
+        Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }

@@ -22,7 +22,7 @@ public class Save : MonoBehaviour
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
     bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
-    int selectedSlot; // 추가: 선택한 슬롯 번호 저장
+    private int selectedSlot; // 추가: 선택한 슬롯 번호 저장
 
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
@@ -77,30 +77,30 @@ public class Save : MonoBehaviour
 
     public void Slot(int number)
     {
+        Debug.Log("Save - Slot number : " + number);
+        Debug.Log("Save - Slot instance nowSlot : " + DataManager.instance.nowSlot);
+        
         selectedSlot = number; // 선택한 슬롯 번호 저장
 
-        DataManager.instance.nowSlot = number;
+        //DataManager.instance.nowSlot = number;
+
+        Debug.Log("Save - Slot number 2222 : " + number);
+        Debug.Log("Save - Slot selectedSlot : " + selectedSlot);
+        Debug.Log("Save - Slot instance nowSlot 2222: " + DataManager.instance.nowSlot);
 
         if (savefile[number])
         {
             Creat2();
-            //DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
         }
         else
         {
-            if (!savefile[DataManager.instance.nowSlot])
-            {
-                // 파일 이름 입력 UI를 활성화
-                creat.gameObject.SetActive(true);
-
-                // 이어서 저장 기능 구현
-                if (savefile[number])
-                {
-                    DataManager.instance.nowSlot = selectedSlot; // 선택한 슬롯으로 변경
-                    DataManager.instance.LoadData();
-                }
-            }
+            Creat();
         }
+    }
+
+    public void Creat() // 파일 이름 입력 UI
+    {
+        creat.gameObject.SetActive(true);
     }
 
     public void Creat2() // 파일 삭제 or 게임시작 선택 UI
@@ -150,25 +150,48 @@ public class Save : MonoBehaviour
         creat4.gameObject.SetActive(false);
     }
 
-    public void SaveAgain()
+    public void NewFileSave()
     {
-        Debug.Log("현재선택한 슬롯 : " + selectedSlot);
-        DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
+        Debug.Log("NewFileSave selectedSlot : " + selectedSlot);
+        if (fileName.text != "")
+        {
+            DataManager.instance.nowPlayer.filename = fileName.text;
+            Debug.Log(fileName.text + ": 파일 이름임");
+            DataManager.instance.SaveData(selectedSlot); // 선택한 슬롯에 데이터 저장하도록 수정
+
+            savefile[selectedSlot] = true; // 해당 슬롯 번호의 bool배열 true로 변환
+            slotText[selectedSlot].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
+            slotText2[selectedSlot].text = "이어서 저장";
+            slotImages[selectedSlot].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
+
+            creat.gameObject.SetActive(false);
+            if (inputField != null)
+            {
+                inputField.text = ""; // 입력된 텍스트를 초기화
+            }   
+        }
+        Debug.Log("NewFileSave instance nowSlot  : " + DataManager.instance.nowSlot);
     }
 
-    public void SaveFileAgain()
+    public void SaveAgain()
     {
+        Debug.Log("SaveAgain selected Slot : " + selectedSlot);
+        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.nowSlot);
+        
+        string filePath = DataManager.instance.path + $"{selectedSlot}_player.json";
+
         for (int i = 0; i < 6; i++)
         {
-            if (File.Exists(DataManager.instance.path + $"{i}_player.json"))
+            if (i == selectedSlot && File.Exists(filePath))
             {
-                DataManager.instance.SaveData(i); // 파라미터 추가
+                DataManager.instance.SaveData(selectedSlot);
+                Debug.Log("IF Saved -- filePath : " + filePath);
             }
-        }
-
-        if (File.Exists(DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json"))
-        {
-            DataManager.instance.SaveData(DataManager.instance.nowSlot); // 파라미터 추가
+            // else if (File.Exists(filePath))
+            // {
+            //     DataManager.instance.SaveData(i);
+            //     Debug.Log("ELSE IF -- Saved filePath : " + filePath);
+            // }
         }
     }
 
@@ -177,21 +200,28 @@ public class Save : MonoBehaviour
         creat.gameObject.SetActive(false);
         if (inputField != null)
         {
-            inputField.text = ""; // 입력된 텍스트를 비워줍니다.
+            inputField.text = ""; // 입력된 텍스트를 초기화
         }    
     }
 
     public void DeleteSlot()
     {
-        string filePath = DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json";
+        Debug.Log("DeletSlot selectedSlot : " + selectedSlot);
+        Debug.Log("DeletSlot nowSlot : " + DataManager.instance.nowSlot);
+
+        string filePath = DataManager.instance.path + $"{selectedSlot}_player.json";
 
         if (File.Exists(filePath))
         {
             File.Delete(filePath);
-            // savefile[DataManager.instance.nowSlot] = false;
-            // slotText[DataManager.instance.nowSlot].text = "Empty";
-            // slotText2[DataManager.instance.nowSlot].text = "새로 하기";
-            // slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
+            Debug.Log("Deleted filePath : " + filePath);
+            savefile[selectedSlot] = false;
+            slotText[selectedSlot].text = "Empty";
+            slotText2[selectedSlot].text = "새로 하기";
+            slotImages[selectedSlot].sprite = dataEmptyImage;
         }
+
+        Debug.Log("DeletSlot selectedSlot2222222222 : " + selectedSlot);
+        Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }
