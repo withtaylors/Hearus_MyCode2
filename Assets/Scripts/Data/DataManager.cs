@@ -7,8 +7,6 @@ using System;
 
 public class PlayerData
 {
-    public static DataManager instance2; // 싱글톤패턴
-
     public string filename;
 
     //플레이어 위치
@@ -26,6 +24,9 @@ public class DataManager : MonoBehaviour
 
     public string path; // 경로
     public int nowSlot; // 현재 슬롯번호
+
+    public int selectedSlot;
+    public event Action<int> OnSelectedSlotChanged;
 
     private void Awake()
     {
@@ -46,6 +47,13 @@ public class DataManager : MonoBehaviour
 
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);
+    }
+
+    //SetSelectedSlot 함수 추가
+    public void SetSelectedSlot(int slotNumber)
+    {
+        selectedSlot = slotNumber;
+        OnSelectedSlotChanged?.Invoke(selectedSlot);
     }
 
     public void SaveData(int slotNumber)
