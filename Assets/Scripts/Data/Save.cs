@@ -22,6 +22,7 @@ public class Save : MonoBehaviour
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
     bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
+    private int firstSlot;
     private int selectedSlot; // 추가: 선택한 슬롯 번호 저장
 
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
@@ -152,7 +153,6 @@ public class Save : MonoBehaviour
 
     public void NewFileSave()
     {
-        Debug.Log("NewFileSave selectedSlot : " + selectedSlot);
         if (fileName.text != "")
         {
             DataManager.instance.nowPlayer.filename = fileName.text;
@@ -175,7 +175,6 @@ public class Save : MonoBehaviour
 
     public void SaveAgain()
     {
-        Debug.Log("SaveAgain selected Slot : " + selectedSlot);
         Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.nowSlot);
         
         string filePath = DataManager.instance.path + $"{selectedSlot}_player.json";
@@ -187,12 +186,14 @@ public class Save : MonoBehaviour
                 DataManager.instance.SaveData(selectedSlot);
                 Debug.Log("IF Saved -- filePath : " + filePath);
             }
-            // else if (File.Exists(filePath))
-            // {
-            //     DataManager.instance.SaveData(i);
-            //     Debug.Log("ELSE IF -- Saved filePath : " + filePath);
-            // }
         }
+    }
+
+    public void SaveBeforeEnd()
+    {
+        DataManager.instance.SaveData(DataManager.instance.firstSlot);
+        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.nowSlot);
+        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.firstSlot);
     }
 
     public void Cancel() 
@@ -206,7 +207,6 @@ public class Save : MonoBehaviour
 
     public void DeleteSlot()
     {
-        Debug.Log("DeletSlot selectedSlot : " + selectedSlot);
         Debug.Log("DeletSlot nowSlot : " + DataManager.instance.nowSlot);
 
         string filePath = DataManager.instance.path + $"{selectedSlot}_player.json";
@@ -221,7 +221,6 @@ public class Save : MonoBehaviour
             slotImages[selectedSlot].sprite = dataEmptyImage;
         }
 
-        Debug.Log("DeletSlot selectedSlot2222222222 : " + selectedSlot);
         Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }

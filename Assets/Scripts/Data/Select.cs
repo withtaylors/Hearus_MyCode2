@@ -100,7 +100,10 @@ public class Select : MonoBehaviour
 
     public void GoGame() // 게임씬으로 이동
     {
+        DataManager.instance.firstSlot = DataManager.instance.nowSlot;
+        Debug.Log("GoGame instance firstSlot : " + DataManager.instance.nowSlot);
         Debug.Log("GoGame instance nowSlot : " + DataManager.instance.nowSlot);
+        
         if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
         {
             DataManager.instance.nowPlayer.filename = fileName.text; // 입력한 이름을 복사해옴
