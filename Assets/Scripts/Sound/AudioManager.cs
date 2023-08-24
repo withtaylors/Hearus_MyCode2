@@ -32,17 +32,32 @@ public class AudioManager : MonoBehaviour
             //background/soundeffectfloat이랑 slider value 일치시키기
             backgroundSlider.value = backgroundFloat;
             soundEffectsSlider.value = soundEffectsFloat;
+
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
+
+            backgroundAudio.volume = backgroundSlider.value;
+            for(int i=0; i<soundEffectsAudio.Length; i++)
+            {
+                soundEffectsAudio[i].volume = soundEffectsSlider.value;
+            }
+
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
         //시작 경험 있음
         else
         {
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
-            backgroundSlider.value = backgroundFloat;
             soundEffectsFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
+
+            backgroundSlider.value = backgroundFloat;
             soundEffectsSlider.value = soundEffectsFloat;
+
+            backgroundAudio.volume = backgroundSlider.value;
+            for(int i=0; i<soundEffectsAudio.Length; i++)
+            {
+                soundEffectsAudio[i].volume = soundEffectsSlider.value;
+            }
         }
     }
 

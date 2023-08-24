@@ -54,13 +54,13 @@ public class Save : MonoBehaviour
                     DataManager.instance.nowSlot = i; // 선택한 슬롯 번호 저장
                     DataManager.instance.LoadData(); // 해당 슬롯 데이터 불러옴
                     slotText[i].text = DataManager.instance.nowPlayer.filename; // 버튼에 파일이름 표시
-                    slotText2[i].text = "이어서 저장";
+                    slotText2[i].text = "이어서 하기";
                     slotImages[i].sprite = dataExistsImage; // 이미 데이터가 있는 경우의 이미지로 변경
                 }
                 else // 데이터가 없는 경우
                 {
                     slotText[i].text = "Empty";
-                    slotText2[i].text = "새로 저장";
+                    slotText2[i].text = "새로 하기";
                     slotImages[i].sprite = dataEmptyImage; // 데이터가 없는 경우의 이미지로 변경
                 }
             }
