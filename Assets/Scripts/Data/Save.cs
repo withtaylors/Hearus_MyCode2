@@ -22,7 +22,6 @@ public class Save : MonoBehaviour
     public Image[] slotImages; // 슬롯 버튼 이미지들
 
     bool[] savefile = new bool[6]; // 세이브파일 존재유무 저장
-    private int firstSlot;
     private int selectedSlot; // 추가: 선택한 슬롯 번호 저장
 
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
@@ -191,7 +190,8 @@ public class Save : MonoBehaviour
 
     public void SaveBeforeEnd()
     {
-        DataManager.instance.SaveData(DataManager.instance.firstSlot);
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.selectedSlot);
         Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.nowSlot);
         Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.firstSlot);
     }

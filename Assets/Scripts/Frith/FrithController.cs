@@ -10,10 +10,12 @@ public class FrithController : MonoBehaviour
     public float verticalRange = 0.5f; // 위아래 움직임의 범위
 
     private Vector3 initialOffset; // 초기 위치 오프셋
+    private Quaternion initialRotationOffset; // 초기 회전 오프셋
 
     private void Start()
     {
         initialOffset = transform.position - player.position;
+        initialRotationOffset = Quaternion.Euler(0f, 90f, 0f); // 초기 회전 각도를 설정합니다.
     }
 
     private void Update()
@@ -28,11 +30,24 @@ public class FrithController : MonoBehaviour
 
         Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
         transform.position = newPosition;
+
+        RotateToPlayerDirection(targetPosition - transform.position);
     }
 
     private void FloatUpDown()
     {
         float yOffset = Mathf.Sin(Time.time * verticalSpeed) * verticalRange;
         transform.Translate(Vector3.up * yOffset * Time.deltaTime);
+    }
+
+    private void RotateToPlayerDirection(Vector3 direction)
+    {
+        direction.y = 0f;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion newRotation = Quaternion.LookRotation(direction) * initialRotationOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, 10f * Time.deltaTime);
+        }
     }
 }
