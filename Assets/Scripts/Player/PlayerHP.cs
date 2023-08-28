@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-// «√∑π¿ÃæÓ HP∏¶ ±∏«ˆ«— Ω∫≈©∏≥∆Æ.
+// ÌîåÎ†àÏù¥Ïñ¥ HPÎ•º Íµ¨ÌòÑÌïú Ïä§ÌÅ¨Î¶ΩÌä∏.
 
 public class PlayerHP : MonoBehaviour
 {
@@ -34,22 +34,18 @@ public class PlayerHP : MonoBehaviour
         HP_Text2.text = HP.ToString();
     }
 
-    public void Update()
-    {
-        SetActiveHPBar(HP);
-
-        HP_Text.text = HP.ToString();
-        HP_Text2.text = HP.ToString();
-    }
-
     public void DecreaseHP(int value)
     {
         HP -= value;
+
+        SetActiveHPBar(HP);
     }
 
     public void IncreaseHP(int value)
     {
         HP += value;
+
+        SetActiveHPBar(HP);
     }
 
     public void SetActiveHPBar(int _HP)
@@ -65,5 +61,8 @@ public class PlayerHP : MonoBehaviour
 
             HPBars[i].color = color;
         }
+
+        HP_Text.text = HP.ToString();
+        HP_Text2.text = HP.ToString();
     }
 }

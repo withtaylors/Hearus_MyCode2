@@ -355,7 +355,7 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator EndTutorial()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(1f);
 
         scriptManager.FindScriptByEventName("MEET_FRITH");
         scriptManager.ShowScript();
@@ -374,7 +374,7 @@ public class TutorialController : MonoBehaviour
     {
         fader.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(2f); // 2초 뒤 페이드아웃
+        yield return new WaitForSecondsRealtime(1f); // 2초 뒤 페이드아웃
 
         Color c = fader.GetComponent<Image>().color; // 페이드아웃을 위해 Fader의 컬러값을 받아 옴
 
@@ -384,8 +384,6 @@ public class TutorialController : MonoBehaviour
             fader.GetComponent<Image>().color = c;
             yield return null;
         }
-
-        yield return new WaitUntil(() => c.a == 1f);
 
         scriptManager.FindScriptByEventName("END_TUTORIAL");
         scriptManager.ShowScript();
@@ -403,8 +401,6 @@ public class TutorialController : MonoBehaviour
             fader.GetComponent<Image>().color = c;
             yield return null;
         }
-
-        yield return new WaitUntil(() => c.a == 0f);
 
         // 빽빽한 숲에서 시작
         fader.SetActive(false);
