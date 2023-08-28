@@ -50,26 +50,26 @@ public class ScriptManager : MonoBehaviour
                     isNext = false;
                     if (++currentLine < currentScript.sentences.Length)
                     {
-                        Debug.Log("문장이 남아 있을 때");
+                        //문장이 남아 있을 때
                         StartCoroutine(TypeWriter());
                     }
                     else
                     {
                         if (currentScript.isExistOption == "Y")
                         {
-                            Debug.Log("옵션이 있을 때");
+                            //옵션이 있을 때
                             FindOption(int.Parse(currentScript.optionNumber));
                             ShowOption();
                         }
                         else if (currentScript.isExistNextScript == "Y")
                         {
-                            Debug.Log("다음 스크립트가 있을 때");
+                            //다음 스크립트가 있을 때
                             JumpToNextScript();
                         }
 
                         else
                         {
-                            Debug.Log("아무것도 없을 때");
+                            //아무것도 없을 때
                             ShowScriptUI(false);
                         }
 

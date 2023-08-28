@@ -40,14 +40,6 @@ public class ItemPickup : MonoBehaviour
             particleSystem.Play();
     }
 
-    private void FixedUpdate()
-    {
-        if (CheckObjectInCamera(gameObject))
-        {
-            //Debug.Log("CheckObjectInCamera() " + gameObject.GetComponent<ItemPickup>()._itemID);
-        }
-    }
-
     public void Pickup() // 아이템 줍기
     {
         //pickingID = item.GetComponent<ItemPickup>()._itemID;
@@ -55,7 +47,7 @@ public class ItemPickup : MonoBehaviour
 
         Picked.Invoke(); // 아이템 습득 Invoke
 
-        CheckSwitch();
+        CheckSwitch(_itemID);
 
         TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
         Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
@@ -85,7 +77,7 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    public void CheckSwitch()
+    public void CheckSwitch(int _itemID)
     {
         if (_itemID == 122)
         {
