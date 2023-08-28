@@ -262,6 +262,7 @@ public class TutorialController : MonoBehaviour
     private void EleventhStep() // 인벤토리 밧줄 텍스트
     {
         tutorialPanelText.text = textList[10];
+        StartCoroutine("FadeOutPanel");
 
         tutorialStep++;
     }
