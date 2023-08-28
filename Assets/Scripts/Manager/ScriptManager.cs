@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using static UnityEngine.ParticleSystem;
 using System.Linq;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -19,16 +20,20 @@ public class ScriptManager : MonoBehaviour
     [SerializeField] private OptionEvent option; // 스크립트
 
     private Script[] scripts; // 전체 스크립트 목록을 받아 올 배열
-    [SerializeField] private Script currentScript; // 현재 스크립트를 받아 옴
+    public Script currentScript; // 현재 스크립트를 받아 옴
 
     private Option[] options;
-    [SerializeField] private Option currentOption; // 현재 옵션을 받아 옴
+    public Option currentOption; // 현재 옵션을 받아 옴
 
     private ScriptManager scriptManager;
 
-    bool isDialogue = false; // 스크립트 재생 중일 경우 true
-    bool isNext = false; // 특정 키 입력 대기. true가 되면 키 입력 가능
-    int currentLine = 0;
+    private bool isDialogue = false; // 스크립트 재생 중일 경우 true
+    public bool isFinished = false; // 스크립트 재생이 끝나면 true
+    public bool isTyping = false; // 타이핑 중이면 true
+    private bool isNext = false; // 특정 키 입력 대기. true가 되면 키 입력 가능
+    private int currentLine = 0;
+
+    public UnityEvent FinishedScript;
 
     //Coroutine runningCoroutine = null;
 
@@ -48,6 +53,8 @@ public class ScriptManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     isNext = false;
+                    if (isTyping) isTyping = false;
+
                     if (++currentLine < currentScript.sentences.Length)
                     {
                         //문장이 남아 있을 때
@@ -71,8 +78,10 @@ public class ScriptManager : MonoBehaviour
                         {
                             //아무것도 없을 때
                             ShowScriptUI(false);
+                            isFinished = true;
+                            isDialogue = false;
+                            FinishedScript.Invoke();
                         }
-
                     }
                 }
             }
@@ -81,6 +90,9 @@ public class ScriptManager : MonoBehaviour
 
     IEnumerator TypeWriter()
     {
+        isFinished = false;
+        isTyping = true;
+
         scriptText.DOKill();
         scriptText.text = "";
 
@@ -248,6 +260,7 @@ public class ScriptManager : MonoBehaviour
 
         ShowOptionUI(false);
     }
+
     public static void DoText(TextMeshProUGUI _text, float _duration)
     {
         _text.maxVisibleCharacters = 0;
@@ -281,5 +294,7 @@ public class ScriptManager : MonoBehaviour
             scriptText.maxVisibleCharacters = i;
             yield return new WaitForSeconds(timePerCharacter);
         }
+
+        if (isTyping) isTyping = false;
     }
 }

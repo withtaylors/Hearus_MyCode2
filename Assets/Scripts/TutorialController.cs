@@ -361,8 +361,19 @@ public class TutorialController : MonoBehaviour
         scriptManager.ShowScript();
     }
 
-    private IEnumerator FadeOutStart() // 튜토리얼 종료 시 페이드아웃 -> 스크립트
+    public void FadeController()
     {
+        if (scriptManager.currentScript.eventName.Equals("MEET_FRITH"))
+            StartCoroutine("FadeOutScene");
+
+        if (scriptManager.currentScript.eventName.Equals("END_TUTORIAL"))
+            StartCoroutine("FadeInScene");
+    }
+
+    private IEnumerator FadeOutScene() // 튜토리얼 종료 시 페이드아웃 -> 스크립트
+    {
+        fader.SetActive(true);
+
         yield return new WaitForSecondsRealtime(2f); // 2초 뒤 페이드아웃
 
         Color c = fader.GetComponent<Image>().color; // 페이드아웃을 위해 Fader의 컬러값을 받아 옴
@@ -373,6 +384,30 @@ public class TutorialController : MonoBehaviour
             fader.GetComponent<Image>().color = c;
             yield return null;
         }
+
+        yield return new WaitUntil(() => c.a == 1f);
+
+        scriptManager.FindScriptByEventName("END_TUTORIAL");
+        scriptManager.ShowScript();
+    }
+
+    private IEnumerator FadeInScene() // 튜토리얼 종료 스크립트 재생 완료 -> 페이드인
+    {
+        yield return new WaitForSecondsRealtime(2f); // 2초 뒤 페이드인
+
+        Color c = fader.GetComponent<Image>().color; // 페이드인을 위해 Fader의 컬러값을 받아 옴
+
+        for (float f = 1f; f >= 0f; f -= 0.01f) // 페이드인
+        {
+            c.a = f;
+            fader.GetComponent<Image>().color = c;
+            yield return null;
+        }
+
+        yield return new WaitUntil(() => c.a == 0f);
+
+        // 빽빽한 숲에서 시작
+        fader.SetActive(false);
     }
 
     private IEnumerator FadeOutPanel()
@@ -395,7 +430,6 @@ public class TutorialController : MonoBehaviour
 
         tutorialStep++;
         tutorialPanelText.text = textList[tutorialStep];
-
     }
 
     private IEnumerator FadeInPanel()
