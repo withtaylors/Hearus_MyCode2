@@ -104,7 +104,7 @@ public class ScriptManager : MonoBehaviour
 
         ShowScriptUI(true);
 
-        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.1f));
+        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.07f));
 
         isNext = true;
     }
