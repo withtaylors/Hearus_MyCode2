@@ -19,7 +19,7 @@ public class playerController : MonoBehaviour
     public bool isWalking = false;
     public bool isRunning = false;
     public bool grounded=false;
-    public bool isInDialogue = false;
+    public bool isPlayingScript = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
 
@@ -85,8 +85,10 @@ public class playerController : MonoBehaviour
 
     void HandleMovement()
     {
+        isPlayingScript = ScriptManager.instance.isPlayingScript;
+
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
-        if (isPicking || isInDialogue || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
+        if (isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
         {
             myAnim.SetBool("isWalking", false);
             myAnim.SetBool("isRunning", false);
@@ -128,7 +130,7 @@ public class playerController : MonoBehaviour
     void HandleJump()
     {
         // 애니메이션/대화 실행 중일 때는 점프를 막음
-        if (isPicking || isInDialogue)
+        if (isPicking || isPlayingScript)
             return;
 
         if (!grounded) // 플레이어가 땅과 닿지 않은 상태일 때

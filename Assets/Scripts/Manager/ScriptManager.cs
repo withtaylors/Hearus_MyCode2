@@ -11,6 +11,8 @@ using UnityEngine.Events;
 
 public class ScriptManager : MonoBehaviour
 {
+    public static ScriptManager instance;
+
     [SerializeField] private GameObject go_ScriptPanel; // 스크립트 패널
     [SerializeField] private TextMeshProUGUI scriptText; // 스크립트 텍스트
     [SerializeField] private GameObject go_OptionView; // 옵션 리스트
@@ -27,7 +29,7 @@ public class ScriptManager : MonoBehaviour
 
     private ScriptManager scriptManager;
 
-    private bool isDialogue = false; // 스크립트 재생 중일 경우 true
+    public bool isPlayingScript = false; // 스크립트 재생 중일 경우 true
     public bool isFinished = false; // 스크립트 재생이 끝나면 true
     public bool isTyping = false; // 타이핑 중이면 true
     private bool isNext = false; // 특정 키 입력 대기. true가 되면 키 입력 가능
@@ -39,6 +41,8 @@ public class ScriptManager : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
+
         scriptManager = FindObjectOfType<ScriptManager>();
         scriptManager.LoadScript(scriptManager.GetScript());
         scriptManager.LoadOption(scriptManager.GetOption());
@@ -46,7 +50,7 @@ public class ScriptManager : MonoBehaviour
 
     private void Update()
     {
-        if (isDialogue)
+        if (isPlayingScript)
         {
             if (isNext)
             {
@@ -79,7 +83,7 @@ public class ScriptManager : MonoBehaviour
                             //아무것도 없을 때
                             ShowScriptUI(false);
                             isFinished = true;
-                            isDialogue = false;
+                            isPlayingScript = false;
                             FinishedScript.Invoke();
                         }
                     }
@@ -141,7 +145,7 @@ public class ScriptManager : MonoBehaviour
 
     public void ShowScript()
     {
-        isDialogue = true;
+        isPlayingScript = true;
         currentLine = 0;
 
         if (currentScript.scriptSwitch != string.Empty)
