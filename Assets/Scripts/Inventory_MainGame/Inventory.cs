@@ -103,6 +103,7 @@ public class Inventory : MonoBehaviour
                         if (inventoryItemList[j].isCountable == true)
                         {
                             slots[j].IncreaseCount(inventoryItemList[j]);
+                            /*
                             for (int k = 0; k < InventoryDataManager.Instance.inventoryItemList.Count; k++) // 인벤토리 데이터 매니저에 넣기
                             {
                                 if (InventoryDataManager.Instance.inventoryItemList[k].itemID == _itemID)
@@ -111,7 +112,9 @@ public class Inventory : MonoBehaviour
                                     break;
                                 }
                             }
+                            */
                             return;
+                            
                         }
                     }
                 }
