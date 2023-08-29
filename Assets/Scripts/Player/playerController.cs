@@ -161,7 +161,7 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("grounded", grounded);
         }
 
-        if (collision.gameObject.name.Equals("Island_B_Cube.004")) // 로프를 사용하여 목적지에 닿으면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
+        if (collision.gameObject.name.Equals("중심들판_Border_1")) // 로프를 사용하여 목적지에 닿으면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
             useRope.Invoke();
 
         if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
