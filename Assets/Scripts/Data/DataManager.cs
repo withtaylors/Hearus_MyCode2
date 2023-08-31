@@ -13,6 +13,8 @@ public class PlayerData
     public float x = 40.6f;
     public float y = 8.5f;
     public float z = 0.5f;
+
+    public string nowCharacter = "None";
 }
 
 public class DataManager : MonoBehaviour

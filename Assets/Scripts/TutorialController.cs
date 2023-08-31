@@ -56,6 +56,15 @@ public class TutorialController : MonoBehaviour
     private bool useRope = false;
     [SerializeField] private bool arriveRopeField = false;
 
+
+    public GameObject edenGameObject;
+    public GameObject noahGameObject;
+    public GameObject adamGameObject;
+    public GameObject jonahGameObject;
+
+    private string selectedCharacter;
+    private string nowCharacter;
+
     private void Start()
     {
         StartTutorial();
@@ -310,26 +319,36 @@ public class TutorialController : MonoBehaviour
         arriveRopeField = true;
     }
 
+
+
+
+
+
+
     public void OnSelectEden()
     {
+        selectedCharacter = "Eden";
         frithCheckText.text = "에덴을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectNoah()
     {
+        selectedCharacter = "Noah";
         frithCheckText.text = "노아를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectAdam()
     {
+        selectedCharacter = "Adam";       
         frithCheckText.text = "아담을 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
 
     public void OnSelectJonah()
     {
+        selectedCharacter = "Jonah";
         frithCheckText.text = "요나를 선택하시겠습니까?\n선택한 프리스는 변경할 수 없습니다.";
         ActiveSelectMessage();
     }
@@ -343,6 +362,24 @@ public class TutorialController : MonoBehaviour
     public void OnClickYesButton()
     {
         frithCheckPanel.SetActive(false);
+        
+        DataManager.instance.nowPlayer.nowCharacter = selectedCharacter;
+
+        switch (selectedCharacter)
+        {
+            case "Eden":
+                edenGameObject.SetActive(true);
+                break;
+            case "Noah":
+                noahGameObject.SetActive(true);
+                break;
+            case "Adam":
+                adamGameObject.SetActive(true);
+                break;
+            case "Jonah":
+                jonahGameObject.SetActive(true);
+                break;
+        }
 
         StartCoroutine("EndTutorial");
     }
@@ -360,6 +397,12 @@ public class TutorialController : MonoBehaviour
         scriptManager.FindScriptByEventName("MEET_FRITH");
         scriptManager.ShowScript();
     }
+
+
+
+
+
+    
 
     private IEnumerator FadeOutStart() // 튜토리얼 종료 시 페이드아웃 -> 스크립트
     {

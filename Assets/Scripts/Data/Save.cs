@@ -27,6 +27,8 @@ public class Save : MonoBehaviour
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
 
+    private int firstSlot;
+
     private void Awake()
     {
         // DataManager 스크립트를 참조하고 있는 게임 오브젝트로부터 DataManager 클래스의 instance를 얻습니다.
@@ -39,6 +41,8 @@ public class Save : MonoBehaviour
     void Start()
     {
         StartCoroutine(UpdateSlotTextsWithDelay());
+        Debug.Log("Save instance firstSlot : " + DataManager.instance.firstSlot);
+        Debug.Log("Save instance nowSlot : " + DataManager.instance.nowSlot);
     }
 
     private IEnumerator UpdateSlotTextsWithDelay()
@@ -189,11 +193,19 @@ public class Save : MonoBehaviour
     }
 
     public void SaveBeforeEnd()
-    {
-        DataManager.instance.SaveData(DataManager.instance.nowSlot);
-        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.selectedSlot);
+    {        
+        Debug.Log("SaveAgain instance selectedSlot  : " + DataManager.instance.selectedSlot);
         Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.nowSlot);
-        Debug.Log("SaveAgain instance nowSlot  : " + DataManager.instance.firstSlot);
+        Debug.Log("SaveAgain instance firstSlot  : " + DataManager.instance.firstSlot);
+        
+        if (DataManager.instance.nowSlot == -1)
+        {
+            DataManager.instance.SaveData(DataManager.instance.firstSlot);
+        }
+        else
+        {
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        }
     }
 
     public void Cancel() 
