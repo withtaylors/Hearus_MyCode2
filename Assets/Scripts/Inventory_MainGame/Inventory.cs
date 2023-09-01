@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public static ItemDatabase theDatabase; // 아이템 데이터베이스 객체
+    private InventoryDataManager inventoryDataManager;
 
     private List<InventorySlot> slots;                        // 인벤토리 슬롯들
     [SerializeField] private Transform tf;                    // 슬롯들의 부모 객체 (GridSlot) -> 슬롯들은 tf 밑에 생성되어야 하므로 부모 객체를 선언함
@@ -39,6 +40,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         theDatabase = FindObjectOfType<ItemDatabase>();                                 // 아이템 데이터베이스 오브젝트
+        inventoryDataManager = FindObjectOfType<InventoryDataManager>();
         inventoryItemList = new List<Item>();                                           // 인벤토리 아이템 리스트
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   //
         selectedSlot = 0;                                                               // 현재 선택된 슬롯을 나타내는 값, 디폴트는 0
@@ -103,18 +105,9 @@ public class Inventory : MonoBehaviour
                         if (inventoryItemList[j].isCountable == true)
                         {
                             slots[j].IncreaseCount(inventoryItemList[j]);
-                            /*
-                            for (int k = 0; k < InventoryDataManager.Instance.inventoryItemList.Count; k++) // 인벤토리 데이터 매니저에 넣기
-                            {
-                                if (InventoryDataManager.Instance.inventoryItemList[k].itemID == _itemID)
-                                {
-                                    InventoryDataManager.Instance.inventoryItemList[k].itemCount += 1;
-                                    break;
-                                }
-                            }
-                            */
+                            SaveInventoryDataManager();
+                            DataManager.instance.SaveInventoryData();
                             return;
-                            
                         }
                     }
                 }
@@ -122,7 +115,8 @@ public class Inventory : MonoBehaviour
                 CreateSlot();                                               // 슬롯 생성
                 slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
                 slots[slots.Count - 1].UncountableItem(ItemDatabase.itemList[i]);
-                InventoryDataManager.Instance.inventoryItemList.Add(ItemDatabase.itemList[i]); // 인벤토리 데이터 매니저에 넣기
+                SaveInventoryDataManager(); // 인벤토리 데이터 매니저에 넣기
+                DataManager.instance.SaveInventoryData(); // 데이터 매니저에 넣기
                 return;
             }
         }
@@ -247,4 +241,10 @@ public class Inventory : MonoBehaviour
         SelectedSlot();
     }
 
+    private void SaveInventoryDataManager()
+    {
+        InventoryDataManager.Instance.inventoryItemList.Clear();
+        for (int i = 0; i < inventoryItemList.Count; i++)
+            InventoryDataManager.Instance.inventoryItemList.Add(inventoryItemList[i]);
+    }
 }

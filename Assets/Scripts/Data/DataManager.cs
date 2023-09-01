@@ -17,12 +17,52 @@ public class PlayerData
     public string nowCharacter = "None";
 }
 
+[Serializable]
+public class InventoryData
+{
+    public int itemID;
+    public string itemName;
+    public string itemDescription;
+    public int itemCount;
+    public Sprite itemIcon;
+    public ItemType itemType;
+    public ItemEffect itemEffect;
+    public int effectValue;
+    public bool isCountable;
+    public bool isMeet;
+    public bool isPicking;
+
+    public InventoryData(int _itemID, string _itemName, string _itemDes, ItemType _itemType, ItemEffect _itemEffect, 
+        int _effectValue, int _itemCount = 1, bool _isCountable = true, bool _isMeet = false, bool _isPicking = false)
+    {
+        this.itemID = _itemID;
+        this.itemName = _itemName;
+        this.itemDescription = _itemDes;
+        this.itemType = _itemType;
+        this.itemCount = _itemCount;
+        this.itemIcon = Resources.Load("ItemIcon/" + _itemID.ToString(), typeof(Sprite)) as Sprite;
+        this.itemEffect = _itemEffect;
+        this.effectValue = _effectValue;
+        this.isCountable = _isCountable;
+        this.isMeet = _isMeet;
+        this.isPicking = _isPicking;
+    }
+}
+
+[Serializable]
+public class InventoryDataWrapper
+{
+    public List<InventoryData> items;
+}
+
+
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance; // 싱글톤패턴
 
     public PlayerData nowPlayer = new PlayerData(); // 플레이어 데이터 생성
     public PlayerData nowPlayerDefault = new PlayerData(); // 기본 플레이어 데이터 생성
+    public InventoryDataWrapper dataWrapper = new InventoryDataWrapper();
 
     public string path; // 경로
     public int nowSlot; // 현재 슬롯번호
@@ -50,6 +90,8 @@ public class DataManager : MonoBehaviour
 
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);
+
+        dataWrapper.items = new List<InventoryData>();
     }
 
     //SetSelectedSlot 함수 추가
@@ -73,19 +115,65 @@ public class DataManager : MonoBehaviour
             nowPlayer.filename = existingPlayerData.filename;
         }
 
+        SaveInventoryData();
+
         string playerData = JsonUtility.ToJson(nowPlayer);
         File.WriteAllText(path + $"{nowSlot}_player.json", playerData);
+
+        string inventoryData = JsonUtility.ToJson(dataWrapper);
+        File.WriteAllText(path + $"{nowSlot}_inventory.json", inventoryData);
+    }
+
+    public void SaveInventoryData()
+    {
+        dataWrapper.items.Clear();
+        dataWrapper.items = new List<InventoryData>();
+        for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
+        {
+            Item _item = InventoryDataManager.Instance.inventoryItemList[i];
+            InventoryData _inventoryData = new InventoryData(_item.itemID, _item.itemName, _item.itemDescription,
+                _item.itemType, _item.itemEffect, _item.effectValue, _item.itemCount, _item.isCountable, _item.isMeet, _item.isPicking);
+            dataWrapper.items.Add(_inventoryData);
+        }
     }
 
     public void LoadData()
     {
         string playerData = File.ReadAllText(path + nowSlot.ToString() + "_player.json");
         nowPlayer = JsonUtility.FromJson<PlayerData>(playerData);
+            
+        string inventoryData = File.ReadAllText(path + nowSlot.ToString() + "_inventory.json");
+        dataWrapper = JsonUtility.FromJson<InventoryDataWrapper>(inventoryData);
+    }
+
+    public void LoadInventory()
+    {
+        if (dataWrapper != null && dataWrapper.items != null)
+        { 
+            List<InventoryData> itemsToLoad = dataWrapper.items;
+
+            if (itemsToLoad.Count > 0)
+                for (int i = 0; i < itemsToLoad.Count; i++)
+                {
+                    Item _item = new Item(itemsToLoad[i].itemID, itemsToLoad[i].itemName, itemsToLoad[i].itemDescription,
+                    itemsToLoad[i].itemType, itemsToLoad[i].itemEffect, itemsToLoad[i].effectValue, itemsToLoad[i].isCountable,
+                    itemsToLoad[i].itemCount, itemsToLoad[i].isMeet, itemsToLoad[i].isPicking);
+
+                    InventoryDataManager.Instance.inventoryItemList.Add(_item);
+                }
+        }
     }
 
     public void DataClear()
     {
         nowSlot = -1;
         nowPlayer = new PlayerData();
+
+        dataWrapper.items.Clear();
+    }
+
+    public void InventoryClear()
+    {
+        InventoryDataManager.Instance.inventoryItemList.Clear();
     }
 }

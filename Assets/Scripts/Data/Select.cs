@@ -48,10 +48,13 @@ public class Select : MonoBehaviour
         }
         // 불러온 데이터를 초기화시킴
         DataManager.instance.DataClear();
+        DataManager.instance.InventoryClear();
     }
 
     public void Slot(int number) // 슬롯의 기능 구현
     {
+        InventoryDataManager.Instance.inventoryItemList.Clear();
+
         Debug.Log("Select - Slot number : " + number);
         Debug.Log("Select - Slot instance nowSlot : " + DataManager.instance.nowSlot);
 
@@ -100,6 +103,8 @@ public class Select : MonoBehaviour
 
     public void GoGame() // 게임씬으로 이동
     {
+        DataManager.instance.LoadInventory();
+
         DataManager.instance.firstSlot = DataManager.instance.nowSlot;
         Debug.Log("GoGame instance firstSlot : " + DataManager.instance.firstSlot);
         Debug.Log("GoGame instance nowSlot : " + DataManager.instance.nowSlot);
