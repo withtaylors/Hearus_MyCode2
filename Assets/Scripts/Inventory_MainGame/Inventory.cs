@@ -45,14 +45,11 @@ public class Inventory : MonoBehaviour
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   //
         selectedSlot = 0;                                                               // 현재 선택된 슬롯을 나타내는 값, 디폴트는 0
         if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
-        {
-            for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
-                LoadItem(InventoryDataManager.Instance.inventoryItemList[i].itemID, InventoryDataManager.Instance.inventoryItemList[i].itemCount);
-        }
+            //for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
+            //LoadItem(InventoryDataManager.Instance.inventoryItemList[i].itemID, InventoryDataManager.Instance.inventoryItemList[i].itemCount);
+            LoadInventory();
         else
-        {
             Debug.Log("Inventory None");
-        }
     }
 
     void Update()
@@ -105,8 +102,6 @@ public class Inventory : MonoBehaviour
                         if (inventoryItemList[j].isCountable == true)
                         {
                             slots[j].IncreaseCount(inventoryItemList[j]);
-                            SaveInventoryDataManager();
-                            DataManager.instance.SaveInventoryData();
                             return;
                         }
                     }
@@ -115,8 +110,6 @@ public class Inventory : MonoBehaviour
                 CreateSlot();                                               // 슬롯 생성
                 slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
                 slots[slots.Count - 1].UncountableItem(ItemDatabase.itemList[i]);
-                SaveInventoryDataManager(); // 인벤토리 데이터 매니저에 넣기
-                DataManager.instance.SaveInventoryData(); // 데이터 매니저에 넣기
                 return;
             }
         }
@@ -149,6 +142,17 @@ public class Inventory : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    public void LoadInventory()
+    {
+        for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
+        {
+            inventoryItemList.Add(InventoryDataManager.Instance.inventoryItemList[i]);
+            CreateSlot();
+            slots[slots.Count - 1].Additem(InventoryDataManager.Instance.inventoryItemList[i]);   // 슬롯에 아이템 넣기
+            slots[slots.Count - 1].UncountableItem(InventoryDataManager.Instance.inventoryItemList[i]);
         }
     }
 
@@ -241,7 +245,7 @@ public class Inventory : MonoBehaviour
         SelectedSlot();
     }
 
-    private void SaveInventoryDataManager()
+    public void SaveInventoryDataManager()
     {
         InventoryDataManager.Instance.inventoryItemList.Clear();
         for (int i = 0; i < inventoryItemList.Count; i++)

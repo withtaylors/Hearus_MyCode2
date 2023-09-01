@@ -52,6 +52,9 @@ public class ItemPickup : MonoBehaviour
         TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
         Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
         ChangeConditionMeet(_itemID); // isMeet이 false라면 true로 바꾸기
+
+        Inventory.instance.SaveInventoryDataManager();
+        DataManager.instance.SaveInventoryData();
     }
 
     private bool CheckObjectInCamera(GameObject item) // 오브젝트가 카메라 안에 있는지 확인
