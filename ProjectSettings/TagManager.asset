@@ -12,6 +12,9 @@ TagManager:
   - FirstOption
   - SecondOption
   - ThirdOption
+  - ITEM_ROPE
+  - ITEM_BUTTERNUT
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Water
   - UI
   - Pillar
-  - 
+  - Frith
   - 
   - 
   - 

@@ -8,51 +8,53 @@ public class FrithControllerTest : MonoBehaviour
     public float distance;
     public float jumpPower;
 
+    public float verticalSpeed = 2f; // 위아래로 움직이는 속도
+    public float verticalRange = 1f; // 위아래 움직임의 범위
+
     public LayerMask groundLayer;
 
-    Transform player;
-
-    Rigidbody rig;
+    public Transform player;
+    public Rigidbody rig;
 
     void Start()
     {
         rig = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
-        Physics.IgnoreLayerCollision(9, 10);
     }
 
     void Update()
     {
-        // 펫의 y 위치를 플레이어의 y 위치보다 항상 높게 유지
-        Vector3 newPosition = transform.position;
-        newPosition.y = Mathf.Max(newPosition.y, player.position.y);
+        FloatUpDown();
 
         if (Mathf.Abs(transform.position.x - player.position.x) > distance)
         {
             Vector3 moveDirection = (player.position - transform.position).normalized;
-            newPosition += moveDirection * speed * Time.deltaTime;
+            transform.Translate(moveDirection * speed * Time.deltaTime);
             DirectionPet();
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.left, out hit, 0.5f, groundLayer))
+            if (Physics.Raycast(transform.position, Vector3.left, out hit, 0.5f, groundLayer)) // Raycast 수정
             {
                 rig.velocity = Vector3.up * jumpPower;
             }
         }
-
-        // 펫의 위치를 업데이트
-        transform.position = newPosition;
     }
 
     void DirectionPet()
     {
-        if (transform.position.x - player.position.x < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
+        // 플레이어와 펫의 상대 위치 계산
+        Vector3 relativePosition = player.position - transform.position;
+
+        // 상대 위치의 각도 계산
+        float angle = Mathf.Atan2(relativePosition.x, relativePosition.z) * Mathf.Rad2Deg;
+
+        // 펫의 회전 각도 설정
+        transform.eulerAngles = new Vector3(0, angle, 0);
+    }
+
+    private void FloatUpDown()
+    {
+        float yOffset = Mathf.Sin(Time.time * verticalSpeed) * verticalRange;
+        transform.Translate(Vector3.up * yOffset * Time.deltaTime);
     }
 }
