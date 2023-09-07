@@ -50,6 +50,9 @@ public class FrithControllerTest : MonoBehaviour
 
         // 펫의 회전 각도 설정
         transform.eulerAngles = new Vector3(0, angle, 0);
+
+        //transform.LookAt(player);
+
     }
 
     private void FloatUpDown()
