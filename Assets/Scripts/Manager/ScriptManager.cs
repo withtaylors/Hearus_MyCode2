@@ -90,6 +90,19 @@ public class ScriptManager : MonoBehaviour
                 }
             }
         }
+
+        if (go_OptionView.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (EventSystem.current.currentSelectedGameObject == optionPrefab[0])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[1]);
+                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[1])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[2]);
+                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[2])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
+            }
+        }
     }
 
     IEnumerator TypeWriter()
