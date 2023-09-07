@@ -130,6 +130,7 @@ public class ScriptManager : MonoBehaviour
             optionPrefab[i].SetActive(true);
         }
 
+        EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
         yield return new WaitForSeconds(0.1f);
     }
 
