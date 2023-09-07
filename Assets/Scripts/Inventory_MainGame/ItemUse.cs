@@ -11,24 +11,31 @@ public class ItemUse : MonoBehaviour
 {
     public UnityEvent Used;
 
+    public GameObject ropeForBridge;
+
+    private Item currentItem;
+
     public void OnClickUseButton()
     {
+        currentItem = Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot];
+
         if (Inventory.instance.inventoryItemList.Count > 0)
         {
             Used.Invoke();
 
-            if (Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemEffect == Item.ItemEffect.회복) // 회복 아이템일 경우
-                PlayerHP.instance.IncreaseHP(Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].effectValue);
-            else if (Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
-                PlayerHP.instance.DecreaseHP(Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].effectValue);
+            if (currentItem.itemEffect == Item.ItemEffect.회복) // 회복 아이템일 경우
+                PlayerHP.instance.IncreaseHP(currentItem.effectValue);
+            else if (currentItem.itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
+                PlayerHP.instance.DecreaseHP(currentItem.effectValue);
     
-            if (Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemCount > 1)
-                InventorySlot.instance.DecreaseCount(Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot]);
+            if (currentItem.itemCount > 1)
+                InventorySlot.instance.DecreaseCount(currentItem);
             else
-                Inventory.instance.DeleteItem(Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemID);
+                Inventory.instance.DeleteItem(currentItem.itemID);
         }
         else
             Debug.Log("인벤토리에 항목이 존재하지 않습니다.");
-
     }
+
+
 }
