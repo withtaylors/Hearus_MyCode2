@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     public static ItemDatabase theDatabase; // 아이템 데이터베이스 객체
     private InventoryDataManager inventoryDataManager;
 
-    public List<InventorySlot> slots;                        // 인벤토리 슬롯들
+    public List<InventorySlot> slots;                         // 인벤토리 슬롯들
     [SerializeField] private Transform tf;                    // 슬롯들의 부모 객체 (GridSlot) -> 슬롯들은 tf 밑에 생성되어야 하므로 부모 객체를 선언함
     [SerializeField] private ItemDescription itemDes;         // 아이템 설명 패널
 
@@ -162,9 +162,7 @@ public class Inventory : MonoBehaviour
         InventorySlot slot = Instantiate(slotPrefab, tf).GetComponent<InventorySlot>(); // 슬롯 프리팹을 복사해 tf의 자식으로 넣음
         slots.Add(slot);                                                                // 복사한 슬롯을 슬롯 리스트에도 추가
         
-//        Button button = slot.GetComponentInChildren<Button>();
-//        SlotButton slotButton = button.GetComponentInChildren<SlotButton>();
-//        slotButton.slotIndex = slots.Count - 1; // 슬롯 인덱스 설정
+        slot.slotIndex = slots.Count - 1; // 슬롯 인덱스 설정
     }
 
     // SelectedSlot(): 슬롯이 선택되었음을 나타내는 이미지(테두리) 위치를 이동시키는 메소드
