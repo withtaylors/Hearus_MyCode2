@@ -15,6 +15,7 @@ TagManager:
   - ITEM_ROPE
   - ITEM_BUTTERNUT
   - FxTemporaire
+  - ITEM_PICKING
   layers:
   - Default
   - TransparentFX
