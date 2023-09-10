@@ -37,6 +37,9 @@ public class ScriptManager : MonoBehaviour
 
     public UnityEvent FinishedScript;
 
+    int totalCharacters;
+    Coroutine myCoroutine;
+
     //Coroutine runningCoroutine = null;
 
     private void Start()
@@ -46,6 +49,8 @@ public class ScriptManager : MonoBehaviour
         scriptManager = FindObjectOfType<ScriptManager>();
         scriptManager.LoadScript(scriptManager.GetScript());
         scriptManager.LoadOption(scriptManager.GetOption());
+        
+
     }
 
     private void Update()
@@ -56,35 +61,42 @@ public class ScriptManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    isNext = false;
-                    if (isTyping) isTyping = false;
-
-                    if (++currentLine < currentScript.sentences.Length)
+                    if (isTyping)
                     {
-                        //문장이 남아 있을 때
-                        StartCoroutine(TypeWriter());
+                        StopCoroutine(myCoroutine);
+                        scriptText.maxVisibleCharacters = scriptText.text.Length;
+                        isTyping = false;
                     }
                     else
                     {
-                        if (currentScript.isExistOption == "Y")
+                        isNext = false;
+                        if (++currentLine < currentScript.sentences.Length)
                         {
-                            //옵션이 있을 때
-                            FindOption(int.Parse(currentScript.optionNumber));
-                            ShowOption();
+                            //문장이 남아 있을 때
+                            StartCoroutine(TypeWriter());
                         }
-                        else if (currentScript.isExistNextScript == "Y")
-                        {
-                            //다음 스크립트가 있을 때
-                            JumpToNextScript();
-                        }
-
                         else
                         {
-                            //아무것도 없을 때
-                            ShowScriptUI(false);
-                            isFinished = true;
-                            isPlayingScript = false;
-                            FinishedScript.Invoke();
+                            if (currentScript.isExistOption == "Y")
+                            {
+                                //옵션이 있을 때
+                                FindOption(int.Parse(currentScript.optionNumber));
+                                ShowOption();
+                            }
+                            else if (currentScript.isExistNextScript == "Y")
+                            {
+                                //다음 스크립트가 있을 때
+                                JumpToNextScript();
+                            }
+
+                            else
+                            {
+                                //아무것도 없을 때
+                                ShowScriptUI(false);
+                                isFinished = true;
+                                isPlayingScript = false;
+                                FinishedScript.Invoke();
+                            }
                         }
                     }
                 }
@@ -121,7 +133,7 @@ public class ScriptManager : MonoBehaviour
 
         ShowScriptUI(true);
 
-        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.055f));
+        myCoroutine = StartCoroutine(ShowTextCoroutine(scriptText.text, 0.055f));
 
         isNext = true;
     }
