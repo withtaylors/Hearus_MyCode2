@@ -204,7 +204,7 @@ public class playerController : MonoBehaviour
                         break; // 첫 번째로 발견된 아이템만 처리하고 반복문 종료
                     }
 
-                    if (colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT")
+                    if (colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT" || colliderTag == "ITEM_PICKING")
                     {
                         // "isPicking" 애니메이션 실행
                         myAnim.SetTrigger("isPicking");
@@ -215,7 +215,7 @@ public class playerController : MonoBehaviour
                 }
                 else
                 {
-                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT")
+                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT" || colliderTag == "ITEM_PICKING")
                     {
                         Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
                     }
