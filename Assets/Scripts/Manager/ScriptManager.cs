@@ -13,6 +13,7 @@ public class ScriptManager : MonoBehaviour
 {
     public static ScriptManager instance;
 
+    [SerializeField] private GameObject nextButton; // 다음 버튼
     [SerializeField] private GameObject go_ScriptPanel; // 스크립트 패널
     [SerializeField] private TextMeshProUGUI scriptText; // 스크립트 텍스트
     [SerializeField] private GameObject go_OptionView; // 옵션 리스트
@@ -49,8 +50,6 @@ public class ScriptManager : MonoBehaviour
         scriptManager = FindObjectOfType<ScriptManager>();
         scriptManager.LoadScript(scriptManager.GetScript());
         scriptManager.LoadOption(scriptManager.GetOption());
-        
-
     }
 
     private void Update()
@@ -66,9 +65,11 @@ public class ScriptManager : MonoBehaviour
                         StopCoroutine(myCoroutine);
                         scriptText.maxVisibleCharacters = scriptText.text.Length;
                         isTyping = false;
+                        nextButton.SetActive(true);
                     }
                     else
                     {
+                        nextButton.SetActive(false);
                         isNext = false;
                         if (++currentLine < currentScript.sentences.Length)
                         {
@@ -326,5 +327,40 @@ public class ScriptManager : MonoBehaviour
         }
 
         if (isTyping) isTyping = false;
+        nextButton.SetActive(true);
+    }
+
+    public void OnNextButtonClick()
+    {
+        isNext = false;
+        if (++currentLine < currentScript.sentences.Length)
+        {
+            //문장이 남아 있을 때
+            StartCoroutine(TypeWriter());
+        }
+        else
+        {
+            if (currentScript.isExistOption == "Y")
+            {
+                //옵션이 있을 때
+                FindOption(int.Parse(currentScript.optionNumber));
+                ShowOption();
+            }
+            else if (currentScript.isExistNextScript == "Y")
+            {
+                //다음 스크립트가 있을 때
+                JumpToNextScript();
+            }
+
+            else
+            {
+                //아무것도 없을 때
+                ShowScriptUI(false);
+                isFinished = true;
+                isPlayingScript = false;
+                FinishedScript.Invoke();
+            }
+        }
+        nextButton.SetActive(false);
     }
 }

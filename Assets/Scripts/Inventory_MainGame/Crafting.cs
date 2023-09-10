@@ -83,6 +83,13 @@ public class Crafting : MonoBehaviour
     public void onClickCraftingButton()
     {
         int returnID = CheckCombination();
+        int returnCount = 1;
+
+        for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+        {
+            if (returnID == ItemDatabase.itemList[i].itemID)
+                returnCount = ItemDatabase.itemList[i].itemCount;
+        }
 
         if (craftingItemList.Count < 1)
         {
@@ -98,7 +105,7 @@ public class Crafting : MonoBehaviour
             }
             else
             {
-                Inventory.instance.GetAnItem(returnID); // 크래프팅 결과물 습득
+                Inventory.instance.GetAnItem(returnID, returnCount); // 크래프팅 결과물 습득
                 Inventory.instance.SaveInventoryDataManager(); // 인벤토리 데이터 매니저에 저장
                 DataManager.instance.SaveInventoryData(); // 데이터 매니저에 저장
                 DestroyItem(); // 재료 파괴
