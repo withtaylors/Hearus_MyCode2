@@ -12,9 +12,9 @@ public class BGMSound : MonoBehaviour
 
     void Awake()
     {
-        if (volumeSlider != null) // 슬라이더가 할당되어 있어야 함을 확인합니다.
+        if (volumeSlider != null) // 슬라이더가 할당되어 있어야 함을 확인
         {
-            // AudioSource의 볼륨을 슬라이더 값에 맞게 설정합니다.
+            // AudioSource의 볼륨을 슬라이더 값에 맞게 설정
             audioSource.volume = volumeSlider.value;
         }
     }
