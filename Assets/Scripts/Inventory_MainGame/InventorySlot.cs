@@ -10,7 +10,10 @@ public class InventorySlot : MonoBehaviour
     public static InventorySlot instance;
 
     public Image icon;
+    public Button slotButton;
     public TextMeshProUGUI itemCount_Text;
+
+    public int slotIndex;
 
     private void Awake()
     {
@@ -76,5 +79,10 @@ public class InventorySlot : MonoBehaviour
         Color color = icon.color;
         color.a = 0f;
         icon.color = color;
+    }
+
+    public void OnButtonClick()
+    {
+        Inventory.instance.selectedSlot = slotIndex;
     }
 }

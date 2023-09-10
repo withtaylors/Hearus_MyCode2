@@ -27,15 +27,25 @@ public class ItemUse : MonoBehaviour
                 PlayerHP.instance.IncreaseHP(currentItem.effectValue);
             else if (currentItem.itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
                 PlayerHP.instance.DecreaseHP(currentItem.effectValue);
-    
-            if (currentItem.itemCount > 1)
-                InventorySlot.instance.DecreaseCount(currentItem);
-            else
-                Inventory.instance.DeleteItem(currentItem.itemID);
+
+            UseItem();
         }
         else
             Debug.Log("인벤토리에 항목이 존재하지 않습니다.");
     }
 
-
+    public void UseItem()
+    {
+        if (Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemCount > 1)
+        {
+            Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemCount -= 1;
+            Inventory.instance.slots[Inventory.instance.selectedSlot].UpdateItemCount(Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot]);
+        }
+        else
+        {
+            Inventory.instance.inventoryItemList.RemoveAt(Inventory.instance.selectedSlot);
+            Inventory.instance.slots.RemoveAt(Inventory.instance.selectedSlot);
+            Destroy(Inventory.instance.slots[Inventory.instance.selectedSlot].gameObject);
+        }
+    }
 }

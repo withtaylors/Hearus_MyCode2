@@ -98,10 +98,12 @@ public class Crafting : MonoBehaviour
             }
             else
             {
-                Inventory.instance.GetAnItem(returnID);
-                DestroyItem();
-                ResetCraftingSlot();
-                ResetCraftingList();
+                Inventory.instance.GetAnItem(returnID); // 크래프팅 결과물 습득
+                Inventory.instance.SaveInventoryDataManager(); // 인벤토리 데이터 매니저에 저장
+                DataManager.instance.SaveInventoryData(); // 데이터 매니저에 저장
+                DestroyItem(); // 재료 파괴
+                ResetCraftingSlot(); // 크래프팅 슬롯 리셋
+                ResetCraftingList(); // 크래프팅 리스트 리셋
                 return;
             }
 
@@ -121,7 +123,7 @@ public class Crafting : MonoBehaviour
 
     public bool CheckItemAmount(int i) // 크래프팅 슬롯 내 수량 제한
     {
-        if (craftingItemList[i].itemCount >= Inventory.instance.inventoryItemList[i].itemCount)
+        if (craftingItemList[i].itemCount >= Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot].itemCount)
             return false;
         else 
             return true;

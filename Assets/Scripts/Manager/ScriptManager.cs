@@ -90,6 +90,19 @@ public class ScriptManager : MonoBehaviour
                 }
             }
         }
+
+        if (go_OptionView.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (EventSystem.current.currentSelectedGameObject == optionPrefab[0])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[1]);
+                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[1])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[2]);
+                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[2])
+                    EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
+            }
+        }
     }
 
     IEnumerator TypeWriter()
@@ -108,7 +121,7 @@ public class ScriptManager : MonoBehaviour
 
         ShowScriptUI(true);
 
-        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.07f));
+        StartCoroutine(ShowTextCoroutine(scriptText.text, 0.055f));
 
         isNext = true;
     }
@@ -130,6 +143,7 @@ public class ScriptManager : MonoBehaviour
             optionPrefab[i].SetActive(true);
         }
 
+        EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
         yield return new WaitForSeconds(0.1f);
     }
 
