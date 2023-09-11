@@ -94,9 +94,11 @@ public class Inventory : MonoBehaviour
         while (true)
         {
             if (activated)
+            {
                 SelectedSlot();
-                
-            yield return new WaitForSeconds(1f);
+                yield break;
+            }
+            yield return new WaitForSecondsRealtime(0.1f);
         }
     }
 
