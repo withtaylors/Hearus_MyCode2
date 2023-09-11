@@ -43,13 +43,14 @@ public class Inventory : MonoBehaviour
         inventoryDataManager = FindObjectOfType<InventoryDataManager>();
         inventoryItemList = new List<Item>();                                           // 인벤토리 아이템 리스트
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   //
-        selectedSlot = 0;                                                               // 현재 선택된 슬롯을 나타내는 값, 디폴트는 0
+
         if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
-            //for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
-            //LoadItem(InventoryDataManager.Instance.inventoryItemList[i].itemID, InventoryDataManager.Instance.inventoryItemList[i].itemCount);
             LoadInventory();
         else
             Debug.Log("Inventory None");
+
+        selectedSlot = 0;                                                               // 현재 선택된 슬롯을 나타내는 값, 디폴트는 0
+        StartCoroutine(UpdateSlot());
     }
 
     void Update()
@@ -85,6 +86,17 @@ public class Inventory : MonoBehaviour
             {
                 go_Inventory.SetActive(false);
             }
+        }
+    }
+
+    private IEnumerator UpdateSlot()
+    {
+        while (true)
+        {
+            if (activated)
+                SelectedSlot();
+                
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -166,20 +178,26 @@ public class Inventory : MonoBehaviour
     }
 
     // SelectedSlot(): 슬롯이 선택되었음을 나타내는 이미지(테두리) 위치를 이동시키는 메소드
-    private void SelectedSlot()
+    public void SelectedSlot()
     {
-        go_SelectedImage.transform.position = slots[selectedSlot].transform.position; // 위치 변경
+        if (slots.Count > 0)
+            go_SelectedImage.transform.position = slots[selectedSlot].transform.position; // 위치 변경
     }
 
     // TryInputArrowKey(): // 좌우 화살표 키로 선택된 슬롯을 변경하는 메소드
     private void TryInputArrowKey()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             ChangeSlotLeft();
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            ChangeSlotRight();
+            SelectedSlot(); // selectedSlot 위치 업데이트
+        }
 
-        SelectedSlot(); // selectedSlot 위치 업데이트
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            ChangeSlotRight();
+            SelectedSlot(); // selectedSlot 위치 업데이트
+        }
     }
 
     private void ChangeSlotLeft()   // 왼쪽 슬롯으로 이동 (인벤토리 아이템 리스트의 범위 내에서만 작동)
@@ -218,29 +236,33 @@ public class Inventory : MonoBehaviour
             {
                 if (_itemID == inventoryItemList[i].itemID)
                 {
-                    if (inventoryItemList[i].itemCount > 1)
+                    if (inventoryItemList[i].itemCount > 1) // 해당 아이템의 개수가 1개를 초과할 경우 => 아이템의 개수만 감소
                     {
                         inventoryItemList[i].itemCount -= 1;
                         slots[i].UpdateItemCount(inventoryItemList[i]);
                         break;
                     }
-                    else if (inventoryItemList[i].itemCount == 1)
+                    else if (inventoryItemList[i].itemCount == 1) // 해당 아이템의 개수가 1개일 경우 => 슬롯 삭제
                     {
-                        inventoryItemList.RemoveAt(i);
-                        Destroy(slots[i].gameObject);
-                        slots.RemoveAt(i);
+                        inventoryItemList.RemoveAt(i); // 인벤토리 아이템 리스트에서 삭제
+                        Destroy(slots[i].gameObject); // 슬롯 오브젝트 삭제
+                        slots.RemoveAt(i); // 슬롯 리스트에서 삭제
+                        SetSlotIndex(); // 슬롯 인덱스 재조정
+                        selectedSlot = 0;
+                        SelectedSlot();
                         break;
                     }
                 }
             }
         }
-
         if (inventoryItemList.Count == 0) // 인벤토리가 비어 있으면 함수 즉시 종료
             return;
+    }
 
-        selectedSlot = 0;
-
-        SelectedSlot();
+    private void SetSlotIndex() // 슬롯의 인덱스를 재조정하는 함수. 슬롯이 삭제될 경우 호출됨.
+    {
+        for (int i = 0; i < slots.Count; i++)
+            slots[i].slotIndex = i;
     }
 
     public void SaveInventoryDataManager()

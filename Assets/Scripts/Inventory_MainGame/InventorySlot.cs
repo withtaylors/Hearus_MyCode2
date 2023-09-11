@@ -84,5 +84,6 @@ public class InventorySlot : MonoBehaviour
     public void OnButtonClick()
     {
         Inventory.instance.selectedSlot = slotIndex;
+        Inventory.instance.SelectedSlot();
     }
 }
