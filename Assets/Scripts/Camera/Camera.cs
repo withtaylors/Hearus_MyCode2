@@ -7,7 +7,7 @@ public class Camera : MonoBehaviour
     public Transform targetTransform;
     public Vector3 CameraOffset;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = targetTransform.position + CameraOffset;
     }
