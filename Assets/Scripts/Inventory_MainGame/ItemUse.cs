@@ -12,23 +12,28 @@ public class ItemUse : MonoBehaviour
     public UnityEvent Used;
 
     public GameObject ropeForBridge;
+    public GameObject player;
 
     private Item currentItem;
+    private int currentItemID;
+
 
     public void OnClickUseButton()
     {
         currentItem = Inventory.instance.inventoryItemList[Inventory.instance.selectedSlot];
+        currentItemID = currentItem.itemID;
 
         if (Inventory.instance.inventoryItemList.Count > 0)
         {
-            Used.Invoke();
-
             if (currentItem.itemEffect == Item.ItemEffect.회복) // 회복 아이템일 경우
                 PlayerHP.instance.IncreaseHP(currentItem.effectValue);
             else if (currentItem.itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
                 PlayerHP.instance.DecreaseHP(currentItem.effectValue);
 
-            Inventory.instance.DeleteItem(currentItem.itemID);
+            if (currentItemID == 102 && player.GetComponent<playerController>().canUseRope == true)
+                ropeForBridge.SetActive(true);
+
+            Inventory.instance.DeleteItem(currentItemID);
         }
         else
             Debug.Log("인벤토리에 항목이 존재하지 않습니다.");

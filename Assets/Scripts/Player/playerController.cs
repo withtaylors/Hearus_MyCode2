@@ -4,6 +4,7 @@ using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
 using UnityEngine.Events;
+using TMPro;
 
 public class playerController : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class playerController : MonoBehaviour
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
     public bool isClimbing = false;
+    public bool canUseRope = false;
     private bool canClimb = false; // 로프와 상호 작용할 수 있는지 여부를 저장
 
     private Rigidbody playerRigidbody;
@@ -167,7 +169,16 @@ public class playerController : MonoBehaviour
             useRope.Invoke();
 
         if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
+        {
+            canUseRope = true;
             arriveRopeField.Invoke();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에서 벗어났을 때
+            canUseRope = false;
     }
 
     // void OnCollisionExit(Collision collision)

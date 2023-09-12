@@ -2152,7 +2152,6 @@ GameObject:
   - component: {fileID: 2402074326943465790}
   - component: {fileID: 2402074326943465789}
   - component: {fileID: 2402074326943465788}
-  - component: {fileID: 2402074326943465787}
   m_Layer: 5
   m_Name: Use Button
   m_TagString: Untagged
@@ -2263,7 +2262,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2402074326943465787}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ItemUse, Assembly-CSharp
         m_MethodName: OnClickUseButton
         m_Mode: 1
@@ -2275,22 +2274,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2402074326943465787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2402074326943465785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e5f73aa4a457b4b9a9974352ca6326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Used:
-    m_PersistentCalls:
-      m_Calls: []
-  ropeForBridge: {fileID: 0}
 --- !u!1 &2402074327757182194
 GameObject:
   m_ObjectHideFlags: 0
