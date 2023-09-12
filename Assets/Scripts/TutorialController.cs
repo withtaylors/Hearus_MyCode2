@@ -15,7 +15,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] private bool NEXT_STEP_POSSIBLE;
 
-    private int tutorialStep;
+    [SerializeField] private int tutorialStep;
 
     private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.", // 0
                                                        "스페이스바 키를 눌러 점프할 수 있습니다.", // 1
@@ -131,11 +131,13 @@ public class TutorialController : MonoBehaviour
                 break;
             case 10: // 조건: 인벤토리 활성화(TenthStep)
                 if (Inventory.instance.go_Inventory.activeSelf)
-                    EleventhStep();
+                    NEXT_STEP_POSSIBLE = true;
+                onClickContinueButton();
                 break;
             case 11: // 조건: 밧줄 사용하기(EleventhStep)
                 if (useRope)
-                    TwelfthStep();
+                    NEXT_STEP_POSSIBLE = true;
+                onClickContinueButton();
                 break;
         }
     }
@@ -272,8 +274,6 @@ public class TutorialController : MonoBehaviour
     {
         tutorialPanelText.text = textList[10];
         StartCoroutine("FadeOutPanel");
-
-        tutorialStep++;
     }
 
     private void TwelfthStep() // 튜토리얼 완료 텍스트
@@ -282,8 +282,6 @@ public class TutorialController : MonoBehaviour
         nextButton.SetActive(true);
         settingButtonParticle.gameObject.SetActive(false);
         inventoryButtonParticle.gameObject.SetActive(false);
-
-        tutorialStep++;
     }
 
     // 프리스 선택
@@ -319,12 +317,6 @@ public class TutorialController : MonoBehaviour
     {
         arriveRopeField = true;
     }
-
-
-
-
-
-
 
     public void OnSelectEden()
     {
@@ -463,7 +455,6 @@ public class TutorialController : MonoBehaviour
         }
 
         tutorialStep++;
-        tutorialPanelText.text = textList[tutorialStep];
     }
 
     private IEnumerator FadeInPanel()
