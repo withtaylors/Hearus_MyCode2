@@ -141,6 +141,9 @@ public class Select : MonoBehaviour
             slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
         }
 
+        // 해당 슬롯에 대한 DataManager 인스턴스 파괴
+        Destroy(DataManager.instance.gameObject);
+
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }
