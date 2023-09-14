@@ -45,31 +45,31 @@ public class FrithControllerTest2 : MonoBehaviour
         transform.Translate(Vector3.up * yOffset * Time.deltaTime);
     }
 
-void DirectionPet()
-{
-    float horizontalInput = Input.GetAxisRaw("Horizontal");
-    float verticalInput = Input.GetAxisRaw("Vertical");
+    void DirectionPet()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
-    // 기본적으로 오른쪽(0도)을 바라보게 설정
-    float targetRotationY = 0;
+        // 기본적으로 오른쪽(0도)을 바라보게 설정
+        float targetRotationY = 0;
 
-    // 왼쪽 방향
-    if (horizontalInput < 0)
-        targetRotationY = 180;
-    
-     // 위쪽 방향
-     else if (verticalInput > 0)
-         targetRotationY = 90;
+        // 왼쪽 방향
+        if (horizontalInput < 0)
+            targetRotationY = 180;
+        
+        // 위쪽 방향
+        else if (verticalInput > 0)
+            targetRotationY = 90;
 
-     // 아래쪽 방향
-     else if (verticalInput < 0)
-         targetRotationY = -90;
+        // 아래쪽 방향
+        else if (verticalInput < 0)
+            targetRotationY = -90;
 
-    float currentAngleY = transform.eulerAngles.y;
-    
-    float newAngleY = Mathf.MoveTowardsAngle(currentAngleY, targetRotationY, rotationSpeed * Time.deltaTime);
-     
-     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, newAngleY, transform.rotation.eulerAngles.z);
-}
+        float currentAngleY = transform.eulerAngles.y;
+        
+        float newAngleY = Mathf.MoveTowardsAngle(currentAngleY, targetRotationY, rotationSpeed * Time.deltaTime);
+        
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, newAngleY, transform.rotation.eulerAngles.z);
+    }
 
 }

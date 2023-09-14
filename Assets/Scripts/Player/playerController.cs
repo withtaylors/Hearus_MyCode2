@@ -8,19 +8,20 @@ using TMPro;
 
 public class playerController : MonoBehaviour
 {
+    public Rigidbody myRB;
+    public Animator myAnim;
+    private Rigidbody playerRigidbody;
+    public LayerMask groundLayer; // Ground 레이어 감지를 위함
+
     //걷는속도, 뛰는속도, 점프높이
     public float walkSpeed;
     public float runSpeed;
     public float jumpHeight;
 
-    public Rigidbody myRB;
-    public Animator myAnim;
-
     //걷기, 뛰기, 점프를 위한 땅 착지 여부를 확인할 수 있는 grounded 변수
     public bool isWalking = false;
     public bool isRunning = false;
     public bool grounded=false;
-    public bool isPlayingScript = false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
 
@@ -30,21 +31,19 @@ public class playerController : MonoBehaviour
     public bool canUseRope = false;
     private bool canClimb = false; // 로프와 상호 작용할 수 있는지 여부를 저장
 
-    private Rigidbody playerRigidbody;
-
-    // Ground 레이어 감지를 위함
-    public LayerMask groundLayer;
+    // 밧줄관련 변수
+    private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
+    public float climbSpeed = 1.0f; // 밧줄 타는 속도
 
     //private Collider[] colliders; // colliders 변수를 클래스 수준으로 이동하여 필드로 선언
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
 
     private ItemPickup itemPickup;
 
-    private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
-    public float climbSpeed = 1.0f;
-    private float newClimbSpeed = 0;
-
     private string colliderTag;
+
+    // Script 관련 변수
+    public bool isPlayingScript = false;
 
     public UnityEvent useRope;
     public UnityEvent arriveRopeField;
@@ -88,6 +87,14 @@ public class playerController : MonoBehaviour
     void HandleMovement()
     {
         isPlayingScript = ScriptManager.instance.isPlayingScript;
+
+        // if(!isWalking && !grounded && !isRunning && !isClimbing){
+        //     myAnim.SetBool("grounded", true);
+        //     myAnim.SetBool("isWalking", true);
+        
+        //     // isWalking = true;
+        //     // grounded = true;
+        // }
 
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
         if (isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
@@ -151,7 +158,18 @@ public class playerController : MonoBehaviour
 
                 myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
+
+            // if (grounded == true && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+            // {
+            //     myAnim.SetBool("grounded", grounded);
+            //     myAnim.Play("falling to land");
+            // }
         }
+
+        // if (grounded == true && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        // {
+        //     myAnim.SetBool("grounded", grounded);
+        // }
     }
 
     //플레이어 점프 - 땅과 충돌 감지
