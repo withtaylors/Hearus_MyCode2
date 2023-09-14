@@ -131,6 +131,7 @@ public class Select : MonoBehaviour
         Debug.Log("Select -- DeletSlot nowSlot : " + DataManager.instance.nowSlot);
 
         string filePath = DataManager.instance.path + $"{DataManager.instance.nowSlot}_player.json";
+        string filePath2 = DataManager.instance.path + $"{DataManager.instance.nowSlot}_inventory.json";
 
         if (File.Exists(filePath))
         {
@@ -139,6 +140,11 @@ public class Select : MonoBehaviour
             slotText[DataManager.instance.nowSlot].text = "Empty";
             slotText2[DataManager.instance.nowSlot].text = "새로 하기";
             slotImages[DataManager.instance.nowSlot].sprite = dataEmptyImage;
+        }
+
+        if (File.Exists(filePath2))
+        {
+            File.Delete(filePath2);
         }
 
         // 해당 슬롯에 대한 DataManager 인스턴스 파괴
