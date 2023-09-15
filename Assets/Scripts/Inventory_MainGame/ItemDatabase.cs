@@ -75,6 +75,8 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(141, "조개 껍데기", "예쁘지만 쓸모는 없는 조개 껍데기.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(142, "수정", "예쁘지만 쓸모는 없다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(143, "부식된 기계", "바닷물 때문에 많이 부식된 기계. 그래도 원래의 모습이 어느정도 남아있다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(142, "알루미늄 분말", "우주선 연료의 재료로 쓰이는 알루미늄 분말.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(143, "피스톤 링", "우주선의 엔진을 고칠 수 있는 피스톤 링.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(144, "알루미늄 분말", "우주선 연료의 재료로 쓰이는 알루미늄 분말.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(145, "피스톤 링", "우주선의 엔진을 고칠 수 있는 피스톤 링.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(146, "해초", "", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+    }
 }
