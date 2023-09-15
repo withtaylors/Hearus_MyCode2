@@ -42,9 +42,6 @@ public class ItemPickup : MonoBehaviour
 
     public void Pickup() // 아이템 줍기
     {
-        //pickingID = item.GetComponent<ItemPickup>()._itemID;
-        //pickingCount = item.GetComponent<ItemPickup>()._count;
-
         Picked.Invoke(); // 아이템 습득 Invoke
 
         CheckSwitch(_itemID);
@@ -142,7 +139,7 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
-        scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
-        scriptManager.ShowScript(); // 스크립트 재생
+        //scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
+        //scriptManager.ShowScript(); // 스크립트 재생
     }
 }

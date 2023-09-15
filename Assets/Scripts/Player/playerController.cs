@@ -332,8 +332,15 @@ public class playerController : MonoBehaviour
         isPicking = false;
 
         // 아이템 습득 및 오브젝트 제거
-        item.GetComponent<ItemPickup>().Pickup();
-        Destroy(item);
+        //item.GetComponent<ItemPickup>().Pickup();
+
+        // 아이템 아이디 전달받기
+        int go_itemID = item.GetComponent<ItemPickup>()._itemID;
+        ScriptManager.instance.currentGameObject = item;
+
+        // 해당 아이템 스크립트를 찾고 재생
+        ScriptManager.instance.FindScriptByItemID(go_itemID);
+        ScriptManager.instance.ShowScript();
     }
 
     public void UpdateGrounded(bool isCollidingWithGround)

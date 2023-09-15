@@ -35,6 +35,7 @@ public class ScriptManager : MonoBehaviour
     public bool isTyping = false; // 타이핑 중이면 true
     private bool isNext = false; // 특정 키 입력 대기. true가 되면 키 입력 가능
     private int currentLine = 0;
+    public GameObject currentGameObject;
 
     public UnityEvent FinishedScript;
 
@@ -93,6 +94,11 @@ public class ScriptManager : MonoBehaviour
                             else
                             {
                                 //아무것도 없을 때
+                                if (currentScript.itemID != null)
+                                {
+                                    currentGameObject.GetComponent<ItemPickup>().Pickup();
+                                    Destroy(currentGameObject);
+                                }
                                 ShowScriptUI(false);
                                 isFinished = true;
                                 isPlayingScript = false;
