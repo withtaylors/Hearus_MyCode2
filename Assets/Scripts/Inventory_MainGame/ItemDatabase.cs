@@ -64,14 +64,17 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(131, "산딸기", "신맛이 강한 과일. 빨갛게 잘 익은 것일수록 맛이 좋다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(132, "블랙베리", "산딸기보다 약간 단맛이 도는 과일. 산딸기와 달리 검은색이다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(133, "액체 연료", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
-
-        /*
-        itemJourneyList.Add(new ItemJourney(103, "태엽 인형을 발견했다. 대여섯 살 무렵이었나? 그즈음 가지고 놀던 것과 꽤 비슷하게 생겼다. 아마 당시 엄청 인기 많던 캐릭터였지." + "워낙 인기가 많아 옆집에 살던 두어 살 어린애가 자기도 가지고 싶다며 볼 때마다 떼를 썼던 것도 기억난다.그렇게 아끼는 장난감은 아니었으나 그 애가 가지겠다 하니 무척 애틋해지고, 소중히 여기게 되었던 것 같다." +
-            "지구에서도 같은 캐릭터가 있었던 걸까 ? 예전의 지구를 잘 알지 못하지만, 이걸 보니 그래도 지구와 행성의 공통점을 하나 발견한 기분이다.\n" + "일전 여기에 오기 전 읽은 책에서 타지에서는 고향이 사무치도록 그리워진다는 글을 봤다." +
-            "그글은 아마 지구를 떠나고 얼마 지나지 않아 이곳을 그리워하며 썼으리라…. 그가 기억하던 지구는 이런 모습이 아니겠지.그렇다면 이곳을 본다면 그는 어떤 생각을 할까 ? " +
-            "나처럼 행성을 그리워할 수도, 돌아갈 수 없는 이전 지구의 모습을 더더욱 그리워할 수도 있겠다.인간의 고향은 지구라 했지만, 지금 내게는 지구가 그 타지다. " +
-            "…그래, 지구에서의 매 순간은 나의 행성을 그립게 만든다.이걸 보니 행성으로 돌아가고 싶은 마음이 더 커졌다.\n" +
-            "태엽을 돌려보니 잘 돌아가지는 않는다.아마 흙이나 이끼가 끼어서 그런 것 같다."));
-        */
-    }
+        itemList.Add(new Item(134, "물에 젖은 나뭇가지", "물에 젖은 나뭇가지. 바닷물이라 그런지 약간 끈적거린다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        // 물에 젖은 나뭇가지: 0.5개씩 획득?...???
+        itemList.Add(new Item(135, "질긴 넝쿨", "질긴 덩쿨. 잘라내기는 어렵지만 그만큼 질기고 잘 끊어지지 않는다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(136, "마그네슘 덩어리", "연료를 만드는 주 재료인 마그네슘 덩어리.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(137, "미역", "먹을 수 있는 미역.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
+        itemList.Add(new Item(138, "김", "바닷가에서 자라는 김. 은근 중독성이 있는 맛이다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
+        itemList.Add(new Item(139, "목화", "하얀 목화. 우주복을 고치거나 필터를 만들 수 있는 등 다양한 곳에 쓸 수 있다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(140, "소금 결정", "깨끗하고 큰 소금 결정. 쓸모는 없는 것 같다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(141, "조개 껍데기", "예쁘지만 쓸모는 없는 조개 껍데기.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(142, "수정", "예쁘지만 쓸모는 없다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(143, "부식된 기계", "바닷물 때문에 많이 부식된 기계. 그래도 원래의 모습이 어느정도 남아있다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(142, "알루미늄 분말", "우주선 연료의 재료로 쓰이는 알루미늄 분말.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(143, "피스톤 링", "우주선의 엔진을 고칠 수 있는 피스톤 링.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
 }
