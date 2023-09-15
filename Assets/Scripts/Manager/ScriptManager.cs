@@ -281,16 +281,31 @@ public class ScriptManager : MonoBehaviour
 
         if (buttonTag == "FirstOption")
         {
+            if (currentOption.optionEffect[0] == "피해")
+                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
+            else if (currentOption.optionEffect[0] == "회복")
+                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[0]));
+
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[0]));
             ShowScript();
         }
         else if (buttonTag == "SecondOption")
         {
+            if (currentOption.optionEffect[1] == "피해")
+                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[1]));
+            else if (currentOption.optionEffect[1] == "회복")
+                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[1]));
+
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[1]));
             ShowScript();
         }
         else if (buttonTag == "ThirdOption")
         {
+            if (currentOption.optionEffect[2] == "피해")
+                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[2]));
+            else if (currentOption.optionEffect[2] == "회복")
+                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[2]));
+
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[2]));
             ShowScript();
         }

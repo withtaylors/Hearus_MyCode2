@@ -16,6 +16,12 @@ public class Option
 
     [Tooltip("대사 내용")]
     public string[] sentences;
+
+    [Tooltip("해당 옵션 효과")]
+    public string[] optionEffect;
+
+    [Tooltip("해당 옵션 효과 수치")]
+    public string[] optionEffectValue;
 }
 
 [System.Serializable]

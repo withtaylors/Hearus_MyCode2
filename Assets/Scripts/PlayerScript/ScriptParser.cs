@@ -22,6 +22,8 @@ public class ScriptParser : MonoBehaviour
             List<string> isExistNextScript = new List<string>();
             List<string> nextScriptNumber = new List<string>();
             List<string> sentenceList = new List<string>();
+            List<string> optionEffect = new List<string>();
+            List<string> optionEffectValue = new List<string>();
 
             optionID = row[0];
 
@@ -30,6 +32,8 @@ public class ScriptParser : MonoBehaviour
                 sentenceList.Add(row[1]);
                 isExistNextScript.Add(row[2]);
                 nextScriptNumber.Add(row[3]);
+                optionEffect.Add(row[4]);
+                optionEffectValue.Add(row[5]);
 
                 if (++i < data.Length)
                 {
@@ -43,6 +47,8 @@ public class ScriptParser : MonoBehaviour
             option.sentences = sentenceList.ToArray();
             option.isExistNextScript = isExistNextScript.ToArray();
             option.nextScriptNumber = nextScriptNumber.ToArray();
+            option.optionEffect = optionEffect.ToArray();
+            option.optionEffectValue = optionEffectValue.ToArray();
 
             optionList.Add(option);
         }
