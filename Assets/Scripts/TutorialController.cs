@@ -14,7 +14,6 @@ public class TutorialController : MonoBehaviour
     /// </summary>
 
     [SerializeField] private bool NEXT_STEP_POSSIBLE;
-
     [SerializeField] private int tutorialStep;
 
     private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.", // 0
@@ -49,7 +48,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private ScriptManager scriptManager;
 
 
-
+    public bool isFinishedTutorial = false;
     private bool right = false;
     private bool left = false;
     private bool jump = false;
@@ -375,6 +374,7 @@ public class TutorialController : MonoBehaviour
         }
 
         StartCoroutine("EndTutorial");
+        isFinishedTutorial = true;
     }
 
     public void OnClickNoButton()
@@ -398,6 +398,7 @@ public class TutorialController : MonoBehaviour
 
         if (scriptManager.currentScript.eventName.Equals("END_TUTORIAL"))
             StartCoroutine("FadeInScene");
+
     }
 
     private IEnumerator FadeOutScene() // 튜토리얼 종료 시 페이드아웃 -> 스크립트

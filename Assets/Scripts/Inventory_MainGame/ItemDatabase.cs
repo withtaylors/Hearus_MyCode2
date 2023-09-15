@@ -78,5 +78,7 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(144, "알루미늄 분말", "우주선 연료의 재료로 쓰이는 알루미늄 분말.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(145, "피스톤 링", "우주선의 엔진을 고칠 수 있는 피스톤 링.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(146, "해초", "", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(147, "전갈 꼬리", "", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        // 해초와 전갈 꼬리는 조합 가이드를 위해 일단 넣음
     }
 }
