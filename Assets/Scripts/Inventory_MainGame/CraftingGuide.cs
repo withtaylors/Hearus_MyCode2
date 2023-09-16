@@ -15,12 +15,12 @@ public class CraftingGuide : MonoBehaviour
     public GameObject ExitButton;
     public GameObject BackButton;
 
-    private void Start()
+    private void OnEnable()
     {
         for (int i = 0; i < tf_materialSlots.childCount; i++)
         {
             Transform materialSlot = tf_materialSlots.GetChild(i);
-
+            
             for (int j = 0; i < ItemDatabase.itemList.Count; i++)
             {
                 if (materialSlot.gameObject.name == ItemDatabase.itemList[j].itemName)
