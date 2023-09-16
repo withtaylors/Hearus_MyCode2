@@ -42,8 +42,6 @@ public class ScriptManager : MonoBehaviour
     int totalCharacters;
     Coroutine myCoroutine;
 
-    //Coroutine runningCoroutine = null;
-
     private void Start()
     {
         instance = this;
@@ -97,7 +95,7 @@ public class ScriptManager : MonoBehaviour
                                 if (currentScript.itemID != null)
                                 {
                                     currentGameObject.GetComponent<ItemPickup>().Pickup();
-                                    Destroy(currentGameObject);
+                                    currentGameObject.SetActive(false); // 습득 후 비활성화시킴
                                 }
                                 ShowScriptUI(false);
                                 isFinished = true;
@@ -277,10 +275,11 @@ public class ScriptManager : MonoBehaviour
 
     public void OnOptionButtonClick()
     {
-        string buttonTag = EventSystem.current.currentSelectedGameObject.tag;
+        string buttonTag = EventSystem.current.currentSelectedGameObject.tag; // 선택한 옵션의 태그를 받아 옴
 
         if (buttonTag == "FirstOption")
         {
+            // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[0] == "피해")
                 PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
             else if (currentOption.optionEffect[0] == "회복")
@@ -291,6 +290,7 @@ public class ScriptManager : MonoBehaviour
         }
         else if (buttonTag == "SecondOption")
         {
+            // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[1] == "피해")
                 PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[1]));
             else if (currentOption.optionEffect[1] == "회복")
@@ -301,6 +301,7 @@ public class ScriptManager : MonoBehaviour
         }
         else if (buttonTag == "ThirdOption")
         {
+            // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[2] == "피해")
                 PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[2]));
             else if (currentOption.optionEffect[2] == "회복")

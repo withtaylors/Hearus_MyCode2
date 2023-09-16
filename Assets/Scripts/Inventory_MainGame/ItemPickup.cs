@@ -11,8 +11,9 @@ public class ItemPickup : MonoBehaviour
 {
     // E 키를 눌러 아이템을 습득함
 
-    public int _itemID;
-    public int _count;
+    public int _itemID; // 아이템 아이디. 같은 아이템이라면 동일함.
+    public int _count; // 습득 개수. 인벤토리에 몇 개씩 들어갈지를 정함.
+    public int _fieldItemID; // 필드 아이템 아이디. 같은 아이템이라도 다른 오브젝트라면 다른 아이디를 가짐.
 
     public UnityEvent Picked;
 
