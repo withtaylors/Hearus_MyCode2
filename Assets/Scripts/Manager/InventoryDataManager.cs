@@ -5,7 +5,9 @@ using UnityEngine;
 public class InventoryDataManager : MonoBehaviour
 {
     public static InventoryDataManager Instance;
+
     public List<Item> inventoryItemList;
+    public List<int> fieldItemIDList;
 
     private void Awake()
     {
@@ -23,5 +25,6 @@ public class InventoryDataManager : MonoBehaviour
     private void Start()
     {
         inventoryItemList = new List<Item>();
+        fieldItemIDList = new List<int>();
     }
 }

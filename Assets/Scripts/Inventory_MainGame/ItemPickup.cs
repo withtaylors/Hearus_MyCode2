@@ -44,15 +44,14 @@ public class ItemPickup : MonoBehaviour
     public void Pickup() // 아이템 줍기
     {
         Picked.Invoke(); // 아이템 습득 Invoke
-
         CheckSwitch(_itemID);
-
         TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
         Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
         ChangeConditionMeet(_itemID); // isMeet이 false라면 true로 바꾸기
 
         Inventory.instance.SaveInventoryDataManager();
         DataManager.instance.SaveInventoryData();
+        DataManager.instance.SaveFieldData(_fieldItemID);
     }
 
     private bool CheckObjectInCamera(GameObject item) // 오브젝트가 카메라 안에 있는지 확인

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using static Item;
 using System;
+using System.Linq;
 
 public class PlayerData
 {
@@ -53,13 +54,14 @@ public class InventoryData
 public class InventoryDataWrapper
 {
     public List<InventoryData> items;
+    public List<int> fieldItemIDList;
 }
 
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance; // 싱글톤패턴
-
+    
     public PlayerData nowPlayer = new PlayerData(); // 플레이어 데이터 생성
     public PlayerData nowPlayerDefault = new PlayerData(); // 기본 플레이어 데이터 생성
     public InventoryDataWrapper dataWrapper = new InventoryDataWrapper();
@@ -126,15 +128,20 @@ public class DataManager : MonoBehaviour
 
     public void SaveInventoryData()
     {
-        dataWrapper.items.Clear();
-        dataWrapper.items = new List<InventoryData>();
-        for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++)
+        dataWrapper.items.Clear(); // 초기화
+        dataWrapper.items = new List<InventoryData>(); // 생성
+        for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++) // 인벤토리 데이터 매니저에 있는 아이템 데이터들을 dataWrapper로 옮김
         {
             Item _item = InventoryDataManager.Instance.inventoryItemList[i];
             InventoryData _inventoryData = new InventoryData(_item.itemID, _item.itemName, _item.itemDescription,
                 _item.itemType, _item.itemEffect, _item.effectValue, _item.itemCount, _item.isCountable, _item.isMeet, _item.isPicking);
             dataWrapper.items.Add(_inventoryData);
         }
+    }
+
+    public void SaveFieldData(int _fieldItemID)
+    {
+        dataWrapper.fieldItemIDList.Add(_fieldItemID);
     }
 
     public void LoadData()
@@ -148,11 +155,11 @@ public class DataManager : MonoBehaviour
 
     public void LoadInventory()
     {
-        if (dataWrapper != null && dataWrapper.items != null)
+        if (dataWrapper != null && dataWrapper.items != null) // dataWrapper가 null이 아니라면
         { 
             List<InventoryData> itemsToLoad = dataWrapper.items;
 
-            if (itemsToLoad.Count > 0)
+            if (itemsToLoad.Count > 0) // dataWrapper에 있는 아이템 데이터들을 인벤토리 데이터 매니저로 옮김
                 for (int i = 0; i < itemsToLoad.Count; i++)
                 {
                     Item _item = new Item(itemsToLoad[i].itemID, itemsToLoad[i].itemName, itemsToLoad[i].itemDescription,
@@ -161,6 +168,8 @@ public class DataManager : MonoBehaviour
 
                     InventoryDataManager.Instance.inventoryItemList.Add(_item);
                 }
+
+            InventoryDataManager.Instance.fieldItemIDList = dataWrapper.fieldItemIDList.ToList();
         }
     }
 

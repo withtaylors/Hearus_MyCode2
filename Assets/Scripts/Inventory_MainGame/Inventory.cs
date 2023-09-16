@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public static ItemDatabase theDatabase; // 아이템 데이터베이스 객체
+    public ItemPickup[] go_Item;
     private InventoryDataManager inventoryDataManager;
 
     public List<InventorySlot> slots;                         // 인벤토리 슬롯들
@@ -41,8 +42,13 @@ public class Inventory : MonoBehaviour
     {
         theDatabase = FindObjectOfType<ItemDatabase>();                                 // 아이템 데이터베이스 오브젝트
         inventoryDataManager = FindObjectOfType<InventoryDataManager>();
+
         inventoryItemList = new List<Item>();                                           // 인벤토리 아이템 리스트
-        slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   //
+        slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   // 슬롯 리스트 초기화
+
+        go_Item = FindObjectsOfType<ItemPickup>();
+        if (InventoryDataManager.Instance.fieldItemIDList.Count > 0)
+            LoadFieldData();
 
         if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
             LoadInventory();
@@ -167,6 +173,18 @@ public class Inventory : MonoBehaviour
             CreateSlot();
             slots[slots.Count - 1].Additem(InventoryDataManager.Instance.inventoryItemList[i]);   // 슬롯에 아이템 넣기
             slots[slots.Count - 1].UncountableItem(InventoryDataManager.Instance.inventoryItemList[i]);
+        }
+    }
+
+    public void LoadFieldData()
+    {
+        for (int i = 0; i < InventoryDataManager.Instance.fieldItemIDList.Count; i++)
+        {
+            for (int j = 0; j < go_Item.Length; j++)
+            {
+                if (go_Item[j]._fieldItemID == InventoryDataManager.Instance.fieldItemIDList[i])
+                    go_Item[j].gameObject.SetActive(false);
+            }
         }
     }
 
