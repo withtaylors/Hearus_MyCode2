@@ -43,4 +43,9 @@ public class CurrentMap : MonoBehaviour
         mapText_2.text = _map;
         mapText_3.text = _map;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        DataManager.instance.nowPlayer.currentMap = "태초의숲 -> 비탄의 바다";
+    }
 }

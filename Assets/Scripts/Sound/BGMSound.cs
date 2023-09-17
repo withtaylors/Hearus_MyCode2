@@ -10,6 +10,11 @@ public class BGMSound : MonoBehaviour
     public float fadeInTime = 1.0f; // 볼륨 증가에 걸리는 시간, 초단위
     public float fadeOutTime = 1.5f; // 볼륨 감소에 걸리는 시간, 초단위
 
+    void Start()
+    {
+        
+    }
+    
     void Awake()
     {
         if (volumeSlider != null) // 슬라이더가 할당되어 있어야 함을 확인

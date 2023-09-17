@@ -14,10 +14,6 @@ public class PlayerLocation : MonoBehaviour
         {
             playerTransform.position = new Vector3(DataManager.instance.nowPlayer.x, DataManager.instance.nowPlayer.y, DataManager.instance.nowPlayer.z);
         }
-        else
-        {
-            playerTransform.position = new Vector3(DataManager.instance.nowPlayerDefault.x, DataManager.instance.nowPlayerDefault.y, DataManager.instance.nowPlayerDefault.z);
-        }
     }
 
     public void Update()

@@ -47,14 +47,12 @@ public class ChangeScene : MonoBehaviour
             Invoke("LoadGame", 0.5f);
         });
 
-        //StartCoroutine(LoadAsync());
         startLoading = true;  // Set the flag to start loading
     }
 
     private void LoadGame()
     {
         StartCoroutine(LoadAsync());
-        //SceneManager.LoadScene(1);
     }
 
     public void MoveToFirst()

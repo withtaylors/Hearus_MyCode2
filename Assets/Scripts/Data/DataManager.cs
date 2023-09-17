@@ -10,6 +10,8 @@ public class PlayerData
 {
     public string filename;
 
+    public string currentMap = "태초의숲";
+
     //플레이어 위치
     public float x = 40.6f;
     public float y = 8.5f;
@@ -57,13 +59,11 @@ public class InventoryDataWrapper
     public List<int> fieldItemIDList;
 }
 
-
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance; // 싱글톤패턴
     
     public PlayerData nowPlayer = new PlayerData(); // 플레이어 데이터 생성
-    public PlayerData nowPlayerDefault = new PlayerData(); // 기본 플레이어 데이터 생성
     public InventoryDataWrapper dataWrapper = new InventoryDataWrapper();
 
     public string path; // 경로
@@ -84,11 +84,6 @@ public class DataManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-
-        // 기본 플레이어 위치 설정
-        nowPlayerDefault.x = 40.6f;
-        nowPlayerDefault.y = 8.5f;
-        nowPlayerDefault.z = 0.5f;
 
         path = Application.persistentDataPath + "/save";	// 경로 지정
         print(path);
