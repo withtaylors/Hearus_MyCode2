@@ -33,7 +33,7 @@ public class Game : MonoBehaviour
             if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
             {
                 Debug.Log("start 태초의숲");
-                playerTransform.position = new Vector3(-40.5f, 100f, 0.5f);
+                playerTransform.position = new Vector3(-40.5f, 8.5f, 0.5f);
             }
             else if (DataManager.instance.nowPlayer.currentMap == "태초의숲 -> 비탄의바다")
             {
