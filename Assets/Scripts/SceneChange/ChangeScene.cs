@@ -8,12 +8,14 @@ using System;
 public class ChangeScene : MonoBehaviour
 {
     public static ChangeScene instance; // 싱글톤 패턴을 위한 정적 인스턴스 필드
+    public int nowmap = 1;
 
     [SerializeField] RectTransform fader;
     [SerializeField] RectTransform fader2;
 
     public static Action target;
     public static Action target2;
+    public static Action target3;
 
     [Header("Menu Screens")]
     [SerializeField] public GameObject loadingScreen;
@@ -25,7 +27,7 @@ public class ChangeScene : MonoBehaviour
     private bool startLoading = false;
     private bool isLoadingComplete = false;
 
-    private void Start()
+    public void Start()
     {
         fader.gameObject.SetActive(true);
         LeanTween.alpha(fader, 1, 0);
@@ -47,7 +49,7 @@ public class ChangeScene : MonoBehaviour
             Invoke("LoadGame", 0.5f);
         });
 
-        startLoading = true;  // Set the flag to start loading
+        startLoading = true;
     }
 
     private void LoadGame()
@@ -60,7 +62,7 @@ public class ChangeScene : MonoBehaviour
         fader.gameObject.SetActive(false);
         fader2.gameObject.SetActive(true);
 
-        fader2.localScale = Vector3.zero; // 이 줄 추가
+        fader2.localScale = Vector3.zero;
 
         LeanTween.scale(fader2, Vector3.zero, 0f);
         LeanTween.scale(fader2, new Vector3(1, 1, 1), 2.5f).setEase(LeanTweenType.easeInOutExpo).setOnComplete(() =>
@@ -73,11 +75,12 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    
+
     private void Awake()
     {
         target = () => { MoveToGame(); };
         target2 = () => { MoveToFirst(); };
+        target3 = () => { MoveToNextMap();};
     }
 
     private void FixedUpdate()
@@ -89,9 +92,25 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
+    public void Map(int map)
+    {
+        nowmap = map;
+        target();
+    }
+
     IEnumerator LoadAsync()
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(1);
+        if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        {
+            nowmap = 1;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
+        {
+            nowmap = 2;
+        }
+        
+        Debug.Log("현재 맵 ----> " + nowmap);
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
 
         while (!loadOperation.isDone)
         {
@@ -105,5 +124,17 @@ public class ChangeScene : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void MoveToNextMap()
+    {
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 1, 0);
+        LeanTween.alpha(fader, 0, 1.5f).setOnComplete(() =>
+        {
+            fader.gameObject.SetActive(false);
+        });
+
+        SceneManager.LoadScene(2);
     }
 }

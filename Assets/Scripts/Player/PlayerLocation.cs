@@ -5,9 +5,9 @@ using static DataManager;
 
 public class PlayerLocation : MonoBehaviour
 {    
-    public Transform playerTransform; // Reference to the player's transform
+    public Transform playerTransform;
 
-    private void Start()
+    public void Start()
     {
         // 플레이어 이전 위치로, 새로운 시작이라면 기본 위치로
         if (DataManager.instance.nowPlayer != null)

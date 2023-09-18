@@ -46,6 +46,17 @@ public class CurrentMap : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        DataManager.instance.nowPlayer.currentMap = "태초의숲 -> 비탄의 바다";
+        if (other.gameObject.name.Equals("NextStage"))
+        {
+            Debug.Log("충돌");
+            DataManager.instance.nowPlayer.currentMap = "태초의숲 -> 비탄의바다";
+            DataManager.instance.nowPlayer.gameEnd = true;
+            Debug.Log("CurrentMap에서 gameEnd true로 변경");
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
+            //ChangeScene.instance.Start();
+            //SceneManager.LoadScene(2);
+            ChangeScene.target3();
+        }
     }
 }
