@@ -128,7 +128,7 @@ public class ChangeScene : MonoBehaviour
     {
         fader.gameObject.SetActive(true);
         LeanTween.alpha(fader, 2, 0);
-        LeanTween.alpha(fader, 0, 2f).setOnComplete(() =>
+        LeanTween.alpha(fader, 0, 1f).setOnComplete(() =>
         {
             fader.gameObject.SetActive(false);
         });
