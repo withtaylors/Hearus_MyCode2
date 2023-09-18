@@ -28,6 +28,18 @@ public class CurrentMap : MonoBehaviour
 
         if (collision.gameObject.name.Equals("시냇물숲_Border_1")) // 빽빽한숲 <-> 시냇물숲
             UpdateCurrentStage("시냇물이 흐르는 숲");
+
+        if (collision.gameObject.name.Equals("1_강과바다_바닥_큐브") || collision.gameObject.name.Equals("Island_A_Cube"))
+        {
+            DataManager.instance.nowPlayer.gameNext = false;    
+            Debug.Log("collision - gameNext = false");  
+        }
+
+        if (collision.gameObject.name.Equals("Island_D_Cube.041"))
+        {
+             DataManager.instance.nowPlayer.gameBefore = false;    
+            Debug.Log("collision - gameBefore = false");             
+        }
     }
 
     private void UpdateCurrentStage(string _stage) // 현재 스테이지 변경
@@ -50,12 +62,19 @@ public class CurrentMap : MonoBehaviour
         {
             Debug.Log("충돌");
             DataManager.instance.nowPlayer.currentMap = "태초의숲 -> 비탄의바다";
-            DataManager.instance.nowPlayer.gameEnd = true;
-            Debug.Log("CurrentMap에서 gameEnd true로 변경");
+            DataManager.instance.nowPlayer.gameNext = true;
+            Debug.Log("CurrentMap에서 gameNext true로 변경");
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
+            ChangeScene.target3();
+        }
 
-            //ChangeScene.instance.Start();
-            //SceneManager.LoadScene(2);
+        else if (other.gameObject.name.Equals("BeforeStage"))
+        {
+            Debug.Log("충돌");
+            DataManager.instance.nowPlayer.currentMap = "태초의숲";
+            DataManager.instance.nowPlayer.gameBefore = true;
+            Debug.Log("CurrentMap에서 gameBefore true로 변경");
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
             ChangeScene.target3();
         }
     }

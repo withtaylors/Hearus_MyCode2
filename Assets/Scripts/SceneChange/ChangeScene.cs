@@ -80,7 +80,7 @@ public class ChangeScene : MonoBehaviour
     {
         target = () => { MoveToGame(); };
         target2 = () => { MoveToFirst(); };
-        target3 = () => { MoveToNextMap();};
+        target3 = () => { MoveToAnotherMap();};
     }
 
     private void FixedUpdate()
@@ -109,7 +109,6 @@ public class ChangeScene : MonoBehaviour
             nowmap = 2;
         }
         
-        Debug.Log("현재 맵 ----> " + nowmap);
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
 
         while (!loadOperation.isDone)
@@ -121,20 +120,28 @@ public class ChangeScene : MonoBehaviour
             {
                 isLoadingComplete = true;
             }
-
             yield return null;
         }
     }
 
-    public void MoveToNextMap()
+    public void MoveToAnotherMap()
     {
         fader.gameObject.SetActive(true);
-        LeanTween.alpha(fader, 1, 0);
-        LeanTween.alpha(fader, 0, 1.5f).setOnComplete(() =>
+        LeanTween.alpha(fader, 2, 0);
+        LeanTween.alpha(fader, 0, 2f).setOnComplete(() =>
         {
             fader.gameObject.SetActive(false);
         });
 
-        SceneManager.LoadScene(2);
+        if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        {
+            nowmap = 1;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
+        {
+            nowmap = 2;
+        }
+        Debug.Log("현재 이 맵으로 이동 ---> " + nowmap);
+        SceneManager.LoadScene(nowmap);
     }
 }

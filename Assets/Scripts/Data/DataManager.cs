@@ -10,7 +10,8 @@ public class PlayerData
 {
     public string filename;
 
-    public bool gameEnd = false;
+    public bool gameNext = true;
+    public bool gameBefore = false;
     public string currentMap = "태초의숲";
 
     //플레이어 위치
