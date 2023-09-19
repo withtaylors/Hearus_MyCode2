@@ -35,11 +35,8 @@ public class playerController : MonoBehaviour
     private float ropeInteractionDistance = 1.5f; // 로프와 상호 작용하는 최대 거리
     public float climbSpeed = 1.0f; // 밧줄 타는 속도
 
-    //private Collider[] colliders; // colliders 변수를 클래스 수준으로 이동하여 필드로 선언
     private List<GameObject> pickedItems = new List<GameObject>(); // 선택한 아이템을 저장하기 위한 리스트
-
     private ItemPickup itemPickup;
-
     private string colliderTag;
 
     // Script 관련 변수
@@ -66,6 +63,7 @@ public class playerController : MonoBehaviour
 
         // 로프와의 거리 확인 및 클라이밍 상태 종료
         CheckRopeDistance();
+
         // 로프 클라이밍 처리
         if (isClimbing){
             ProcessClimbing();
@@ -87,14 +85,6 @@ public class playerController : MonoBehaviour
     void HandleMovement()
     {
         isPlayingScript = ScriptManager.instance.isPlayingScript;
-
-        // if(!isWalking && !grounded && !isRunning && !isClimbing){
-        //     myAnim.SetBool("grounded", true);
-        //     myAnim.SetBool("isWalking", true);
-        
-        //     // isWalking = true;
-        //     // grounded = true;
-        // }
 
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
         if (isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
@@ -198,19 +188,6 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에서 벗어났을 때
             canUseRope = false;
     }
-
-    // void OnCollisionExit(Collision collision)
-    // {
-    //     // GroundLayer와 떨어졌다면
-    //     if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")))
-    //     {
-    //         if (isClimbing == false){
-    //         // grounded - false (땅과 닿지않음)
-    //         grounded = false;
-    //         myAnim.SetBool("grounded", grounded);
-    //         }
-    //     }
-    // }
 
     void CheckPicking()
     {
@@ -330,9 +307,6 @@ public class playerController : MonoBehaviour
 
         // 일정 시간이 지난 후에 isPicking을 다시 false로 설정
         isPicking = false;
-
-        // 아이템 습득 및 오브젝트 제거
-        //item.GetComponent<ItemPickup>().Pickup();
 
         // 아이템 아이디 전달받기
         int go_itemID = item.GetComponent<ItemPickup>()._itemID;
