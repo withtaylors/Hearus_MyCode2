@@ -63,8 +63,6 @@ public class TutorialController : MonoBehaviour
 
     private string selectedCharacter;
     private string nowCharacter;
-    public GameObject  rope; // 로프 GameObject
-
 
     private void Start()
     {

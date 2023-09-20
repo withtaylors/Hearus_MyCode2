@@ -44,6 +44,7 @@ public class playerController : MonoBehaviour
 
     public UnityEvent useRope;
     public UnityEvent arriveRopeField;
+    public GameObject ropeObject; // 로프 GameObject
 
     void Start()
     {
@@ -176,7 +177,7 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.name.Equals("중심들판_Border_1")) // 로프를 사용하여 목적지에 닿으면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
             useRope.Invoke();
 
-        if (collision.gameObject.name.Equals("Island_A_Cube.007")) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
+        if (collision.gameObject.name.Equals("Island_A_Cube.007") && ropeObject.activeSelf) // 로프를 사용해야 하는 곳에 도달하면 Invoke() -> 튜토리얼 컨트롤러에 전달됨
         {
             canUseRope = true;
             arriveRopeField.Invoke();
@@ -243,8 +244,8 @@ public class playerController : MonoBehaviour
         {
             float distanceToRope = Vector3.Distance(transform.position, rope.position);
 
-            if (distanceToRope <= ropeInteractionDistance)
-            {
+            if (distanceToRope <= ropeInteractionDistance && ropeObject.activeSelf)
+            { 
                 isClimbing = true;
                 myAnim.SetBool("isClimbing", isClimbing);
                 myRB.useGravity = false;
@@ -258,7 +259,6 @@ public class playerController : MonoBehaviour
             }
         }
     }
-
 
     private void CheckRopeDistance()
     {

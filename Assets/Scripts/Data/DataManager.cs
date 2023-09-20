@@ -6,6 +6,7 @@ using static Item;
 using System;
 using System.Linq;
 
+[Serializable]
 public class PlayerData
 {
     public string filename;
@@ -15,8 +16,8 @@ public class PlayerData
     public string currentMap = "태초의숲";
 
     //플레이어 위치
-    public float x = 40.5f;
-    public float y = 8.5f;
+    public float x = 40f;
+    public float y = 10f;
     public float z = 0.5f;
 
     public string nowCharacter = "None";
