@@ -37,9 +37,11 @@ public class CurrentMap : MonoBehaviour
 
         if (collision.gameObject.name.Equals("Island_D_Cube.041"))
         {
-             DataManager.instance.nowPlayer.gameBefore = false;    
+            DataManager.instance.nowPlayer.gameBefore = false;    
             Debug.Log("collision - gameBefore = false");             
         }
+        
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     private void UpdateCurrentStage(string _stage) // 현재 스테이지 변경

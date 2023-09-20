@@ -55,7 +55,6 @@ public class TutorialController : MonoBehaviour
     private bool useRope = false;
     [SerializeField] private bool arriveRopeField = false;
 
-
     public GameObject edenGameObject;
     public GameObject noahGameObject;
     public GameObject adamGameObject;
@@ -356,6 +355,8 @@ public class TutorialController : MonoBehaviour
         frithCheckPanel.SetActive(false);
         
         DataManager.instance.nowPlayer.nowCharacter = selectedCharacter;
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        Debug.Log(DataManager.instance.nowPlayer.nowCharacter);
 
         switch (selectedCharacter)
         {

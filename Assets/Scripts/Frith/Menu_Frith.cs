@@ -36,6 +36,8 @@ public class Menu_Frith : MonoBehaviour
                 RectImg.SetActive(true);
                 FrithMenuInfo.SetActive(true);
 
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
                 switch (DataManager.instance.nowPlayer.nowCharacter)
                 {
                     case "Eden":
@@ -70,6 +72,7 @@ public class Menu_Frith : MonoBehaviour
                 Text.SetActive(false);
                 RectImg.SetActive(true);
                 FrithMenuInfo.SetActive(true);
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
 
                 switch (DataManager.instance.nowPlayer.nowCharacter)
                 {

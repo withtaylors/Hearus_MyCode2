@@ -19,12 +19,13 @@ public class Game : MonoBehaviour
 
     public string nowCharacter;
 
+    public GameObject edenGameObject;
+    public GameObject noahGameObject;
+    public GameObject adamGameObject;
+    public GameObject jonahGameObject;
+
     void Start()
     {
-        // 플레이어 위치 설정
-        // gameNext 상태 초기설정
-        // GameNext(DataManager.instance.nowPlayer.gameNext);
-
         // gameNext = true (맵끝까지 갔을때)
         if(DataManager.instance.nowPlayer != null)
         {
@@ -37,7 +38,8 @@ public class Game : MonoBehaviour
                 if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
                 {
                     Debug.Log("start 태초의숲");
-                    playerTransform.position = new Vector3(-40f, 10f, 0.5f);
+                    playerTransform.position = new Vector3(DataManager.instance.nowPlayer.x, DataManager.instance.nowPlayer.y, DataManager.instance.nowPlayer.z);
+                    //playerTransform.position = new Vector3(-40f, 10f, 0.5f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "태초의숲 -> 비탄의바다")
                 {
@@ -64,7 +66,7 @@ public class Game : MonoBehaviour
                 if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
                 {
                     Debug.Log("start 태초의숲");
-                    playerTransform.position = new Vector3(-1140f, -183f, 285f);
+                    playerTransform.position = new Vector3(-1140f, -187.6f, 285f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "태초의숲 -> 비탄의바다")
                 {
@@ -77,10 +79,25 @@ public class Game : MonoBehaviour
                     playerTransform.position = new Vector3(-0f, -0f, -0f);
                 }
             }
-            else 
+
+
+            if (DataManager.instance.nowPlayer.nowCharacter != "None")
             {
-                Debug.Log("start 최초 else");
-                playerTransform.position = new Vector3(-40f, 10f, 0.5f);
+                switch (DataManager.instance.nowPlayer.nowCharacter)
+                {
+                    case "Eden":
+                        edenGameObject.SetActive(true);
+                        break;
+                    case "Noah":
+                        noahGameObject.SetActive(true);
+                        break;
+                    case "Adam":
+                        adamGameObject.SetActive(true);
+                        break;
+                    case "Jonah":
+                        jonahGameObject.SetActive(true);
+                        break;
+                }
             }
         }
     }
@@ -91,11 +108,6 @@ public class Game : MonoBehaviour
         DataManager.instance.nowPlayer.x = playerTransform.position.x;
         DataManager.instance.nowPlayer.y = playerTransform.position.y;
         DataManager.instance.nowPlayer.z = playerTransform.position.z;        
-    }
-
-    public void Save()
-    {
-    	DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     public void GameNext(bool state)
