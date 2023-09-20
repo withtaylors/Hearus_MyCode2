@@ -238,10 +238,7 @@ public class Save : MonoBehaviour
         {
             File.Delete(filePath2);
         }
-
-        // 해당 슬롯에 대한 DataManager 인스턴스 파괴
-        Destroy(DataManager.instance.gameObject);
-
+        
         Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }

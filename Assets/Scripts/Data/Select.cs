@@ -103,16 +103,17 @@ public class Select : MonoBehaviour
 
     public void GoGame() // 게임씬으로 이동
     {
-        DataManager.instance.LoadInventory();
-
-        DataManager.instance.firstSlot = DataManager.instance.nowSlot;
-        Debug.Log("GoGame instance firstSlot : " + DataManager.instance.firstSlot);
-        Debug.Log("GoGame instance nowSlot : " + DataManager.instance.nowSlot);
-        
-        if (!savefile[DataManager.instance.nowSlot]) // 현재 슬롯번호의 데이터가 없다면
+        // 현재 슬롯의 데이터가 있는지 확인
+        if (savefile[DataManager.instance.nowSlot])
         {
-            DataManager.instance.nowPlayer.filename = fileName.text; // 입력한 이름을 복사해옴
-            DataManager.instance.SaveData(DataManager.instance.nowSlot); // 현재 슬롯 정보를 저장함.
+            // 데이터 불러오기
+            DataManager.instance.LoadData();
+        }
+        else
+        {
+            // 새로운 슬롯 정보 저장
+            DataManager.instance.nowPlayer.filename = fileName.text;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
         }
         ChangeScene.target();
     }
@@ -146,10 +147,7 @@ public class Select : MonoBehaviour
         {
             File.Delete(filePath2);
         }
-
-        // 해당 슬롯에 대한 DataManager 인스턴스 파괴
-        Destroy(DataManager.instance.gameObject);
-
+        
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
 }

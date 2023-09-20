@@ -54,7 +54,6 @@ public class TutorialController : MonoBehaviour
     private bool useRope = false; // 상하좌우 이동
     [SerializeField] private bool arriveRopeField = false; // 밧줄 사용 지점 도달하면 true
 
-
     public GameObject edenGameObject;
     public GameObject noahGameObject;
     public GameObject adamGameObject;
@@ -358,6 +357,8 @@ public class TutorialController : MonoBehaviour
         frithCheckPanel.SetActive(false);
         
         DataManager.instance.nowPlayer.nowCharacter = selectedCharacter;
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        Debug.Log(DataManager.instance.nowPlayer.nowCharacter);
 
         switch (selectedCharacter)
         {
