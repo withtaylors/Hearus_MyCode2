@@ -108,6 +108,7 @@ public class Select : MonoBehaviour
         {
             // 데이터 불러오기
             DataManager.instance.LoadData();
+            DataManager.instance.LoadInventory();
         }
         else
         {
