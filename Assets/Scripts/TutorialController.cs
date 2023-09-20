@@ -13,8 +13,8 @@ public class TutorialController : MonoBehaviour
     /// 수정중!!!!!!!
     /// </summary>
 
-    [SerializeField] private bool NEXT_STEP_POSSIBLE;
-    [SerializeField] private int tutorialStep;
+    [SerializeField] private bool NEXT_STEP_POSSIBLE; // 다음 단계로 넘어갈 수 있는지
+    [SerializeField] private int tutorialStep; // 현재 단계
 
     private List<string> textList = new List<string> { "방향 키를 눌러 이동할 수 있습니다.", // 0
                                                        "스페이스바 키를 눌러 점프할 수 있습니다.", // 1
@@ -30,30 +30,29 @@ public class TutorialController : MonoBehaviour
                                                        "튜토리얼이 모두 끝났습니다.\n함께할 파트너를 선택해 주세요." }; // 11
 
 
-    public GameObject tutorialPanel;
-    public TextMeshProUGUI tutorialPanelText;
+    public GameObject tutorialPanel; // 튜토리얼 문구 패널
+    public TextMeshProUGUI tutorialPanelText; // 튜토리얼 문구 텍스트
 
-    [SerializeField] private GameObject frithCheckPanel;
-    [SerializeField] private TextMeshProUGUI frithCheckText;
+    [SerializeField] private GameObject frithCheckPanel; // 프리스 선택 체크 패널
+    [SerializeField] private TextMeshProUGUI frithCheckText; // 프리스 선택 체크 텍스트
 
-    public GameObject Button;
-    [SerializeField] private GameObject nextButton;
+    public GameObject Button; 
+    [SerializeField] private GameObject nextButton; // 다음 버튼
 
-    [SerializeField] private GameObject settingPanel;
-    [SerializeField] private GameObject selectFrithPanel;
-    [SerializeField] private ParticleSystem settingButtonParticle;
-    [SerializeField] private ParticleSystem inventoryButtonParticle;
-    [SerializeField] private GameObject fader;
+    [SerializeField] private GameObject settingPanel; // 설정 패널
+    [SerializeField] private GameObject selectFrithPanel; // 프리스 선택 패널
+    [SerializeField] private ParticleSystem settingButtonParticle; // 설정 버튼 파티클
+    [SerializeField] private ParticleSystem inventoryButtonParticle; // 인벤토리 버튼 파티클
+    [SerializeField] private GameObject fader; // 페이드 아웃을 위한 오브젝트
     
-    [SerializeField] private ScriptManager scriptManager;
+    [SerializeField] private ScriptManager scriptManager; // 스크립트 매니저
 
 
-    public bool isFinishedTutorial = false;
-    private bool right = false;
-    private bool left = false;
-    private bool jump = false;
-    private bool useRope = false;
-    [SerializeField] private bool arriveRopeField = false;
+    private bool right = false; // 상하좌우 이동
+    private bool left = false; // 상하좌우 이동
+    private bool jump = false; // 상하좌우 이동
+    private bool useRope = false; // 상하좌우 이동
+    [SerializeField] private bool arriveRopeField = false; // 밧줄 사용 지점 도달하면 true
 
 
     public GameObject edenGameObject;
@@ -66,7 +65,10 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        StartTutorial();
+        if (DataManager.instance.nowPlayer.isFinishedTutorial)
+            gameObject.SetActive(false);
+        else
+            StartTutorial();
     }
 
     private void LateUpdate() // 다음 스텝으로 넘어가기 위한 조건 확인
@@ -374,7 +376,7 @@ public class TutorialController : MonoBehaviour
         }
 
         StartCoroutine("EndTutorial");
-        isFinishedTutorial = true;
+        DataManager.instance.nowPlayer.isFinishedTutorial = true;
     }
 
     public void OnClickNoButton()

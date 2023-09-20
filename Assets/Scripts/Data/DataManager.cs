@@ -12,6 +12,7 @@ public class PlayerData
 
     public bool gameNext = true;
     public bool gameBefore = false;
+    public bool isFinishedTutorial = false;
     public string currentMap = "태초의숲";
 
     //플레이어 위치

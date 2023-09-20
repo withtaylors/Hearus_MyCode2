@@ -17,6 +17,7 @@ TagManager:
   - FxTemporaire
   - ITEM_PICKING
   - ropeground
+  - LastStepGround
   layers:
   - Default
   - TransparentFX
