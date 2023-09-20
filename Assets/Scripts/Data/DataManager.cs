@@ -61,6 +61,7 @@ public class InventoryDataWrapper
 {
     public List<InventoryData> items;
     public List<int> fieldItemIDList;
+    public List<int> getItemIDList;
 }
 
 public class DataManager : MonoBehaviour
@@ -138,9 +139,15 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void SaveFieldData(int _fieldItemID)
+    public void SaveFieldData(int _fieldItemID, int _getItemID)
     {
-        dataWrapper.fieldItemIDList.Add(_fieldItemID);
+        dataWrapper.fieldItemIDList.Add(_fieldItemID); // 획득한 오브젝트 추가
+
+        for (int i = 0; i < dataWrapper.getItemIDList.Count; i++) // 아이템 이미 획득한 적 있다면 return
+            if (_getItemID == dataWrapper.getItemIDList[i])
+                return;
+
+        dataWrapper.getItemIDList.Add(_getItemID); // 없으면 추가
     }
 
     public void LoadData()
@@ -169,6 +176,7 @@ public class DataManager : MonoBehaviour
                 }
 
             InventoryDataManager.Instance.fieldItemIDList = dataWrapper.fieldItemIDList.ToList();
+            InventoryDataManager.Instance.getItemIDList = dataWrapper.getItemIDList.ToList();
         }
     }
 

@@ -8,6 +8,7 @@ public class InventoryDataManager : MonoBehaviour
 
     public List<Item> inventoryItemList;
     public List<int> fieldItemIDList;
+    public List<int> getItemIDList;
 
     private void Awake()
     {
@@ -26,5 +27,6 @@ public class InventoryDataManager : MonoBehaviour
     {
         inventoryItemList = new List<Item>();
         fieldItemIDList = new List<int>();
+        getItemIDList = new List<int>();
     }
 }

@@ -92,7 +92,7 @@ public class ScriptManager : MonoBehaviour
                             else
                             {
                                 //아무것도 없을 때
-                                if (!string.IsNullOrEmpty(currentScript.itemID))
+                                if (currentScript.itemID != "")
                                 {
                                     currentGameObject.GetComponent<ItemPickup>().Pickup();
                                     currentGameObject.SetActive(false); // 습득 후 비활성화시킴

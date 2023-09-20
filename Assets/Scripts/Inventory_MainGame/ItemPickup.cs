@@ -51,7 +51,7 @@ public class ItemPickup : MonoBehaviour
 
         Inventory.instance.SaveInventoryDataManager();
         DataManager.instance.SaveInventoryData();
-        DataManager.instance.SaveFieldData(_fieldItemID);
+        DataManager.instance.SaveFieldData(_fieldItemID, _itemID);
     }
 
     private bool CheckObjectInCamera(GameObject item) // 오브젝트가 카메라 안에 있는지 확인
