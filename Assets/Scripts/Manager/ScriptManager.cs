@@ -88,14 +88,17 @@ public class ScriptManager : MonoBehaviour
                                 //다음 스크립트가 있을 때
                                 JumpToNextScript();
                             }
-
                             else
                             {
                                 //아무것도 없을 때
-                                if (currentScript.itemID != "")
+                                if (currentScript.getTiming != "")
                                 {
-                                    currentGameObject.GetComponent<ItemPickup>().Pickup();
-                                    currentGameObject.SetActive(false); // 습득 후 비활성화시킴
+                                    if (currentGameObject != null)
+                                    {
+                                        currentGameObject.GetComponent<ItemPickup>().Pickup();
+                                        currentGameObject.SetActive(false); // 습득 후 비활성화시킴
+                                    }
+                                    
                                 }
                                 ShowScriptUI(false);
                                 isFinished = true;

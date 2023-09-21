@@ -26,8 +26,11 @@ public class Script
     [Tooltip("이벤트 이름")]
     public string eventName;
 
-    [Tooltip("스크립트 스위치")]
+    [Tooltip("조건 충족 여부")]
     public string scriptSwitch;
+
+    [Tooltip("획득 시점 여부")]
+    public string getTiming;
 
     [Tooltip("대사 내용")]
     public string[] sentences;
