@@ -11,7 +11,6 @@ public class TextBlink : MonoBehaviour
     public Color secondColor = Color.gray; // 두 번째 색상
     public float blinkInterval = 0.5f; // 깜빡임 간격
 
-    // Use this for initialization
     void Start()
     {
         flashingText = GetComponent<TextMeshProUGUI>();
