@@ -10385,7 +10385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipText: {fileID: 1861125246}
-  tipChangeInterval: 2.5
+  tipChangeInterval: 3
 --- !u!114 &1850251156
 MonoBehaviour:
   m_ObjectHideFlags: 0
