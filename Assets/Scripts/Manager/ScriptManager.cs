@@ -260,7 +260,6 @@ public class ScriptManager : MonoBehaviour
 
     private void JumpToNextScript()
     {
-        Debug.Log("JumpToNextScript()");
         FindScriptByScriptID(int.Parse(currentScript.nextScriptNumber));
         ShowScript();
     }

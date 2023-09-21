@@ -66,6 +66,7 @@ public class Select : MonoBehaviour
         if (savefile[number]) // bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
         {
             DataManager.instance.LoadData(); // 데이터를 로드하고
+            //DataManager.instance.LoadInventory();
             Debug.Log("현재 슬롯에 데이터 YES-----");
             Creat2();
         }
@@ -112,9 +113,11 @@ public class Select : MonoBehaviour
         }
         else
         {
+            DataManager.instance.FieldDataClear();
             // 새로운 슬롯 정보 저장
             DataManager.instance.nowPlayer.filename = fileName.text;
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
         }
         ChangeScene.target();
     }

@@ -29,4 +29,15 @@ public class InventoryDataManager : MonoBehaviour
         fieldItemIDList = new List<int>();
         getItemIDList = new List<int>();
     }
+
+    public void SaveFieldData(int _fieldItemID, int _getItemID)
+    {
+        fieldItemIDList.Add(_fieldItemID); // 획득한 오브젝트 추가
+
+        for (int i = 0; i < getItemIDList.Count; i++) // 아이템 이미 획득한 적 있다면 return
+            if (_getItemID == getItemIDList[i])
+                return;
+
+        getItemIDList.Add(_getItemID); // 없으면 추가
+    }
 }

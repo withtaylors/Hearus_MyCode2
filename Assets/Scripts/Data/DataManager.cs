@@ -94,6 +94,8 @@ public class DataManager : MonoBehaviour
         print(path);
 
         dataWrapper.items = new List<InventoryData>();
+        dataWrapper.fieldItemIDList = new List<int>();
+        dataWrapper.getItemIDList = new List<int>();
     }
 
     //SetSelectedSlot 함수 추가
@@ -130,6 +132,7 @@ public class DataManager : MonoBehaviour
     {
         dataWrapper.items.Clear(); // 초기화
         dataWrapper.items = new List<InventoryData>(); // 생성
+
         for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++) // 인벤토리 데이터 매니저에 있는 아이템 데이터들을 dataWrapper로 옮김
         {
             Item _item = InventoryDataManager.Instance.inventoryItemList[i];
@@ -137,17 +140,18 @@ public class DataManager : MonoBehaviour
                 _item.itemType, _item.itemEffect, _item.effectValue, _item.itemCount, _item.isCountable, _item.isMeet, _item.isPicking);
             dataWrapper.items.Add(_inventoryData);
         }
-    }
 
-    public void SaveFieldData(int _fieldItemID, int _getItemID)
-    {
-        dataWrapper.fieldItemIDList.Add(_fieldItemID); // 획득한 오브젝트 추가
+        dataWrapper.fieldItemIDList.Clear();
+        dataWrapper.fieldItemIDList = new List<int>();
 
-        for (int i = 0; i < dataWrapper.getItemIDList.Count; i++) // 아이템 이미 획득한 적 있다면 return
-            if (_getItemID == dataWrapper.getItemIDList[i])
-                return;
+        for (int i = 0; i < InventoryDataManager.Instance.fieldItemIDList.Count; i++)
+            dataWrapper.fieldItemIDList.Add(InventoryDataManager.Instance.fieldItemIDList[i]);
 
-        dataWrapper.getItemIDList.Add(_getItemID); // 없으면 추가
+        dataWrapper.getItemIDList.Clear();
+        dataWrapper.getItemIDList = new List<int>();
+
+        for (int i = 0; i < InventoryDataManager.Instance.getItemIDList.Count; i++)
+            dataWrapper.getItemIDList.Add(InventoryDataManager.Instance.getItemIDList[i]);
     }
 
     public void LoadData()
@@ -161,6 +165,7 @@ public class DataManager : MonoBehaviour
 
     public void LoadInventory()
     {
+        Debug.Log("LoadInventory()");
         if (dataWrapper != null && dataWrapper.items != null) // dataWrapper가 null이 아니라면
         { 
             List<InventoryData> itemsToLoad = dataWrapper.items;
@@ -191,5 +196,11 @@ public class DataManager : MonoBehaviour
     public void InventoryClear()
     {
         InventoryDataManager.Instance.inventoryItemList.Clear();
+    }
+
+    public void FieldDataClear()
+    {
+        dataWrapper.fieldItemIDList.Clear();
+        dataWrapper.getItemIDList.Clear();
     }
 }
