@@ -25,6 +25,10 @@ public class playerController : MonoBehaviour
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
 
+    // CrossWater 스크립트의 인스턴스
+    private CrossWater crossWater;
+    public bool isPlayerOnWater = false;
+
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
     public bool isClimbing = false;
@@ -52,6 +56,7 @@ public class playerController : MonoBehaviour
         myAnim = GetComponent<Animator>();
         itemPickup = FindObjectOfType<ItemPickup>();
         playerRigidbody = GetComponent<Rigidbody>();
+        crossWater = FindObjectOfType<CrossWater>();
     }
 
     void Update()
@@ -95,6 +100,12 @@ public class playerController : MonoBehaviour
 
             myRB.velocity = new Vector3(0, myRB.velocity.y, 0);
             return;
+        }
+
+        if (crossWater.isPlayerOnWater)
+        {
+            myAnim.SetBool("isWalking", false);
+            myAnim.SetBool("isRunning", false);
         }
     
         //방향키 감지
