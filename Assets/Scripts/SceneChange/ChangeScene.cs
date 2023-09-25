@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Video;
 
 public class ChangeScene : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class ChangeScene : MonoBehaviour
 
     private bool startLoading = false;
     private bool isLoadingComplete = false;
+
+    //인트로 관련 변수
+    public VideoPlayer videoPlayer;
+    public string nextSceneName;
 
     public void Start()
     {
@@ -107,6 +112,13 @@ public class ChangeScene : MonoBehaviour
         else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
         {
             nowmap = 2;
+        }
+
+        if (DataManager.instance.nowPlayer.firstStart.Equals(true) && DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        {
+            nowmap = 3;
+            DataManager.instance.nowPlayer.firstStart = false;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
         }
         
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
