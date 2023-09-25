@@ -27,7 +27,7 @@ public class ItemDatabase : MonoBehaviour
 
     void Start()
     {
-        itemList.Add(new Item(101, "넝쿨", "밧줄을 만들 수 있는 꽤 질긴 넝쿨.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(101, "질긴 넝쿨", "질긴 넝쿨. 잘라내기는 어렵지만 그만큼 질기고 잘 끊어지지 않는다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(102, "밧줄", "넝쿨로 만든 꽤 튼튼한 밧줄. 여러 번 쓸 수 있다.", Item.ItemType.소모품, Item.ItemEffect.기타, 0, true, 10));
         itemList.Add(new Item(103, "망가진 태엽 인형", "별 쓸모는 없는 태엽 인형. 속에 이끼가 잔뜩 꼈는지 잘 움직이지 않는다. 어릴 적 가지고 있던 인형과 비슷하게 생겼다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(104, "냄새무당버섯", "선명한 빨간색의 독버섯.", Item.ItemType.소모품, Item.ItemEffect.피해, 10));
@@ -66,7 +66,6 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(133, "액체 연료", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(134, "물에 젖은 나뭇가지", "물에 젖은 나뭇가지. 바닷물이라 그런지 약간 끈적거린다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         // 물에 젖은 나뭇가지: 0.5개씩 획득?...???
-        itemList.Add(new Item(135, "질긴 넝쿨", "질긴 덩쿨. 잘라내기는 어렵지만 그만큼 질기고 잘 끊어지지 않는다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(136, "마그네슘 덩어리", "연료를 만드는 주 재료인 마그네슘 덩어리.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(137, "미역", "먹을 수 있는 미역.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
         itemList.Add(new Item(138, "김", "바닷가에서 자라는 김. 은근 중독성이 있는 맛이다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
@@ -94,5 +93,6 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(161, "헤드 볼트", "우주선의 엔진을 고칠 수 있는 헤드볼트.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(162, "연료 키트", "간단하게 연료를 만들 수 있는 키트. 원래는 난로 등의 연료를 만들기 위해 쓰인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(163, "액체 연료 3", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(164, "도끼", "", Item.ItemType.도구, Item.ItemEffect.기타, 0, false));
     }
 }
