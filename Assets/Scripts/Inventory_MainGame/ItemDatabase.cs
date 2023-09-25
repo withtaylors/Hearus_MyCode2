@@ -77,8 +77,22 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(143, "부식된 기계", "바닷물 때문에 많이 부식된 기계. 그래도 원래의 모습이 어느정도 남아있다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(144, "알루미늄 분말", "우주선 연료의 재료로 쓰이는 알루미늄 분말.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(145, "피스톤 링", "우주선의 엔진을 고칠 수 있는 피스톤 링.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(146, "해초", "", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(147, "전갈 꼬리", "", Item.ItemType.재료, Item.ItemEffect.기타, 0));
-        // 해초와 전갈 꼬리는 조합 가이드를 위해 일단 넣음
+        itemList.Add(new Item(146, "해초", "얕은 바다에서 자라는 해초.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(147, "독이 빠진 전갈 꼬리", "햇빛에 바싹 말라서인지 독이 빠진 전갈 꼬리.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(148, "웰위치아", "사막에서 자라는 식물. 무척 거대하다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10));
+        itemList.Add(new Item(149, "바싹 마른 나뭇가지", "바싹 마른 나뭇가지. 탄력이 전혀 없다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(151, "녹슨 기계", "바깥에 오래 있어서인지 많이 녹슨 기계. 그래도 원래의 모습을 알아볼 수는 있다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(152, "실린더", "우주선의 엔진을 고칠 수 있는 실린더.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(153, "바싹 마른 선인장", "한때 비가 전혀 내리지 않았는지 바싹 마른 선인장.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(154, "헤드 가스켓", "우주선의 엔진을 고칠 수 있는 헤드 가스켓.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(155, "메모", "간단한 연료 제작법이 담긴 메모. 과거 지구에서는 간이연료를 꽤 자주 만들었던 것 같다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(156, "무언가의 열쇠", "무언가를 열기 위한 열쇠.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(157, "누군가의 편지", "누군가의 마음이 깊게 담긴 편지. 수신자가 그 마음을 받았었다면 좋겠다.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(158, "오래된 통조림", "언제 만들어졌는지 모르는 오래된 통조림.", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(159, "연료 탱크", "우주선의 엔진을 고칠 수 있는 연료 탱크.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(160, "액체 연료 2", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(161, "헤드 볼트", "우주선의 엔진을 고칠 수 있는 헤드볼트.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(162, "연료 키트", "간단하게 연료를 만들 수 있는 키트. 원래는 난로 등의 연료를 만들기 위해 쓰인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(163, "액체 연료 3", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
     }
 }
