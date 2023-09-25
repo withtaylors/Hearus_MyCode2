@@ -10,6 +10,7 @@ using System.Linq;
 public class PlayerData
 {
     public string filename;
+    public bool firstStart = true;
 
     public bool gameNext = true;
     public bool gameBefore = false;

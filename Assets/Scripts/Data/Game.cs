@@ -120,8 +120,8 @@ public class Game : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Debug.Log("종료해서 저장됨");
-        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        //Debug.Log("종료해서 저장됨");
+        //DataManager.instance.SaveData(DataManager.instance.nowSlot);
         Destroy(DataManager.instance.gameObject);
     }
 }
