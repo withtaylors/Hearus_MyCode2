@@ -53,6 +53,11 @@ public class ScriptManager : MonoBehaviour
 
     private void Update()
     {
+        ReturnScript();
+    }
+
+    public void ReturnScript()
+    {
         if (isPlayingScript)
         {
             if (isNext)
@@ -98,7 +103,7 @@ public class ScriptManager : MonoBehaviour
                                         currentGameObject.GetComponent<ItemPickup>().Pickup();
                                         currentGameObject.SetActive(false); // 습득 후 비활성화시킴
                                     }
-                                    
+
                                 }
                                 ShowScriptUI(false);
                                 isFinished = true;
@@ -108,19 +113,6 @@ public class ScriptManager : MonoBehaviour
                         }
                     }
                 }
-            }
-        }
-
-        if (go_OptionView.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                if (EventSystem.current.currentSelectedGameObject == optionPrefab[0])
-                    EventSystem.current.SetSelectedGameObject(optionPrefab[1]);
-                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[1])
-                    EventSystem.current.SetSelectedGameObject(optionPrefab[2]);
-                else if (EventSystem.current.currentSelectedGameObject == optionPrefab[2])
-                    EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
             }
         }
     }
