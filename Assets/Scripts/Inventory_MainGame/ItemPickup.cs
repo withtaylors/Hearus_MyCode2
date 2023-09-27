@@ -44,7 +44,7 @@ public class ItemPickup : MonoBehaviour
     public void Pickup() // 아이템 줍기
     {
         Picked.Invoke(); // 아이템 습득 Invoke
-        CheckSwitch(_itemID);
+        //CheckSwitch(_itemID);
         TextLogs.instance.GetItemLog(_itemID); // 아이템 습득 로그 생성
         Inventory.instance.GetAnItem(_itemID, _count); // 인벤토리에 넣기
         ChangeConditionMeet(_itemID); // isMeet이 false라면 true로 바꾸기
@@ -79,7 +79,7 @@ public class ItemPickup : MonoBehaviour
 
     public void CheckSwitch(int _itemID)
     {
-        if (_itemID == 122)
+        if (_itemID == 122) // 까마중 줄기
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
@@ -99,7 +99,7 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
-        if (_itemID == 123)
+        if (_itemID == 123) // 골쇄보
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
@@ -119,7 +119,7 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
-        if (_itemID == 124)
+        if (_itemID == 124) // 쐐기풀
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
@@ -139,7 +139,22 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
-        //scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
-        //scriptManager.ShowScript(); // 스크립트 재생
+        if (_itemID == 107) // 은행
+        {
+            for (int i = 0; i < Inventory.instance.inventoryItemList.Count; i++)
+            {
+                if (Inventory.instance.inventoryItemList[i].itemID == 164)
+                    break;
+                else
+                {
+                    scriptManager.FindScriptByScriptID(141);
+                    scriptManager.ShowScript();
+                    return;
+                }
+            }
+        }
+
+        scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
+        scriptManager.ShowScript(); // 스크립트 재생
     }
 }

@@ -324,8 +324,9 @@ public class playerController : MonoBehaviour
         ScriptManager.instance.currentGameObject = item;
 
         // 해당 아이템 스크립트를 찾고 재생
-        ScriptManager.instance.FindScriptByItemID(go_itemID);
-        ScriptManager.instance.ShowScript();
+        ScriptManager.instance.currentGameObject.GetComponent<ItemPickup>().CheckSwitch(go_itemID);
+        //ScriptManager.instance.FindScriptByItemID(go_itemID);
+        //ScriptManager.instance.ShowScript();
     }
 
     public void UpdateGrounded(bool isCollidingWithGround)
