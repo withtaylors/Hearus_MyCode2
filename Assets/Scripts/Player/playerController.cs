@@ -102,11 +102,11 @@ public class playerController : MonoBehaviour
             return;
         }
 
-        if (crossWater.isPlayerOnWater)
-        {
-            myAnim.SetBool("isWalking", false);
-            myAnim.SetBool("isRunning", false);
-        }
+        // if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다") && crossWater.isPlayerOnWater)
+        // {
+        //     myAnim.SetBool("isWalking", false);
+        //     myAnim.SetBool("isRunning", false);
+        // }
     
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
