@@ -123,5 +123,6 @@ public class Game : MonoBehaviour
         //Debug.Log("종료해서 저장됨");
         //DataManager.instance.SaveData(DataManager.instance.nowSlot);
         Destroy(DataManager.instance.gameObject);
+        DataManager.instance = null;
     }
 }

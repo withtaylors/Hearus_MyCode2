@@ -119,7 +119,22 @@ public class Select : MonoBehaviour
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
 
         }
-        ChangeScene.target();
+        PlayNextScene();
+        //ChangeScene.target();
+    }
+
+    public void PlayNextScene()
+    {
+        if (DataManager.instance.nowPlayer.firstStart.Equals(true) && DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        {
+            Debug.Log("4 출력");
+            ChangeScene.target4();
+        }
+        else
+        {
+            Debug.Log("0 출력");
+            ChangeScene.target();
+        }
     }
 
     public void Cancel() 
@@ -151,6 +166,8 @@ public class Select : MonoBehaviour
         {
             File.Delete(filePath2);
         }
+
+        DataManager.instance = null;
         
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }

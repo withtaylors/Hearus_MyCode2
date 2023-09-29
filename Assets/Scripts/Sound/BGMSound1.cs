@@ -12,7 +12,6 @@ public class BGMSound1 : MonoBehaviour
 
     void Start()
     {
-        
     }
     
     void Awake()
@@ -30,6 +29,7 @@ public class BGMSound1 : MonoBehaviour
         {
             audioSource.Play();
             StartCoroutine(FadeIn(audioSource, fadeInTime));
+            Debug.Log("빽숲 border1 만남");
         }
 
         if (collision.gameObject.name.Equals("빽빽한숲_Border_2") && !audioSource.isPlaying)
@@ -48,7 +48,7 @@ public class BGMSound1 : MonoBehaviour
 
         if (collision.gameObject.name.Equals("빽빽한숲_Border_2") && audioSource.isPlaying)
         {
-            StartCoroutine(FadeOut(audioSource, fadeOutTime));
+            StartCoroutine(FadeOut(audioSource, fadeOutTime));        
         }
     }
 

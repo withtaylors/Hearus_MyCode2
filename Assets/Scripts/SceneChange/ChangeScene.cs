@@ -17,6 +17,7 @@ public class ChangeScene : MonoBehaviour
     public static Action target;
     public static Action target2;
     public static Action target3;
+    public static Action target4;
 
     [Header("Menu Screens")]
     [SerializeField] public GameObject loadingScreen;
@@ -29,8 +30,7 @@ public class ChangeScene : MonoBehaviour
     private bool isLoadingComplete = false;
 
     //인트로 관련 변수
-    public VideoPlayer videoPlayer;
-    public string nextSceneName;
+    public GameObject videoPlayer;
 
     public void Start()
     {
@@ -42,6 +42,14 @@ public class ChangeScene : MonoBehaviour
         });
     }
 
+    private void Awake()
+    {
+        Debug.Log("ChangeScene 스크립트의 Awake 메서드");
+        target = () => { MoveToGame(); };
+        target2 = () => { MoveToFirst(); };
+        target3 = () => { MoveToAnotherMap();};
+        target4 = () => { MoveToIntro();};
+    }
     public void MoveToGame()
     {
         fader2.gameObject.SetActive(true);
@@ -81,13 +89,6 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void Awake()
-    {
-        target = () => { MoveToGame(); };
-        target2 = () => { MoveToFirst(); };
-        target3 = () => { MoveToAnotherMap();};
-    }
-
     private void FixedUpdate()
     {
         if (startLoading && !isLoadingComplete)
@@ -112,13 +113,6 @@ public class ChangeScene : MonoBehaviour
         else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
         {
             nowmap = 2;
-        }
-
-        if (DataManager.instance.nowPlayer.firstStart.Equals(true) && DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
-        {
-            nowmap = 3;
-            DataManager.instance.nowPlayer.firstStart = false;
-            DataManager.instance.SaveData(DataManager.instance.nowSlot);
         }
         
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
@@ -155,5 +149,23 @@ public class ChangeScene : MonoBehaviour
         }
         Debug.Log("현재 이 맵으로 이동 ---> " + nowmap);
         SceneManager.LoadScene(nowmap);
+    }
+
+    public void MoveToIntro()
+    {
+        videoPlayer.gameObject.SetActive(false);
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 1f).setOnComplete(() =>
+        {
+            Invoke("LoadIntro", 0.5f);
+        });
+    }
+
+    private void LoadIntro()
+    {
+        DataManager.instance.nowPlayer.firstStart = false;
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        SceneManager.LoadScene(3);
     }
 }
