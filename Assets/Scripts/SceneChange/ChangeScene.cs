@@ -13,6 +13,7 @@ public class ChangeScene : MonoBehaviour
 
     [SerializeField] RectTransform fader;
     [SerializeField] RectTransform fader2;
+    [SerializeField] RectTransform fader3;
 
     public static Action target;
     public static Action target2;
@@ -47,8 +48,7 @@ public class ChangeScene : MonoBehaviour
         Debug.Log("ChangeScene 스크립트의 Awake 메서드");
         target = () => { MoveToGame(); };
         target2 = () => { MoveToFirst(); };
-        target3 = () => { MoveToAnotherMap();};
-        target4 = () => { MoveToIntro();};
+        target3 = () => { MoveToIntro();};
     }
     public void MoveToGame()
     {
@@ -130,27 +130,6 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    public void MoveToAnotherMap()
-    {
-        fader.gameObject.SetActive(true);
-        LeanTween.alpha(fader, 2, 0);
-        LeanTween.alpha(fader, 0, 1f).setOnComplete(() =>
-        {
-            fader.gameObject.SetActive(false);
-        });
-
-        if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
-        {
-            nowmap = 1;
-        }
-        else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
-        {
-            nowmap = 2;
-        }
-        Debug.Log("현재 이 맵으로 이동 ---> " + nowmap);
-        SceneManager.LoadScene(nowmap);
-    }
-
     public void MoveToIntro()
     {
         videoPlayer.gameObject.SetActive(false);
@@ -165,7 +144,7 @@ public class ChangeScene : MonoBehaviour
     private void LoadIntro()
     {
         DataManager.instance.nowPlayer.firstStart = false;
-        DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        //DataManager.instance.SaveData(DataManager.instance.nowSlot);
         SceneManager.LoadScene(3);
     }
 }

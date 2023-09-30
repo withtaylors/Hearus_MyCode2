@@ -128,7 +128,7 @@ public class Select : MonoBehaviour
         if (DataManager.instance.nowPlayer.firstStart.Equals(true) && DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
         {
             Debug.Log("4 출력");
-            ChangeScene.target4();
+            ChangeScene.target3();
         }
         else
         {
@@ -167,7 +167,7 @@ public class Select : MonoBehaviour
             File.Delete(filePath2);
         }
 
-        DataManager.instance = null;
+        Destroy(DataManager.instance.gameObject);
         
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
     }
