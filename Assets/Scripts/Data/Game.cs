@@ -44,7 +44,7 @@ public class Game : MonoBehaviour
                 else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
                 {
                     Debug.Log("start 비탄의바다");
-                    playerTransform.position = new Vector3(-16f, -125f, 145f);
+                    playerTransform.position = new Vector3(-20f, -125f, 145f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                 {
