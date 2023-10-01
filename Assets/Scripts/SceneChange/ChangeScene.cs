@@ -9,7 +9,7 @@ using UnityEngine.Video;
 public class ChangeScene : MonoBehaviour
 {
     public static ChangeScene instance; // 싱글톤 패턴을 위한 정적 인스턴스 필드
-    public int nowmap = 1;
+    public int nowmap = 2;
 
     [SerializeField] RectTransform fader;
     [SerializeField] RectTransform fader2;
@@ -45,10 +45,10 @@ public class ChangeScene : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("ChangeScene 스크립트의 Awake 메서드");
         target = () => { MoveToGame(); };
         target2 = () => { MoveToFirst(); };
         target3 = () => { MoveToIntro();};
+        target4 = () => { MoveToAnotherMap();};
     }
     public void MoveToGame()
     {
@@ -108,11 +108,15 @@ public class ChangeScene : MonoBehaviour
     {
         if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
         {
-            nowmap = 1;
-        }
-        else if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다"))
-        {
             nowmap = 2;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("비탄의바다"))
+        {
+            nowmap = 3;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("타오르는황야"))
+        {
+            nowmap = 4;
         }
         
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
@@ -132,7 +136,10 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToIntro()
     {
-        videoPlayer.gameObject.SetActive(false);
+        if(videoPlayer != null)
+        {
+            videoPlayer.gameObject.SetActive(false);
+        }
         fader.gameObject.SetActive(true);
         LeanTween.alpha(fader, 0, 0);
         LeanTween.alpha(fader, 1, 1f).setOnComplete(() =>
@@ -145,6 +152,37 @@ public class ChangeScene : MonoBehaviour
     {
         DataManager.instance.nowPlayer.firstStart = false;
         //DataManager.instance.SaveData(DataManager.instance.nowSlot);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
+    }
+
+    public void MoveToAnotherMap()
+    {
+        fader.gameObject.SetActive(true);
+        LeanTween.alpha(fader, 0, 0);
+        LeanTween.alpha(fader, 1, 1f).setOnComplete(() =>
+        {
+            Invoke("LoadAnotherMap", 1f);
+            //fader.gameObject.SetActive(false);
+        });
+
+        if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        {
+            nowmap = 2;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("비탄의바다"))
+        {
+            nowmap = 3;
+        }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("타오르는황야"))
+        {
+            nowmap = 4;
+        }
+        //SceneManager.LoadScene(nowmap);
+    }
+
+    private void LoadAnotherMap()
+    {
+        Debug.Log("현재 이 맵으로 이동2 ---> " + nowmap);
+        SceneManager.LoadScene(nowmap);
     }
 }

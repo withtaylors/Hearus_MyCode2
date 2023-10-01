@@ -21,7 +21,7 @@ public float speed;
         player = GameObject.Find("Player").transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float yOffset = FloatUpDown();
 
@@ -36,9 +36,9 @@ public float speed;
 
         // 플레이어가 펫을 앞지르면 펫을 뒤로 이동
         if (Vector3.Distance(transform.position, player.position) < distanceBehindPlayer)
-            {
-                transform.position = player.position - player.forward * distanceBehindPlayer;
-            }
+        {
+            transform.position = player.position - player.forward * distanceBehindPlayer;
+        }
     }
 
     private float FloatUpDown()

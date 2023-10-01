@@ -29,13 +29,13 @@ public class CurrentMap : MonoBehaviour
         if (collision.gameObject.name.Equals("시냇물숲_Border_1")) // 빽빽한숲 <-> 시냇물숲
             UpdateCurrentStage("시냇물이 흐르는 숲");
 
-        if (collision.gameObject.name.Equals("1_강과바다_바닥_큐브") || collision.gameObject.name.Equals("Island_A_Cube"))
+        if (collision.gameObject.name.Equals("1_강과바다_바닥_큐브") || collision.gameObject.name.Equals("Island_A_Cube") || collision.gameObject.name.Equals("4_물도시_바닥_Cube"))
         {
             DataManager.instance.nowPlayer.gameNext = false;    
             Debug.Log("collision - gameNext = false");  
         }
 
-        if (collision.gameObject.name.Equals("Island_D_Cube.041"))
+        if (collision.gameObject.name.Equals("Island_D_Cube.041") || collision.gameObject.name.Equals("3_물도시_바닥_Bridge"))
         {
             DataManager.instance.nowPlayer.gameBefore = false;    
             Debug.Log("collision - gameBefore = false");             
@@ -62,22 +62,38 @@ public class CurrentMap : MonoBehaviour
     {
         if (other.gameObject.name.Equals("NextStage"))
         {
-            Debug.Log("충돌");
-            DataManager.instance.nowPlayer.currentMap = "태초의숲 -> 비탄의바다";
+            if(DataManager.instance.nowPlayer.currentMap == "태초의숲")
+            {
+                DataManager.instance.nowPlayer.currentMap = "비탄의바다";   
+            }
+            else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
+            {
+                DataManager.instance.nowPlayer.currentMap = "타오르는황야";
+            }
+
             DataManager.instance.nowPlayer.gameNext = true;
             Debug.Log("CurrentMap에서 gameNext true로 변경");
+
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
-            ChangeScene.target3();
+            ChangeScene.target4();
         }
 
         else if (other.gameObject.name.Equals("BeforeStage"))
         {
-            Debug.Log("충돌");
-            DataManager.instance.nowPlayer.currentMap = "태초의숲";
+            if(DataManager.instance.nowPlayer.currentMap == "비탄의바다")
+            {
+                DataManager.instance.nowPlayer.currentMap = "태초의숲"; 
+            }   
+            else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
+            {
+                DataManager.instance.nowPlayer.currentMap = "비탄의바다";
+            }
+
             DataManager.instance.nowPlayer.gameBefore = true;
             Debug.Log("CurrentMap에서 gameBefore true로 변경");
+
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
-            ChangeScene.target3();
+            ChangeScene.target4();
         }
     }
 }
