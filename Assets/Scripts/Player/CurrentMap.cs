@@ -64,11 +64,13 @@ public class CurrentMap : MonoBehaviour
         {
             if(DataManager.instance.nowPlayer.currentMap == "태초의숲")
             {
-                DataManager.instance.nowPlayer.currentMap = "비탄의바다";   
+                DataManager.instance.nowPlayer.currentMap = "비탄의바다"; 
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);  
             }
             else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
             {
                 DataManager.instance.nowPlayer.currentMap = "타오르는황야";
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
 
             DataManager.instance.nowPlayer.gameNext = true;
@@ -83,10 +85,12 @@ public class CurrentMap : MonoBehaviour
             if(DataManager.instance.nowPlayer.currentMap == "비탄의바다")
             {
                 DataManager.instance.nowPlayer.currentMap = "태초의숲"; 
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }   
             else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
             {
                 DataManager.instance.nowPlayer.currentMap = "비탄의바다";
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
 
             DataManager.instance.nowPlayer.gameBefore = true;

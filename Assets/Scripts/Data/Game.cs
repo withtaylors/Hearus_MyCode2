@@ -43,12 +43,12 @@ public class Game : MonoBehaviour
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
                 {
-                    Debug.Log("start 태초의숲 -> 비탄의바다");
+                    Debug.Log("start 비탄의바다");
                     playerTransform.position = new Vector3(-16f, -125f, 145f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                 {
-                    Debug.Log("start 비탄의바다 -> 타오르는황야");
+                    Debug.Log("start 타오르는황야");
                     playerTransform.position = new Vector3(-325f, -515f, 100f);
                 }
             }
@@ -66,16 +66,16 @@ public class Game : MonoBehaviour
                 if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
                 {
                     Debug.Log("start 태초의숲");
-                    playerTransform.position = new Vector3(-1140f, -187.6f, 285f);
+                    playerTransform.position = new Vector3(-1140f, -187f, 285f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
                 {
-                    Debug.Log("start 태초의숲 -> 비탄의바다");
+                    Debug.Log("start 비탄의바다");
                     playerTransform.position = new Vector3(-1128f, -149f, 216f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                 {
-                    Debug.Log("start 비탄의바다 -> 타오르는황야");
+                    Debug.Log("start 타오르는황야");
                     playerTransform.position = new Vector3(-325f, -520f, 100f);
                 }
             }
