@@ -23,11 +23,11 @@ public float speed;
 
     void Update()
     {
-        FloatUpDown();
+        float yOffset = FloatUpDown();
 
         // 플레이어를 따라가도록 펫의 위치를 설정
         Vector3 targetPosition = player.position - player.forward * distanceBehindPlayer;
-        targetPosition.y += 3;
+        targetPosition.y += 3 + yOffset; // 여기에 yOffset 추가
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 50);
         
         Vector3 lookAtPosition = player.position;
@@ -36,15 +36,15 @@ public float speed;
 
         // 플레이어가 펫을 앞지르면 펫을 뒤로 이동
         if (Vector3.Distance(transform.position, player.position) < distanceBehindPlayer)
-        {
-            transform.position = player.position - player.forward * distanceBehindPlayer;
-        }
+            {
+                transform.position = player.position - player.forward * distanceBehindPlayer;
+            }
     }
 
-    private void FloatUpDown()
+    private float FloatUpDown()
     {
-    // 펫을 위아래로 움직이게 하는 코드 작성
-        float yOffset = Mathf.Sin(Time.time * verticalSpeed) * verticalRange;
-        transform.Translate(Vector3.up * yOffset * Time.deltaTime); // Translate를 사용하여 움직임 적용
+    // 반환값으로 sin 값 반환 
+    return Mathf.Sin(Time.time * verticalSpeed) * verticalRange;
     }
+
 }

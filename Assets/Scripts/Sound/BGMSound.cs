@@ -12,7 +12,7 @@ public class BGMSound : MonoBehaviour
 
     void Start()
     {
-        
+  
     }
     
     void Awake()
