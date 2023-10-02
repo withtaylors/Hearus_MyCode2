@@ -32,7 +32,7 @@ public class JourneyDataManager : MonoBehaviour
 
         for (int i = 0; i <= _EndLine - _StartLine; i++)
         {
-            journeyList.Add(journeyDic[_StartLine + i]);
+            journeyList.Add(journeyDic[_StartLine + i + 1]);
         }
 
         return journeyList.ToArray();
