@@ -65,7 +65,17 @@ public class JourneyManager : MonoBehaviour
 
         FIndJourneyByScriptID(ScriptManager.instance.currentScript.scriptID);
 
-        //journeyObject.transform.FindChild("Item Name").GetComponent<TextMeshProUGUI>().text =
+        journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>().text = currentJourney.journeyName;
+        journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text = currentJourney.journeyString[0];
+
+        if (currentJourney.journeyString.Length > 1)
+        {
+            for (int i = 1; i < currentJourney.journeyString.Length; i++)
+                journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text =
+                    journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text + "\n" + currentJourney.journeyString[i];
+        }
+        else
+            return;
     }
 
     public void GetCurrentScene()
