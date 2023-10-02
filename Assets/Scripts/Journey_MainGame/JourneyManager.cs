@@ -14,6 +14,12 @@ public class JourneyManager : MonoBehaviour
     private Journey[] journeys;
     public Journey currentJourney;
 
+    public Transform firstPage;
+    public Transform secondPage;
+    public Transform thirdPage;
+    public Transform fourthPage;
+    public Transform fifthPage;
+
     private void Start()
     {
         instance = this;
