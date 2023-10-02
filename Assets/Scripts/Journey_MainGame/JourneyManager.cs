@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class JourneyManager : MonoBehaviour
 {
@@ -19,6 +21,10 @@ public class JourneyManager : MonoBehaviour
     public Transform thirdPage;
     public Transform fourthPage;
     public Transform fifthPage;
+
+    public Transform currentPage;
+
+    public GameObject JourneySlot;
 
     private void Start()
     {
@@ -49,5 +55,28 @@ public class JourneyManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void UpdateJourney()
+    {
+        GetCurrentScene();
+
+        GameObject journeyObject = Instantiate(JourneySlot, currentPage);
+
+        FIndJourneyByScriptID(ScriptManager.instance.currentScript.scriptID);
+
+        //journeyObject.transform.FindChild("Item Name").GetComponent<TextMeshProUGUI>().text =
+    }
+
+    public void GetCurrentScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.name.Equals("태초의숲"))
+            currentPage = firstPage;
+        else if (scene.name.Equals("비탄의바다"))
+            currentPage = secondPage;
+        else if (scene.name.Equals("타오르는황야"))
+            currentPage = thirdPage;
     }
 }

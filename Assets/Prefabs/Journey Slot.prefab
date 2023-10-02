@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5516252407156634227}
   - component: {fileID: 5516252407156634226}
   m_Layer: 5
-  m_Name: Item Name
+  m_Name: Journey Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,8 +33,8 @@ RectTransform:
   m_Father: {fileID: 5516252408652074714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0, y: 1}
@@ -174,7 +174,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 40, y: -170.01}
-  m_SizeDelta: {x: 1340, y: 150.01}
+  m_SizeDelta: {x: 1340, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &5516252408652074717
 MonoBehaviour:
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 5516252409082459864}
   - component: {fileID: 5516252409082459866}
   m_Layer: 5
-  m_Name: Item Info
+  m_Name: Journey Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,10 +270,10 @@ RectTransform:
   m_Father: {fileID: 5516252408652074714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 124.2, y: 150.01}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 124.2, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5516252409082459865
 CanvasRenderer:

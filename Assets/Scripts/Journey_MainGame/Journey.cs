@@ -9,6 +9,9 @@ public class Journey
     [Tooltip("일지 번호")]
     public string journeyNumber;
 
+    [Tooltip("일지 이름")]
+    public string journeyName;
+
     [Tooltip("스크립트 번호")]
     public string scriptNumber;
 

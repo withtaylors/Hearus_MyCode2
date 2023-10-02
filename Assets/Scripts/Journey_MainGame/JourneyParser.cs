@@ -18,19 +18,21 @@ public class JourneyParser : MonoBehaviour
             Journey journey = new Journey(); // 일지 생성
 
             string journeyNumber;
+            string journeyName;
             string scriptNumber;
             string itemNumber;
             string journeyType;
             List<string> journeyString = new List<string>();
 
             journeyNumber = row[0];
-            scriptNumber = row[1];
-            itemNumber = row[2];
-            journeyType = row[4];
+            journeyName = row[1];
+            scriptNumber = row[2];
+            itemNumber = row[3];
+            journeyType = row[5];
 
             do
             {
-                journeyString.Add(row[3]);
+                journeyString.Add(row[4]);
 
                 if (++i < data.Length)
                 {
@@ -40,6 +42,7 @@ public class JourneyParser : MonoBehaviour
             } while (row[0].ToString() == ""); // 일지 번호가 갱신될 때까지 반복
 
             journey.journeyNumber = journeyNumber;
+            journey.journeyName = journeyName;
             journey.scriptNumber = scriptNumber;
             journey.itemNumber = itemNumber;
             journey.journeyType = journeyType;
