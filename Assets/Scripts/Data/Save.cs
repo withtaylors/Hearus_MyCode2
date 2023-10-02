@@ -240,5 +240,6 @@ public class Save : MonoBehaviour
         }
         
         Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
+//        DataManager.instance.nowPlayer = null;
     }
 }

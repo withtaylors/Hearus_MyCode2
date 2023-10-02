@@ -20835,7 +20835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8067b011fea301542aebdd14703a3583, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8067b011fea301542aebdd14703a3583, type: 3}
@@ -20856,7 +20856,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111705648}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dd85c65c180a4b47bdda9df82e155ac, type: 3}
   m_Name: 
@@ -20904,27 +20904,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1111705654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111705648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f72cab3199e6544b8ff1dd56b009d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  distance: 3
-  verticalSpeed: 2
-  verticalRange: 1
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  player: {fileID: 543450651889197238}
-  rotationSpeed: 90
 --- !u!1 &1121120696
 GameObject:
   m_ObjectHideFlags: 0
@@ -36690,8 +36669,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 265.65173, y: 45.167603, z: 23.67389}
-  m_Center: {x: 116.46304, y: 37.26581, z: 11.336945}
+  m_Size: {x: 272.4169, y: 86.909485, z: 23.67389}
+  m_Center: {x: 119.84563, y: 16.394867, z: 11.336945}
 --- !u!1 &2039310096
 GameObject:
   m_ObjectHideFlags: 0
