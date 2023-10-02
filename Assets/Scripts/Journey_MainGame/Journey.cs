@@ -21,3 +21,11 @@ public class Journey
     [Tooltip("구분")]
     public string journeyType;
 }
+
+[System.Serializable]
+public class JourneyEvent 
+{
+    public Vector2 line;
+    public Journey[] journeys;
+}
+
