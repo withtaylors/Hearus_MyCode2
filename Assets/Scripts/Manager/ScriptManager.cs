@@ -8,10 +8,13 @@ using static UnityEngine.ParticleSystem;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class ScriptManager : MonoBehaviour
 {
     public static ScriptManager instance;
+
+    private JourneyManager journeyManager;
 
     [SerializeField] private GameObject nextButton; // 다음 버튼
     [SerializeField] private GameObject go_ScriptPanel; // 스크립트 패널
@@ -38,6 +41,7 @@ public class ScriptManager : MonoBehaviour
     public GameObject currentGameObject;
 
     public UnityEvent FinishedScript;
+    public UnityEvent AddJourney;
 
     int totalCharacters;
     Coroutine myCoroutine;
@@ -49,6 +53,8 @@ public class ScriptManager : MonoBehaviour
         scriptManager = FindObjectOfType<ScriptManager>();
         scriptManager.LoadScript(scriptManager.GetScript());
         scriptManager.LoadOption(scriptManager.GetOption());
+
+        journeyManager = FindObjectOfType<JourneyManager>();
     }
 
     private void Update()
@@ -203,7 +209,11 @@ public class ScriptManager : MonoBehaviour
     {
         for (int i = 0; i < script.scripts.Length; i++)
             if (script.scripts[i].itemID == _itemID.ToString())
+            {
                 currentScript = script.scripts[i];
+                FIndJourney();
+                break;
+            }
         currentLine = 0;
     }
 
@@ -215,7 +225,8 @@ public class ScriptManager : MonoBehaviour
             if (i == _scriptID)
             {
                 currentScript = script.scripts[i - 1];
-                break;
+                FIndJourney();
+                return;
             }
         }
         currentLine = 0;
@@ -228,10 +239,22 @@ public class ScriptManager : MonoBehaviour
             if (script.scripts[i].eventName == _eventName)
             {
                 currentScript = script.scripts[i];
-                break;
+                FIndJourney();
+                return;
             }
         }
         currentLine = 0;
+    }
+
+    public void FIndJourney() // 해당 스크립트에 일지가 있는지
+    {
+        if (currentScript.journeyNumber != "") // 일지 번호 항목이 공백이 아니라면
+        {
+            journeyManager.FIndJourneyByJourneyNumber(currentScript.journeyNumber); // currentJourney에 일지 번호를 넣음
+            AddJourney.Invoke();
+        }
+        else // 공백이라면 return
+            return;
     }
 
     public void FindOption(int optionNum)

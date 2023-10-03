@@ -32,6 +32,9 @@ public class Script
     [Tooltip("획득 시점 여부")]
     public string getTiming;
 
+    [Tooltip("일지 번호")]
+    public string journeyNumber;
+
     [Tooltip("대사 내용")]
     public string[] sentences;
 }
