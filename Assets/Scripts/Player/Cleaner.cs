@@ -35,6 +35,9 @@ public class Cleaner : MonoBehaviour
                 audioSource.Play();
                 isFadingOut = true; // 소리 서서히 줄이기 플래그 활성화
             }
+
+            PlayerHP.instance.DecreaseHP(10);
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
         }
     }
 

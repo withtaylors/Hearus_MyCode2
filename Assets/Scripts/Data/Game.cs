@@ -24,6 +24,8 @@ public class Game : MonoBehaviour
     public GameObject adamGameObject;
     public GameObject jonahGameObject;
 
+    public int playerHP;
+
     void Start()
     {
         // gameNext = true (맵끝까지 갔을때)
@@ -99,6 +101,8 @@ public class Game : MonoBehaviour
                         break;
                 }
             }
+
+            
         }
     }
 
