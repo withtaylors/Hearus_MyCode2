@@ -8,6 +8,24 @@ public class CrossWater : MonoBehaviour
     private Vector3 waterDirection;
     public float moveSpeed = 7f;
 
+    public AudioSource watercrossSound;
+    public float fadeSpeed = 0.5f; // 페이드 속도를 조절합니다.
+    private bool isFadingOut = false;
+
+    private void Start()
+    {
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isFadingOut = false;
+            watercrossSound.Play();
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -23,6 +41,21 @@ public class CrossWater : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerOnWater = false;
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        while (watercrossSound.volume > 0f && isFadingOut)
+        {
+            watercrossSound.volume -= Time.deltaTime * fadeSpeed;
+            yield return null;
+        }
+
+        if (isFadingOut)
+        {
+            watercrossSound.Stop();
+            isFadingOut = false;
         }
     }
 

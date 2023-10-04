@@ -100,9 +100,7 @@ public class Game : MonoBehaviour
                         jonahGameObject.SetActive(true);
                         break;
                 }
-            }
-
-            
+            }            
         }
     }
 

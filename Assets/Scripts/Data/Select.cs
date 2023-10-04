@@ -136,7 +136,7 @@ public class Select : MonoBehaviour
 
     public void PlayNextScene()
     {
-        if (DataManager.instance.nowPlayer.firstStart.Equals(true) && DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
+        if (DataManager.instance.nowPlayer.firstStart.Equals(true))
         {
             Debug.Log("4 출력");
             ChangeScene.target3();

@@ -17,50 +17,67 @@ public class playerSound : MonoBehaviour
     private playerController player;
     private Coroutine fadeOutCoroutine; // 소리가 점점 작아지게끔 하는 코루틴을 저장할 변수
 
+    // CrossWater 스크립트의 인스턴스
+    private CrossWater crossWaterScript;
+    public bool isPlayerOnWater = false;
+
     void Start()
     {
         player = GetComponent<playerController>();
+        crossWaterScript = FindObjectOfType<CrossWater>();
     }
 
     void Update()
-    {
+    {        
         if (player == null)
         {
-            Debug.LogWarning("Player reference is null. Make sure the playerController script is attached to the same GameObject.");
             return;
+        }
+
+        if (crossWaterScript != null)
+        {
+            isPlayerOnWater = crossWaterScript.isPlayerOnWater;
         }
 
         if (player.grounded)
         {
-            if (player.isWalking && !player.isRunning && !Input.GetKey(KeyCode.LeftShift)) // Shift 키를 누르지 않은 상태에서만 걷는 소리 재생
+            if(isPlayerOnWater)
             {
-                if (!walkSound.isPlaying)
-                {
-                    walkSound.Play();
-                }
-            }
-            else if (!player.isRunning || !Input.GetKey(KeyCode.LeftShift)) 
-            {
-                if (walkSound.isPlaying)
-                {
-                    walkSound.Stop();
-                }
-            }
-
-            if (player.isRunning && Input.GetKey(KeyCode.LeftShift)) //Shift 키를 누른 상태에서 뛰는 소리 재생
-            {
-                if (!runSound.isPlaying)
-                {
-                    runSound.Play();
-                }
+                walkSound.Stop();
+                runSound.Stop();
             }
             else
             {
-                if (runSound.isPlaying)
+                if (player.isWalking && !player.isRunning && !Input.GetKey(KeyCode.LeftShift)) // Shift 키를 누르지 않은 상태에서만 걷는 소리 재생
                 {
-                    runSound.Stop();
+                    if (!walkSound.isPlaying)
+                    {
+                        walkSound.Play();
+                    }
                 }
-            }
+                else if (!player.isRunning || !Input.GetKey(KeyCode.LeftShift)) 
+                {
+                    if (walkSound.isPlaying)
+                    {
+                        walkSound.Stop();
+                    }
+                }
+
+                if (player.isRunning && Input.GetKey(KeyCode.LeftShift)) //Shift 키를 누른 상태에서 뛰는 소리 재생
+                {
+                    if (!runSound.isPlaying)
+                    {
+                        runSound.Play();
+                    }
+                }
+                else
+                {
+                    if (runSound.isPlaying)
+                    {
+                        runSound.Stop();
+                    }
+                }
+            }    
         }
         else
         {

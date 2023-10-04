@@ -25,10 +25,6 @@ public class playerController : MonoBehaviour
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
 
-    // CrossWater 스크립트의 인스턴스
-    private CrossWater crossWater;
-    public bool isPlayerOnWater = false;
-
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
     public bool isClimbing = false;
@@ -50,13 +46,23 @@ public class playerController : MonoBehaviour
     public UnityEvent arriveRopeField;
     public GameObject ropeObject; // 로프 GameObject
 
+    // CrossWater 스크립트의 인스턴스
+    private CrossWater crossWaterScript;
+    public bool isPlayerOnWater = false;
+
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
         itemPickup = FindObjectOfType<ItemPickup>();
         playerRigidbody = GetComponent<Rigidbody>();
-        crossWater = FindObjectOfType<CrossWater>();
+        crossWaterScript = FindObjectOfType<CrossWater>();
+
+        // crossWaterScript가 null이 아닌 경우에만 해당 스크립트를 활성화
+        if (crossWaterScript != null)
+        {
+            enabled = true;
+        }
     }
 
     void Update()
@@ -101,12 +107,6 @@ public class playerController : MonoBehaviour
             return;
         }
 
-        // if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲 -> 비탄의바다") && crossWater.isPlayerOnWater)
-        // {
-        //     myAnim.SetBool("isWalking", false);
-        //     myAnim.SetBool("isRunning", false);
-        // }
-    
         //방향키 감지
         float hmove = Input.GetAxis("Horizontal");
         float vmove = Input.GetAxis("Vertical");
@@ -134,6 +134,25 @@ public class playerController : MonoBehaviour
         {
             Quaternion newRotation = Quaternion.LookRotation(moveDirection);
             myRB.rotation = Quaternion.Slerp(myRB.rotation, newRotation, 10f * Time.deltaTime);
+        }
+
+
+        if (crossWaterScript != null)   
+        {
+            bool isOnWater = crossWaterScript.isPlayerOnWater;
+            if (isOnWater)
+            {
+                Debug.Log("isOnWater 호출");
+
+                myAnim.SetBool("isWalking", false);
+                myAnim.SetBool("isRunning", false);    
+
+                myAnim.SetBool("isOnWater", true);       
+            }
+            else
+            {
+                myAnim.SetBool("isOnWater", false);       
+            }
         }
     }
 
