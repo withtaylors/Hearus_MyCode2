@@ -25,6 +25,8 @@ public class Select : MonoBehaviour
     public Sprite dataExistsImage; // 이미 데이터가 있는 경우의 이미지
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
 
+    private bool isCanvasActive = false; // 파일이름 Canvas 상태를 추적 변수
+
     void Start()
     {
         // 슬롯별로 저장된 데이터가 존재하는지 판단.
@@ -49,6 +51,14 @@ public class Select : MonoBehaviour
         // 불러온 데이터를 초기화시킴
         DataManager.instance.DataClear();
         DataManager.instance.InventoryClear();
+    }
+
+    void Update()
+    {
+        if (isCanvasActive && Input.GetKeyDown(KeyCode.Return)) // Enter 키를 눌렀을 때
+        {
+            GoGame(); // GoGame() 메서드 실행
+        }
     }
 
     public void Slot(int number) // 슬롯의 기능 구현
@@ -80,6 +90,7 @@ public class Select : MonoBehaviour
     public void Creat() // 파일 이름 UI
     {
         creat.gameObject.SetActive(true);
+        isCanvasActive = true; // Canvas가 활성화된 상태로 설정
     }
 
     public float displayDuration = 2.0f;
@@ -140,6 +151,8 @@ public class Select : MonoBehaviour
     public void Cancel() 
     {
         creat.gameObject.SetActive(false);
+        isCanvasActive = false;
+
         if (inputField != null)
         {
             inputField.text = ""; // 입력된 텍스트를 비워줍니다.

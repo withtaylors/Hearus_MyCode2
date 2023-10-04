@@ -46,6 +46,10 @@ public class ScriptManager : MonoBehaviour
     int totalCharacters;
     Coroutine myCoroutine;
 
+    public AudioSource typingSound;
+    public Slider volumeSlider; // 볼륨 슬라이더
+
+
     private void Start()
     {
         instance = this;
@@ -60,6 +64,41 @@ public class ScriptManager : MonoBehaviour
     private void Update()
     {
         ReturnScript();
+
+        if (isTyping && !isFinished)
+        {
+            // 타이핑 중인 경우 소리 재생
+            if (!typingSound.isPlaying)
+            {
+                // 볼륨 슬라이더 값에 따라 볼륨 조절
+                typingSound.volume = volumeSlider.value;
+                typingSound.Play();
+            }
+        }
+        else
+        {
+            // 타이핑 중이 아니거나 스크립트가 끝났을 때 소리 정지 및 서서히 줄이기
+            if (typingSound.isPlaying)
+            {
+                // 서서히 볼륨 감소
+                StartCoroutine(FadeOutVolume(typingSound, volumeSlider.value, 1.0f)); // 1.0f는 볼륨 감소에 걸리는 시간
+            }
+        }
+    }
+
+    // 볼륨 서서히 감소시킴
+    private IEnumerator FadeOutVolume(AudioSource audioSource, float targetVolume, float duration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > targetVolume)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
     }
 
     public void ReturnScript()

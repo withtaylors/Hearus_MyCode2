@@ -28,6 +28,7 @@ public class Save : MonoBehaviour
     public Sprite dataEmptyImage; // 데이터가 없는 경우의 이미지
 
     private int firstSlot;
+    private bool isCanvasActive = false; // 파일이름 Canvas 상태를 추적 변수
 
     private void Awake()
     {
@@ -43,6 +44,14 @@ public class Save : MonoBehaviour
         StartCoroutine(UpdateSlotTextsWithDelay());
         Debug.Log("Save instance firstSlot : " + DataManager.instance.firstSlot);
         Debug.Log("Save instance nowSlot : " + DataManager.instance.nowSlot);
+    }
+
+    void Update()
+    {
+        if (isCanvasActive && Input.GetKeyDown(KeyCode.Return)) // Enter 키를 눌렀을 때
+        {
+            NewFileSave(); // GoGame() 메서드 실행
+        }
     }
 
     private IEnumerator UpdateSlotTextsWithDelay()
@@ -105,6 +114,7 @@ public class Save : MonoBehaviour
     public void Creat() // 파일 이름 입력 UI
     {
         creat.gameObject.SetActive(true);
+        isCanvasActive = true; // Canvas가 활성화된 상태로 설정
     }
 
     public void Creat2() // 파일 삭제 or 게임시작 선택 UI
@@ -211,6 +221,8 @@ public class Save : MonoBehaviour
     public void Cancel() 
     {
         creat.gameObject.SetActive(false);
+        isCanvasActive = false; // Canvas가 활성화된 상태로 설정
+
         if (inputField != null)
         {
             inputField.text = ""; // 입력된 텍스트를 초기화
@@ -239,6 +251,10 @@ public class Save : MonoBehaviour
             File.Delete(filePath2);
         }
         
+        DataManager.instance.DataClear();
+        DataManager.instance.InventoryClear();
+        DataManager.instance.FieldDataClear();
+
         Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
 //        DataManager.instance.nowPlayer = null;
     }

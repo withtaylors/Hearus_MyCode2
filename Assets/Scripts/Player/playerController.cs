@@ -82,9 +82,8 @@ public class playerController : MonoBehaviour
         if (!isClimbing)
         {
             HandleMovement(); //플레이어 Movement
+            HandleJump(); //플레이어 점프
         }
-
-        HandleJump(); //플레이어 점프
         CheckPicking(); //아이템 줍기
     }
 
