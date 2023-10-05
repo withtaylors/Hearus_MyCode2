@@ -200,6 +200,10 @@ public class ScriptManager : MonoBehaviour
             optionPrefab[i].SetActive(true);
         }
 
+        if (currentOption.sentences.Length == 3)
+            if (!DataManager.instance.nowPlayer.isFinishedTutorial) // 만약 튜토리얼을 끝내지 않은 상태라면
+                optionPrefab[1].SetActive(false); // '프리스에게 준다' 선택지를 비활성화시킴
+
         EventSystem.current.SetSelectedGameObject(optionPrefab[0]);
         yield return new WaitForSeconds(0.1f);
     }
