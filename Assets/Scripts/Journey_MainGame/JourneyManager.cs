@@ -111,6 +111,9 @@ public class JourneyManager : MonoBehaviour
         }
         else
             return;
+
+        if (currentJourney.journeyType == "스토리") // 스토리 일지의 경우 분홍색으로 표시
+            journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>().color = new Color32(252, 173, 244, 255);
     }
 
 
