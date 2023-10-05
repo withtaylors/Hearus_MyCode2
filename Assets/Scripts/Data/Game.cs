@@ -102,6 +102,8 @@ public class Game : MonoBehaviour
                 }
             }            
         }
+
+        DataManager.instance.nowPlayer.playerHP = PlayerHP.instance.HP;
     }
 
     void Update()

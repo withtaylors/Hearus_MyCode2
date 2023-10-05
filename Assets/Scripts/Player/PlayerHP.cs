@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
 {
     public static PlayerHP instance;
 
-    private int HP;
+    public int HP = 100;
 
     private List<Image> HPBars;
     public Transform tf_HPBars;
@@ -26,7 +26,15 @@ public class PlayerHP : MonoBehaviour
 
     public void Start()
     {
-        HP = 100;
+        if (DataManager.instance.nowPlayer.playerHP != HP)
+        {
+            HP = DataManager.instance.nowPlayer.playerHP;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        }
+        else
+        {
+            HP = 100;
+        }
 
         HPBars = new List<Image>(tf_HPBars.GetComponentsInChildren<Image>());
 
@@ -39,6 +47,8 @@ public class PlayerHP : MonoBehaviour
         HP -= value;
 
         SetActiveHPBar(HP);
+        DataManager.instance.nowPlayer.playerHP = HP;
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     public void IncreaseHP(int value)
@@ -46,6 +56,8 @@ public class PlayerHP : MonoBehaviour
         HP += value;
 
         SetActiveHPBar(HP);
+        DataManager.instance.nowPlayer.playerHP = HP;
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     public void SetActiveHPBar(int _HP)
