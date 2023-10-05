@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Linq;
 
 public class JourneyManager : MonoBehaviour
 {
@@ -98,24 +99,30 @@ public class JourneyManager : MonoBehaviour
 
         GameObject journeyObject = Instantiate(JourneySlot, currentPage);
 
+        TextMeshProUGUI journeyName = journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI journeyText = journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
+
         //FIndJourneyByScriptID(ScriptManager.instance.currentScript.scriptID);
 
-        journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>().text = currentJourney.journeyName;
-        journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text = currentJourney.journeyString[0];
+        journeyName.text = currentJourney.journeyName;
+        journeyText.text = currentJourney.journeyString[0];
 
-        if (currentJourney.journeyString.Length > 1)
-        {
+        if (currentJourney.journeyString.Length > 1) // 일지 텍스트의 개수가 하나 이상이라면
             for (int i = 1; i < currentJourney.journeyString.Length; i++)
-                journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text =
-                    journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>().text + "\n" + currentJourney.journeyString[i];
-        }
-        else
-            return;
+                journeyText.text = journeyText.text + "\n" + currentJourney.journeyString[i]; // 줄바꿈 뒤 이어 붙임
 
-        if (currentJourney.journeyType == "스토리") // 스토리 일지의 경우 분홍색으로 표시
-            journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>().color = new Color32(252, 173, 244, 255);
+        // 공백 제거
+        currentJourney.journeyType = string.Concat(currentJourney.journeyType.Where(x => !char.IsWhiteSpace(x)));
+
+        // 스토리 일지의 경우 분홍색으로 표시
+        if (currentJourney.journeyType == "STORY")
+            journeyName.color = new Color32(252, 173, 244, 255);
+
+        // 작은따옴표를 쉼표로 치환
+        string replaceText = journeyText.text;
+        replaceText = replaceText.Replace("'", ",");
+        journeyText.text = replaceText;
     }
-
 
 
     public void GetCurrentScene()
