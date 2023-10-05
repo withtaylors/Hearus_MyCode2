@@ -24,7 +24,7 @@ public class Game : MonoBehaviour
     public GameObject adamGameObject;
     public GameObject jonahGameObject;
 
-    public int playerHP;
+    //public int playerHP;
 
     void Start()
     {
@@ -102,8 +102,6 @@ public class Game : MonoBehaviour
                 }
             }            
         }
-
-        DataManager.instance.nowPlayer.playerHP = PlayerHP.instance.HP;
     }
 
     void Update()
@@ -128,5 +126,8 @@ public class Game : MonoBehaviour
         //DataManager.instance.SaveData(DataManager.instance.nowSlot);
         Destroy(DataManager.instance.gameObject);
         DataManager.instance.nowPlayer = null;
+        DataManager.instance.DataClear();
+        DataManager.instance.InventoryClear();
+        DataManager.instance.FieldDataClear();
     }
 }

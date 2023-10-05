@@ -36308,7 +36308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014548399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7, y: 1.7, z: 62.8}
+  m_LocalPosition: {x: -2.2, y: 1.7, z: 62.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58221,7 +58221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165944078642323085}
   m_LocalRotation: {x: -0.7071068, y: -0.000000057601163, z: -0.000000057601163, w: 0.7071068}
-  m_LocalPosition: {x: 874.4882, y: 1.8207703, z: -15.481079}
+  m_LocalPosition: {x: 874.4882, y: 1.82, z: -15.481079}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68246,8 +68246,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 428.94342, y: 139.56418, z: 266.69592}
-  m_Center: {x: 34.189972, y: 48.10834, z: -17.058014}
+  m_Size: {x: 466.62714, y: 139.56418, z: 266.69592}
+  m_Center: {x: 15.348106, y: 48.108337, z: -17.058014}
 --- !u!1 &5616422074366169819
 GameObject:
   m_ObjectHideFlags: 0
@@ -70101,8 +70101,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 432.82382, y: 125.57522, z: 345.44617}
-  m_Center: {x: 164.36897, y: 22.065502, z: 5.756195}
+  m_Size: {x: 410.083, y: 125.57522, z: 345.44617}
+  m_Center: {x: 152.99857, y: 22.065502, z: 5.756195}
 --- !u!82 &5616422075901784888
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91133,15 +91133,15 @@ GameObject:
   - component: {fileID: 839491962828631077}
   - component: {fileID: 1675316187088309335}
   - component: {fileID: 9099029254343161989}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "2_\uB3D9\uAD74_\uBC30\uACBD\uC694\uC18C_\uBC14\uC704.005"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &9099029254343161989
-SphereCollider:
+--- !u!64 &9099029254343161989
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91150,9 +91150,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.008523803
-  m_Center: {x: -0.0008997088, y: 0.0009796165, z: 0.00015611936}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2729445592337298045, guid: 8f2fe72cd136b5742bb593d212d8f816, type: 3}
 --- !u!4 &9105351758929410074
 Transform:
   m_ObjectHideFlags: 0
