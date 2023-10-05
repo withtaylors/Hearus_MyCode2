@@ -28,12 +28,9 @@ public class PlayerHP : MonoBehaviour
     {
         if (DataManager.instance.nowPlayer.playerHP != HP)
         {
+            Debug.Log(" if (DataManager.instance.nowPlayer.playerHP != HP)");
             HP = DataManager.instance.nowPlayer.playerHP;
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
-        }
-        else
-        {
-            HP = 100;
         }
 
         HPBars = new List<Image>(tf_HPBars.GetComponentsInChildren<Image>());
