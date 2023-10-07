@@ -293,8 +293,17 @@ public class ScriptManager : MonoBehaviour
     {
         if (currentScript.journeyNumber != "") // 일지 번호 항목이 공백이 아니라면
         {
-            journeyManager.FIndJourneyByJourneyNumber(currentScript.journeyNumber); // currentJourney에 일지 번호를 넣음
-            AddJourney.Invoke();
+            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+            {
+                if (currentScript.itemID == DataManager.instance.dataWrapper.getItemIDList[i].ToString()) // 획득 이력이 있는 아이템이라면 리턴
+                    return;
+                else
+                {                                                                           // 획득 이력이 없다면
+                    journeyManager.FIndJourneyByJourneyNumber(currentScript.journeyNumber); // currentJourney에 일지 번호를 넣음
+                    AddJourney.Invoke();                                                    // 일지 추가
+                }
+            }
+
         }
         else // 공백이라면 return
             return;
