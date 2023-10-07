@@ -94,5 +94,7 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(162, "연료 키트", "간단하게 연료를 만들 수 있는 키트. 원래는 난로 등의 연료를 만들기 위해 쓰인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(163, "액체 연료 3", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(164, "도끼", "", Item.ItemType.도구, Item.ItemEffect.기타, 0, false));
+        itemList.Add(new Item(165, "닫혀 있는 상자", "굳게 닫혀 있는 상자. 도구를 사용하면 열 수 있을 것 같다.", Item.ItemType.기타, Item.ItemEffect.기타, 0, false));
+        itemList.Add(new Item(166, "엔진 블록", "우주선의 엔진을 고칠 수 있는 엔진 블록.", Item.ItemType.부품, Item.ItemEffect.기타, 0, false));
     }
 }

@@ -6,6 +6,18 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
 
+public class JourneyList
+{
+    public Journey _journey;
+    public Transform _map;
+
+    public JourneyList (Journey journey, Transform map)
+    {
+        _journey = journey;
+        _map = map;
+    }
+}
+
 public class JourneyManager : MonoBehaviour
 {
     public static JourneyManager instance;
@@ -17,7 +29,7 @@ public class JourneyManager : MonoBehaviour
     private Journey[] journeys;
     public Journey currentJourney;
 
-    public List<Journey> journeyList;
+    public List<JourneyList> _journeyList;
 
     public Transform firstPage;
     public Transform secondPage;
@@ -36,7 +48,7 @@ public class JourneyManager : MonoBehaviour
         journeyManager = FindObjectOfType<JourneyManager>();
         journeyManager.LoadJourney(journeyManager.GetJourney());
 
-        journeyList = new List<Journey>();
+        _journeyList = new List<JourneyList>();
     }
 
     public void LoadJourney(Journey[] p_journeys)
@@ -65,9 +77,11 @@ public class JourneyManager : MonoBehaviour
 
     public void FIndJourneyByJourneyNumber(string _journeyNumber)
     {
+        _journeyNumber = string.Concat(_journeyNumber.Where(x => !char.IsWhiteSpace(x)));
+
         for (int i = 0; i < journey.journeys.Length; i++)
         {
-            if (int.Parse(journey.journeys[i].journeyNumber).Equals(int.Parse(_journeyNumber)))
+            if (journey.journeys[i].journeyNumber.Equals(_journeyNumber))
             {
                 currentJourney = journey.journeys[i];
                 return;
@@ -94,10 +108,30 @@ public class JourneyManager : MonoBehaviour
 
     // 스크립트 매니저에서 AddJourney 이벤트 Invoke를 받는 함수
     public void UpdateJourney()
-    {
-        GetCurrentScene();
+    {   
+        GetCurrentScene(); // 현재 씬 이름 받아 오기
 
-        GameObject journeyObject = Instantiate(JourneySlot, currentPage);
+        // 공백 제거
+        currentJourney.journeyType = string.Concat(currentJourney.journeyType.Where(x => !char.IsWhiteSpace(x)));
+        currentJourney.itemNumber = string.Concat(currentJourney.itemNumber.Where(x => !char.IsWhiteSpace(x)));
+
+        for (int i = 0; i < _journeyList.Count; i++) // 중복 검사
+            if (_journeyList[i]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
+                return;
+
+        for (int i = 0; i < _journeyList.Count; i++) // 해당 아이템이 이미 있는지 검사
+            if (currentJourney.itemNumber == _journeyList[i]._journey.itemNumber)
+            {
+                AddJourneyString(i);
+                return;
+            }
+
+        _journeyList.Add(new JourneyList(currentJourney, currentPage)); // 아니라면 일지 리스트에 추가
+
+
+
+        GameObject journeyObject = Instantiate(JourneySlot, currentPage); // 일지 오브젝트 생성
+        journeyObject.name = currentJourney.itemNumber; // 일지 오브젝트의 이름을 아이템 넘버로 지정
 
         TextMeshProUGUI journeyName = journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI journeyText = journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
@@ -111,9 +145,6 @@ public class JourneyManager : MonoBehaviour
             for (int i = 1; i < currentJourney.journeyString.Length; i++)
                 journeyText.text = journeyText.text + "\n" + currentJourney.journeyString[i]; // 줄바꿈 뒤 이어 붙임
 
-        // 공백 제거
-        currentJourney.journeyType = string.Concat(currentJourney.journeyType.Where(x => !char.IsWhiteSpace(x)));
-
         // 스토리 일지의 경우 분홍색으로 표시
         if (currentJourney.journeyType == "STORY")
             journeyName.color = new Color32(252, 173, 244, 255);
@@ -124,6 +155,23 @@ public class JourneyManager : MonoBehaviour
         journeyText.text = replaceText;
     }
 
+    public void AddJourneyString(int i)
+    {
+        _journeyList.Add(new JourneyList(currentJourney, currentPage));
+
+        GameObject _journeyObject = _journeyList[i]._map.Find(currentJourney.itemNumber).gameObject;        
+        TextMeshProUGUI _journeyText = _journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
+
+        _journeyText.text = _journeyText.text + "\n" + currentJourney.journeyString[0];
+
+        if (currentJourney.journeyString.Length > 1) // 일지 텍스트의 개수가 하나 이상이라면
+            for (int j = 1; j < currentJourney.journeyString.Length; j++)
+                _journeyText.text = _journeyText.text + "\n" + currentJourney.journeyString[j]; // 줄바꿈 뒤 이어 붙임
+
+        string replaceText = _journeyText.text;
+        replaceText = replaceText.Replace("'", ",");
+        _journeyText.text = replaceText;
+    }
 
     public void GetCurrentScene()
     {
