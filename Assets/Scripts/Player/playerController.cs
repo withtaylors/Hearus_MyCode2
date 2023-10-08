@@ -57,12 +57,6 @@ public class playerController : MonoBehaviour
         itemPickup = FindObjectOfType<ItemPickup>();
         playerRigidbody = GetComponent<Rigidbody>();
         crossWaterScript = FindObjectOfType<CrossWater>();
-
-        // crossWaterScript가 null이 아닌 경우에만 해당 스크립트를 활성화
-        if (crossWaterScript != null)
-        {
-            enabled = true;
-        }
     }
 
     void Update()
