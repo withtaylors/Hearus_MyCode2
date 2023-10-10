@@ -251,12 +251,15 @@ public class ScriptManager : MonoBehaviour
     public void FindScriptByItemID(int _itemID) // 아이템 아이디로 스크립트를 검색해 currentScript에 넣음
     {
         for (int i = 0; i < script.scripts.Length; i++)
+        {
+            script.scripts[i].itemID = string.Concat(script.scripts[i].itemID.Where(x => !char.IsWhiteSpace(x)));
             if (script.scripts[i].itemID == _itemID.ToString())
             {
                 currentScript = script.scripts[i];
                 FIndJourney();
                 break;
             }
+        }
         currentLine = 0;
     }
 
@@ -269,7 +272,7 @@ public class ScriptManager : MonoBehaviour
             {
                 currentScript = script.scripts[i - 1];
                 FIndJourney();
-                return;
+                break;
             }
         }
         currentLine = 0;
@@ -279,11 +282,26 @@ public class ScriptManager : MonoBehaviour
     {
         for (int i = 0; i < script.scripts.Length; i++)
         {
+            script.scripts[i].eventName = string.Concat(script.scripts[i].eventName.Where(x => !char.IsWhiteSpace(x)));
             if (script.scripts[i].eventName == _eventName)
             {
                 currentScript = script.scripts[i];
                 FIndJourney();
-                return;
+                break;
+            }
+        }
+        currentLine = 0;
+    }
+
+    public void FindScriptByItemDesNum(int _itemDes) // 이미 획득한 적 있는 아이템은 아이템의 설명을 나타내는 스크립트만 재생
+    {
+        for (int i = 0; i < script.scripts.Length; i++)
+        {
+            script.scripts[i].itemDes = string.Concat(script.scripts[i].itemDes.Where(x => !char.IsWhiteSpace(x)));
+            if (script.scripts[i].itemDes == _itemDes.ToString())
+            {
+                currentScript = script.scripts[i];
+                break;
             }
         }
         currentLine = 0;

@@ -79,71 +79,95 @@ public class ItemPickup : MonoBehaviour
 
     public void CheckSwitch(int _itemID)
     {
-        if (_itemID == 122) // 까마중 줄기
+        if (_itemID == 122)
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == 122)
+                if (ItemDatabase.itemList[i].itemID == _itemID)
                 {
-                    if (ItemDatabase.itemList[i].isMeet == true)
+                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
                     {
-                        if (ScriptSwitch.instance.switchs[0].switchValue == false)
+                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
                         {
-                            scriptManager.FindScriptByEventName("MEET_AGAIN_122");
-                            scriptManager.ShowScript();
-                            return;
+                            if (ScriptSwitch.instance.switchs[0].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
+                            {
+                                scriptManager.FindScriptByEventName("MEET_AGAIN_122"); // MEET_AGAIN_124 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
+                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                            {
+                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
                         }
-                        else return; // isMeet == true || switchValue == true
                     }
                 }
             }
         }
 
-        if (_itemID == 123) // 골쇄보
+        else if (_itemID == 123)
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == 123)
+                if (ItemDatabase.itemList[i].itemID == _itemID)
                 {
-                    if (ItemDatabase.itemList[i].isMeet == true)
+                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
                     {
-                        if (ScriptSwitch.instance.switchs[1].switchValue == false)
+                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
                         {
-                            scriptManager.FindScriptByEventName("MEET_AGAIN_123");
-                            scriptManager.ShowScript();
-                            return;
+                            if (ScriptSwitch.instance.switchs[1].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
+                            {
+                                scriptManager.FindScriptByEventName("MEET_AGAIN_123"); // MEET_AGAIN_124 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
+                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                            {
+                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
                         }
-                        else return; // isMeet == true || switchValue == true
                     }
                 }
             }
         }
 
-        if (_itemID == 124) // 쐐기풀
+        else if (_itemID == 124)
         {
             for (int i = 0; i < ItemDatabase.itemList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == 124)
+                if (ItemDatabase.itemList[i].itemID == _itemID)
                 {
-                    if (ItemDatabase.itemList[i].isMeet == true)
+                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
                     {
-                        if (ScriptSwitch.instance.switchs[2].switchValue == false)
+                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
                         {
-                            scriptManager.FindScriptByEventName("MEET_AGAIN_124");
-                            scriptManager.ShowScript();
-                            return;
+                            if (ScriptSwitch.instance.switchs[2].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
+                            {
+                                scriptManager.FindScriptByEventName("MEET_AGAIN_124"); // MEET_AGAIN_124 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
+                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                            {
+                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                                scriptManager.ShowScript();
+                                return;
+                            }
                         }
-                        else return; // isMeet == true || switchValue == true
                     }
                 }
             }
         }
 
-        if (_itemID == 107) // 은행
+        else if (_itemID == 107) // 은행
         {
             for (int i = 0; i < Inventory.instance.inventoryItemList.Count; i++)
             {
-                if (Inventory.instance.inventoryItemList[i].itemID == 164)
+                if (Inventory.instance.inventoryItemList[i].itemID == 164) // 도끼가 있다면 break
                     break;
                 else
                 {
@@ -154,6 +178,19 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
+
+        for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+        {
+            if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID) // 획득한 적이 있다면
+            {
+                Debug.Log("획득한적잇음");
+                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                scriptManager.ShowScript();
+                return;
+            }
+        }
+
+        Debug.Log("획득한적없음");
         scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
         scriptManager.ShowScript(); // 스크립트 재생
     }

@@ -35,6 +35,9 @@ public class Script
     [Tooltip("일지 번호")]
     public string journeyNumber;
 
+    [Tooltip("아이템 설명")]
+    public string itemDes;
+
     [Tooltip("대사 내용")]
     public string[] sentences;
 }

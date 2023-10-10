@@ -79,6 +79,7 @@ public class ScriptParser : MonoBehaviour
             string scriptSwitch;
             string getTiming;
             string journeyNumber;
+            string itemDes;
             List<string> sentenceList = new List<string>();
 
             scriptID = row[0];
@@ -91,6 +92,7 @@ public class ScriptParser : MonoBehaviour
             scriptSwitch = row[8];
             getTiming = row[9];
             journeyNumber = row[10];
+            itemDes = row[11];
 
             do
             {
@@ -114,6 +116,7 @@ public class ScriptParser : MonoBehaviour
             script.scriptSwitch = scriptSwitch;
             script.getTiming = getTiming;
             script.journeyNumber = journeyNumber;
+            script.itemDes = itemDes;
 
 
             scriptList.Add(script);
