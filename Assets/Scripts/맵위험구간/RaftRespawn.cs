@@ -4,60 +4,38 @@ using UnityEngine;
 
 public class RaftRespawn : MonoBehaviour
 {
-    [SerializeField] private Transform Raft;
+    public GameObject raft;
     [SerializeField] private Transform respawnPoint2;
-    [SerializeField] private Renderer raftRenderer; 
-    private Material originalMaterial; 
-    private bool isFading = false; 
-    private float fadeSpeed = 0.5f; 
+
+    // CrossWater 스크립트의 인스턴스
+    private CrossWater crossWaterScript;
+    public bool isPlayerOnWater;
+    private ObjectAppearOnCollision objectAppearOnCollisionScript;
+    public bool isFadingIn;
 
     private void Start()
     {
-        raftRenderer = Raft.GetComponent<Renderer>();
-        originalMaterial = raftRenderer.material;
+        crossWaterScript = FindObjectOfType<CrossWater>();
+        objectAppearOnCollisionScript = FindObjectOfType<ObjectAppearOnCollision>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isFading)
+        Debug.Log("crossWaterScript.isPlayerOnWater = false");
+
+        if (other.CompareTag("Player"))
         {
-            StartCoroutine(FadeRaft());
+            // crossWaterScript null 체크 추가
+            if (crossWaterScript != null)
+            {
+                // 물체 위치를 재설정
+                raft.transform.position = respawnPoint2.transform.position;
+                raft.SetActive(false);
+
+                crossWaterScript.isPlayerOnWater = false;
+                objectAppearOnCollisionScript.isFadingIn = false;
+                Debug.Log("crossWaterScript.isPlayerOnWater = " + crossWaterScript.isPlayerOnWater);
+            }
         }
-    }
-
-    private IEnumerator FadeRaft()
-    {
-        isFading = true;
-
-        // 페이드 아웃 (투명하게 만들기)
-        float t = 0f;
-        Color startColor = originalMaterial.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime * fadeSpeed;
-            Color lerpedColor = Color.Lerp(startColor, endColor, t);
-            raftRenderer.material.color = lerpedColor;
-            yield return null;
-        }
-
-        // 물체 위치를 재설정
-        Raft.transform.position = respawnPoint2.transform.position;
-
-        // 페이드 인 (다시 불투명하게 만들기)
-        t = 0f;
-        startColor = endColor;
-        endColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime * fadeSpeed;
-            Color lerpedColor = Color.Lerp(startColor, endColor, t);
-            raftRenderer.material.color = lerpedColor;
-            yield return null;
-        }
-
-        isFading = false;
     }
 }
