@@ -18,6 +18,7 @@ public class Menu_Frith : MonoBehaviour
     public GameObject adamInfo;
     public GameObject jonahInfo;
 
+    public Slider slider;   
     public int frithIntimacy = 0;
     public TextMeshProUGUI frithIntimacy_Text;
 
@@ -28,6 +29,8 @@ public class Menu_Frith : MonoBehaviour
 
     public void Start()
     {
+        slider.interactable = false;
+
         Debug.Log("Menu_Frith");
         if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
@@ -45,7 +48,7 @@ public class Menu_Frith : MonoBehaviour
             RectImg.SetActive(true);
             FrithMenuInfo.SetActive(true);
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
-
+increaseIntimacy();
             switch (DataManager.instance.nowPlayer.nowCharacter)
             {
                 case "Eden":
@@ -79,8 +82,8 @@ public class Menu_Frith : MonoBehaviour
 
     public void SetFrithIntimacy(int _frithIntimacy)
     {
+        slider.value = frithIntimacy;
 
-
-        frithIntimacy_Text.text = frithIntimacy.ToString();
+        frithIntimacy_Text.text = (frithIntimacy.ToString() + " %");
     }
 }
