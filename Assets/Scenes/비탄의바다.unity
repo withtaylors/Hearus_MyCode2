@@ -27229,11 +27229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94642f6905e21e341bb93211e3f0d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raft: {fileID: 0}
-  particleEffect: {fileID: 0}
+  raft: {fileID: 806283468152187847}
+  particleEffect: {fileID: 951276868}
   particlePosition: {fileID: 783984765}
   audioSource: {fileID: 5616422076049446250}
-  rend: {fileID: 0}
+  rend: {fileID: 3188408191918012715}
   isFadingIn: 0
   fadeSpeed: 0.5
   respawnPosition: {fileID: 693210396}
@@ -38638,7 +38638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -271.5
+      value: -84.7
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38646,7 +38646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 247.79
+      value: 263.1
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalRotation.w
