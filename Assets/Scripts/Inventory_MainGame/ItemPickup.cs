@@ -81,27 +81,21 @@ public class ItemPickup : MonoBehaviour
     {
         if (_itemID == 122)
         {
-            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == _itemID)
+                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
                 {
-                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
+                    if (ScriptSwitch.instance.switchs[0].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
-                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
-                        {
-                            if (ScriptSwitch.instance.switchs[0].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
-                            {
-                                scriptManager.FindScriptByEventName("MEET_AGAIN_122"); // MEET_AGAIN_124 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
-                            {
-                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                        }
+                        scriptManager.FindScriptByEventName("MEET_AGAIN_122"); // MEET_AGAIN_124 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
+                    }
+                    else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                    {
+                        scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
                     }
                 }
             }
@@ -109,27 +103,21 @@ public class ItemPickup : MonoBehaviour
 
         else if (_itemID == 123)
         {
-            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == _itemID)
+                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
                 {
-                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
+                    if (ScriptSwitch.instance.switchs[1].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
-                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
-                        {
-                            if (ScriptSwitch.instance.switchs[1].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
-                            {
-                                scriptManager.FindScriptByEventName("MEET_AGAIN_123"); // MEET_AGAIN_124 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
-                            {
-                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                        }
+                        scriptManager.FindScriptByEventName("MEET_AGAIN_123"); // MEET_AGAIN_124 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
+                    }
+                    else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                    {
+                        scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
                     }
                 }
             }
@@ -137,27 +125,21 @@ public class ItemPickup : MonoBehaviour
 
         else if (_itemID == 124)
         {
-            for (int i = 0; i < ItemDatabase.itemList.Count; i++)
+            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
             {
-                if (ItemDatabase.itemList[i].itemID == _itemID)
+                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
                 {
-                    for (int j = 0; j < DataManager.instance.dataWrapper.getItemIDList[j]; j++)
+                    if (ScriptSwitch.instance.switchs[2].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
-                        if (DataManager.instance.dataWrapper.getItemIDList[j] == _itemID)
-                        {
-                            if (ScriptSwitch.instance.switchs[2].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
-                            {
-                                scriptManager.FindScriptByEventName("MEET_AGAIN_124"); // MEET_AGAIN_124 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                            else                                                       // 획득한 적이 있고 약초인 것을 알 때
-                            {
-                                scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
-                                scriptManager.ShowScript();
-                                return;
-                            }
-                        }
+                        scriptManager.FindScriptByEventName("MEET_AGAIN_124"); // MEET_AGAIN_124 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
+                    }
+                    else                                                       // 획득한 적이 있고 약초인 것을 알 때
+                    {
+                        scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
+                        scriptManager.ShowScript();
+                        return;
                     }
                 }
             }

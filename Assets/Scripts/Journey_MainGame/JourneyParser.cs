@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class JourneyParser : MonoBehaviour
@@ -47,6 +48,11 @@ public class JourneyParser : MonoBehaviour
             journey.itemNumber = itemNumber;
             journey.journeyType = journeyType;
             journey.journeyString = journeyString.ToArray();
+
+            journey.journeyNumber = string.Concat(journey.journeyNumber.Where(x => !char.IsWhiteSpace(x)));
+            journey.scriptNumber = string.Concat(journey.scriptNumber.Where(x => !char.IsWhiteSpace(x)));
+            journey.itemNumber = string.Concat(journey.itemNumber.Where(x => !char.IsWhiteSpace(x)));
+            journey.journeyType = string.Concat(journey.journeyType.Where(x => !char.IsWhiteSpace(x)));
 
             journeyList.Add(journey);
         }

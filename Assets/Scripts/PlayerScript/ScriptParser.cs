@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -117,6 +118,18 @@ public class ScriptParser : MonoBehaviour
             script.getTiming = getTiming;
             script.journeyNumber = journeyNumber;
             script.itemDes = itemDes;
+
+            script.itemID = string.Concat(script.itemID.Where(x => !char.IsWhiteSpace(x)));
+            script.scriptID = string.Concat(script.scriptID.Where(x => !char.IsWhiteSpace(x)));
+            script.isExistOption = string.Concat(script.isExistOption.Where(x => !char.IsWhiteSpace(x)));
+            script.optionNumber = string.Concat(script.optionNumber.Where(x => !char.IsWhiteSpace(x)));
+            script.isExistNextScript = string.Concat(script.isExistNextScript.Where(x => !char.IsWhiteSpace(x)));
+            script.nextScriptNumber = string.Concat(script.nextScriptNumber.Where(x => !char.IsWhiteSpace(x)));
+            script.eventName = string.Concat(script.eventName.Where(x => !char.IsWhiteSpace(x)));
+            script.scriptSwitch = string.Concat(script.scriptSwitch.Where(x => !char.IsWhiteSpace(x)));
+            script.getTiming = string.Concat(script.getTiming.Where(x => !char.IsWhiteSpace(x)));
+            script.journeyNumber = string.Concat(script.journeyNumber.Where(x => !char.IsWhiteSpace(x)));
+            script.itemDes = string.Concat(script.itemDes.Where(x => !char.IsWhiteSpace(x)));
 
 
             scriptList.Add(script);

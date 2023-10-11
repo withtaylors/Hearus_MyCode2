@@ -252,7 +252,6 @@ public class ScriptManager : MonoBehaviour
     {
         for (int i = 0; i < script.scripts.Length; i++)
         {
-            script.scripts[i].itemID = string.Concat(script.scripts[i].itemID.Where(x => !char.IsWhiteSpace(x)));
             if (script.scripts[i].itemID == _itemID.ToString())
             {
                 currentScript = script.scripts[i];
@@ -263,14 +262,13 @@ public class ScriptManager : MonoBehaviour
         currentLine = 0;
     }
 
-    public void FindScriptByScriptID(int _scriptID) // 스크립트 아이디로 스크립트를 검색해 currentScript에 넣음
+    public void FindScriptByScriptID(int _scriptID)
     {
-        for (int i = 1; i <= script.scripts.Length; i++)
+        for (int i = 0; i < script.scripts.Length; i++)
         {
-            //if (script.scripts[i].scriptID == _scriptID)
-            if (i == _scriptID)
+            if (script.scripts[i].scriptID == _scriptID.ToString())
             {
-                currentScript = script.scripts[i - 1];
+                currentScript = script.scripts[i];
                 FIndJourney();
                 break;
             }
@@ -282,7 +280,6 @@ public class ScriptManager : MonoBehaviour
     {
         for (int i = 0; i < script.scripts.Length; i++)
         {
-            script.scripts[i].eventName = string.Concat(script.scripts[i].eventName.Where(x => !char.IsWhiteSpace(x)));
             if (script.scripts[i].eventName == _eventName)
             {
                 currentScript = script.scripts[i];
@@ -297,7 +294,6 @@ public class ScriptManager : MonoBehaviour
     {
         for (int i = 0; i < script.scripts.Length; i++)
         {
-            script.scripts[i].itemDes = string.Concat(script.scripts[i].itemDes.Where(x => !char.IsWhiteSpace(x)));
             if (script.scripts[i].itemDes == _itemDes.ToString())
             {
                 currentScript = script.scripts[i];

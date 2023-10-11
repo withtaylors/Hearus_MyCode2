@@ -77,8 +77,6 @@ public class JourneyManager : MonoBehaviour
 
     public void FIndJourneyByJourneyNumber(string _journeyNumber)
     {
-        _journeyNumber = string.Concat(_journeyNumber.Where(x => !char.IsWhiteSpace(x)));
-
         for (int i = 0; i < journey.journeys.Length; i++)
         {
             if (journey.journeys[i].journeyNumber.Equals(_journeyNumber))
@@ -110,10 +108,6 @@ public class JourneyManager : MonoBehaviour
     public void UpdateJourney()
     {   
         GetCurrentScene(); // 현재 씬 이름 받아 오기
-
-        // 공백 제거
-        currentJourney.journeyType = string.Concat(currentJourney.journeyType.Where(x => !char.IsWhiteSpace(x)));
-        currentJourney.itemNumber = string.Concat(currentJourney.itemNumber.Where(x => !char.IsWhiteSpace(x)));
 
         for (int i = 0; i < _journeyList.Count; i++) // 중복 검사
             if (_journeyList[i]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
