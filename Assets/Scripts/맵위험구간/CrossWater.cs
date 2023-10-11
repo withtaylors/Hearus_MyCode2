@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrossWater : MonoBehaviour
 {
-    public bool isPlayerOnWater = false;
+    public static bool isPlayerOnWater = false;
     private Vector3 waterDirection;
     public float moveSpeed = 7f;
 
@@ -12,7 +12,7 @@ public class CrossWater : MonoBehaviour
     public float fadeSpeed = 0.5f; // 페이드 속도를 조절합니다.
     private bool isFadingOut = false;
 
-    private void Start()
+    public void Start()
     {
 
     }
@@ -38,9 +38,12 @@ public class CrossWater : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("OnTriggerExit");
         if (other.CompareTag("Player"))
         {
             isPlayerOnWater = false;
+            isFadingOut = true;
+            StartCoroutine(FadeOut());
         }
     }
 

@@ -46,17 +46,12 @@ public class playerController : MonoBehaviour
     public UnityEvent arriveRopeField;
     public GameObject ropeObject; // 로프 GameObject
 
-    // CrossWater 스크립트의 인스턴스
-    private CrossWater crossWaterScript;
-    public bool isPlayerOnWater = false;
-
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
         itemPickup = FindObjectOfType<ItemPickup>();
         playerRigidbody = GetComponent<Rigidbody>();
-        crossWaterScript = FindObjectOfType<CrossWater>();
     }
 
     void Update()
@@ -130,24 +125,19 @@ public class playerController : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(moveDirection);
             myRB.rotation = Quaternion.Slerp(myRB.rotation, newRotation, 10f * Time.deltaTime);
         }
-
-
-        if (crossWaterScript != null)   
+        
+        if (CrossWater.isPlayerOnWater)  
         {
-            bool isOnWater = crossWaterScript.isPlayerOnWater;
-            if (isOnWater)
-            {
-                Debug.Log("isOnWater 호출");
+            Debug.Log("CrossWater.isPlayerOnWater");
 
-                myAnim.SetBool("isWalking", false);
-                myAnim.SetBool("isRunning", false);    
+            myAnim.SetBool("isWalking", false);
+            myAnim.SetBool("isRunning", false);    
 
-                myAnim.SetBool("isOnWater", true);       
-            }
-            else
-            {
-                myAnim.SetBool("isOnWater", false);       
-            }
+            myAnim.SetBool("isOnWater", true);       
+        }
+        else
+        {
+            myAnim.SetBool("isOnWater", false);       
         }
     }
 

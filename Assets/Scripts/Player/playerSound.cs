@@ -17,14 +17,13 @@ public class playerSound : MonoBehaviour
     private playerController player;
     private Coroutine fadeOutCoroutine; // 소리가 점점 작아지게끔 하는 코루틴을 저장할 변수
 
-    // CrossWater 스크립트의 인스턴스
-    private CrossWater crossWaterScript;
-    public bool isPlayerOnWater = false;
-
     void Start()
     {
         player = GetComponent<playerController>();
-        crossWaterScript = FindObjectOfType<CrossWater>();
+        if (player.grounded)
+        {
+            groundedSound.Stop();
+        }
     }
 
     void Update()
@@ -34,14 +33,9 @@ public class playerSound : MonoBehaviour
             return;
         }
 
-        if (crossWaterScript != null)
-        {
-            isPlayerOnWater = crossWaterScript.isPlayerOnWater;
-        }
-
         if (player.grounded)
         {
-            if(isPlayerOnWater)
+            if(CrossWater.isPlayerOnWater)
             {
                 walkSound.Stop();
                 runSound.Stop();
@@ -161,7 +155,7 @@ public class playerSound : MonoBehaviour
         yield return new WaitForSeconds(delay);
         pickSound.Play();
     }
-
+    
     // 0.5 초 동안 점차적으로 소리를 줄여 주는 코루틴
     IEnumerator FadeOutSound(float duration)
     {

@@ -23,6 +23,7 @@ public class PlayerData
     public float z = 0.5f;
 
     public string nowCharacter = "None";
+    public int frithIntimacy = 0;
     public int playerHP = 100;
 }
 
