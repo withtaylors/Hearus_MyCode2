@@ -21,7 +21,6 @@ public class SettingMenu : MonoBehaviour
         Time.timeScale = 0;
         player.isWalking = false;
         player.isRunning = false;
-        player.isClimbing = false;
     }
 
     public void Continue()
@@ -30,6 +29,5 @@ public class SettingMenu : MonoBehaviour
         Time.timeScale = 1;
         player.isWalking = true;
         player.isRunning = true;
-        player.isClimbing = true;
     }
 }

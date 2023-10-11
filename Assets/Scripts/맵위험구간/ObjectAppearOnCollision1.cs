@@ -1,24 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-public class ObjectAppearOnCollision : MonoBehaviour
+public class ObjectAppearOnCollision1 : MonoBehaviour
 {
     public GameObject raft;
     [SerializeField] public Transform respawnPosition;
     public ParticleSystem particleEffect; 
     public Transform particlePosition; 
     public AudioSource audioSource;
-    public Renderer rend;
     public bool isFadingIn = false;
     public float fadeSpeed = 0.5f;
     public bool isPlayerInside = false;
 
     private void Start()
     {
-        rend = raft.GetComponent<Renderer>();
-        rend.material.color = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 0f);
         raft.SetActive(false);
-
         if (particleEffect != null)
         {
             particleEffect.Stop();
@@ -36,16 +32,21 @@ public class ObjectAppearOnCollision : MonoBehaviour
 
             if (!isFadingIn && raft.activeSelf)
             {
-                raft.SetActive(false);
+                                    Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 111111");
+                        raft.SetActive(true);
+
                 PlayEffects();
                 ResetPosition();
             }
 
-            if (isFadingIn && !raft.activeSelf)
+            if(isFadingIn && !raft.activeSelf)
             {
-                raft.SetActive(true);
-                PlayEffects();
-                ResetPosition();
+                                                    Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 2222222");
+
+                        raft.SetActive(true);
+
+                              PlayEffects();
+                ResetPosition();  
             }
             isPlayerInside = true;
          }
@@ -61,18 +62,14 @@ public class ObjectAppearOnCollision : MonoBehaviour
          {
              timeCounter += Time.deltaTime;
              float alphaValue=Mathf.Lerp(startAlpha,endAlpha,timeCounter/fadeSpeed);
-
-             Color currentColor=rend.material.color;
-             currentColor.a=alphaValue;
-
-             rend.material.color=currentColor;
-
            yield return null; 
        }      
    }
 
     void PlayEffects()
     {
+                Debug.Log("ObjectAppearOnCollision1 PlayEffects");
+
         if(particleEffect != null) 
         {
             particleEffect.gameObject.SetActive(true); 
@@ -99,27 +96,29 @@ public class ObjectAppearOnCollision : MonoBehaviour
 
    void ResetPosition() 
    {  
+            Debug.Log("ObjectAppearOnCollision1   ResetPosition");
+
         raft.transform.position = respawnPosition.transform.position; 
    }
    
-   void DeactivateRaftIfOutsideTrigger(Transform playerTransform)
-    {  
-        Vector3 directionFromPlayerToTrigger = (transform.position - playerTransform.position).normalized; 
-        bool isOnRightSideOfTrigger = (Vector3.Dot(directionFromPlayerToTrigger, transform.right) > 0); 
+//    void DeactivateRaftIfOutsideTrigger(Transform playerTransform)
+//     {  
+//         Vector3 directionFromPlayerToTrigger = (transform.position - playerTransform.position).normalized; 
+//         bool isOnRightSideOfTrigger = (Vector3.Dot(directionFromPlayerToTrigger, transform.right) > 0); 
 
-        if (!isPlayerInside && isOnRightSideOfTrigger) 
-        {     
-            ResetPosition();    
-        }       
-    }
+//         if (!isPlayerInside && isOnRightSideOfTrigger) 
+//         {     
+//             ResetPosition();    
+//         }       
+//     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit");
         if (other.CompareTag("Player"))
         {
+            Debug.Log("111 OnTriggerExit");
+
             isPlayerInside = false;
-            DeactivateRaftIfOutsideTrigger(other.transform);
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class playerLocation : MonoBehaviour
 {
     public Transform playerTransform;
     public string filename;
@@ -17,11 +17,6 @@ public class Game : MonoBehaviour
     public float z;
 
     public string nowCharacter;
-
-    public GameObject edenGameObject;
-    public GameObject noahGameObject;
-    public GameObject adamGameObject;
-    public GameObject jonahGameObject;
 
     void Start()
     {

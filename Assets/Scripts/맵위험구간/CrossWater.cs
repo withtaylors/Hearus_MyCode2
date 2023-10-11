@@ -20,7 +20,8 @@ public class CrossWater : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        {
+        {            Debug.Log("CrossWater   OnTriggerEnter");
+
             isFadingOut = false;
             watercrossSound.Play();
         }
@@ -30,6 +31,7 @@ public class CrossWater : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("CrossWater   OnTriggerStay");
             isPlayerOnWater = true;
             // 저장된 방향을 물체의 방향으로 설정
             waterDirection = transform.forward.normalized;
@@ -38,9 +40,9 @@ public class CrossWater : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit");
         if (other.CompareTag("Player"))
-        {
+        {            Debug.Log("CrossWater   OnTriggerExit");
+
             isPlayerOnWater = false;
             isFadingOut = true;
             StartCoroutine(FadeOut());
