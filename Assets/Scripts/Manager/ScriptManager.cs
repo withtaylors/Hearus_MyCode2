@@ -49,11 +49,20 @@ public class ScriptManager : MonoBehaviour
     public AudioSource typingSound;
     public Slider volumeSlider; // 볼륨 슬라이더
 
+    private void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
 
     private void Start()
     {
-        instance = this;
-
         scriptManager = FindObjectOfType<ScriptManager>();
         scriptManager.LoadScript(scriptManager.GetScript());
         scriptManager.LoadOption(scriptManager.GetOption());

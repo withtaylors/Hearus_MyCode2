@@ -23,10 +23,19 @@ public class ScriptSwitch : MonoBehaviour
 
     public static ScriptSwitch instance;
 
+    private void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        instance = this;
-
         switchs = new List<Switch>();
 
         switchs.Add(new Switch("noticesHerb_122", false));

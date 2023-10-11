@@ -5,13 +5,21 @@ using UnityEngine.Events;
 
 public class ItemDebuff : MonoBehaviour
 {
+    public static ItemDebuff instance;
+
     public bool hasPassedTime_113; // 송이버섯 습득 후 시간 경과 여부.
     public UnityEvent HasPassedTime_113;
 
-    // Update is called once per frame
-    private void Update()
+    private void Awake()
     {
-        
+        // Singleton
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void CheckPickedItem(int _itemID) // 아이템 습득 시 호출되는 함수.

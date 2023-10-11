@@ -74,6 +74,8 @@ public class playerController : MonoBehaviour
         if (isClimbing){
             ProcessClimbing();
         }
+
+        CheckPicking(); //아이템 줍기
     }
 
     void FixedUpdate()
@@ -84,7 +86,6 @@ public class playerController : MonoBehaviour
             HandleMovement(); //플레이어 Movement
             HandleJump(); //플레이어 점프
         }
-        CheckPicking(); //아이템 줍기
     }
 
     void HandleMovement()
@@ -241,13 +242,6 @@ public class playerController : MonoBehaviour
                         isPicking = true; // picking 애니메이션이 실행 중임을 표시
                         StartCoroutine(ResetPicking(collider.gameObject)); // 일정 시간 후에 isPicking을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
                         break; // 첫 번째로 발견된 아이템만 처리하고 반복문 종료
-                    }
-                }
-                else
-                {
-                    if (colliderTag == "ITEM_VINE" || colliderTag == "ITEM_DOLL" || colliderTag == "ITEM_NE_MUSHROOM" || colliderTag == "ITEM_BUTTERNUT" || colliderTag == "ITEM_PICKING")
-                    {
-                        Debug.Log("충돌한 태그: " + colliderTag + " 감지"); // E 키를 누르지 않은 상태에서 충돌한 태그 출력
                     }
                 }
             }

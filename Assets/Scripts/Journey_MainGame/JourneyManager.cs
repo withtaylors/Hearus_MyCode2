@@ -41,10 +41,19 @@ public class JourneyManager : MonoBehaviour
 
     public GameObject JourneySlot;
 
+    private void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        instance = this;
-
         journeyManager = FindObjectOfType<JourneyManager>();
         journeyManager.LoadJourney(journeyManager.GetJourney());
 
@@ -122,10 +131,12 @@ public class JourneyManager : MonoBehaviour
 
         _journeyList.Add(new JourneyList(currentJourney, currentPage)); // 아니라면 일지 리스트에 추가
 
-
-
         GameObject journeyObject = Instantiate(JourneySlot, currentPage); // 일지 오브젝트 생성
-        journeyObject.name = currentJourney.itemNumber; // 일지 오브젝트의 이름을 아이템 넘버로 지정
+
+        if (currentJourney.journeyType == "ITEM")
+            journeyObject.name = currentJourney.itemNumber; // 일지 오브젝트의 이름을 아이템 넘버로 지정
+        else if (currentJourney.journeyType == "STORY")
+            journeyObject.name = currentJourney.journeyName;
 
         TextMeshProUGUI journeyName = journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI journeyText = journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
