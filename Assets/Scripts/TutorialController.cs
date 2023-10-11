@@ -358,7 +358,6 @@ public class TutorialController : MonoBehaviour
         
         DataManager.instance.nowPlayer.nowCharacter = selectedCharacter;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
-        Debug.Log(DataManager.instance.nowPlayer.nowCharacter);
 
         switch (selectedCharacter)
         {

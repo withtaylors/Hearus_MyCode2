@@ -20,7 +20,7 @@ public class RaftRespawn : MonoBehaviour
         {
             // 물체 위치를 재설정
             raft.transform.position = respawnPoint2.transform.position;
-            raft.SetActive(false);
+            raft.SetActive(true);
 
             CrossWater.isPlayerOnWater = false;
             objectAppearOnCollisionScript.isFadingIn = false;

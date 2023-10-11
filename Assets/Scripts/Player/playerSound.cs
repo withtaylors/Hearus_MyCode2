@@ -20,12 +20,9 @@ public class playerSound : MonoBehaviour
     void Start()
     {
         player = GetComponent<playerController>();
-        if (player.grounded && !wasGrounded)
+        if (player.grounded)
         {
-            if (groundedSound.isPlaying)
-            {
-                groundedSound.Stop();
-            }
+            groundedSound.Stop();
         }
     }
 
