@@ -4013,6 +4013,7 @@ MonoBehaviour:
   raft: {fileID: 0}
   respawnPoint2: {fileID: 0}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!1 &207390456
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,7 +8410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472375508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 517.9001, y: 357.7727, z: 172.12741}
+  m_LocalPosition: {x: -256.52148, y: -165.11829, z: 242.79794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8419,8 +8420,8 @@ Transform:
   - {fileID: 249886965}
   - {fileID: 1818977238}
   - {fileID: 247865057}
-  m_Father: {fileID: 1989475503}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477134913
 GameObject:
@@ -9582,7 +9583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527908752
 GameObject:
@@ -10336,7 +10337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569279728
 GameObject:
@@ -17014,6 +17015,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1869409663}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!198 &951276868 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19827200, guid: 6c1e328deef14cf41982d5f9232e04ff, type: 3}
@@ -20471,7 +20473,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 428ac7108b6f71d4abca97483e4dc94d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7676ef287777a546998e1d73984193c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.849
   m_Pitch: 1
@@ -21052,6 +21054,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1564937238}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!114 &1133099002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22581,6 +22584,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1446657375}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!114 &1221491364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31189,6 +31193,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 2014548400}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!114 &1756395188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31408,6 +31413,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 381279655}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!114 &1768817877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31976,6 +31982,7 @@ MonoBehaviour:
   raft: {fileID: 0}
   respawnPoint2: {fileID: 0}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!1 &1801319487
 GameObject:
   m_ObjectHideFlags: 0
@@ -34304,7 +34311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931559132
 GameObject:
@@ -35262,7 +35269,6 @@ Transform:
   - {fileID: 531757216}
   - {fileID: 460395264}
   - {fileID: 1559408432}
-  - {fileID: 472375509}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35676,7 +35682,7 @@ Transform:
   - {fileID: 758517097}
   - {fileID: 1009858789}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014476598
 GameObject:
@@ -37899,6 +37905,7 @@ MonoBehaviour:
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 519712723}
   isPlayerOnWater: 0
+  isFadingIn: 0
 --- !u!1 &2133568836
 GameObject:
   m_ObjectHideFlags: 0
@@ -68901,7 +68908,7 @@ Transform:
   - {fileID: 5616422074102055740}
   - {fileID: 5616422075332541339}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5616422075455585975
 GameObject:
@@ -69837,7 +69844,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 578979e6e1bcee24fbbaeb3c744bdf09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b24df05f0bff30a4992efdec410a04a3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.849
   m_Pitch: 1
