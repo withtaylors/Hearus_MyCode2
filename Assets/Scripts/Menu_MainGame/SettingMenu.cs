@@ -8,24 +8,28 @@ using TMPro;
 public class SettingMenu : MonoBehaviour
 {
     public GameObject SettingPanel;
-    public playerSound playerSound_;
+    private playerController player;
 
-   private void Awake()
-   {
-       playerSound_ = GameObject.FindObjectOfType<playerSound>();
-   }
+    void Start()
+    {
+        player = FindObjectOfType<playerController>();
+    }
 
     public void Setting()
     {
         SettingPanel.SetActive(true);
         Time.timeScale = 0;
-        playerSound_.PauseAllSounds();
+        player.isWalking = false;
+        player.isRunning = false;
+        player.isClimbing = false;
     }
 
     public void Continue()
     {
         SettingPanel.SetActive(false);
         Time.timeScale = 1;
-        playerSound_.ResumeAllSounds();
+        player.isWalking = true;
+        player.isRunning = true;
+        player.isClimbing = true;
     }
 }

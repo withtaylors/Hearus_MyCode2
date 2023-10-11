@@ -38,7 +38,6 @@ public class Menu_Frith : MonoBehaviour
         Debug.Log("Menu_Frith");
         if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
-            Debug.Log("DataManager.instance.nowPlayer.nowCharacter == none");
             Text.SetActive(true);
             RectImg.SetActive(false);
             FrithMenuInfo.SetActive(false);
@@ -54,7 +53,6 @@ public class Menu_Frith : MonoBehaviour
         }
         else
         {
-            Debug.Log("DataManager.instance.nowPlayer.nowCharacter == else");
             Text.SetActive(false);
             RectImg.SetActive(true);
             FrithMenuInfo.SetActive(true);
@@ -65,7 +63,6 @@ public class Menu_Frith : MonoBehaviour
                     eden.SetActive(true);
                     edenInfo.SetActive(true);
                     Debug.Log("Eden");
-                    increaseIntimacy();
                     break;
                 case "Noah":
                     noah.SetActive(true);
@@ -98,7 +95,6 @@ public class Menu_Frith : MonoBehaviour
     public void SetFrithIntimacy(int _frithIntimacy)
     {
         slider.value = frithIntimacy;
-
         frithIntimacy_Text.text = (frithIntimacy.ToString() + " %");
     }
 
@@ -110,17 +106,5 @@ public class Menu_Frith : MonoBehaviour
 
         KoreanText.gameObject.SetActive(true);
         slider.gameObject.SetActive(true);
-        // foreach (GameObject obj in objectsToActivate)
-        // {
-        //     obj.SetActive(true);
-        // }
-    }
-
-    public void SetInvisible()
-    {
-        // foreach (GameObject obj in objectsToUnActivate)
-        // {
-        //     obj.SetActive(false);
-        // }   
     }
 }

@@ -155,7 +155,7 @@ public class playerSound : MonoBehaviour
         yield return new WaitForSeconds(delay);
         pickSound.Play();
     }
-
+    
     // 0.5 초 동안 점차적으로 소리를 줄여 주는 코루틴
     IEnumerator FadeOutSound(float duration)
     {
@@ -173,45 +173,5 @@ public class playerSound : MonoBehaviour
         climbSound.Stop(); // 소리 완전히 중단
         climbSound.volume = initialVolume; // 볼륨을 원래 값으로 설정
         fadeOutCoroutine = null; // 코루틴 상태를 초기화
-    }
-
-    public void PauseAllSounds()
-    {
-        Debug.Log("소리다꺼");
-        if (walkSound.isPlaying)
-        {
-            walkSound.Pause();
-        }
-        if (runSound.isPlaying)
-        {
-            runSound.Pause();
-        }
-        if (groundedSound.isPlaying)
-        {
-            groundedSound.Pause();
-        }
-        if (pickSound.isPlaying)
-        {
-            pickSound.Pause();
-        }
-        if (climbSound.isPlaying && fadeOutCoroutine == null)
-        {
-            climbSound.Pause();
-        }
-    }
-
-    public void ResumeAllSounds()
-    {
-        Debug.Log("소리다시재생");
-
-        walkSound.UnPause();
-        runSound.UnPause();
-        groundedSound.UnPause();
-        pickSound.UnPause();
-
-        if(player.isClimbing && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0 && fadeOutCoroutine == null) 
-        {  
-            climbSound.UnPause(); 
-        } 
     }
 }
