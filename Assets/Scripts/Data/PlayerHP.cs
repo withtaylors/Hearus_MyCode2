@@ -41,7 +41,44 @@ public class PlayerHP : MonoBehaviour
 
     public void DecreaseHP(int value)
     {
-        HP -= value;
+        switch (DataManager.instance.nowPlayer.nowCharacter)
+            {
+                case "Eden":
+                    if (DataManager.instance.nowPlayer.currentMap == "태초의숲" || DataManager.instance.nowPlayer.currentMap == "종말과XXX")
+                    {
+                        HP -= (value / 2);
+                        Debug.Log("value / 2" + HP);
+                    }
+                    else
+                    {
+                        HP -= value;
+                        Debug.Log("value" + HP);
+                    }
+                    break;
+                case "Noah":
+                    if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
+                    {
+                        HP -= value / 2;
+                    }
+                    else
+                    {
+                        HP -= value;
+                    }
+                    break;
+                case "Adam":
+                    if (DataManager.instance.nowPlayer.currentMap == "타오른는황야")
+                    {
+                        HP -= value / 2;
+                    }
+                    else
+                    {
+                        HP -= value;
+                    }
+                    break;
+                case "Jonah":
+                    HP -= value;
+                    break;
+            }
 
         SetActiveHPBar(HP);
         DataManager.instance.nowPlayer.playerHP = HP;

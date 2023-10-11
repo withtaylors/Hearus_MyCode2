@@ -77,27 +77,7 @@ public class Game : MonoBehaviour
                     Debug.Log("start 타오르는황야");
                     playerTransform.position = new Vector3(-325f, -520f, 100f);
                 }
-            }
-
-
-        //     if (DataManager.instance.nowPlayer.nowCharacter != "None")
-        //     {
-        //         switch (DataManager.instance.nowPlayer.nowCharacter)
-        //         {
-        //             case "Eden":
-        //                 edenGameObject.SetActive(true);
-        //                 break;
-        //             case "Noah":
-        //                 noahGameObject.SetActive(true);
-        //                 break;
-        //             case "Adam":
-        //                 adamGameObject.SetActive(true);
-        //                 break;
-        //             case "Jonah":
-        //                 jonahGameObject.SetActive(true);
-        //                 break;
-        //         }
-        //     }            
+            }          
         }
     }
 
@@ -119,8 +99,8 @@ public class Game : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        //Debug.Log("종료해서 저장됨");
-        //DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        Debug.Log("종료해서 저장됨");
+        DataManager.instance.SaveData(DataManager.instance.nowSlot);
         Destroy(DataManager.instance.gameObject);
         DataManager.instance.nowPlayer = null;
         DataManager.instance.DataClear();

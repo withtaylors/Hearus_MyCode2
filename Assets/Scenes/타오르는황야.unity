@@ -28420,7 +28420,6 @@ GameObject:
   - component: {fileID: 1054482239}
   - component: {fileID: 1054482238}
   - component: {fileID: 1054482241}
-  - component: {fileID: 1054482242}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
@@ -28529,34 +28528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingPanel: {fileID: 1054482236}
-  playerSound_: {fileID: 0}
---- !u!114 &1054482242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054482236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9215daa34aeed024c8ec403615a4d114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  FrithMenuInfo: {fileID: 0}
-  RectImg: {fileID: 0}
-  KoreanText: {fileID: 0}
-  eden: {fileID: 0}
-  noah: {fileID: 0}
-  adam: {fileID: 0}
-  jonah: {fileID: 0}
-  edenInfo: {fileID: 0}
-  noahInfo: {fileID: 0}
-  adamInfo: {fileID: 0}
-  jonahInfo: {fileID: 0}
-  slider: {fileID: 0}
-  frithIntimacy: 0
-  frithIntimacy_Text: {fileID: 0}
 --- !u!1 &1058663813
 GameObject:
   m_ObjectHideFlags: 0

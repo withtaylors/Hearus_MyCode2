@@ -37,7 +37,7 @@ public class Cleaner : MonoBehaviour
             }
 
             PlayerHP.instance.DecreaseHP(10);
-            //DataManager.instance.SaveData(DataManager.instance.nowSlot);
+            Debug.Log("DecreaseHP");
         }
     }
 
