@@ -33,6 +33,15 @@ public class BGMSound : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+            StartCoroutine(FadeIn(audioSource, fadeInTime));
+        }
+    }
+    
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player" && audioSource.isPlaying)

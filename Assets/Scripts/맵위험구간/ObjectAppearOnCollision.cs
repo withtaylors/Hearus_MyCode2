@@ -73,6 +73,7 @@ public class ObjectAppearOnCollision : MonoBehaviour
            yield return null; 
        }      
    }
+   
     void PlayEffects()
     {
         if(particleEffect != null) 
@@ -99,12 +100,10 @@ public class ObjectAppearOnCollision : MonoBehaviour
         }
     }
 
-
    void ResetPosition() 
    {  
         raft.transform.position = respawnPosition.transform.position; 
    }
-   
    
    void DeactivateRaftIfOutsideTrigger(Transform playerTransform)
     {  
