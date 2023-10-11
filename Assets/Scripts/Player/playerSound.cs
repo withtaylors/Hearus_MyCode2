@@ -174,4 +174,44 @@ public class playerSound : MonoBehaviour
         climbSound.volume = initialVolume; // 볼륨을 원래 값으로 설정
         fadeOutCoroutine = null; // 코루틴 상태를 초기화
     }
+
+    public void PauseAllSounds()
+    {
+        Debug.Log("소리다꺼");
+        if (walkSound.isPlaying)
+        {
+            walkSound.Pause();
+        }
+        if (runSound.isPlaying)
+        {
+            runSound.Pause();
+        }
+        if (groundedSound.isPlaying)
+        {
+            groundedSound.Pause();
+        }
+        if (pickSound.isPlaying)
+        {
+            pickSound.Pause();
+        }
+        if (climbSound.isPlaying && fadeOutCoroutine == null)
+        {
+            climbSound.Pause();
+        }
+    }
+
+    public void ResumeAllSounds()
+    {
+        Debug.Log("소리다시재생");
+
+        walkSound.UnPause();
+        runSound.UnPause();
+        groundedSound.UnPause();
+        pickSound.UnPause();
+
+        if(player.isClimbing && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0 && fadeOutCoroutine == null) 
+        {  
+            climbSound.UnPause(); 
+        } 
+    }
 }
