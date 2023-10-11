@@ -26,49 +26,29 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
      {
          if (other.CompareTag("Player"))
          {
-            isFadingIn = !isFadingIn;
+            // if (raft.activeSelf)
+            // {
+            //     Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 111111");
+            //     raft.SetActive(true);
 
-            StartCoroutine(FadeObject(isFadingIn));
-
-            if (!isFadingIn && raft.activeSelf)
+            //     PlayEffects();
+            //     ResetPosition();
+            // }
+            if(!raft.activeSelf)
             {
-                                    Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 111111");
-                        raft.SetActive(true);
+                Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 2222222");
+                raft.SetActive(true);
 
                 PlayEffects();
-                ResetPosition();
-            }
-
-            if(isFadingIn && !raft.activeSelf)
-            {
-                                                    Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 2222222");
-
-                        raft.SetActive(true);
-
-                              PlayEffects();
                 ResetPosition();  
             }
             isPlayerInside = true;
          }
      }
 
-     IEnumerator FadeObject(bool fadeIn)
-     {
-        float startAlpha = fadeIn ? 0 : 1;
-        float endAlpha = fadeIn ? 1 : 0;
-        float timeCounter=0;
-
-         while (timeCounter < fadeSpeed)
-         {
-             timeCounter += Time.deltaTime;
-             float alphaValue=Mathf.Lerp(startAlpha,endAlpha,timeCounter/fadeSpeed);
-           yield return null; 
-       }      
-   }
-
     void PlayEffects()
     {
-                Debug.Log("ObjectAppearOnCollision1 PlayEffects");
+        Debug.Log("ObjectAppearOnCollision1 PlayEffects");
 
         if(particleEffect != null) 
         {
@@ -96,8 +76,7 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
 
    void ResetPosition() 
    {  
-            Debug.Log("ObjectAppearOnCollision1   ResetPosition");
-
+        Debug.Log("ObjectAppearOnCollision1   ResetPosition");
         raft.transform.position = respawnPosition.transform.position; 
    }
    
@@ -119,6 +98,10 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
             Debug.Log("111 OnTriggerExit");
 
             isPlayerInside = false;
+            // if (!isPlayerInside)
+            // {
+            //     ResetPosition();
+            // }
         }
     }
 }
