@@ -96,5 +96,6 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(164, "도끼", "", Item.ItemType.도구, Item.ItemEffect.기타, 0, false));
         itemList.Add(new Item(165, "닫혀 있는 상자", "굳게 닫혀 있는 상자. 도구를 사용하면 열 수 있을 것 같다.", Item.ItemType.기타, Item.ItemEffect.기타, 0, false));
         itemList.Add(new Item(166, "엔진 블록", "우주선의 엔진을 고칠 수 있는 엔진 블록.", Item.ItemType.부품, Item.ItemEffect.기타, 0, false));
+        itemList.Add(new Item(167, "누군가의 동상", "", Item.ItemType.기타, Item.ItemEffect.기타, 0));
     }
 }
