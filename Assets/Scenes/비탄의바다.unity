@@ -17044,7 +17044,7 @@ MonoBehaviour:
   - {fileID: 1746753782}
   - {fileID: 1588786577}
   contentsPanels:
-  - {fileID: 0}
+  - {fileID: 55182766}
   - {fileID: 786582511}
   - {fileID: 1826263680}
   - {fileID: 1143862180}
@@ -17100,7 +17100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingPanel: {fileID: 1054482236}
-  playerSound_: {fileID: 0}
 --- !u!114 &1054482242
 MonoBehaviour:
   m_ObjectHideFlags: 0
