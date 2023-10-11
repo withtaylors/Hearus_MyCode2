@@ -16,8 +16,6 @@ public class RaftRespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("crossWaterScript.isPlayerOnWater");
-
         if (other.CompareTag("Player"))
         {
             // 물체 위치를 재설정

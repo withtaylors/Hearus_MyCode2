@@ -5,7 +5,6 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public Transform playerTransform;
-
     public string filename;
 
     public bool gameNext;
@@ -23,8 +22,6 @@ public class Game : MonoBehaviour
     public GameObject noahGameObject;
     public GameObject adamGameObject;
     public GameObject jonahGameObject;
-
-    //public int playerHP;
 
     void Start()
     {
@@ -83,24 +80,24 @@ public class Game : MonoBehaviour
             }
 
 
-            if (DataManager.instance.nowPlayer.nowCharacter != "None")
-            {
-                switch (DataManager.instance.nowPlayer.nowCharacter)
-                {
-                    case "Eden":
-                        edenGameObject.SetActive(true);
-                        break;
-                    case "Noah":
-                        noahGameObject.SetActive(true);
-                        break;
-                    case "Adam":
-                        adamGameObject.SetActive(true);
-                        break;
-                    case "Jonah":
-                        jonahGameObject.SetActive(true);
-                        break;
-                }
-            }            
+        //     if (DataManager.instance.nowPlayer.nowCharacter != "None")
+        //     {
+        //         switch (DataManager.instance.nowPlayer.nowCharacter)
+        //         {
+        //             case "Eden":
+        //                 edenGameObject.SetActive(true);
+        //                 break;
+        //             case "Noah":
+        //                 noahGameObject.SetActive(true);
+        //                 break;
+        //             case "Adam":
+        //                 adamGameObject.SetActive(true);
+        //                 break;
+        //             case "Jonah":
+        //                 jonahGameObject.SetActive(true);
+        //                 break;
+        //         }
+        //     }            
         }
     }
 

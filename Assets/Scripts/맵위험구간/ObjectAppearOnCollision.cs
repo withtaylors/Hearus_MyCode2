@@ -4,17 +4,17 @@ using UnityEngine;
 public class ObjectAppearOnCollision : MonoBehaviour
 {
     public GameObject raft;
-    public ParticleSystem particleEffect; // Particle effect
-    public Transform particlePosition; // Particle effect
-    public AudioSource audioSource; // Audio source
+    public ParticleSystem particleEffect; 
+    public Transform particlePosition; 
+    public AudioSource audioSource;
     public Renderer rend;
     public bool isFadingIn = false;
     public float fadeSpeed = 0.5f;
 
     [SerializeField]
-    public Transform respawnPosition; // Position to respawn the game object
+    public Transform respawnPosition;
 
-    public bool isPlayerInside = false; // Flag to track if player is inside the trigger
+    public bool isPlayerInside = false;
 
     private void Start()
     {
@@ -24,8 +24,8 @@ public class ObjectAppearOnCollision : MonoBehaviour
 
         if (particleEffect != null)
         {
-            particleEffect.Stop(); // Stop the particle system at start
-            particleEffect.gameObject.SetActive(false); // Also disable the game object of the particle system at start
+            particleEffect.Stop();
+            particleEffect.gameObject.SetActive(false);
         }    
     }
 
@@ -73,16 +73,16 @@ public class ObjectAppearOnCollision : MonoBehaviour
            yield return null; 
        }      
    }
-   
+
     void PlayEffects()
     {
         if(particleEffect != null) 
         {
-            particleEffect.gameObject.SetActive(true); // Enable the game object of the particle system before playing it
-            particleEffect.transform.position = particlePosition.position; // Set the position of the particle system
+            particleEffect.gameObject.SetActive(true); 
+            particleEffect.transform.position = particlePosition.position;
             particleEffect.Play(); 
 
-            StartCoroutine(StopParticleAfterTime(particleEffect.main.duration)); // Stop the effect after its duration
+            StartCoroutine(StopParticleAfterTime(particleEffect.main.duration));
         }
 
         if(audioSource != null) 
@@ -96,7 +96,7 @@ public class ObjectAppearOnCollision : MonoBehaviour
         if (particleEffect != null)
         {
             particleEffect.Stop();
-            particleEffect.gameObject.SetActive(false); // Also disable the game object of the particle system after stopping it
+            particleEffect.gameObject.SetActive(false);
         }
     }
 
@@ -112,9 +112,7 @@ public class ObjectAppearOnCollision : MonoBehaviour
 
         if (!isPlayerInside && isOnRightSideOfTrigger) 
         {     
-            Debug.Log("DeactivateRaftIfOutsideTrigger     if (!isPlayerInside");
             raft.SetActive(false);  
-            //PlayEffects();  
             ResetPosition();    
         }       
     }
@@ -122,7 +120,6 @@ public class ObjectAppearOnCollision : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("OnTriggerExit");
-
         if (other.CompareTag("Player"))
         {
             isPlayerInside = false;

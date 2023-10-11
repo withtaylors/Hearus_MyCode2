@@ -20,78 +20,39 @@ public class Menu_Frith : MonoBehaviour
 
     public void Start()
     {
-        if (DataManager.instance != null)
+        Debug.Log("Datainstance == null");
+        if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
-            if(DataManager.instance.nowPlayer.nowCharacter == "None")
-            {
-                Text.SetActive(true);
-                RectImg.SetActive(false);
-                FrithMenuInfo.SetActive(false);
-                edenInfo.SetActive(false);
-                noahInfo.SetActive(false);
-                adamInfo.SetActive(false);
-                jonahInfo.SetActive(false);
-            }
-            else
-            {
-                Text.SetActive(false);
-                RectImg.SetActive(true);
-                FrithMenuInfo.SetActive(true);
+            Text.SetActive(true);
+            RectImg.SetActive(false);
+            FrithMenuInfo.SetActive(false);
+            edenInfo.SetActive(false);
+            noahInfo.SetActive(false);
+            adamInfo.SetActive(false);
+            jonahInfo.SetActive(false);
+        }
+        else
+        {
+            Text.SetActive(false);
+            RectImg.SetActive(true);
+            FrithMenuInfo.SetActive(true);
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
 
-                DataManager.instance.SaveData(DataManager.instance.nowSlot);
-
-                switch (DataManager.instance.nowPlayer.nowCharacter)
-                {
-                    case "Eden":
-                        edenInfo.SetActive(true);
-                        break;
-                    case "Noah":
-                        noahInfo.SetActive(true);
-                        break;
-                    case "Adam":
-                        adamInfo.SetActive(true);
-                        break;
-                    case "Jonah":
-                        jonahInfo.SetActive(true);
-                        break;
-                }
+            switch (DataManager.instance.nowPlayer.nowCharacter)
+            {
+                case "Eden":
+                    edenInfo.SetActive(true);
+                    break;
+                case "Noah":
+                    noahInfo.SetActive(true);
+                    break;
+                case "Adam":
+                    adamInfo.SetActive(true);
+                    break;
+                case "Jonah":
+                    jonahInfo.SetActive(true);
+                    break;
             }
         }
-        // else
-        // {
-        //     if(DataManager.instance.nowPlayer.nowCharacter == "None")
-        //     {
-        //         Text.SetActive(true);
-        //         RectImg.SetActive(false);
-        //         FrithMenuInfo.SetActive(false);
-        //         edenInfo.SetActive(false);
-        //         noahInfo.SetActive(false);
-        //         adamInfo.SetActive(false);
-        //         jonahInfo.SetActive(false);
-        //     }
-        //     else
-        //     {
-        //         Text.SetActive(false);
-        //         RectImg.SetActive(true);
-        //         FrithMenuInfo.SetActive(true);
-        //         DataManager.instance.SaveData(DataManager.instance.nowSlot);
-
-        //         switch (DataManager.instance.nowPlayer.nowCharacter)
-        //         {
-        //             case "Eden":
-        //                 edenInfo.SetActive(true);
-        //                 break;
-        //             case "Noah":
-        //                 noahInfo.SetActive(true);
-        //                 break;
-        //             case "Adam":
-        //                 adamInfo.SetActive(true);
-        //                 break;
-        //             case "Jonah":
-        //                 jonahInfo.SetActive(true);
-        //                 break;
-        //         }
-        //     }
-        // }
     }
 }

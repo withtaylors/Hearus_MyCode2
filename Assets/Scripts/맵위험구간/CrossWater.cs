@@ -38,6 +38,7 @@ public class CrossWater : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("OnTriggerExit");
         if (other.CompareTag("Player"))
         {
             isPlayerOnWater = false;

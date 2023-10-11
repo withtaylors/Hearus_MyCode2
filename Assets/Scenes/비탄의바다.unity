@@ -4206,7 +4206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 0}
   respawnPoint2: {fileID: 0}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!1 &207390456
 GameObject:
@@ -8336,6 +8335,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5158317045290949767, guid: 24776f8ddadea174b92c91824967be78, type: 3}
+--- !u!1 &449825883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449825884}
+  m_Layer: 0
+  m_Name: "\uB5CF\uBAA9\uAD6C\uAC04 (2)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449825884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449825883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 163.23, y: 1.4, z: 19.399994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1632461127}
+  - {fileID: 1231315090}
+  - {fileID: 693210396}
+  - {fileID: 783984765}
+  m_Father: {fileID: 472375509}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450261757
 GameObject:
   m_ObjectHideFlags: 0
@@ -8744,6 +8778,7 @@ Transform:
   - {fileID: 6124457}
   - {fileID: 8650875628488996250}
   - {fileID: 197471564}
+  - {fileID: 449825884}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12897,6 +12932,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691039449}
   m_CullTransparentMesh: 1
+--- !u!1 &693210395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693210396}
+  m_Layer: 3
+  m_Name: "\uB5CF\uBAA9 \uC0DD\uC131\uC704\uCE58"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693210396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693210395}
+  m_LocalRotation: {x: -0.7071068, y: -0.000000057601163, z: -0.000000057601163, w: 0.7071068}
+  m_LocalPosition: {x: -12.8, y: -3.739746, z: -8.349091}
+  m_LocalScale: {x: 60, y: 95.333084, z: 65.000015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449825884}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701398784
 GameObject:
   m_ObjectHideFlags: 0
@@ -14643,6 +14709,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1409403138}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783984764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783984765}
+  m_Layer: 3
+  m_Name: "\uD6A8\uACFC \uC0DD\uC131\uC704\uCE58"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783984765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783984764}
+  m_LocalRotation: {x: -0.7071068, y: -0.000000057601163, z: -0.000000057601163, w: 0.7071068}
+  m_LocalPosition: {x: -14.807632, y: -0.6199951, z: -0.069992065}
+  m_LocalScale: {x: 60, y: 95.333084, z: 65.000015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449825884}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786582511
 GameObject:
@@ -17371,7 +17468,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1869409663}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!198 &951276868 stripped
 ParticleSystem:
@@ -21472,7 +21568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1564937238}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!114 &1133099002
 MonoBehaviour:
@@ -23002,7 +23097,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 1446657375}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!114 &1221491364
 MonoBehaviour:
@@ -23166,6 +23260,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 49.265198, y: 36.733887, z: 10.566132}
   m_Center: {x: 10.778804, y: 0, z: -0.0000087630415}
+--- !u!1 &1231315089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231315090}
+  - component: {fileID: 1231315092}
+  - component: {fileID: 1231315091}
+  m_Layer: 0
+  m_Name: "\uB118\uAE40\uBC29\uC9C0"
+  m_TagString: SpecialArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231315090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231315089}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.6, y: -0.87939453, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449825884}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231315091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231315089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be2c2dd7101c174b811eae5320669f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1231315092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231315089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.962738, y: 5.7871094, z: 18.830246}
+  m_Center: {x: 3.3674774, y: -3.371048, z: -0.45597076}
 --- !u!1 &1231544614
 GameObject:
   m_ObjectHideFlags: 0
@@ -30159,6 +30311,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630361136}
   m_CullTransparentMesh: 1
+--- !u!1 &1632461126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632461127}
+  - component: {fileID: 1632461129}
+  - component: {fileID: 1632461128}
+  m_Layer: 0
+  m_Name: "\uAD6C\uAC04"
+  m_TagString: SpecialArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632461127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632461126}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.8, y: -3.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449825884}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632461128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632461126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94642f6905e21e341bb93211e3f0d2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raft: {fileID: 1785069015}
+  particleEffect: {fileID: 116873863}
+  particlePosition: {fileID: 783984765}
+  audioSource: {fileID: 5616422076049446250}
+  rend: {fileID: 1785069016}
+  isFadingIn: 0
+  fadeSpeed: 0.5
+  respawnPosition: {fileID: 693210396}
+  isPlayerInside: 0
+--- !u!65 &1632461129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632461126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.0435486, y: 15.437561, z: 18.830246}
+  m_Center: {x: 0.82707214, y: 1.4541779, z: -0.45597076}
 --- !u!1 &1644364900
 GameObject:
   m_ObjectHideFlags: 0
@@ -32055,7 +32274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 2014548400}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!114 &1756395188
 MonoBehaviour:
@@ -32275,7 +32493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 381279655}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!114 &1768817877
 MonoBehaviour:
@@ -32739,7 +32956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6926fb4c61101d147bd72778cc02dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOnWater: 0
   moveSpeed: 7
   watercrossSound: {fileID: 0}
   fadeSpeed: 0.5
@@ -32991,7 +33207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 0}
   respawnPoint2: {fileID: 0}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!1 &1801319487
 GameObject:
@@ -38927,7 +39142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
   respawnPoint2: {fileID: 519712723}
-  isPlayerOnWater: 0
   isFadingIn: 0
 --- !u!1 &2133568836
 GameObject:
@@ -52604,7 +52818,7 @@ GameObject:
   - component: {fileID: 5890066641571929843}
   - component: {fileID: 2071960993756788550}
   - component: {fileID: 7800169547156089602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "1_\uAC15\uACFC\uBC14\uB2E4_\uBC30\uACBD\uC694\uC18C_\uC218\uD480.004"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58344,7 +58558,7 @@ GameObject:
   - component: {fileID: 3121759034510992114}
   - component: {fileID: 3498004083181251178}
   - component: {fileID: 5053507282138807796}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "1_\uAC15\uACFC\uBC14\uB2E4_\uBC30\uACBD\uC694\uC18C_\uC218\uD480.003"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65976,7 +66190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3659296005808421604}
   m_LocalRotation: {x: 0.26927876, y: -0.042219933, z: 0.8972942, w: -0.34723136}
-  m_LocalPosition: {x: -21.582872, y: 21.067596, z: -23.924967}
+  m_LocalPosition: {x: -21.582872, y: 19.46, z: -23.924967}
   m_LocalScale: {x: 246.148, y: 448.45483, z: 391.58282}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70867,7 +71081,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b24df05f0bff30a4992efdec410a04a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f492b345f0363e740b1742abbbfb61d6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.849
   m_Pitch: 1
@@ -83089,8 +83303,8 @@ Transform:
   m_Father: {fileID: 6367252203253628036}
   m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7800169547156089602
-SphereCollider:
+--- !u!64 &7800169547156089602
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83099,9 +83313,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.015451463
-  m_Center: {x: 0.0063664, y: 0.0014622785, z: -0.007646036}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8344019728484703636, guid: dc42d0a846a41f242aad74657fcd334a, type: 3}
 --- !u!4 &7800937695023387366
 Transform:
   m_ObjectHideFlags: 0
@@ -88852,7 +89067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6926fb4c61101d147bd72778cc02dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOnWater: 0
   moveSpeed: 7
   watercrossSound: {fileID: 1117013905}
   fadeSpeed: 0.5
