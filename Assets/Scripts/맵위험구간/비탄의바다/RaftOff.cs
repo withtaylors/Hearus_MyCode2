@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ObjectAppearOnCollisionLeft : MonoBehaviour
+public class RaftOff : MonoBehaviour
 {
     public GameObject raft;
     private void Start()

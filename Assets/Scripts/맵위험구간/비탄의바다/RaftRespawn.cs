@@ -6,12 +6,9 @@ public class RaftRespawn : MonoBehaviour
 {
     public GameObject raft;
     [SerializeField] private Transform respawnPoint2;
-    private ObjectAppearOnCollision objectAppearOnCollisionScript;
-    public bool isFadingIn;
 
     private void Start()
     {
-        objectAppearOnCollisionScript = FindObjectOfType<ObjectAppearOnCollision>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +20,6 @@ public class RaftRespawn : MonoBehaviour
             raft.SetActive(true);
 
             CrossWater.isPlayerOnWater = false;
-            objectAppearOnCollisionScript.isFadingIn = false;
         }
     }
 }

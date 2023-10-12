@@ -1,20 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class ObjectAppearOnCollision1 : MonoBehaviour
+public class RaftOn : MonoBehaviour
 {
     public GameObject raft;
     [SerializeField] public Transform respawnPosition;
     public ParticleSystem particleEffect; 
     public Transform particlePosition; 
     public AudioSource audioSource;
-    public bool isFadingIn = false;
-    public float fadeSpeed = 0.5f;
-    public bool isPlayerInside = false;
 
     private void Start()
     {
-        raft.SetActive(false);
         if (particleEffect != null)
         {
             particleEffect.Stop();
@@ -24,17 +20,9 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
 
      private void OnTriggerEnter(Collider other)
      {
-         if (other.CompareTag("Player"))
-         {
-            // if (raft.activeSelf)
-            // {
-            //     Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 111111");
-            //     raft.SetActive(true);
-
-            //     PlayEffects();
-            //     ResetPosition();
-            // }
-            if(!raft.activeSelf)
+        if (other.CompareTag("Player"))
+        {
+            if(raft.activeSelf == false)
             {
                 Debug.Log("ObjectAppearOnCollision1 Player OnTriggerEnter 2222222");
                 raft.SetActive(true);
@@ -42,8 +30,7 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
                 PlayEffects();
                 ResetPosition();  
             }
-            isPlayerInside = true;
-         }
+        }
      }
 
     void PlayEffects()
@@ -79,29 +66,14 @@ public class ObjectAppearOnCollision1 : MonoBehaviour
         Debug.Log("ObjectAppearOnCollision1   ResetPosition");
         raft.transform.position = respawnPosition.transform.position; 
    }
-   
-//    void DeactivateRaftIfOutsideTrigger(Transform playerTransform)
-//     {  
-//         Vector3 directionFromPlayerToTrigger = (transform.position - playerTransform.position).normalized; 
-//         bool isOnRightSideOfTrigger = (Vector3.Dot(directionFromPlayerToTrigger, transform.right) > 0); 
 
-//         if (!isPlayerInside && isOnRightSideOfTrigger) 
-//         {     
-//             ResetPosition();    
-//         }       
-//     }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         Debug.Log("RaftOn OnTriggerExit");
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("111 OnTriggerExit");
-
-            isPlayerInside = false;
-            // if (!isPlayerInside)
-            // {
-            //     ResetPosition();
-            // }
-        }
-    }
+    //         isPlayerInside = false;
+    //     }
+    // }
 }
