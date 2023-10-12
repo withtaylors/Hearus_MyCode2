@@ -18,7 +18,7 @@ public class PlayerData
     public string currentMap = "태초의숲";
 
     //플레이어 위치
-    public float x = 40f;
+    public float x = 29f;
     public float y = 10f;
     public float z = 0.5f;
 

@@ -33,7 +33,7 @@ public class playerLocation : MonoBehaviour
                 {
                     Debug.Log("start 태초의숲");
                     playerTransform.position = new Vector3(DataManager.instance.nowPlayer.x, DataManager.instance.nowPlayer.y, DataManager.instance.nowPlayer.z);
-                    //playerTransform.position = new Vector3(-40f, 10f, 0.5f);
+                    //playerTransform.position = new Vector3(29f, 10f, 0.5f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
                 {
