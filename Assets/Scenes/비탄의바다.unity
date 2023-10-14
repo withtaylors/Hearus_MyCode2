@@ -17322,6 +17322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingPanel: {fileID: 1054482236}
+  player: {fileID: 543450651889197247}
 --- !u!1 &1056050801
 GameObject:
   m_ObjectHideFlags: 0
@@ -39524,6 +39525,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raft: {fileID: 806283468152187847}
+--- !u!114 &543450651889197247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6089990028921295503, guid: 054652141416beb4da6bad560003daad, type: 3}
+  m_PrefabInstance: {fileID: 425986005350541407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067270541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd6e72698f2b0c44aa8f58969302bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &548887480464030266
 MeshRenderer:
   m_ObjectHideFlags: 0

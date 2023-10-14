@@ -123,7 +123,7 @@ public class JourneyManager : MonoBehaviour
                 return;
 
         for (int i = 0; i < _journeyList.Count; i++) // 해당 아이템이 이미 있는지 검사
-            if (currentJourney.itemNumber == _journeyList[i]._journey.itemNumber)
+            if (currentJourney.journeyID == _journeyList[i]._journey.journeyID)
             {
                 AddJourneyString(i);
                 return;
@@ -133,10 +133,7 @@ public class JourneyManager : MonoBehaviour
 
         GameObject journeyObject = Instantiate(JourneySlot, currentPage); // 일지 오브젝트 생성
 
-        if (currentJourney.journeyType == "ITEM")
-            journeyObject.name = currentJourney.itemNumber; // 일지 오브젝트의 이름을 아이템 넘버로 지정
-        else if (currentJourney.journeyType == "STORY")
-            journeyObject.name = currentJourney.journeyName;
+        journeyObject.name = currentJourney.journeyID; // 일지 오브젝트의 이름은 일지 아이디로 지정
 
         TextMeshProUGUI journeyName = journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI journeyText = journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
@@ -164,7 +161,7 @@ public class JourneyManager : MonoBehaviour
     {
         _journeyList.Add(new JourneyList(currentJourney, currentPage));
 
-        GameObject _journeyObject = _journeyList[i]._map.Find(currentJourney.itemNumber).gameObject;        
+        GameObject _journeyObject = _journeyList[i]._map.Find(currentJourney.journeyID).gameObject;        
         TextMeshProUGUI _journeyText = _journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
 
         _journeyText.text = _journeyText.text + "\n" + currentJourney.journeyString[0];
