@@ -1,32 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Sandstorm : MonoBehaviour {
-    public float speed = 3f;
-    public float minX = -10f;
-    public float maxX = 10f;
-    public float minZ = -10f;
-    public float maxZ = 10f;
 
-    private Vector3 targetPosition;
+public class Sandstorm : MonoBehaviour {
+    public GameObject boundingObject;
+    public float speed = 2f;
+
+    public BoxCollider boundingBox;
+    public Vector3 targetPosition;
 
     private void Start() {
+        boundingBox = boundingObject.GetComponent<BoxCollider>();
         PickNewTarget();
     }
 
     private void Update() {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
-        if (Vector3.Distance(this.transform.position, targetPosition) < 0.1f) {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
             PickNewTarget();
         }
     }
 
-   private void PickNewTarget() {
-       float randomX = Random.Range(minX, maxX);
-       float randomZ = Random.Range(minZ, maxZ);
+    private void PickNewTarget() {
+        Bounds bounds = boundingBox.bounds;
+        
+        float randomX = Random.Range(bounds.min.x, bounds.max.x);
+        float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
-       // 현재 Y 축의 위치를 유지하기 위해 transform.position.y를 사용합니다.
-       // 만약 다른 높이에서 움직이게 하려면 이 부분을 적절히 수정하세요.
-       targetPosition = new Vector3(randomX, transform.position.y, randomZ);
+        // Keep the same height
+        targetPosition = new Vector3(randomX, transform.position.y, randomZ);
    }
 }
