@@ -19,6 +19,7 @@ public class JourneyParser : MonoBehaviour
             Journey journey = new Journey(); // 일지 생성
 
             string journeyNumber;
+            string journeyID;
             string journeyName;
             string scriptNumber;
             string itemNumber;
@@ -26,34 +27,39 @@ public class JourneyParser : MonoBehaviour
             List<string> journeyString = new List<string>();
 
             journeyNumber = row[0];
-            journeyName = row[1];
-            scriptNumber = row[2];
-            itemNumber = row[3];
-            journeyType = row[5];
+            journeyID = row[1];
+            journeyName = row[2];
+            scriptNumber = row[3];
+            itemNumber = row[4];
+            journeyType = row[6];
 
             do
             {
-                journeyString.Add(row[4]);
+                journeyString.Add(row[5]);
 
                 if (++i < data.Length)
                 {
-                    row = data[i].Split(new char[] { ',' });
+                    row = data[i].Split(new char[] { ',' }); // 콤마 단위 분할
                 }
                 else break;
             } while (row[0].ToString() == ""); // 일지 번호가 갱신될 때까지 반복
 
             journey.journeyNumber = journeyNumber;
+            journey.journeyID = journeyID;
             journey.journeyName = journeyName;
             journey.scriptNumber = scriptNumber;
             journey.itemNumber = itemNumber;
             journey.journeyType = journeyType;
             journey.journeyString = journeyString.ToArray();
 
+            // 공백 제거
             journey.journeyNumber = string.Concat(journey.journeyNumber.Where(x => !char.IsWhiteSpace(x)));
+            journey.journeyID = string.Concat(journey.journeyID.Where(x => !char.IsWhiteSpace(x)));
             journey.scriptNumber = string.Concat(journey.scriptNumber.Where(x => !char.IsWhiteSpace(x)));
             journey.itemNumber = string.Concat(journey.itemNumber.Where(x => !char.IsWhiteSpace(x)));
             journey.journeyType = string.Concat(journey.journeyType.Where(x => !char.IsWhiteSpace(x)));
 
+            // 파싱된 일지 리스트에 추가
             journeyList.Add(journey);
         }
 

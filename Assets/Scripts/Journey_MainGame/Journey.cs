@@ -6,8 +6,11 @@ using UnityEngine;
 public class Journey
 {
 
-    [Tooltip("일지 번호")]
+    [Tooltip("일지 순서")]
     public string journeyNumber;
+
+    [Tooltip("일지 아이디")]
+    public string journeyID;
 
     [Tooltip("일지 이름")]
     public string journeyName;

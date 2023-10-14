@@ -8,9 +8,9 @@ using TMPro;
 public class SettingMenu : MonoBehaviour
 {
     public GameObject SettingPanel;
-    private playerController player;
+    public playerController player;
 
-    void Start()
+    void Awake()
     {
         player = FindObjectOfType<playerController>();
     }
