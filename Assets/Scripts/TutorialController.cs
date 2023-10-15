@@ -51,7 +51,7 @@ public class TutorialController : MonoBehaviour
     private bool right = false; // 상하좌우 이동
     private bool left = false; // 상하좌우 이동
     private bool jump = false; // 상하좌우 이동
-    private bool useRope = false; // 상하좌우 이동
+    [SerializeField] private bool useRope = false; // 로프 사용
     [SerializeField] private bool arriveRopeField = false; // 밧줄 사용 지점 도달하면 true
 
     public GameObject edenGameObject;
@@ -127,7 +127,8 @@ public class TutorialController : MonoBehaviour
                 break;
             case 9: // 조건: 밧줄 사용 지점에 도달하기(NinthStep)
                 if (arriveRopeField)
-                    TenthStep();
+                    NEXT_STEP_POSSIBLE = true;
+                onClickContinueButton();
                 break;
             case 10: // 조건: 인벤토리 활성화(TenthStep)
                 if (Inventory.instance.go_Inventory.activeSelf)
@@ -250,24 +251,27 @@ public class TutorialController : MonoBehaviour
     private void NinthStep() // 밧줄 제작 완료 텍스트
     {
         tutorialPanelText.text = textList[tutorialStep];
-        StartCoroutine("FadeOutPanel");
+        StartCoroutine("FadeOutPanel2");
     }
     private void TenthStep() // 밧줄 사용 텍스트
     {
         tutorialPanelText.text = textList[9];
+
+        /*
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
         c.a = 1f;
         c2.a = 1f;
         tutorialPanel.GetComponent<Image>().color = c;
         tutorialPanelText.color = c2;
+        */
 
         settingButtonParticle.gameObject.SetActive(true);
         settingButtonParticle.Play();
         inventoryButtonParticle.gameObject.SetActive(true);
         inventoryButtonParticle.Play();
 
-        tutorialStep++;
+        //tutorialStep++;
     }
 
     private void EleventhStep() // 인벤토리 밧줄 텍스트
@@ -441,7 +445,7 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator FadeOutPanel()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(3f);
 
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
@@ -456,8 +460,6 @@ public class TutorialController : MonoBehaviour
 
             yield return null;
         }
-
-        tutorialStep++;
     }
 
     private IEnumerator FadeInPanel()
@@ -475,5 +477,26 @@ public class TutorialController : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private IEnumerator FadeOutPanel2()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+
+        Color c = tutorialPanel.GetComponent<Image>().color;
+        Color c2 = tutorialPanelText.color;
+
+        for (float f = 1f; f >= 0f; f -= 0.01f)
+        {
+            c.a = f;
+            c2.a = f;
+
+            tutorialPanel.GetComponent<Image>().color = c;
+            tutorialPanelText.color = c2;
+
+            yield return null;
+        }
+
+        tutorialStep++;
     }
 }
