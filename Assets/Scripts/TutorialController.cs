@@ -70,7 +70,7 @@ public class TutorialController : MonoBehaviour
             StartTutorial();
     }
 
-    private void LateUpdate() // 다음 스텝으로 넘어가기 위한 조건 확인
+    private void Update() // 다음 스텝으로 넘어가기 위한 조건 확인
     {
         switch (tutorialStep)
         {
@@ -128,17 +128,17 @@ public class TutorialController : MonoBehaviour
             case 9: // 조건: 밧줄 사용 지점에 도달하기(NinthStep)
                 if (arriveRopeField)
                     NEXT_STEP_POSSIBLE = true;
-                onClickContinueButton();
+                onClickContinueButton2();
                 break;
             case 10: // 조건: 인벤토리 활성화(TenthStep)
                 if (Inventory.instance.go_Inventory.activeSelf)
                     NEXT_STEP_POSSIBLE = true;
-                onClickContinueButton();
+                onClickContinueButton2();
                 break;
             case 11: // 조건: 밧줄 사용하기(EleventhStep)
                 if (useRope)
                     NEXT_STEP_POSSIBLE = true;
-                onClickContinueButton();
+                onClickContinueButton2();
                 break;
         }
     }
@@ -255,37 +255,45 @@ public class TutorialController : MonoBehaviour
     }
     private void TenthStep() // 밧줄 사용 텍스트
     {
+        arriveRopeField = false;
+
         tutorialPanelText.text = textList[9];
 
-        /*
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
         c.a = 1f;
         c2.a = 1f;
         tutorialPanel.GetComponent<Image>().color = c;
         tutorialPanelText.color = c2;
-        */
 
         settingButtonParticle.gameObject.SetActive(true);
         settingButtonParticle.Play();
         inventoryButtonParticle.gameObject.SetActive(true);
         inventoryButtonParticle.Play();
 
-        //tutorialStep++;
+        tutorialStep++;
     }
 
     private void EleventhStep() // 인벤토리 밧줄 텍스트
     {
+        tutorialStep++;
         tutorialPanelText.text = textList[10];
+        settingButtonParticle.gameObject.SetActive(false);
+        inventoryButtonParticle.gameObject.SetActive(false);
         StartCoroutine("FadeOutPanel");
     }
 
     private void TwelfthStep() // 튜토리얼 완료 텍스트
     {
+        Color c = tutorialPanel.GetComponent<Image>().color;
+        Color c2 = tutorialPanelText.color;
+        c.a = 1f;
+        c2.a = 1f;
+        tutorialPanel.GetComponent<Image>().color = c;
+        tutorialPanelText.color = c2;
+
         tutorialPanelText.text = textList[11];
         nextButton.SetActive(true);
-        settingButtonParticle.gameObject.SetActive(false);
-        inventoryButtonParticle.gameObject.SetActive(false);
     }
 
     // 프리스 선택
@@ -301,6 +309,15 @@ public class TutorialController : MonoBehaviour
         if (NEXT_STEP_POSSIBLE)
         {
             tutorialStep++;
+            NextStep();
+            NEXT_STEP_POSSIBLE = false;
+        }
+    }
+
+    public void onClickContinueButton2()
+    {
+        if (NEXT_STEP_POSSIBLE)
+        {
             NextStep();
             NEXT_STEP_POSSIBLE = false;
         }

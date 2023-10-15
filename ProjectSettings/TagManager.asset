@@ -18,6 +18,7 @@ TagManager:
   - ITEM_PICKING
   - ropeground
   - LastStepGround
+  - SpecialArea
   layers:
   - Default
   - TransparentFX
