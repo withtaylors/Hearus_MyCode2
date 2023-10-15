@@ -28,7 +28,6 @@ public class Sandstorm : MonoBehaviour {
         float randomX = Random.Range(bounds.min.x, bounds.max.x);
         float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
-        // Keep the same height
         targetPosition = new Vector3(randomX, transform.position.y, randomZ);
    }
 }
