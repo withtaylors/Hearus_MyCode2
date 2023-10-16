@@ -43,13 +43,7 @@ public class JourneyManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -175,6 +169,9 @@ public class JourneyManager : MonoBehaviour
 
         string replaceText = _journeyText.text;
         replaceText = replaceText.Replace("'", ",");
+        _journeyText.text = replaceText;
+
+        replaceText = replaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
         _journeyText.text = replaceText;
     }
 
