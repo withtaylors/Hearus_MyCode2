@@ -51,13 +51,7 @@ public class ScriptManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -183,6 +177,9 @@ public class ScriptManager : MonoBehaviour
 
         string t_ReplaceText = currentScript.sentences[currentLine];
         t_ReplaceText = t_ReplaceText.Replace("'", ","); // csv 파일에는 쉼표가 들어가면 안 되므로 '를 ,로 치환해 줌
+        scriptText.text = t_ReplaceText;
+
+        t_ReplaceText = t_ReplaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
         scriptText.text = t_ReplaceText;
 
         ShowScriptUI(true);

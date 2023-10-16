@@ -155,6 +155,9 @@ public class JourneyManager : MonoBehaviour
         string replaceText = journeyText.text;
         replaceText = replaceText.Replace("'", ",");
         journeyText.text = replaceText;
+
+        replaceText = replaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
+        journeyText.text = replaceText;
     }
 
     public void AddJourneyString(int i)

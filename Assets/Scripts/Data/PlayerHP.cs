@@ -66,7 +66,7 @@ public class PlayerHP : MonoBehaviour
                     }
                     break;
                 case "Adam":
-                    if (DataManager.instance.nowPlayer.currentMap == "타오른는황야")
+                    if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                     {
                         HP -= value / 2;
                     }

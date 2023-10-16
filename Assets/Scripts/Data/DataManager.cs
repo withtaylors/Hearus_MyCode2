@@ -23,6 +23,7 @@ public class PlayerData
     public float z = 0.5f;
 
     public string nowCharacter = "None";
+    public string nowCharacterInKor = "None"; // 스크립트 및 일지에서의 치환을 위한 한글 이름
     public int frithIntimacy = 0;
     public int playerHP = 100;
 }
