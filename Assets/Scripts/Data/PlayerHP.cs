@@ -4,14 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-// 플레이어 HP를 구현한 스크립트.
-
+// 플레이어 HP를 구현한 스크립트
 public class PlayerHP : MonoBehaviour
 {
     public static PlayerHP instance;
-
-    public int HP = 100;
+    public float HP = 100;
+    public int intHP;
 
     private List<Image> HPBars;
     public Transform tf_HPBars;
@@ -41,7 +39,7 @@ public class PlayerHP : MonoBehaviour
 
     public void DecreaseHP(int value)
     {
-        // 현재 HP가 0 이하이면 더이상 HP를 감소시키지 않도록 조건을 추가
+        // 현재 HP가 0 이하이면 더이상 HP를 감소시키지 않도록 조건 추가
         if (HP <= 0)
         {
             return;
@@ -64,7 +62,7 @@ public class PlayerHP : MonoBehaviour
                 case "Noah":
                     if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
                     {
-                        HP -= value / 2;
+                        HP -= (value / 2);
                     }
                     else
                     {
@@ -74,7 +72,7 @@ public class PlayerHP : MonoBehaviour
                 case "Adam":
                     if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                     {
-                        HP -= value / 2;
+                        HP -= (value / 2);
                     }
                     else
                     {
@@ -85,15 +83,18 @@ public class PlayerHP : MonoBehaviour
                     HP -= value;
                     break;
             }
-
-        SetActiveHPBar(HP);
-        DataManager.instance.nowPlayer.playerHP = HP;
+        
+        intHP = Mathf.FloorToInt(HP);
+        SetActiveHPBar(intHP);
+        DataManager.instance.nowPlayer.playerHP = intHP;
+        //SetActiveHPBar(HP);
+        //DataManager.instance.nowPlayer.playerHP = HP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     public void IncreaseHP(int value)
     {
-        // 현재 HP가 100 이상이 되지 않도록 조건을 추가
+        // 현재 HP가 100 이상이 되지 않도록 조건 추가
         if (HP >= 100)
         {
             return;
@@ -107,8 +108,11 @@ public class PlayerHP : MonoBehaviour
             HP = 100;
         }
 
-        SetActiveHPBar(HP);
-        DataManager.instance.nowPlayer.playerHP = HP;
+        intHP = Mathf.FloorToInt(HP);
+        SetActiveHPBar(intHP);
+        DataManager.instance.nowPlayer.playerHP = intHP;        
+        // SetActiveHPBar(HP);
+        // DataManager.instance.nowPlayer.playerHP = HP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
@@ -126,7 +130,7 @@ public class PlayerHP : MonoBehaviour
             HPBars[i].color = color;
         }
 
-        HP_Text.text = HP.ToString();
-        HP_Text2.text = HP.ToString();
+        HP_Text.text = Mathf.FloorToInt(_HP).ToString(); // 소수점을 버림
+        HP_Text2.text = Mathf.FloorToInt(_HP).ToString();
     }
 }
