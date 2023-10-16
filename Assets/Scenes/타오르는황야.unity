@@ -10392,7 +10392,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 2050197627}
   respawnParticlesPrefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
   particlesSpawnPoint: {fileID: 1652079232}
-  audioSource: {fileID: 1245488161}
+  audioSource: {fileID: 1927428760}
 --- !u!23 &192146648
 MeshRenderer:
   m_ObjectHideFlags: 0
