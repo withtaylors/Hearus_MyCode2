@@ -2951,7 +2951,7 @@ MonoBehaviour:
   Player: {fileID: 543450651889197238}
   respawnPoint: {fileID: 1974492401}
   respawnParticlesPrefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  particlesSpawnPoint: {fileID: 0}
+  particlesSpawnPoint: {fileID: 555488601}
   audioSource: {fileID: 5616422075440765966}
 --- !u!23 &161061115
 MeshRenderer:
@@ -9036,7 +9036,7 @@ MonoBehaviour:
   Player: {fileID: 543450651889197238}
   respawnPoint: {fileID: 1553583827}
   respawnParticlesPrefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  particlesSpawnPoint: {fileID: 0}
+  particlesSpawnPoint: {fileID: 118310309}
   audioSource: {fileID: 5616422075440765966}
 --- !u!23 &544080323
 MeshRenderer:
@@ -14215,7 +14215,7 @@ MonoBehaviour:
   Player: {fileID: 543450651889197238}
   respawnPoint: {fileID: 1608443957}
   respawnParticlesPrefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  particlesSpawnPoint: {fileID: 0}
+  particlesSpawnPoint: {fileID: 1302548493}
   audioSource: {fileID: 5616422075440765966}
 --- !u!23 &861669693
 MeshRenderer:
@@ -18147,7 +18147,7 @@ MonoBehaviour:
   Player: {fileID: 543450651889197238}
   respawnPoint: {fileID: 377057228}
   respawnParticlesPrefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
-  particlesSpawnPoint: {fileID: 0}
+  particlesSpawnPoint: {fileID: 914188475}
   audioSource: {fileID: 5616422075440765966}
 --- !u!23 &1096504401
 MeshRenderer:
