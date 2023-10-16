@@ -384,15 +384,19 @@ public class TutorialController : MonoBehaviour
         {
             case "Eden":
                 edenGameObject.SetActive(true);
+                DataManager.instance.nowPlayer.nowCharacterInKor = "에덴";
                 break;
             case "Noah":
                 noahGameObject.SetActive(true);
+                DataManager.instance.nowPlayer.nowCharacterInKor = "노아";
                 break;
             case "Adam":
                 adamGameObject.SetActive(true);
+                DataManager.instance.nowPlayer.nowCharacterInKor = "아담";
                 break;
             case "Jonah":
                 jonahGameObject.SetActive(true);
+                DataManager.instance.nowPlayer.nowCharacterInKor = "요나";
                 break;
         }
 
