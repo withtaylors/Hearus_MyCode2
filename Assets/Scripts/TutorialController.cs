@@ -60,7 +60,6 @@ public class TutorialController : MonoBehaviour
     public GameObject jonahGameObject;
 
     private string selectedCharacter;
-    private string nowCharacter;
 
     private void Start()
     {
