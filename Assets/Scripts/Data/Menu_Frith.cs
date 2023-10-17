@@ -12,6 +12,7 @@ public class Menu_Frith : MonoBehaviour
 
     public GameObject FrithMenuInfo;
     public GameObject RectImg;
+    public GameObject RectImg2;
     public TextMeshProUGUI KoreanText;
 
     public GameObject eden;
