@@ -10,7 +10,7 @@ public class Sandstorm : MonoBehaviour
     public BoxCollider boundingBox;
     public Vector3 targetPosition;
 
-    public float damageInterval = 4f;  // 플레이어에게 데미지를 입히는 간격 (2초)
+    public float damageInterval = 4f;  // 플레이어에게 데미지를 입히는 간격
 
     private float lastDamageTime;  // 마지막 데미지를 입힌 시간
 
@@ -47,7 +47,7 @@ public class Sandstorm : MonoBehaviour
         {
             Debug.Log("Player 만남");
             // 여기에 플레이어의 HP를 감소시키는 코드 추가
-            PlayerHP.instance.DecreaseHP(5);  //5의 데미지를 입힘
+            PlayerHP.instance.DecreaseHP(10);  //5의 데미지를 입힘
             lastDamageTime = Time.time;  // 데미지를 입힌 시간 업데이트
             Debug.Log("lastDamageTime >>> " + lastDamageTime);
         }
