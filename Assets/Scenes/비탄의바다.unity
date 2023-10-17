@@ -7412,6 +7412,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 973785943}
     m_Modifications:
+    - target: {fileID: 798071442073663139, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071442173929383, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071442173929383, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071442173929383, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071442410485409, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 5616422074966886966}
+    - target: {fileID: 798071442469091824, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 5616422074966886966}
+    - target: {fileID: 798071442713708372, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 5616422074966886966}
     - target: {fileID: 798071443509033676, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7459,6 +7487,26 @@ PrefabInstance:
     - target: {fileID: 798071443509033677, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
       propertyPath: m_Name
       value: Journey
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071443509033677, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071443717199742, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 5616422074966886966}
+    - target: {fileID: 798071443929249927, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 5616422074966886966}
+    - target: {fileID: 798071444010884478, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798071444010884478, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
@@ -30191,7 +30239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2021388302
 RectTransform:
   m_ObjectHideFlags: 0
