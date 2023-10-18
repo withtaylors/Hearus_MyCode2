@@ -182,7 +182,6 @@ public class Select : MonoBehaviour
 
         DataManager.instance.DataClear();
         DataManager.instance.InventoryClear();
-        //DataManager.instance.FieldDataClear();
         //Destroy(DataManager.instance.gameObject);
         
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);

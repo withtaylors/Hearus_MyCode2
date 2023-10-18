@@ -49,7 +49,8 @@ public class ItemPickup : MonoBehaviour
         ChangeConditionMeet(_itemID); // isMeet이 false라면 true로 바꾸기
 
         Inventory.instance.SaveInventoryDataManager();
-        InventoryDataManager.Instance.SaveFieldData(_fieldItemID, _itemID);
+        Inventory.instance.SaveFieldData(_fieldItemID, _itemID);
+        Inventory.instance.SaveFieldDataManager();
         DataManager.instance.SaveInventoryData();
     }
 
@@ -80,9 +81,9 @@ public class ItemPickup : MonoBehaviour
     {
         if (_itemID == 122)
         {
-            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+            for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
             {
-                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
+                if (Inventory.instance.getItemIDList[i] == _itemID)
                 {
                     if (ScriptSwitch.instance.switchs[0].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
@@ -102,9 +103,9 @@ public class ItemPickup : MonoBehaviour
 
         else if (_itemID == 123)
         {
-            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+            for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
             {
-                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
+                if (Inventory.instance.getItemIDList[i] == _itemID)
                 {
                     if (ScriptSwitch.instance.switchs[1].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
@@ -124,9 +125,9 @@ public class ItemPickup : MonoBehaviour
 
         else if (_itemID == 124)
         {
-            for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+            for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
             {
-                if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID)
+                if (Inventory.instance.getItemIDList[i] == _itemID)
                 {
                     if (ScriptSwitch.instance.switchs[2].switchValue == false) // 획득한 적이 있지만 약초인 것을 모를 때
                     {
@@ -160,9 +161,9 @@ public class ItemPickup : MonoBehaviour
         }
 
 
-        for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
+        for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
         {
-            if (DataManager.instance.dataWrapper.getItemIDList[i] == _itemID) // 획득한 적이 있다면
+            if (Inventory.instance.getItemIDList[i] == _itemID) // 획득한 적이 있다면
             {
                 Debug.Log("획득한적잇음");
                 scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생

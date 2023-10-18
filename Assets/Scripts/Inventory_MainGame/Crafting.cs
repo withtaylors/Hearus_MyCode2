@@ -107,6 +107,7 @@ public class Crafting : MonoBehaviour
             {
                 Inventory.instance.GetAnItem(returnID, returnCount); // 크래프팅 결과물 습득
                 Inventory.instance.SaveInventoryDataManager(); // 인벤토리 데이터 매니저에 저장
+                Inventory.instance.SaveFieldDataManager();
                 DataManager.instance.SaveInventoryData(); // 데이터 매니저에 저장
                 DestroyItem(); // 재료 파괴
                 ResetCraftingSlot(); // 크래프팅 슬롯 리셋

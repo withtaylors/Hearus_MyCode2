@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private ItemDescription itemDes;         // 아이템 설명 패널
 
     public List<Item> inventoryItemList;   // 플레이어가 소지한 아이템 리스트
+    public List<int> fieldItemIDList;
+    public List<int> getItemIDList;
 
     public GameObject slotPrefab;           // 슬롯 동적 생성을 위해 슬롯 프리팹 불러오기
     public GameObject go_Inventory;         // 인벤토리 활성화/비활성화를 위해 GameObject 불러오기
@@ -48,7 +50,7 @@ public class Inventory : MonoBehaviour
 
         go_Item = FindObjectsOfType<ItemPickup>();
 
-        if (DataManager.instance.dataWrapper.fieldItemIDList.Count > 0)
+        if (InventoryDataManager.Instance.fieldItemIDList.Count > 0)
             LoadFieldData();
 
         if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
@@ -179,13 +181,20 @@ public class Inventory : MonoBehaviour
 
     public void LoadFieldData()
     {
-        for (int i = 0; i < DataManager.instance.dataWrapper.fieldItemIDList.Count; i++)
+        for (int i = 0; i < InventoryDataManager.Instance.fieldItemIDList.Count; i++)
         {
             for (int j = 0; j < go_Item.Length; j++)
             {
-                if (go_Item[j]._fieldItemID == DataManager.instance.dataWrapper.fieldItemIDList[i])
+                if (go_Item[j]._fieldItemID == InventoryDataManager.Instance.fieldItemIDList[i])
                     go_Item[j].gameObject.SetActive(false);
             }
+
+            fieldItemIDList.Add(InventoryDataManager.Instance.fieldItemIDList[i]);
+        }
+
+        for (int i = 0; i < InventoryDataManager.Instance.getItemIDList.Count; i++)
+        {
+            getItemIDList.Add(InventoryDataManager.Instance.getItemIDList[i]);
         }
     }
 
@@ -291,5 +300,28 @@ public class Inventory : MonoBehaviour
         InventoryDataManager.Instance.inventoryItemList.Clear();
         for (int i = 0; i < inventoryItemList.Count; i++)
             InventoryDataManager.Instance.inventoryItemList.Add(inventoryItemList[i]);
+    }
+
+    public void SaveFieldDataManager()
+    {
+        InventoryDataManager.Instance.fieldItemIDList.Clear();
+        InventoryDataManager.Instance.getItemIDList.Clear();
+
+        for (int i = 0; i < fieldItemIDList.Count; i++)
+            InventoryDataManager.Instance.fieldItemIDList.Add(fieldItemIDList[i]);
+
+        for (int i = 0; i < getItemIDList.Count; i++)
+            InventoryDataManager.Instance.getItemIDList.Add(getItemIDList[i]);
+    }
+
+    public void SaveFieldData(int _fieldItemID, int _getItemID)
+    {
+        fieldItemIDList.Add(_fieldItemID); // 획득한 오브젝트 추가
+
+        for (int i = 0; i < getItemIDList.Count; i++) // 아이템 이미 획득한 적 있다면 return
+            if (_getItemID == getItemIDList[i])
+                return;
+
+        getItemIDList.Add(_getItemID); // 없으면 추가
     }
 }

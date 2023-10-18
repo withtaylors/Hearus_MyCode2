@@ -145,7 +145,6 @@ public class DataManager : MonoBehaviour
             dataWrapper.items.Add(_inventoryData);
         }
 
-        /*
         dataWrapper.fieldItemIDList.Clear();
         dataWrapper.fieldItemIDList = new List<int>();
 
@@ -157,7 +156,6 @@ public class DataManager : MonoBehaviour
 
         for (int i = 0; i < InventoryDataManager.Instance.getItemIDList.Count; i++)
             dataWrapper.getItemIDList.Add(InventoryDataManager.Instance.getItemIDList[i]);
-        */
     }
 
     public void LoadData()
@@ -172,18 +170,33 @@ public class DataManager : MonoBehaviour
     public void LoadInventory()
     {
         Debug.Log("LoadInventory()");
-        if (dataWrapper != null && dataWrapper.items != null) // dataWrapper가 null이 아니라면
-        { 
-            List<InventoryData> itemsToLoad = dataWrapper.items;
+        if (dataWrapper != null) // dataWrapper가 null이 아니라면
+        {
+            if (dataWrapper.items != null)
+            {
+                List<InventoryData> itemsToLoad = dataWrapper.items;
 
-            if (itemsToLoad.Count > 0) // dataWrapper에 있는 아이템 데이터들을 인벤토리 데이터 매니저로 옮김
-                for (int i = 0; i < itemsToLoad.Count; i++)
+                if (itemsToLoad.Count > 0) // dataWrapper에 있는 아이템 데이터들을 인벤토리 데이터 매니저로 옮김
+                    for (int i = 0; i < itemsToLoad.Count; i++)
+                    {
+                        Item _item = new Item(itemsToLoad[i].itemID, itemsToLoad[i].itemName, itemsToLoad[i].itemDescription,
+                        itemsToLoad[i].itemType, itemsToLoad[i].itemEffect, itemsToLoad[i].effectValue, itemsToLoad[i].isCountable,
+                        itemsToLoad[i].itemCount, itemsToLoad[i].isMeet, itemsToLoad[i].isPicking);
+
+                        InventoryDataManager.Instance.inventoryItemList.Add(_item);
+                    }
+            }
+
+            if (dataWrapper.getItemIDList != null)
+                for (int i = 0; i < dataWrapper.getItemIDList.Count; i++)
                 {
-                    Item _item = new Item(itemsToLoad[i].itemID, itemsToLoad[i].itemName, itemsToLoad[i].itemDescription,
-                    itemsToLoad[i].itemType, itemsToLoad[i].itemEffect, itemsToLoad[i].effectValue, itemsToLoad[i].isCountable,
-                    itemsToLoad[i].itemCount, itemsToLoad[i].isMeet, itemsToLoad[i].isPicking);
+                    InventoryDataManager.Instance.getItemIDList.Add(dataWrapper.getItemIDList[i]);
+                }
 
-                    InventoryDataManager.Instance.inventoryItemList.Add(_item);
+            if (dataWrapper.fieldItemIDList != null)
+                for (int i = 0; i < dataWrapper.fieldItemIDList.Count; i++)
+                {
+                    InventoryDataManager.Instance.fieldItemIDList.Add(dataWrapper.fieldItemIDList[i]);
                 }
         }
     }
@@ -194,16 +207,14 @@ public class DataManager : MonoBehaviour
         nowPlayer = new PlayerData();
 
         dataWrapper.items.Clear();
+        dataWrapper.fieldItemIDList.Clear();
+        dataWrapper.getItemIDList.Clear();
     }
 
     public void InventoryClear()
     {
         InventoryDataManager.Instance.inventoryItemList.Clear();
-    }
-
-    public void FieldDataClear()
-    {
-        dataWrapper.fieldItemIDList.Clear();
-        dataWrapper.getItemIDList.Clear();
+        InventoryDataManager.Instance.fieldItemIDList.Clear();
+        InventoryDataManager.Instance.getItemIDList.Clear();
     }
 }
