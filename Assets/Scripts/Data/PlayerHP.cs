@@ -82,6 +82,9 @@ public class PlayerHP : MonoBehaviour
                 case "Jonah":
                     HP -= value;
                     break;
+                case "None":
+                    HP -= value;
+                    break;
             }
         
         intHP = Mathf.FloorToInt(HP);
