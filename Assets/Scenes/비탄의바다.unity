@@ -30343,6 +30343,63 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 86.02356, y: 67.40043, z: 14.89183}
   m_Center: {x: -104.261566, y: 21.398853, z: -41.87699}
+--- !u!1001 &2035070906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -264.67477
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -150.13356
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 144.41086
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263788016676995847, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
+      propertyPath: m_Name
+      value: Journey Data
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
 --- !u!1 &2036424646
 GameObject:
   m_ObjectHideFlags: 0

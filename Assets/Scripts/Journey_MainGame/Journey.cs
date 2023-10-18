@@ -22,7 +22,7 @@ public class Journey
     public string itemNumber;
 
     [Tooltip("일지 내용")]
-    public string[] journeyString;
+    public string journeyString;
 
     [Tooltip("구분")]
     public string journeyType;

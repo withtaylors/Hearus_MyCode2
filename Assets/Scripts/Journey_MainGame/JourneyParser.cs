@@ -24,19 +24,18 @@ public class JourneyParser : MonoBehaviour
             string scriptNumber;
             string itemNumber;
             string journeyType;
-            List<string> journeyString = new List<string>();
+            string journeyString;
 
             journeyNumber = row[0];
             journeyID = row[1];
             journeyName = row[2];
             scriptNumber = row[3];
             itemNumber = row[4];
+            journeyString = row[5];
             journeyType = row[6];
 
             do
             {
-                journeyString.Add(row[5]);
-
                 if (++i < data.Length)
                 {
                     row = data[i].Split(new char[] { ',' }); // 콤마 단위 분할
@@ -50,7 +49,7 @@ public class JourneyParser : MonoBehaviour
             journey.scriptNumber = scriptNumber;
             journey.itemNumber = itemNumber;
             journey.journeyType = journeyType;
-            journey.journeyString = journeyString.ToArray();
+            journey.journeyString = journeyString;
 
             // 공백 제거
             journey.journeyNumber = string.Concat(journey.journeyNumber.Where(x => !char.IsWhiteSpace(x)));
