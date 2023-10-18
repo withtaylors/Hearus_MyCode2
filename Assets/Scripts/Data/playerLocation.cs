@@ -100,6 +100,6 @@ public class playerLocation : MonoBehaviour
         DataManager.instance.nowPlayer = null;
         DataManager.instance.DataClear();
         DataManager.instance.InventoryClear();
-        DataManager.instance.FieldDataClear();
+        //DataManager.instance.FieldDataClear();
     }
 }

@@ -47,7 +47,8 @@ public class Inventory : MonoBehaviour
         slots = new List<InventorySlot>(tf.GetComponentsInChildren<InventorySlot>());   // 슬롯 리스트 초기화
 
         go_Item = FindObjectsOfType<ItemPickup>();
-        if (InventoryDataManager.Instance.fieldItemIDList.Count > 0)
+
+        if (DataManager.instance.dataWrapper.fieldItemIDList.Count > 0)
             LoadFieldData();
 
         if (InventoryDataManager.Instance.inventoryItemList.Count > 0)
@@ -178,11 +179,11 @@ public class Inventory : MonoBehaviour
 
     public void LoadFieldData()
     {
-        for (int i = 0; i < InventoryDataManager.Instance.fieldItemIDList.Count; i++)
+        for (int i = 0; i < DataManager.instance.dataWrapper.fieldItemIDList.Count; i++)
         {
             for (int j = 0; j < go_Item.Length; j++)
             {
-                if (go_Item[j]._fieldItemID == InventoryDataManager.Instance.fieldItemIDList[i])
+                if (go_Item[j]._fieldItemID == DataManager.instance.dataWrapper.fieldItemIDList[i])
                     go_Item[j].gameObject.SetActive(false);
             }
         }

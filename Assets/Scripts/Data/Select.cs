@@ -124,7 +124,7 @@ public class Select : MonoBehaviour
         }
         else
         {
-            DataManager.instance.FieldDataClear();
+            // DataManager.instance.FieldDataClear();
             // 새로운 슬롯 정보 저장
             DataManager.instance.nowPlayer.filename = fileName.text;
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
@@ -182,7 +182,7 @@ public class Select : MonoBehaviour
 
         DataManager.instance.DataClear();
         DataManager.instance.InventoryClear();
-        DataManager.instance.FieldDataClear();
+        //DataManager.instance.FieldDataClear();
         //Destroy(DataManager.instance.gameObject);
         
         Debug.Log("Select -- DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);

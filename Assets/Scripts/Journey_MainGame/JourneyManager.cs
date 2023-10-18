@@ -43,7 +43,10 @@ public class JourneyManager : MonoBehaviour
 
     private void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
     {
-        ChangeMap();
+        if (scene.name == "태초의숲" || scene.name == "비탄의바다" || scene.name == "타오르는황야")
+            ChangeMap();
+        else
+            return;
     }
 
     public void LoadJourney(Journey[] p_journeys)

@@ -253,7 +253,7 @@ public class Save : MonoBehaviour
         
         DataManager.instance.DataClear();
         DataManager.instance.InventoryClear();
-        DataManager.instance.FieldDataClear();
+        //DataManager.instance.FieldDataClear();
 
         Debug.Log("DeletSlot nowSlot222222222 : " + DataManager.instance.nowSlot);
 //        DataManager.instance.nowPlayer = null;

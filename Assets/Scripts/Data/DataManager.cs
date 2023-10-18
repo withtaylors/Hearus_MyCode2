@@ -145,6 +145,7 @@ public class DataManager : MonoBehaviour
             dataWrapper.items.Add(_inventoryData);
         }
 
+        /*
         dataWrapper.fieldItemIDList.Clear();
         dataWrapper.fieldItemIDList = new List<int>();
 
@@ -156,6 +157,7 @@ public class DataManager : MonoBehaviour
 
         for (int i = 0; i < InventoryDataManager.Instance.getItemIDList.Count; i++)
             dataWrapper.getItemIDList.Add(InventoryDataManager.Instance.getItemIDList[i]);
+        */
     }
 
     public void LoadData()
@@ -183,9 +185,6 @@ public class DataManager : MonoBehaviour
 
                     InventoryDataManager.Instance.inventoryItemList.Add(_item);
                 }
-
-            InventoryDataManager.Instance.fieldItemIDList = dataWrapper.fieldItemIDList.ToList();
-            InventoryDataManager.Instance.getItemIDList = dataWrapper.getItemIDList.ToList();
         }
     }
 
