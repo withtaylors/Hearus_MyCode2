@@ -104,7 +104,7 @@ public class Inventory : MonoBehaviour
                 SelectedSlot();
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(0.1f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 
