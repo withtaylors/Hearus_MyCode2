@@ -137,12 +137,13 @@ public class JourneyManager : MonoBehaviour
         if (currentJourney.journeyType == "STORY")
             journeyName.color = new Color32(252, 173, 244, 255);
 
-        // 작은따옴표를 쉼표로 치환
+        // 치환
         string replaceText = journeyText.text;
-        replaceText = replaceText.Replace("'", ",");
-        journeyText.text = replaceText;
 
+        replaceText = replaceText.Replace("'", ",");
         replaceText = replaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
+        replaceText = replaceText.Replace("\\n", "\n");
+
         journeyText.text = replaceText;
     }
 
@@ -185,11 +186,13 @@ public class JourneyManager : MonoBehaviour
 
         _journeyText.text = _journeyText.text + "\n" + currentJourney.journeyString;
 
+        // 치환
         string replaceText = _journeyText.text;
-        replaceText = replaceText.Replace("'", ",");
-        _journeyText.text = replaceText;
 
+        replaceText = replaceText.Replace("'", ",");
         replaceText = replaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
+        replaceText = replaceText.Replace("\\n", "\n");
+
         _journeyText.text = replaceText;
     }
 
@@ -247,12 +250,13 @@ public class JourneyManager : MonoBehaviour
             if (currentJourney.journeyType == "STORY")
                 journeyName.color = new Color32(252, 173, 244, 255);
 
-            // 작은따옴표를 쉼표로 치환
+            // 치환
             string replaceText = journeyText.text;
-            replaceText = replaceText.Replace("'", ",");
-            journeyText.text = replaceText;
 
+            replaceText = replaceText.Replace("'", ",");
             replaceText = replaceText.Replace("ㅇㅇㅇ", DataManager.instance.nowPlayer.nowCharacterInKor);
+            replaceText = replaceText.Replace("\\n", "\n");
+
             journeyText.text = replaceText;
         }
     }
