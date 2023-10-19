@@ -52,13 +52,13 @@ public class InventorySlot : MonoBehaviour
 
     public void IncreaseCount(Item _item)
     {
-            if (_item.itemCount > 0)
-            {
-                _item.itemCount += 1;
-                itemCount_Text.text = _item.itemCount.ToString();
-            }
-            else
-                itemCount_Text.text = "";
+        if (_item.itemCount > 0)
+        {
+            _item.itemCount += 1;
+            itemCount_Text.text = _item.itemCount.ToString();
+        }
+        else
+            itemCount_Text.text = "";
     }
 
     public void DecreaseCount(Item _item)

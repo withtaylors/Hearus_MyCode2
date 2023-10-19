@@ -107,7 +107,7 @@ public class Inventory : MonoBehaviour
                 SelectedSlot();
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(0.01f);
+            yield return new WaitForSecondsRealtime(0.05f);
         }
     }
 
@@ -133,6 +133,7 @@ public class Inventory : MonoBehaviour
                 CreateSlot();                                               // 슬롯 생성
                 slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
                 slots[slots.Count - 1].UncountableItem(ItemDatabase.itemList[i]);
+                LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)tf.transform);
                 return;
             }
         }
@@ -280,6 +281,7 @@ public class Inventory : MonoBehaviour
                         SetSlotIndex(); // 슬롯 인덱스 재조정
                         selectedSlot = 0;
                         SelectedSlot();
+                        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)tf.transform);
                         break;
                     }
                 }
