@@ -160,7 +160,7 @@ public class ChangeScene : MonoBehaviour
     {
                 Debug.Log("LoadIntro 호출");
 
-        DataManager.instance.nowPlayer.firstStart = false;
+        //DataManager.instance.nowPlayer.firstStart = false;
         //DataManager.instance.SaveData(DataManager.instance.nowSlot);
         SceneManager.LoadScene(1);
     }

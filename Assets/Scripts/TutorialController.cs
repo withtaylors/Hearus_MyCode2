@@ -61,6 +61,7 @@ public class TutorialController : MonoBehaviour
 
     private string selectedCharacter;
 
+    /*
     private void Start()
     {
         if (DataManager.instance.nowPlayer.isFinishedTutorial)
@@ -68,6 +69,7 @@ public class TutorialController : MonoBehaviour
         else
             StartTutorial();
     }
+    */
 
     private void Update() // 다음 스텝으로 넘어가기 위한 조건 확인
     {

@@ -118,7 +118,7 @@ public class JourneyManager : MonoBehaviour
         for (int i = 0; i < JourneyDataManager.instance._journeyList.Count; i++) // 해당 아이템이 이미 있는지 검사
             if (currentJourney.journeyID == JourneyDataManager.instance._journeyList[i]._journey.journeyID)
             {
-                AddJourneyString(i);
+                AddJourneyString();
                 return;
             }
 
@@ -148,16 +148,20 @@ public class JourneyManager : MonoBehaviour
         replaceText = replaceText.Replace("\\n", "\n");
 
         journeyText.text = replaceText;
+
+        currentJourney = null;
     }
 
-    public void AddJourneyString(int i)
+    public void AddJourneyString()
     {
         bool existJourneyList = false;
+        int _journeyNum = 0;
 
         for (int j = 0; j < JourneyDataManager.instance._journeyList.Count; j++)
             if (JourneyDataManager.instance._journeyList[j]._journey.journeyNumber == currentJourney.journeyNumber)
             {
                 existJourneyList = true;
+                _journeyNum = j;
                 break;
             }
 
@@ -170,7 +174,7 @@ public class JourneyManager : MonoBehaviour
 
         GameObject _journeyObject = new GameObject();
 
-        switch (JourneyDataManager.instance._journeyList[i]._map)
+        switch (JourneyDataManager.instance._journeyList[_journeyNum]._map)
         {
             case "태초의숲":
                 _journeyObject = firstPage.Find(currentJourney.journeyID).gameObject;
@@ -183,8 +187,6 @@ public class JourneyManager : MonoBehaviour
                 break;
         }
 
-        //GameObject _journeyObject = JourneyDataManager.instance._journeyList[i]._map.Find(currentJourney.journeyID).gameObject;
-        //
         TextMeshProUGUI _journeyText = _journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
 
         _journeyText.text = _journeyText.text + "\n" + currentJourney.journeyString;
@@ -197,6 +199,8 @@ public class JourneyManager : MonoBehaviour
         replaceText = replaceText.Replace("\\n", "\n");
 
         _journeyText.text = replaceText;
+
+        currentJourney = null;
     }
 
     public void GetCurrentScene(string _string)
@@ -219,7 +223,7 @@ public class JourneyManager : MonoBehaviour
     {
         yield return new WaitForNextFrameUnit();
 
-        bool _continue = false;
+        // bool _continue = false;
 
         Debug.Log("ChangeMap() 호출");
 
@@ -227,36 +231,21 @@ public class JourneyManager : MonoBehaviour
 
         for (int i = 0; i < JourneyDataManager.instance._journeyList.Count; i++)
         {
-            Debug.Log(i);
-
             currentJourney = JourneyDataManager.instance._journeyList[i]._journey;
             GetCurrentScene(JourneyDataManager.instance._journeyList[i]._map);
 
-            Debug.Log(currentJourney);
-            Debug.Log(currentPage);
-
             if (_tempList != null)
+            {
                 for (int j = 0; j < _tempList.Count; j++) // 중복 검사
                 {
-                    if (_tempList[i]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
-                        _continue = true;
-                }
-            else yield break;
-
-            if (_continue) continue;
-
-            if (_tempList != null)
-                for (int j = 0; j < _tempList.Count; j++) // 해당 아이템이 이미 있는지 검사
-                {
-                    if (currentJourney.journeyID == _tempList[j]._journey.journeyID)
-                    {
-                        AddJourneyString(j);
+                    if (_tempList[j]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
                         continue;
-                    }
+                    if (currentJourney.journeyID == _tempList[j]._journey.journeyID)
+                        AddJourneyString();
                 }
-            else yield break;
+            }
 
-            _tempList.Add(new JourneyList(currentJourney, currentPageName));
+            _tempList.Add(new JourneyList(currentJourney, currentPageName)); // 임시 리스트에 새로운 일지 추가
 
             GameObject journeyObject = Instantiate(JourneySlot, currentPage); // 일지 오브젝트 생성
 
@@ -264,8 +253,6 @@ public class JourneyManager : MonoBehaviour
 
             TextMeshProUGUI journeyName = journeyObject.transform.Find("Journey Name").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI journeyText = journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();
-
-            //FIndJourneyByScriptID(ScriptManager.instance.currentScript.scriptID);
 
             journeyName.text = currentJourney.journeyName;
             journeyText.text = currentJourney.journeyString;
@@ -282,6 +269,8 @@ public class JourneyManager : MonoBehaviour
             replaceText = replaceText.Replace("\\n", "\n");
 
             journeyText.text = replaceText;
+
+            currentJourney = null;
         }
     }
 }
