@@ -16,30 +16,29 @@ public class ObjectHighlight : MonoBehaviour
             return;
         }
 
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<MeshRenderer>();
         outlineMaterial = new Material(outlineShader);
     }
 
-    void OnMouseEnter()
+void Update()
+{
+    if (Input.GetMouseButtonDown(0))
     {
-        Debug.Log("마우스 올림");
-        List<Material> materials = new List<Material>(renderer.materials);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
         
-        if (!materials.Contains(outlineMaterial))
-            materials.Add(outlineMaterial);
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject hitObject = hit.transform.gameObject;
 
-        renderer.materials = materials.ToArray();
+            Renderer renderer = hitObject.GetComponent<Renderer>();
+            List<Material> materials = new List<Material>(renderer.materials);
+            
+            if (!materials.Contains(outlineMaterial))
+                materials.Add(outlineMaterial);
+
+            renderer.materials = materials.ToArray();
+        }
     }
-
-    void OnMouseExit()
-    {
-        Debug.Log("마우스 뺌");
-
-        List<Material> materials = new List<Material>(renderer.materials);
-
-        if (materials.Contains(outlineMaterial))
-            materials.Remove(outlineMaterial);
-
-        renderer.materials = materials.ToArray();
-    }
+}
 }
