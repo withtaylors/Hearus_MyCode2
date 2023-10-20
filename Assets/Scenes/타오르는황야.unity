@@ -52499,6 +52499,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.781372, y: 10.908813, z: 19.943512}
   m_Center: {x: 21.75055, y: 4.199707, z: 0.03112793}
+--- !u!224 &1416971433 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3523231692190427297, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+  m_PrefabInstance: {fileID: 2402074328123184696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418315249
 GameObject:
   m_ObjectHideFlags: 0
@@ -78196,9 +78201,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_Item: []
   slots: []
-  tf: {fileID: 8985369629414117226}
+  tf: {fileID: 1416971433}
   itemDes: {fileID: 4327416857492286755}
   inventoryItemList: []
+  fieldItemIDList: 
+  getItemIDList: 
   slotPrefab: {fileID: 1324416806646802522, guid: b4da83b832e8b9f4d94f016b49f0ddd1, type: 3}
   go_Inventory: {fileID: 4311040647468216980}
   go_itemDes: {fileID: 4327416857492286753}
@@ -78339,11 +78346,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!224 &8985369629414117226 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6766539476560894290, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
-  m_PrefabInstance: {fileID: 2402074328123184696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9029514184573009657
 Transform:
   m_ObjectHideFlags: 0

@@ -46332,6 +46332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+--- !u!224 &2402074328123184697 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3523231692190427297, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+  m_PrefabInstance: {fileID: 2402074328123184696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2407512334904421112
 GameObject:
   m_ObjectHideFlags: 0
@@ -56361,7 +56366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_Item: []
   slots: []
-  tf: {fileID: 0}
+  tf: {fileID: 2402074328123184697}
   itemDes: {fileID: 4327416857492286755}
   inventoryItemList: []
   fieldItemIDList: 

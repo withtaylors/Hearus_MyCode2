@@ -37,14 +37,17 @@ public class JourneyManager : MonoBehaviour
     {
         journeyManager = FindObjectOfType<JourneyManager>();
         journeyManager.LoadJourney(journeyManager.GetJourney());
-
-        SceneManager.sceneLoaded += LoadedsceneEvent;
     }
 
-    private void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
+    private void OnEnable()
+    {
+        StartCoroutine("ChangeMap");
+    }
+
+    private void LoadedsceneEvent(Scene scene, LoadSceneMode mode) // 씬이 변경될 때마다 호출됨
     {
         if (scene.name == "태초의숲" || scene.name == "비탄의바다" || scene.name == "타오르는황야")
-            ChangeMap();
+            StartCoroutine("ChangeMap");
         else
             return;
     }
@@ -212,25 +215,46 @@ public class JourneyManager : MonoBehaviour
         }
     }
 
-    public void ChangeMap() // 맵이 변경될 때 일지 다시 불러오기
+    public IEnumerator ChangeMap() // 맵이 변경될 때 일지 다시 불러오기
     {
+        yield return new WaitForNextFrameUnit();
+
+        bool _continue = false;
+
+        Debug.Log("ChangeMap() 호출");
+
         List<JourneyList> _tempList = new List<JourneyList>(); // 임시 리스트
 
         for (int i = 0; i < JourneyDataManager.instance._journeyList.Count; i++)
         {
+            Debug.Log(i);
+
             currentJourney = JourneyDataManager.instance._journeyList[i]._journey;
             GetCurrentScene(JourneyDataManager.instance._journeyList[i]._map);
 
-            for (int j = 0; j < _tempList.Count; j++) // 중복 검사
-                if (_tempList[i]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
-                    return;
+            Debug.Log(currentJourney);
+            Debug.Log(currentPage);
 
-            for (int j = 0; j < _tempList.Count; j++) // 해당 아이템이 이미 있는지 검사
-                if (currentJourney.journeyID == _tempList[j]._journey.journeyID)
+            if (_tempList != null)
+                for (int j = 0; j < _tempList.Count; j++) // 중복 검사
                 {
-                    AddJourneyString(j);
-                    return;
+                    if (_tempList[i]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
+                        _continue = true;
                 }
+            else yield break;
+
+            if (_continue) continue;
+
+            if (_tempList != null)
+                for (int j = 0; j < _tempList.Count; j++) // 해당 아이템이 이미 있는지 검사
+                {
+                    if (currentJourney.journeyID == _tempList[j]._journey.journeyID)
+                    {
+                        AddJourneyString(j);
+                        continue;
+                    }
+                }
+            else yield break;
 
             _tempList.Add(new JourneyList(currentJourney, currentPageName));
 
