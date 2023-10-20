@@ -12631,6 +12631,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnOptionButtonClick
       objectReference: {fileID: 0}
+    - target: {fileID: 7898411121321198720, guid: 585b222ea145def48b998db5f38bedd2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585b222ea145def48b998db5f38bedd2, type: 3}
 --- !u!1 &800959620 stripped
@@ -17274,6 +17278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingPanel: {fileID: 1054482236}
+  player: {fileID: 0}
 --- !u!114 &1054482242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17289,10 +17294,19 @@ MonoBehaviour:
   Text: {fileID: 1305947244}
   FrithMenuInfo: {fileID: 799496710}
   RectImg: {fileID: 23194915}
+  RectImg2: {fileID: 0}
+  KoreanText: {fileID: 0}
+  eden: {fileID: 0}
+  noah: {fileID: 0}
+  adam: {fileID: 0}
+  jonah: {fileID: 0}
   edenInfo: {fileID: 1580412349}
   noahInfo: {fileID: 1590004889}
   adamInfo: {fileID: 914670269}
   jonahInfo: {fileID: 1183193850}
+  slider: {fileID: 0}
+  frithIntimacy: 0
+  frithIntimacy_Text: {fileID: 0}
 --- !u!1 &1058663813
 GameObject:
   m_ObjectHideFlags: 0
@@ -27660,6 +27674,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1435879841}
     m_Modifications:
+    - target: {fileID: 2096587101897623740, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702674082667423687, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3511107434988256365, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -35847,6 +35869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 139
       objectReference: {fileID: 0}
+    - target: {fileID: 1115798830299502010, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1161585947139949316, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_Name
       value: 135
@@ -35866,6 +35892,10 @@ PrefabInstance:
     - target: {fileID: 1628389640484793838, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_Name
       value: 146
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801619379253248228, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1803038883094842957, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_Name
@@ -36373,9 +36403,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_Item: []
   slots: []
-  tf: {fileID: 8985369629414117226}
+  tf: {fileID: 0}
   itemDes: {fileID: 4327416857492286755}
   inventoryItemList: []
+  fieldItemIDList: 
+  getItemIDList: 
   slotPrefab: {fileID: 1324416806646802522, guid: b4da83b832e8b9f4d94f016b49f0ddd1, type: 3}
   go_Inventory: {fileID: 4311040647468216980}
   go_itemDes: {fileID: 4327416857492286753}
@@ -36516,11 +36548,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!224 &8985369629414117226 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6766539476560894290, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
-  m_PrefabInstance: {fileID: 2402074328123184696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9029514184573009657
 Transform:
   m_ObjectHideFlags: 0
