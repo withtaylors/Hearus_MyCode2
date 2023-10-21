@@ -4,44 +4,51 @@ using System.Collections;
 
 public class SkipBtn : MonoBehaviour
 {
-    public float fadeInDuration = 2.0f; // 나타나는 데 걸리는 시간(초)
-    private Image buttonImage;
-    private float targetAlpha = 1.0f; // 목표 알파 값 (1: 완전 불투명)
+    public Button button;
+    public float fadeDuration = 2f; // 페이드 지속 시간
+    private CanvasGroup canvasGroup;
 
     private void Start()
     {
-        buttonImage = GetComponent<Image>(); // 버튼의 Image 컴포넌트 가져오기
+        canvasGroup = button.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0; // 버튼을 처음에 숨김
+        button.interactable = false; // 버튼 비활성화
 
-        // 버튼 알파 값을 초기화하고 비활성화
-        buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0);
-        gameObject.SetActive(false);
-
-        // 일정 시간 후에 버튼을 나타나게 함
-        StartCoroutine(EnableButtonWithFadeIn());
+        // 4초 뒤에 페이드 인 코루틴을 시작
+        StartCoroutine(StartFadeAfterDelay(3f));
     }
 
-    private IEnumerator EnableButtonWithFadeIn()
+    private IEnumerator StartFadeAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(fadeInDuration);
+        yield return new WaitForSeconds(delay);
 
-        float elapsedTime = 0;
+        // 4초 뒤에 페이드 인 코루틴을 시작
+        StartCoroutine(StartFade());
+    }
 
-        // 알파 값을 서서히 증가시키는 애니메이션
-        while (elapsedTime < fadeInDuration)
+    private IEnumerator StartFade()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float endAlpha = 1; // 최종 투명도
+
+        float startTime = Time.time;
+        float endTime = startTime + fadeDuration;
+
+        while (Time.time < endTime)
         {
-            elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(0, targetAlpha, elapsedTime / fadeInDuration);
-            buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, newAlpha);
+            float timeRatio = (Time.time - startTime) / fadeDuration;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, timeRatio);
             yield return null;
         }
 
-        // 애니메이션이 완료되면 버튼을 활성화
-        gameObject.SetActive(true);
+        canvasGroup.alpha = endAlpha;
+        button.interactable = true; // 버튼 활성화
     }
 
     public void OnButtonClick()
     {
-
         Debug.Log("Clicked!");
+        //게임씬이동
+        ChangeScene.target();
     }
 }

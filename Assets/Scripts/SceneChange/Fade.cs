@@ -14,4 +14,14 @@ public class Fade : MonoBehaviour
             fader3.gameObject.SetActive(false);
         }); 
     }
+
+    public void FadeIn()
+    {
+        fader3.gameObject.SetActive(true);
+        LeanTween.alpha(fader3, 0, 0); // 완전 투명한 상태로 시작
+        LeanTween.alpha(fader3, 1, 3f).setOnComplete(() => // 점점 불투명해지며(페이드 인)
+        {
+            fader3.gameObject.SetActive(false);
+        });         
+    }
 }
