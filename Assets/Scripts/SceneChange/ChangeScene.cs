@@ -86,21 +86,9 @@ public class ChangeScene : MonoBehaviour
 
     private void LoadFirst()
     {
-                Debug.Log("LoadFirst 호출");
-
+        Debug.Log("LoadFirst 호출");
         SceneManager.LoadScene(0);
     }
-
-    // private void FixedUpdate()
-    // {
-    //     Debug.Log("FixedUpdate 호출");
-
-    //     if (startLoading && !isLoadingComplete)
-    //     {
-    //         StartCoroutine(LoadAsync());
-    //         startLoading = false;
-    //     }
-    // }
 
     public void Map(int map)
     {
@@ -124,6 +112,10 @@ public class ChangeScene : MonoBehaviour
         {
             nowmap = 4;
         }
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("파멸된도시"))
+        {
+            nowmap = 5;
+        }
         
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(nowmap);
 
@@ -142,7 +134,7 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToIntro()
     {
-                        Debug.Log("MoveToIntro 호출");
+        Debug.Log("MoveToIntro 호출");
 
         if(videoPlayer != null)
         {
@@ -158,10 +150,7 @@ public class ChangeScene : MonoBehaviour
 
     private void LoadIntro()
     {
-                Debug.Log("LoadIntro 호출");
-
-        //DataManager.instance.nowPlayer.firstStart = false;
-        //DataManager.instance.SaveData(DataManager.instance.nowSlot);
+        Debug.Log("LoadIntro 호출");
         SceneManager.LoadScene(1);
     }
 
@@ -174,7 +163,6 @@ public class ChangeScene : MonoBehaviour
         LeanTween.alpha(fader, 1, 1f).setOnComplete(() =>
         {
             Invoke("LoadAnotherMap", 1f);
-            //fader.gameObject.SetActive(false);
         });
 
         if (DataManager.instance.nowPlayer.currentMap.Equals("태초의숲"))
@@ -189,7 +177,10 @@ public class ChangeScene : MonoBehaviour
         {
             nowmap = 4;
         }
-        //SceneManager.LoadScene(nowmap);
+        else if (DataManager.instance.nowPlayer.currentMap.Equals("파멸된도시"))
+        {
+            nowmap = 5;
+        }
     }
 
     private void LoadAnotherMap()

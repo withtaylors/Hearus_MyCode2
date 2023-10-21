@@ -18,6 +18,15 @@ public class SkipBtn : MonoBehaviour
         StartCoroutine(StartFadeAfterDelay(3f));
     }
 
+    private void Update()
+    {
+        // 엔터 키를 눌렀을 때 skip 효과
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            OnButtonClick();
+        }
+    }
+
     private IEnumerator StartFadeAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);

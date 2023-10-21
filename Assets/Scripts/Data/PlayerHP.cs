@@ -17,11 +17,11 @@ public class PlayerHP : MonoBehaviour
     public TextMeshProUGUI HP_Text;
     public TextMeshProUGUI HP_Text2;
 
-    private Color originalColor;  // 원래 HP 바 색상
-    private Color increaseColor = Color.green;  // 증가 HP 바 색상
-    private Color decreaseColor = Color.red;  // 감소 HP 바 색상
-    private float colorChangeDelay = 3.0f;  // 색상 변경 지연 시간 (3초)
-
+    private float colorChangeDelay = 3.0f;  //색상 변경 지연 시간
+    private Sprite originalSprite;  // 원래 이미지 저장 변수
+    public Sprite increaseSprite; //이미지 변경을 위한 스프라이트 변수
+    public Sprite decreaseSprite;
+    
     private void Awake()
     {
         instance = this;
@@ -37,7 +37,6 @@ public class PlayerHP : MonoBehaviour
         }
 
         HPBars = new List<Image>(tf_HPBars.GetComponentsInChildren<Image>());
-        originalColor = HPBars[0].color;  // HP 바의 초기 색상 저장
 
         for (int i = 0; i < HPBars.Count; i++)
         {
@@ -53,6 +52,9 @@ public class PlayerHP : MonoBehaviour
 
         HP_Text.text = HP.ToString();
         HP_Text2.text = HP.ToString();
+
+        // 초기 이미지 저장
+        originalSprite = HPBars[0].sprite;
     }
 
     public void DecreaseHP(int value)
@@ -110,7 +112,17 @@ public class PlayerHP : MonoBehaviour
 
         DataManager.instance.nowPlayer.playerHP = intHP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
+        // 이미지 변경
+        foreach (Image hpBar in HPBars)
+        {
+            hpBar.sprite = decreaseSprite; // 감소 이미지로 이미지 변경
+        }
+
+        // image 변경 후, 3초 후에 원래 이미지로 돌아가도록 코루틴 호출
+        StartCoroutine(ChangeHPBarColor(decreaseSprite, originalSprite, intHP));
     }
+    
 
     public void IncreaseHP(int value)
     {
@@ -124,46 +136,26 @@ public class PlayerHP : MonoBehaviour
 
         intHP = Mathf.FloorToInt(HP);
         SetActiveHPBar(intHP, true);
-
+        
         DataManager.instance.nowPlayer.playerHP = intHP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
+        // 이미지 변경
+        foreach (Image hpBar in HPBars)
+        {
+            hpBar.sprite = increaseSprite; // 새로운 스프라이트로 이미지 변경
+        }
+        // image 변경 후, 3초 후에 원래 이미지로 돌아가도록 코루틴 호출
+        StartCoroutine(ChangeHPBarColor(increaseSprite, originalSprite, intHP));
     }
-
-    // public void SetActiveHPBar(int _HP)
-    // {
-    //     for (int i = 0; i < HPBars.Count; i++)
-    //     {
-    //         Color color = HPBars[i].color;
-
-    //         if (i < _HP / 5)
-    //             color.a = 1f;
-    //         else
-    //             color.a = 0f;
-
-    //         HPBars[i].color = color;
-    //     }
-
-    //     HP_Text.text = Mathf.FloorToInt(_HP).ToString(); // 소수점을 버림
-    //     HP_Text2.text = Mathf.FloorToInt(_HP).ToString();
-    // }
-
+    
     public void SetActiveHPBar(int _HP, bool isIncrease)
     {
-        Color targetColor;
-        
-        if (isIncrease)
-        {
-            targetColor = increaseColor; // 증가 색상
-        }
-        else
-        {
-            targetColor = decreaseColor; // 감소 색상
-        }
+        Sprite targetSprite = isIncrease ? increaseSprite : decreaseSprite;
 
         for (int i = 0; i < HPBars.Count; i++)
         {
             Color color = HPBars[i].color;
-            color = targetColor;
 
             if (i < _HP / 5)
                 color.a = 1f;
@@ -171,31 +163,27 @@ public class PlayerHP : MonoBehaviour
                 color.a = 0f;
 
             HPBars[i].color = color;
+        }
+
+        // 이미지 변경
+        foreach (Image hpBar in HPBars)
+        {
+            hpBar.sprite = targetSprite;
         }
 
         HP_Text.text = Mathf.FloorToInt(_HP).ToString();
         HP_Text2.text = Mathf.FloorToInt(_HP).ToString();
-
-        // 증가/감소 색상 적용 후, 3초후에 원래 색상으로 돌아가도록 코루틴 호출
-        StartCoroutine(ChangeHPBarColor(targetColor, originalColor, _HP));
     }
 
-    private IEnumerator ChangeHPBarColor(Color targetColor, Color originalColor, int _HP)
+    private IEnumerator ChangeHPBarColor(Sprite targetSprite, Sprite originalSprite, int _HP)
     {
         // 색상 변경 지연
         yield return new WaitForSeconds(colorChangeDelay);
 
-        for (int i = 0; i < HPBars.Count; i++)
+        // 이미지를 원래 이미지로 복원
+        foreach (Image hpBar in HPBars)
         {
-            Color color = HPBars[i].color;
-            color = originalColor;
-
-            if (i < _HP / 5)
-                color.a = 1f;
-            else
-                color.a = 0f;
-
-            HPBars[i].color = color;
+            hpBar.sprite = originalSprite;
         }
     }
 }
