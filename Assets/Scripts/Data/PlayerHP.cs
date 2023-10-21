@@ -17,6 +17,11 @@ public class PlayerHP : MonoBehaviour
     public TextMeshProUGUI HP_Text;
     public TextMeshProUGUI HP_Text2;
 
+    private Color originalColor;  // 원래 HP 바 색상
+    private Color increaseColor = Color.green;  // 증가 HP 바 색상
+    private Color decreaseColor = Color.red;  // 감소 HP 바 색상
+    private float colorChangeDelay = 3.0f;  // 색상 변경 지연 시간 (3초)
+
     private void Awake()
     {
         instance = this;
@@ -35,6 +40,8 @@ public class PlayerHP : MonoBehaviour
 
         HP_Text.text = HP.ToString();
         HP_Text2.text = HP.ToString();
+
+        originalColor = HPBars[0].color;  // HP 바의 초기 색상 저장
     }
 
     public void DecreaseHP(int value)
@@ -42,7 +49,7 @@ public class PlayerHP : MonoBehaviour
         // 현재 HP가 0 이하이면 더이상 HP를 감소시키지 않도록 조건 추가
         if (HP <= 0)
         {
-            return;
+            HP = 0;
         }
 
         switch (DataManager.instance.nowPlayer.nowCharacter)
@@ -88,21 +95,16 @@ public class PlayerHP : MonoBehaviour
             }
         
         intHP = Mathf.FloorToInt(HP);
+        // HP 감소 시, 색상 변경 함수 호출
+        StartCoroutine(ChangeHPBarColor(decreaseColor));
         SetActiveHPBar(intHP);
+
         DataManager.instance.nowPlayer.playerHP = intHP;
-        //SetActiveHPBar(HP);
-        //DataManager.instance.nowPlayer.playerHP = HP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
     public void IncreaseHP(int value)
     {
-        // 현재 HP가 100 이상이 되지 않도록 조건 추가
-        if (HP >= 100)
-        {
-            return;
-        }
-
         HP += value;
 
         // 현재 HP가 100을 초과하지 않도록 보정
@@ -112,12 +114,43 @@ public class PlayerHP : MonoBehaviour
         }
 
         intHP = Mathf.FloorToInt(HP);
-        SetActiveHPBar(intHP);
-        DataManager.instance.nowPlayer.playerHP = intHP;        
-        // SetActiveHPBar(HP);
-        // DataManager.instance.nowPlayer.playerHP = HP;
+        // HP 증가 시, 색상 변경 함수 호출
+        StartCoroutine(ChangeHPBarColor(increaseColor));
+
+        // 코루틴이 끝난 후에 SetActiveHPBar 호출
+        StartCoroutine(WaitAndSetActiveHPBar(intHP));
+
+        DataManager.instance.nowPlayer.playerHP = intHP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
+
+    private IEnumerator ChangeHPBarColor(Color targetColor)
+    {
+        // 색상 변경 지연
+        yield return new WaitForSeconds(colorChangeDelay);
+
+        // HP 바 색상 변경
+        for (int i = 0; i < HPBars.Count; i++)
+        {
+            HPBars[i].color = targetColor;
+        }
+
+        // 원래 색상으로 돌아가도록 지연
+        yield return new WaitForSeconds(colorChangeDelay);
+
+        // HP 바 색상 원래대로 복구
+        for (int i = 0; i < HPBars.Count; i++)
+        {
+            HPBars[i].color = originalColor;
+        }
+    }
+
+    private IEnumerator WaitAndSetActiveHPBar(int hpValue)
+    {
+        yield return new WaitForSeconds(colorChangeDelay);
+        SetActiveHPBar(hpValue);
+    }
+
 
     public void SetActiveHPBar(int _HP)
     {
