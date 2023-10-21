@@ -9,7 +9,7 @@ public class PlayerHP : MonoBehaviour
 {
     public static PlayerHP instance;
     public float HP = 100;
-    public int intHP;
+    public int intHP = 100;
 
     private List<Image> HPBars;
     public Transform tf_HPBars;
@@ -37,11 +37,22 @@ public class PlayerHP : MonoBehaviour
         }
 
         HPBars = new List<Image>(tf_HPBars.GetComponentsInChildren<Image>());
+        originalColor = HPBars[0].color;  // HP 바의 초기 색상 저장
+
+        for (int i = 0; i < HPBars.Count; i++)
+        {
+            Color color = HPBars[i].color;
+
+            if (i < HP / 5)
+                color.a = 1f;
+            else
+                color.a = 0f;
+
+            HPBars[i].color = color;
+        }
 
         HP_Text.text = HP.ToString();
         HP_Text2.text = HP.ToString();
-
-        originalColor = HPBars[0].color;  // HP 바의 초기 색상 저장
     }
 
     public void DecreaseHP(int value)
@@ -95,9 +106,7 @@ public class PlayerHP : MonoBehaviour
             }
         
         intHP = Mathf.FloorToInt(HP);
-        // HP 감소 시, 색상 변경 함수 호출
-        StartCoroutine(ChangeHPBarColor(decreaseColor));
-        SetActiveHPBar(intHP);
+        SetActiveHPBar(intHP, false);
 
         DataManager.instance.nowPlayer.playerHP = intHP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
@@ -114,49 +123,47 @@ public class PlayerHP : MonoBehaviour
         }
 
         intHP = Mathf.FloorToInt(HP);
-        // HP 증가 시, 색상 변경 함수 호출
-        StartCoroutine(ChangeHPBarColor(increaseColor));
-
-        // 코루틴이 끝난 후에 SetActiveHPBar 호출
-        StartCoroutine(WaitAndSetActiveHPBar(intHP));
+        SetActiveHPBar(intHP, true);
 
         DataManager.instance.nowPlayer.playerHP = intHP;
         DataManager.instance.SaveData(DataManager.instance.nowSlot);
     }
 
-    private IEnumerator ChangeHPBarColor(Color targetColor)
-    {
-        // 색상 변경 지연
-        yield return new WaitForSeconds(colorChangeDelay);
+    // public void SetActiveHPBar(int _HP)
+    // {
+    //     for (int i = 0; i < HPBars.Count; i++)
+    //     {
+    //         Color color = HPBars[i].color;
 
-        // HP 바 색상 변경
-        for (int i = 0; i < HPBars.Count; i++)
+    //         if (i < _HP / 5)
+    //             color.a = 1f;
+    //         else
+    //             color.a = 0f;
+
+    //         HPBars[i].color = color;
+    //     }
+
+    //     HP_Text.text = Mathf.FloorToInt(_HP).ToString(); // 소수점을 버림
+    //     HP_Text2.text = Mathf.FloorToInt(_HP).ToString();
+    // }
+
+    public void SetActiveHPBar(int _HP, bool isIncrease)
+    {
+        Color targetColor;
+        
+        if (isIncrease)
         {
-            HPBars[i].color = targetColor;
+            targetColor = increaseColor; // 증가 색상
+        }
+        else
+        {
+            targetColor = decreaseColor; // 감소 색상
         }
 
-        // 원래 색상으로 돌아가도록 지연
-        yield return new WaitForSeconds(colorChangeDelay);
-
-        // HP 바 색상 원래대로 복구
-        for (int i = 0; i < HPBars.Count; i++)
-        {
-            HPBars[i].color = originalColor;
-        }
-    }
-
-    private IEnumerator WaitAndSetActiveHPBar(int hpValue)
-    {
-        yield return new WaitForSeconds(colorChangeDelay);
-        SetActiveHPBar(hpValue);
-    }
-
-
-    public void SetActiveHPBar(int _HP)
-    {
         for (int i = 0; i < HPBars.Count; i++)
         {
             Color color = HPBars[i].color;
+            color = targetColor;
 
             if (i < _HP / 5)
                 color.a = 1f;
@@ -166,7 +173,29 @@ public class PlayerHP : MonoBehaviour
             HPBars[i].color = color;
         }
 
-        HP_Text.text = Mathf.FloorToInt(_HP).ToString(); // 소수점을 버림
+        HP_Text.text = Mathf.FloorToInt(_HP).ToString();
         HP_Text2.text = Mathf.FloorToInt(_HP).ToString();
+
+        // 증가/감소 색상 적용 후, 3초후에 원래 색상으로 돌아가도록 코루틴 호출
+        StartCoroutine(ChangeHPBarColor(targetColor, originalColor, _HP));
+    }
+
+    private IEnumerator ChangeHPBarColor(Color targetColor, Color originalColor, int _HP)
+    {
+        // 색상 변경 지연
+        yield return new WaitForSeconds(colorChangeDelay);
+
+        for (int i = 0; i < HPBars.Count; i++)
+        {
+            Color color = HPBars[i].color;
+            color = originalColor;
+
+            if (i < _HP / 5)
+                color.a = 1f;
+            else
+                color.a = 0f;
+
+            HPBars[i].color = color;
+        }
     }
 }
