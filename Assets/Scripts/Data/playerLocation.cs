@@ -48,7 +48,7 @@ public class playerLocation : MonoBehaviour
                 else if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
                 {
                     Debug.Log("start 파멸된도시");
-                    playerTransform.position = new Vector3(-250f, -520f, 110f);
+                    playerTransform.position = new Vector3(-265f, -520f, 110f);
                 }
             }
             // gameNext = false (맵 진입 후 게임중)
@@ -75,12 +75,12 @@ public class playerLocation : MonoBehaviour
                 else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
                 {
                     Debug.Log("start 타오르는황야");
-                    playerTransform.position = new Vector3(-325f, -520f, 100f);
+                    playerTransform.position = new Vector3(-1265f, -520f, 210f);
                 }
                 else if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
                 {
                     Debug.Log("start 파멸된도시");
-                    playerTransform.position = new Vector3(-1265f, -520f, 210f);
+                    //playerTransform.position = new Vector3(-1265f, -520f, 210f);
                 }
             }          
         }
