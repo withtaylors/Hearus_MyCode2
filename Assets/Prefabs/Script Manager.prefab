@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725fbb70783a8274d8415536c5e46acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextButton: {fileID: 0}
   go_ScriptPanel: {fileID: 0}
   scriptText: {fileID: 0}
   go_OptionView: {fileID: 0}
@@ -84,7 +85,7 @@ MonoBehaviour:
   - 
   - 
   script:
-    line: {x: 1, y: 7}
+    line: {x: 1, y: 214}
     scripts:
     - scriptID: 
       itemID: 
@@ -92,6 +93,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -99,6 +105,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -106,6 +117,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -113,6 +129,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -120,6 +141,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -127,6 +153,11 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -134,14 +165,2691 @@ MonoBehaviour:
       optionNumber: 
       isExistNextScript: 
       nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
       sentences: []
   option:
-    line: {x: 1, y: 1}
+    line: {x: 1, y: 38}
     options:
     - optionID: 
       isExistNextScript: []
       nextScriptNumber: []
       sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
   currentScript:
     scriptID: 
     itemID: 
@@ -149,9 +2857,28 @@ MonoBehaviour:
     optionNumber: 
     isExistNextScript: 
     nextScriptNumber: 
+    eventName: 
+    scriptSwitch: 
+    getTiming: 
+    journeyNumber: 
+    itemDes: 
     sentences: []
   currentOption:
     optionID: 
     isExistNextScript: []
     nextScriptNumber: []
     sentences: []
+    optionEffect: []
+    optionEffectValue: []
+  isPlayingScript: 0
+  isFinished: 0
+  isTyping: 0
+  currentGameObject: {fileID: 0}
+  FinishedScript:
+    m_PersistentCalls:
+      m_Calls: []
+  AddJourney:
+    m_PersistentCalls:
+      m_Calls: []
+  typingSound: {fileID: 0}
+  volumeSlider: {fileID: 0}

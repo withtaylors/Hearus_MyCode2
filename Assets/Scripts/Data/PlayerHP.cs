@@ -60,9 +60,12 @@ public class PlayerHP : MonoBehaviour
     public void DecreaseHP(int value)
     {
         // 현재 HP가 0 이하이면 더이상 HP를 감소시키지 않도록 조건 추가
-        if (HP <= 0)
+
+        if ((HP - value) <= 0)
         {
             HP = 0;
+            GameOverEnding.instance.GameOver();
+            return;
         }
 
         switch (DataManager.instance.nowPlayer.nowCharacter)

@@ -46,16 +46,16 @@ public class CurrentMap : MonoBehaviour
 
     private void UpdateCurrentStage(string _stage) // 현재 스테이지 변경
     {
-        stageText_1.text = _stage;
-        stageText_2.text = _stage;
-        stageText_3.text = _stage;
+        //stageText_1.text = _stage;
+        //stageText_2.text = _stage;
+        //stageText_3.text = _stage;
     }
 
     public void UpdateCurrentMap(string _map) // 현재 맵 변경 -> 추후 씬이 변경될 떄 호출
     {
-        mapText_1.text = _map;
-        mapText_2.text = _map;
-        mapText_3.text = _map;
+        //mapText_1.text = _map;
+        //mapText_2.text = _map;
+        //mapText_3.text = _map;
     }
 
     void OnTriggerEnter(Collider other)

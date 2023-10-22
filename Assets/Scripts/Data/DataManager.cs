@@ -11,6 +11,8 @@ public class PlayerData
 {
     public string filename;
     public bool firstStart = true;
+    public bool gameOver = false;
+    public int endingNumber = 0;
 
     public bool gameNext = true;
     public bool gameBefore = false;
