@@ -159,7 +159,6 @@ public class ScriptManager : MonoBehaviour
                                         currentGameObject.GetComponent<ItemPickup>().Pickup();
                                         currentGameObject.SetActive(false); // 습득 후 비활성화시킴
                                     }
-
                                 }
                                 ShowScriptUI(false);
                                 isFinished = true;
