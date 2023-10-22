@@ -64,6 +64,19 @@ public class PlayerHP : MonoBehaviour
         if ((HP - value) <= 0)
         {
             HP = 0;
+
+            intHP = Mathf.FloorToInt(HP);
+            SetActiveHPBar(intHP, false);
+
+            DataManager.instance.nowPlayer.playerHP = intHP;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
+
+            // 이미지 변경
+            foreach (Image hpBar in HPBars)
+            {
+                hpBar.sprite = decreaseSprite; // 감소 이미지로 이미지 변경
+            }
+
             GameOverEnding.instance.GameOver();
             return;
         }

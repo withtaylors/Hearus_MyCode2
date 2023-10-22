@@ -24,12 +24,17 @@ public class GameOverEnding : MonoBehaviour
 
     public void GameOver()
     {
-        StartCoroutine("FadeOutScene");
-
         if (DataManager.instance.nowPlayer.endingNumber == 0)
         {
+            StartCoroutine("FadeOutScene");
             DataManager.instance.nowPlayer.gameOver = true;
             DataManager.instance.nowPlayer.endingNumber = Random.Range(1, 3);
+        }
+        else
+        {
+            Color c = fader.GetComponent<Image>().color;
+            c.a = 1f;
+            fader.GetComponent<Image>().color = c;
         }
 
         switch (DataManager.instance.nowPlayer.endingNumber)
