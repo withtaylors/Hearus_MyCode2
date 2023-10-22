@@ -61,17 +61,13 @@ public class GameOverEnding : MonoBehaviour
 
     private IEnumerator FadeOutScene()
     {
-        fader.SetActive(true);
-
         Color c = fader.GetComponent<Image>().color;
 
-        for (float f = 1f; f >= 0f; f -= 0.01f)
+        for (float f = 0f; f <= 1f; f += 0.01f)
         {
             c.a = f;
-
             fader.GetComponent<Image>().color = c;
+            yield return null;
         }
-
-        yield return null;
     }
 }
