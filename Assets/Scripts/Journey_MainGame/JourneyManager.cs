@@ -21,7 +21,6 @@ public class JourneyManager : MonoBehaviour
     public Transform secondPage;
     public Transform thirdPage;
     public Transform fourthPage;
-    public Transform fifthPage;
 
     public Transform currentPage;
     public string currentPageName;
@@ -215,6 +214,9 @@ public class JourneyManager : MonoBehaviour
                 break;
             case "타오르는황야":
                 currentPage = thirdPage;
+                break;
+            case "파멸된 도시":
+                currentPage = fourthPage;
                 break;
         }
     }

@@ -991,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 8069469744335338342, guid: 0fcbf40f7252e0549b84ce935015a361, type: 3}
       propertyPath: fifthPage
       value: 
-      objectReference: {fileID: 540642277}
+      objectReference: {fileID: 0}
     - target: {fileID: 8069469744335338342, guid: 0fcbf40f7252e0549b84ce935015a361, type: 3}
       propertyPath: firstPage
       value: 
@@ -7675,11 +7675,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 798071442073663139, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
   m_PrefabInstance: {fileID: 540642270}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &540642277 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7977261567679658315, guid: a97cf875b01d727469d68819bfe983a9, type: 3}
-  m_PrefabInstance: {fileID: 540642270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &544080320
 GameObject:
   m_ObjectHideFlags: 0
@@ -11965,7 +11960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: script.line.y
-      value: 208
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: go_ScriptPanel
@@ -11977,7 +11972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: script.scripts.Array.size
-      value: 208
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: optionPrefab.Array.data[0]

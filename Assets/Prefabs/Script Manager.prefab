@@ -2619,6 +2619,42 @@ MonoBehaviour:
       journeyNumber: 
       itemDes: 
       sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      sentences: []
   option:
     line: {x: 1, y: 38}
     options:
