@@ -227,9 +227,9 @@ public class JourneyManager : MonoBehaviour
 
     public IEnumerator ChangeMap() // 맵이 변경될 때 일지 다시 불러오기
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForFixedUpdate();
 
-        // bool _continue = false;
+        bool _continue = false;
 
         Debug.Log("ChangeMap() 호출");
 
@@ -240,7 +240,21 @@ public class JourneyManager : MonoBehaviour
             currentJourney = JourneyDataManager.instance._journeyList[i]._journey;
             GetCurrentScene(JourneyDataManager.instance._journeyList[i]._map);
 
-            if (_tempList != null)
+            Transform[] allChildren = currentPage.GetComponentsInChildren<Transform>();
+
+            foreach(Transform child in allChildren) // 동일한 일지가 이미 생성되어 있다면 break
+            {
+                if (child.name == currentJourney.journeyNumber)
+                {
+                    _continue = true;
+                    break;
+                }
+            }
+
+            if (_continue)
+                continue;
+
+            if (_tempList != null) // _tempList 안에서의 중복 방지
             {
                 for (int j = 0; j < _tempList.Count; j++) // 중복 검사
                 {
