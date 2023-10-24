@@ -318,19 +318,24 @@ public class ScriptManager : MonoBehaviour
 
     public void FIndJourney() // 해당 스크립트에 일지가 있는지
     {
-        if (currentScript.journeyNumber != "") // 일지 번호 항목이 공백이 아니라면
+        Debug.Log("FIndJourney() 호출");
+        if (!string.IsNullOrEmpty(currentScript.journeyNumber)) // 일지 번호 항목이 공백이 아니라면
         {
+            Debug.Log("currentScript.journeyNumber: " + currentScript.journeyNumber);
+
             for (int i = 0; i < DataManager.instance.dataWrapper.getItemIDList.Count; i++)
             {
                 if (currentScript.itemID == DataManager.instance.dataWrapper.getItemIDList[i].ToString()) // 획득 이력이 있는 아이템이라면 리턴
-                    return;
-                else
-                {                                                                           // 획득 이력이 없다면
-                    journeyManager.FIndJourneyByJourneyNumber(currentScript.journeyNumber); // currentJourney에 일지 번호를 넣음
-                    AddJourney.Invoke();                                                    // 일지 추가
+                {
+                    Debug.Log("획득 이력이 있기 때문에 리턴");
+                    return; 
                 }
+                    
             }
 
+            Debug.Log("획득 이력이 없음, 일지 추가");
+            journeyManager.FIndJourneyByJourneyNumber(currentScript.journeyNumber); // 획득 이력이 없다면 currentJourney에 일지 번호를 넣음
+            journeyManager.UpdateJourney();                                         // 일지 추가
         }
         else // 공백이라면 return
             return;

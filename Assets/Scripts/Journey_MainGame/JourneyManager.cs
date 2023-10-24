@@ -77,8 +77,11 @@ public class JourneyManager : MonoBehaviour
 
     public void FIndJourneyByJourneyNumber(string _journeyNumber)
     {
+        Debug.Log(journey.journeys.Length);
+        Debug.Log("입력받은 일지 번호 : " + _journeyNumber);
         for (int i = 0; i < journey.journeys.Length; i++)
         {
+            Debug.Log(i + "번째 일지 탐색 중 : " + journey.journeys[i].journeyNumber);
             if (journey.journeys[i].journeyNumber.Equals(_journeyNumber))
             {
                 currentJourney = journey.journeys[i];
@@ -224,7 +227,7 @@ public class JourneyManager : MonoBehaviour
 
     public IEnumerator ChangeMap() // 맵이 변경될 때 일지 다시 불러오기
     {
-        yield return new WaitForNextFrameUnit();
+        yield return new WaitForSecondsRealtime(3f);
 
         // bool _continue = false;
 
