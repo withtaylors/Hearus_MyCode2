@@ -107,6 +107,7 @@ public class JourneyManager : MonoBehaviour
     // 스크립트 매니저에서 AddJourney 이벤트 Invoke를 받는 함수
     public void UpdateJourney()
     {
+        Debug.Log("UpdateJourney() 호출 : ");
         Scene scene = SceneManager.GetActiveScene();
         GetCurrentScene(scene.name); // 현재 씬 이름 받아 오기
 

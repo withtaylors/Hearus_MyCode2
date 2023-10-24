@@ -2957,13 +2957,11 @@ MonoBehaviour:
   - {fileID: 798071442469091828}
   - {fileID: 798071443717199714}
   - {fileID: 798071442410485413}
-  - {fileID: 0}
   contentsPanels:
   - {fileID: 798071443285706756}
   - {fileID: 798071442936059230}
   - {fileID: 798071442203664686}
   - {fileID: 798071443449997935}
-  - {fileID: 0}
   selectedTabIndex: -1
 --- !u!1 &798071443535753576
 GameObject:
