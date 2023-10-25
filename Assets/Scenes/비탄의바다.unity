@@ -27354,11 +27354,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2096587101897623740, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2702674082667423687, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3511107434988256365, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: m_AnchorMax.y

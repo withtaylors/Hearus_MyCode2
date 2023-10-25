@@ -15,19 +15,34 @@ public class CurrentMap : MonoBehaviour
     public TextMeshProUGUI mapText_2;
     public TextMeshProUGUI mapText_3;
 
+    private void OnEnable()
+    {
+        switch (DataManager.instance.nowPlayer.currentMap)
+        {
+            case "태초의숲":
+                UpdateCurrentMap("태초의 숲");
+                break;
+            case "비탄의바다":
+                UpdateCurrentMap("비탄의 바다");
+                break;
+            case "타오르는황야":
+                UpdateCurrentMap("타오르는 황야");
+                break;
+            case "파멸된 도시":
+                UpdateCurrentMap("파멸된 도시");
+                break;
+        }
+
+        UpdateCurrentStage(DataManager.instance.nowPlayer.currentStage);
+    }
+
     void OnCollisionEnter(Collision collision) // 현재 스테이지를 파악하기 위함
     {
-        if (collision.gameObject.name.Equals("중심들판_Border_1")) // 중심들판 <-> 빽빽한숲
-            UpdateCurrentStage("중심 들판");
-
-        if (collision.gameObject.name.Equals("빽빽한숲_Border_1")) // 중심들판 <-> 빽빽한숲
-            UpdateCurrentStage("빽빽한 숲");
-
-        if (collision.gameObject.name.Equals("빽빽한숲_Border_2")) // 빽빽한숲 <-> 시냇물숲
-            UpdateCurrentStage("빽빽한 숲");
-
-        if (collision.gameObject.name.Equals("시냇물숲_Border_1")) // 빽빽한숲 <-> 시냇물숲
-            UpdateCurrentStage("시냇물이 흐르는 숲");
+        if (collision.gameObject.tag.Equals("Border"))
+        {
+            UpdateCurrentStage(collision.gameObject.name);
+            DataManager.instance.nowPlayer.currentStage = collision.gameObject.name;
+        }
 
         if (collision.gameObject.name.Equals("1_강과바다_바닥_큐브") || collision.gameObject.name.Equals("Island_A_Cube") || collision.gameObject.name.Equals("4_물도시_바닥_Cube")|| collision.gameObject.name.Equals("1_도시_바닥_Cube"))
         {
@@ -64,8 +79,9 @@ public class CurrentMap : MonoBehaviour
         {
             if(DataManager.instance.nowPlayer.currentMap == "태초의숲")
             {
-                DataManager.instance.nowPlayer.currentMap = "비탄의바다"; 
-                DataManager.instance.SaveData(DataManager.instance.nowSlot);  
+                DataManager.instance.nowPlayer.currentMap = "비탄의바다";
+                DataManager.instance.nowPlayer.currentStage = "동굴";
+                DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
             {
@@ -88,7 +104,8 @@ public class CurrentMap : MonoBehaviour
         {
             if(DataManager.instance.nowPlayer.currentMap == "비탄의바다")
             {
-                DataManager.instance.nowPlayer.currentMap = "태초의숲"; 
+                DataManager.instance.nowPlayer.currentMap = "태초의숲";
+                DataManager.instance.nowPlayer.currentStage = "시냇물이 흐르는 숲");
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }   
             else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
@@ -106,6 +123,12 @@ public class CurrentMap : MonoBehaviour
 
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
             ChangeScene.target4();
+        }
+
+        else if (other.gameObject.tag.Equals("Border"))
+        {
+            UpdateCurrentStage(other.gameObject.name);
+            DataManager.instance.nowPlayer.currentStage = other.gameObject.name;
         }
     }
 }
