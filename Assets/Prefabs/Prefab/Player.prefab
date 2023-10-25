@@ -235,6 +235,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ropeObject: {fileID: 0}
 --- !u!136 &6089990028921295502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -298,7 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 172211553137559785}
   filename: 
-  gameEnd: 0
+  gameNext: 0
+  gameBefore: 0
   currentMap: 
   x: 0
   y: 0

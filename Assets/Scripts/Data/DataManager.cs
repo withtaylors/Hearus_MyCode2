@@ -18,7 +18,7 @@ public class PlayerData
     public bool gameBefore = false;
     public bool isFinishedTutorial = false;
     public string currentMap = "태초의숲";
-    public string currentStage = "중심들판";
+    public string currentStage = "중심 들판";
 
     //플레이어 위치
     public float x = 29f;
