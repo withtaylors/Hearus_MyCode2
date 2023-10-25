@@ -162,7 +162,7 @@ public class JourneyManager : MonoBehaviour
         int _journeyNum = 0;
 
         for (int j = 0; j < JourneyDataManager.instance._journeyList.Count; j++)
-            if (JourneyDataManager.instance._journeyList[j]._journey.journeyNumber == currentJourney.journeyNumber)
+            if (JourneyDataManager.instance._journeyList[j]._journey.journeyID == currentJourney.journeyID)
             {
                 existJourneyList = true;
                 _journeyNum = j;
@@ -238,6 +238,8 @@ public class JourneyManager : MonoBehaviour
 
         for (int i = 0; i < JourneyDataManager.instance._journeyList.Count; i++)
         {
+            _continue = false;
+
             currentJourney = JourneyDataManager.instance._journeyList[i]._journey;
             GetCurrentScene(JourneyDataManager.instance._journeyList[i]._map);
 
@@ -264,9 +266,15 @@ public class JourneyManager : MonoBehaviour
                     if (_tempList[j]._journey.journeyNumber == currentJourney.journeyNumber) // 중복 시 리턴
                         continue;
                     if (currentJourney.journeyID == _tempList[j]._journey.journeyID)
+                    {
                         AddJourneyString();
+                        _continue = true;
+                    }
                 }
             }
+
+            if (_continue)
+                continue;
 
             _tempList.Add(new JourneyList(currentJourney, currentPageName)); // 임시 리스트에 새로운 일지 추가
 
