@@ -35,7 +35,7 @@ public class playerSound : MonoBehaviour
 
         if (player.grounded)
         {
-            if(CrossWater.isPlayerOnWater)
+            if(CrossWater.isPlayerOnWater || player.isHurted) // 플레이어가 뗏목위에 있거나 위험요소와 충돌 시 소리멈춤
             {
                 walkSound.Stop();
                 runSound.Stop();

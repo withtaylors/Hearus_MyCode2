@@ -24,6 +24,8 @@ public class playerController : MonoBehaviour
     public bool grounded=false;
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
+    //위험 요소 충돌 여부
+    public bool isHurted = false;
 
     public Transform character; // 등반자 캐릭터 Transform
     public Transform rope; // 로프 GameObject
@@ -88,7 +90,7 @@ public class playerController : MonoBehaviour
         isPlayingScript = ScriptManager.instance.isPlayingScript;
 
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
-        if (isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
+        if (isHurted || isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
         {
             myAnim.SetBool("isWalking", false);
             myAnim.SetBool("isRunning", false);
@@ -195,6 +197,16 @@ public class playerController : MonoBehaviour
         {
             canUseRope = true;
             arriveRopeField.Invoke();
+        }
+
+        if (collision.gameObject.CompareTag("Dangerous"))
+        {
+            isHurted = true;
+            myAnim.SetTrigger("isHurted");
+                        
+            PlayerHP.instance.DecreaseHP(5);
+
+            StartCoroutine(ResetPicking(collision.gameObject)); // 일정 시간 후에 isHurted을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
         }
     }
 
@@ -325,6 +337,16 @@ public class playerController : MonoBehaviour
         //ScriptManager.instance.ShowScript();
     }
 
+    IEnumerator ResetHurted(GameObject item)
+    {
+        // 애니메이션 재생 후 대기할 시간 설정
+        float animationDuration = 3f; // 애니메이션 재생 시간 (초)
+        yield return new WaitForSeconds(animationDuration);
+
+        // 일정 시간이 지난 후에 isHurted 다시 false로 설정
+        isHurted = false;
+    }
+    
     public void UpdateGrounded(bool isCollidingWithGround)
     {
         grounded = false;
