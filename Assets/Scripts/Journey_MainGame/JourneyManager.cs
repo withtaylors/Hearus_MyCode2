@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
+using System.Threading;
 
 public class JourneyManager : MonoBehaviour
 {
@@ -239,6 +240,8 @@ public class JourneyManager : MonoBehaviour
         {
             currentJourney = JourneyDataManager.instance._journeyList[i]._journey;
             GetCurrentScene(JourneyDataManager.instance._journeyList[i]._map);
+
+            yield return new WaitUntil(() => currentJourney.journeyNumber == JourneyDataManager.instance._journeyList[i]._journey.journeyNumber);
 
             Transform[] allChildren = currentPage.GetComponentsInChildren<Transform>();
 
