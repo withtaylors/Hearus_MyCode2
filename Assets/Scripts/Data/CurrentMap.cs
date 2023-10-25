@@ -86,11 +86,13 @@ public class CurrentMap : MonoBehaviour
             else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
             {
                 DataManager.instance.nowPlayer.currentMap = "타오르는황야";
+                DataManager.instance.nowPlayer.currentStage = "황폐한 사막";
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
             {
                 DataManager.instance.nowPlayer.currentMap = "파멸된도시";
+                DataManager.instance.nowPlayer.currentStage = "조용한 거리";
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             DataManager.instance.nowPlayer.gameNext = true;
@@ -111,11 +113,13 @@ public class CurrentMap : MonoBehaviour
             else if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
             {
                 DataManager.instance.nowPlayer.currentMap = "비탄의바다";
+                DataManager.instance.nowPlayer.currentStage = "오래된 터널";
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             else if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
             {
                 DataManager.instance.nowPlayer.currentMap = "타오르는황야";
+                DataManager.instance.nowPlayer.currentStage = "황폐한 사막";
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             DataManager.instance.nowPlayer.gameBefore = true;
