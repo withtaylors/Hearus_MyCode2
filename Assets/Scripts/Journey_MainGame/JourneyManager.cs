@@ -44,14 +44,6 @@ public class JourneyManager : MonoBehaviour
         StartCoroutine("ChangeMap");
     }
 
-    private void LoadedsceneEvent(Scene scene, LoadSceneMode mode) // 씬이 변경될 때마다 호출됨
-    {
-        if (scene.name == "태초의숲" || scene.name == "비탄의바다" || scene.name == "타오르는황야")
-            StartCoroutine("ChangeMap");
-        else
-            return;
-    }
-
     public void LoadJourney(Journey[] p_journeys)
     {
         journeys = p_journeys;

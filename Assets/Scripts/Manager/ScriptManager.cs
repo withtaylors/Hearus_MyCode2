@@ -63,14 +63,8 @@ public class ScriptManager : MonoBehaviour
 
         journeyManager = FindObjectOfType<JourneyManager>();
 
-        /*
         if (DataManager.instance.nowPlayer.firstStart)
-        {
-            scriptManager.FindScriptByEventName("START_TUTORIAL"); // 스크립트 재생
-            scriptManager.ShowScript();
             DataManager.instance.nowPlayer.firstStart = false;
-        }
-        */
 
     }
 
