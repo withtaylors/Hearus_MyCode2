@@ -206,7 +206,7 @@ public class playerController : MonoBehaviour
                         
             PlayerHP.instance.DecreaseHP(5);
 
-            StartCoroutine(ResetPicking(collision.gameObject)); // 일정 시간 후에 isHurted을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
+            StartCoroutine(ResetHurted(collision.gameObject)); // 일정 시간 후에 isHurted을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
         }
     }
 
@@ -337,7 +337,7 @@ public class playerController : MonoBehaviour
         //ScriptManager.instance.ShowScript();
     }
 
-    IEnumerator ResetHurted(GameObject item)
+    IEnumerator ResetHurted(GameObject dangerousObject)
     {
         // 애니메이션 재생 후 대기할 시간 설정
         float animationDuration = 3f; // 애니메이션 재생 시간 (초)
