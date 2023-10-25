@@ -26,8 +26,14 @@ public class PlayerData
 
     public string nowCharacter = "None";
     public string nowCharacterInKor = "None"; // 스크립트 및 일지에서의 치환을 위한 한글 이름
-    public int frithIntimacy = 0;
     public int playerHP = 100;
+}
+
+[Serializable]
+public class FrithInfoData
+{
+    public bool isAcquired = false; // 정보 획득 여부
+    public string description = ""; // 정보 설명 또는 내용
 }
 
 [Serializable]
