@@ -31,7 +31,6 @@ public class Menu_Frith : MonoBehaviour
         if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
             Text.SetActive(true);
-            //RectImg.SetActive(false);
             FrithMenuInfo.SetActive(false);
 
             eden.SetActive(false);
@@ -46,7 +45,6 @@ public class Menu_Frith : MonoBehaviour
         else
         {
             Text.SetActive(false);
-            //RectImg.SetActive(true);
             FrithMenuInfo.SetActive(true);
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
             switch (DataManager.instance.nowPlayer.nowCharacter)
@@ -78,7 +76,6 @@ public class Menu_Frith : MonoBehaviour
     public void SetVisible()
     {
         Text.SetActive(false);
-        //RectImg.SetActive(true);
         FrithMenuInfo.SetActive(true);
     }
 }
