@@ -21,6 +21,7 @@ TagManager:
   - SpecialArea
   - TypingSound
   - Border
+  - Dangerous
   layers:
   - Default
   - TransparentFX
