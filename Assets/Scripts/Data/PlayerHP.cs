@@ -77,7 +77,14 @@ public class PlayerHP : MonoBehaviour
                 hpBar.sprite = decreaseSprite; // 감소 이미지로 이미지 변경
             }
 
-            GameOverEnding.instance.GameOver();
+            if (GameOverEnding.instance != null) 
+            {
+                GameOverEnding.instance.GameOver();
+            } 
+            else 
+            {
+                Debug.Log("GameOver instance Null");
+            }
             return;
         }
 
