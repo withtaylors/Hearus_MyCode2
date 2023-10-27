@@ -10,6 +10,7 @@ public class GameOverEnding : MonoBehaviour
 
     public GameObject fader;
     public ScriptManager scriptManager;
+    public GameObject settingPanel;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class GameOverEnding : MonoBehaviour
 
     public void GameOver()
     {
+        if (settingPanel.activeSelf == true)
+            settingPanel.SetActive(false);
+
+        Time.timeScale = 1;
+
         if (DataManager.instance.nowPlayer.endingNumber == 0)
         {
             StartCoroutine("FadeOutScene");
@@ -32,6 +38,9 @@ public class GameOverEnding : MonoBehaviour
         }
         else
         {
+            if (fader.gameObject.activeSelf == false)
+                fader.SetActive(true);
+
             Color c = fader.GetComponent<Image>().color;
             c.a = 1f;
             fader.GetComponent<Image>().color = c;
@@ -66,9 +75,12 @@ public class GameOverEnding : MonoBehaviour
 
     private IEnumerator FadeOutScene()
     {
+        if (fader.gameObject.activeSelf == false)
+            fader.SetActive(true);
+
         Color c = fader.GetComponent<Image>().color;
 
-        for (float f = 0f; f <= 1f; f += 0.1f)
+        for (float f = 0f; f <= 1f; f += 0.025f)
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;

@@ -25,17 +25,17 @@ public class ItemUse : MonoBehaviour
 
         if (Inventory.instance.inventoryItemList.Count > 0)
         {
-            if (currentItem.itemEffect == Item.ItemEffect.회복) // 회복 아이템일 경우
-                PlayerHP.instance.IncreaseHP(currentItem.effectValue);
-            else if (currentItem.itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
-                PlayerHP.instance.DecreaseHP(currentItem.effectValue);
-
             if (currentItemID == 102 && player.GetComponent<playerController>().canUseRope == true)
                 ropeForBridge.SetActive(true);
 
             Inventory.instance.DeleteItem(currentItemID);
+
+            if (currentItem.itemEffect == Item.ItemEffect.회복) // 회복 아이템일 경우
+                PlayerHP.instance.IncreaseHP(currentItem.effectValue);
+            else if (currentItem.itemEffect == Item.ItemEffect.피해) // 피해 아이템일 경우
+                PlayerHP.instance.DecreaseHP(currentItem.effectValue);
+            else
+                Debug.Log("인벤토리에 항목이 존재하지 않습니다.");
         }
-        else
-            Debug.Log("인벤토리에 항목이 존재하지 않습니다.");
     }
 }

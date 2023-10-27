@@ -1239,6 +1239,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 59398494}
     - target: {fileID: 7298328852430863584, guid: 9852b45538787f244b90bd1f22551202, type: 3}
+      propertyPath: settingPanel
+      value: 
+      objectReference: {fileID: 1054482236}
+    - target: {fileID: 7298328852430863584, guid: 9852b45538787f244b90bd1f22551202, type: 3}
       propertyPath: scriptManager
       value: 
       objectReference: {fileID: 823420790}

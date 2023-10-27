@@ -435,7 +435,7 @@ public class TutorialController : MonoBehaviour
 
         Color c = fader.GetComponent<Image>().color; // 페이드아웃을 위해 Fader의 컬러값을 받아 옴
 
-        for (float f = 0f; f <= 1f; f += 0.05f) // 페이드아웃
+        for (float f = 0f; f <= 1f; f += 0.025f) // 페이드아웃
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
@@ -452,7 +452,7 @@ public class TutorialController : MonoBehaviour
 
         Color c = fader.GetComponent<Image>().color; // 페이드인을 위해 Fader의 컬러값을 받아 옴
 
-        for (float f = 1f; f >= 0f; f -= 0.05f) // 페이드인
+        for (float f = 1f; f >= 0f; f -= 0.025f) // 페이드인
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
@@ -470,7 +470,7 @@ public class TutorialController : MonoBehaviour
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
 
-        for (float f = 1f; f >= 0f; f -= 0.05f)
+        for (float f = 1f; f >= 0f; f -= 0.025f)
         {
             c.a = f;
             c2.a = f;
@@ -506,7 +506,7 @@ public class TutorialController : MonoBehaviour
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
 
-        for (float f = 1f; f >= 0f; f -= 0.05f)
+        for (float f = 1f; f >= 0f; f -= 0.025f)
         {
             c.a = f;
             c2.a = f;
