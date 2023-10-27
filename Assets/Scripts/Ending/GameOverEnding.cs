@@ -68,7 +68,7 @@ public class GameOverEnding : MonoBehaviour
     {
         Color c = fader.GetComponent<Image>().color;
 
-        for (float f = 0f; f <= 1f; f += 0.01f)
+        for (float f = 0f; f <= 1f; f += 0.1f)
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
