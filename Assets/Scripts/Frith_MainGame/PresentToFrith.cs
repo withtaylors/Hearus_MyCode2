@@ -65,6 +65,8 @@ public class PresentToFrith : MonoBehaviour
     {
         transform.gameObject.SetActive(true);
 
+        yield return new WaitForSecondsRealtime(2.5f);
+
         Color c = transform.GetComponent<Image>().color;
 
         for (float f = 1f; f >= 0f; f -= 0.25f)
