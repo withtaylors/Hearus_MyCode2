@@ -11,6 +11,8 @@ public class PlayerHP : MonoBehaviour
     public float HP = 100;
     public int intHP = 100;
 
+    public Animator myAnim;
+
     private List<Image> HPBars;
     public Transform tf_HPBars;
 
@@ -29,6 +31,8 @@ public class PlayerHP : MonoBehaviour
 
     public void Start()
     {
+        myAnim = GetComponent<Animator>();
+
         if (DataManager.instance.nowPlayer.playerHP != HP)
         {
             Debug.Log(" if (DataManager.instance.nowPlayer.playerHP != HP)");
@@ -91,15 +95,13 @@ public class PlayerHP : MonoBehaviour
         switch (DataManager.instance.nowPlayer.nowCharacter)
             {
                 case "Eden":
-                    if (DataManager.instance.nowPlayer.currentMap == "태초의숲" || DataManager.instance.nowPlayer.currentMap == "종말과XXX")
+                    if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
                     {
                         HP -= (value / 2);
-                        Debug.Log("value / 2" + HP);
                     }
                     else
                     {
                         HP -= value;
-                        Debug.Log("value" + HP);
                     }
                     break;
                 case "Noah":
@@ -123,7 +125,14 @@ public class PlayerHP : MonoBehaviour
                     }
                     break;
                 case "Jonah":
-                    HP -= value;
+                    if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
+                    {
+                        HP -= (value / 2);
+                    }
+                    else
+                    {
+                        HP -= value;
+                    }
                     break;
                 case "None":
                     HP -= value;
@@ -156,6 +165,8 @@ public class PlayerHP : MonoBehaviour
         {
             HP = 100;
         }
+
+        myAnim.SetBool("isHealed", true);
 
         intHP = Mathf.FloorToInt(HP);
         SetActiveHPBar(intHP, true);

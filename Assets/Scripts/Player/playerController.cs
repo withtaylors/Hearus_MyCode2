@@ -165,18 +165,7 @@ public class playerController : MonoBehaviour
 
                 myRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
-
-            // if (grounded == true && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
-            // {
-            //     myAnim.SetBool("grounded", grounded);
-            //     myAnim.Play("falling to land");
-            // }
         }
-
-        // if (grounded == true && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
-        // {
-        //     myAnim.SetBool("grounded", grounded);
-        // }
     }
 
     //플레이어 점프 - 땅과 충돌 감지
@@ -208,6 +197,16 @@ public class playerController : MonoBehaviour
 
             StartCoroutine(ResetHurted(collision.gameObject)); // 일정 시간 후에 isHurted을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
         }
+
+        if (collision.gameObject.CompareTag("Dangerous(10)"))
+        {
+            isHurted = true;
+            myAnim.SetTrigger("isHurted");
+                        
+            PlayerHP.instance.DecreaseHP(10);
+
+            StartCoroutine(ResetHurted(collision.gameObject)); // 일정 시간 후에 isHurted을 다시 false로 설정하고 아이템 삭제하는 코루틴 시작
+        }       
     }
 
     private void OnCollisionExit(Collision collision)
