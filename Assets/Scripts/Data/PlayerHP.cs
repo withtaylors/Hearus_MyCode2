@@ -154,7 +154,6 @@ public class PlayerHP : MonoBehaviour
         StartCoroutine(ChangeHPBarColor(decreaseSprite, originalSprite, intHP));
     }
     
-
     public void IncreaseHP(int value)
     {
         HPIncreased = true; 

@@ -384,10 +384,15 @@ public class ScriptManager : MonoBehaviour
         {
             // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[0] == "피해")
+            {
                 PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
+                PlayerHP.HPDecreased = true;                
+            }
             else if (currentOption.optionEffect[0] == "회복")
+            {
                 PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[0]));
-
+                PlayerHP.HPIncreased = true;                
+            }
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[0]));
             ShowScript();
         }
@@ -395,10 +400,15 @@ public class ScriptManager : MonoBehaviour
         {
             // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[1] == "피해")
-                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[1]));
+            {
+                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
+                PlayerHP.HPDecreased = true;                
+            }
             else if (currentOption.optionEffect[1] == "회복")
+            {
                 PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[1]));
-
+                PlayerHP.HPIncreased = true;                
+            }         
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[1]));
             ShowScript();
         }
@@ -406,14 +416,18 @@ public class ScriptManager : MonoBehaviour
         {
             // 선택한 옵션에 따른 HP 증감
             if (currentOption.optionEffect[2] == "피해")
+            {
                 PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[2]));
+                PlayerHP.HPDecreased = true;                
+            }
             else if (currentOption.optionEffect[2] == "회복")
+            {
                 PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[2]));
-
+                PlayerHP.HPIncreased = true;                
+            }         
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[2]));
             ShowScript();
         }
-
         ShowOptionUI(false);
     }
 

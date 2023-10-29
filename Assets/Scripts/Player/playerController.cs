@@ -25,6 +25,7 @@ public class playerController : MonoBehaviour
     //picking 애니메이션을 실행 중인지 여부를 저장하는 변수
     public bool isPicking = false;
     //위험 요소 충돌 여부
+    public bool isHealed = false;
     public bool isHurted = false;
 
     public Transform character; // 등반자 캐릭터 Transform
@@ -73,22 +74,6 @@ public class playerController : MonoBehaviour
         }
 
         CheckPicking(); //아이템 줍기
-        
-        if(PlayerHP.HPIncreased)
-        {
-            Debug.Log("PlayerHP.HPIncreased");
-
-            myAnim.SetBool("isHealed", true);
-            StartCoroutine(ResetHealed());
-        }
-
-        if(PlayerHP.HPDecreased)
-        {
-            Debug.Log("PlayerHP.HPDecreased");
-
-            myAnim.SetBool("isHurted", true);
-            StartCoroutine(ResetHurted());
-        }
     }
 
     void FixedUpdate()
@@ -106,7 +91,7 @@ public class playerController : MonoBehaviour
         isPlayingScript = ScriptManager.instance.isPlayingScript;
 
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
-        if (PlayerHP.HPIncreased || isHurted || isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
+        if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("Hurted2") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Spinning") || isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
         {
             myAnim.SetBool("isWalking", false);
             myAnim.SetBool("isRunning", false);
@@ -158,7 +143,23 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("isOnWater", false);       
         }
 
+        if(PlayerHP.HPIncreased)
+        {
+            Debug.Log("PlayerHP.HPIncreased");
 
+            myAnim.SetTrigger("isHealed");
+            PlayerHP.HPIncreased = false;
+            StartCoroutine(ResetHealed());
+        }
+
+        if(PlayerHP.HPDecreased)
+        {
+            Debug.Log("PlayerHP.HPDecreased");
+
+            myAnim.SetTrigger("isHurted");
+            PlayerHP.HPDecreased = false;
+            StartCoroutine(ResetHurted());
+        }
     }
 
     void HandleJump()
@@ -362,22 +363,23 @@ public class playerController : MonoBehaviour
 
         // 일정 시간이 지난 후에 isHurted 다시 false로 설정
         isHurted = false;
+        PlayerHP.HPDecreased = false;
+        Debug.Log("ResetHurted");
     }
 
     IEnumerator ResetHealed()
     {
-        // 애니메이션 재생 후 대기할 시간 설정
-        float animationDuration = 2f; // 애니메이션 재생 시간 (초)
+        float animationDuration = 2f;
         yield return new WaitForSeconds(animationDuration);
 
-        // 일정 시간이 지난 후에 HPIncreased 다시 false로 설정
+        isHealed = false;
         PlayerHP.HPIncreased = false;
+        Debug.Log("ResetHealed");
     }
     
     public void UpdateGrounded(bool isCollidingWithGround)
     {
         grounded = false;
         myAnim.SetBool("grounded", grounded);
-        Debug.Log("여기까지옴");
     }
 }
