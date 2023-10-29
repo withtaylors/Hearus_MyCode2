@@ -11,8 +11,6 @@ public class PlayerHP : MonoBehaviour
     public float HP = 100;
     public int intHP = 100;
 
-    public Animator myAnim;
-
     private List<Image> HPBars;
     public Transform tf_HPBars;
 
@@ -23,7 +21,9 @@ public class PlayerHP : MonoBehaviour
     private Sprite originalSprite;  // 원래 이미지 저장 변수
     public Sprite increaseSprite; //이미지 변경을 위한 스프라이트 변수
     public Sprite decreaseSprite;
-    
+
+    public static bool HPIncreased = false;   
+
     private void Awake()
     {
         instance = this;
@@ -31,8 +31,6 @@ public class PlayerHP : MonoBehaviour
 
     public void Start()
     {
-        myAnim = GetComponent<Animator>();
-
         if (DataManager.instance.nowPlayer.playerHP != HP)
         {
             Debug.Log(" if (DataManager.instance.nowPlayer.playerHP != HP)");
@@ -166,7 +164,7 @@ public class PlayerHP : MonoBehaviour
             HP = 100;
         }
 
-        myAnim.SetBool("isHealed", true);
+        HPIncreased = true; 
 
         intHP = Mathf.FloorToInt(HP);
         SetActiveHPBar(intHP, true);

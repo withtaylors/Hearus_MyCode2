@@ -228,4 +228,28 @@ public class DataManager : MonoBehaviour
         InventoryDataManager.Instance.fieldItemIDList.Clear();
         InventoryDataManager.Instance.getItemIDList.Clear();
     }
+
+    private bool isQuitting = false;
+
+    private void OnApplicationQuit()
+    {
+        isQuitting = true;
+        StartCoroutine(QuitCoroutine());
+    }
+
+    private IEnumerator QuitCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (isQuitting)
+        {
+            SaveInventoryData();
+            SaveData(nowSlot);
+            nowPlayer = null;
+            DataClear();
+            InventoryClear();
+            Destroy(DataManager.instance.gameObject);
+            Debug.Log("all 종료");
+        }
+    }
 }

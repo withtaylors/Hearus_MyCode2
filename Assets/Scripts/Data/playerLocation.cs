@@ -101,16 +101,4 @@ public class playerLocation : MonoBehaviour
             DataManager.instance.nowPlayer.gameNext = state;
         }
     }
-
-    private void OnApplicationQuit()
-    {
-        Debug.Log("종료해서 저장됨");
-        DataManager.instance.SaveInventoryData();
-        DataManager.instance.SaveData(DataManager.instance.nowSlot);
-        Destroy(DataManager.instance.gameObject);
-        DataManager.instance.nowPlayer = null;
-        DataManager.instance.DataClear();
-        DataManager.instance.InventoryClear();
-        //DataManager.instance.FieldDataClear();
-    }
 }

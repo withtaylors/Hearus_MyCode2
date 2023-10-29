@@ -26,7 +26,7 @@ public class Menu_Frith : MonoBehaviour
         instance = this;
     }
 
-    public void Start()
+    public void Update()
     {
         if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
@@ -52,22 +52,18 @@ public class Menu_Frith : MonoBehaviour
                 case "Eden":
                     eden.SetActive(true);
                     edenInfo.SetActive(true);
-                    Debug.Log("Eden");
                     break;
                 case "Noah":
                     noah.SetActive(true);
                     noahInfo.SetActive(true);
-                    Debug.Log("Noah");
                     break;
                 case "Adam":
                     adam.SetActive(true);
                     adamInfo.SetActive(true);
-                    Debug.Log("Adam");
                     break;
                 case "Jonah":
                     jonah.SetActive(true);
                     jonahInfo.SetActive(true);
-                    Debug.Log("Jonah");
                     break;
             }
         }
