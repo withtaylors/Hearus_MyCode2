@@ -19,6 +19,7 @@ public class Item
     public bool isCountable;
     public bool isMeet;
     public bool isPicking;
+    public bool present;
 
 
     public string itemJourney;
@@ -40,8 +41,8 @@ public class Item
         기타
     }
 
-    public Item(int _itemID, string _itemName, string _itemDes, ItemType _itemType, 
-        ItemEffect _itemEffect, int _effectValue, bool _isCountable = true, 
+    public Item(int _itemID, string _itemName, string _itemDes, ItemType _itemType,
+        ItemEffect _itemEffect, int _effectValue, bool _present = false, bool _isCountable = true, 
         int _itemCount = 1, bool _isMeet = false, bool _isPicking = false)   // 생성자
     {
         // itemID는 아이콘 파일의 이름과 같게 함
@@ -56,5 +57,6 @@ public class Item
         isCountable = _isCountable;
         isMeet = _isMeet;
         isPicking = _isPicking;
+        present = _present;
     }
 }
