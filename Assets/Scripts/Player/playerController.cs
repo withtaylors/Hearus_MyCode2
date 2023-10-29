@@ -79,7 +79,7 @@ public class playerController : MonoBehaviour
             Debug.Log("PlayerHP.HPIncreased");
 
             myAnim.SetBool("isHealed", true);
-            StartCoroutine(ResetHurted());
+            StartCoroutine(ResetHealed());
         }
     }
 
@@ -355,7 +355,8 @@ public class playerController : MonoBehaviour
         // 일정 시간이 지난 후에 isHurted 다시 false로 설정
         isHurted = false;
     }
-    IEnumerator ResetHurted()
+
+    IEnumerator ResetHealed()
     {
         // 애니메이션 재생 후 대기할 시간 설정
         float animationDuration = 2f; // 애니메이션 재생 시간 (초)

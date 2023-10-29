@@ -23,6 +23,7 @@ public class PlayerHP : MonoBehaviour
     public Sprite decreaseSprite;
 
     public static bool HPIncreased = false;   
+    public static bool HPDecreased = false;   
 
     private void Awake()
     {
@@ -62,7 +63,6 @@ public class PlayerHP : MonoBehaviour
     public void DecreaseHP(int value)
     {
         // 현재 HP가 0 이하이면 더이상 HP를 감소시키지 않도록 조건 추가
-
         if ((HP - value) <= 0)
         {
             HP = 0;
@@ -91,51 +91,52 @@ public class PlayerHP : MonoBehaviour
         }
 
         switch (DataManager.instance.nowPlayer.nowCharacter)
-            {
-                case "Eden":
-                    if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
-                    {
-                        HP -= (value / 2);
-                    }
-                    else
-                    {
-                        HP -= value;
-                    }
-                    break;
-                case "Noah":
-                    if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
-                    {
-                        HP -= (value / 2);
-                    }
-                    else
-                    {
-                        HP -= value;
-                    }
-                    break;
-                case "Adam":
-                    if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
-                    {
-                        HP -= (value / 2);
-                    }
-                    else
-                    {
-                        HP -= value;
-                    }
-                    break;
-                case "Jonah":
-                    if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
-                    {
-                        HP -= (value / 2);
-                    }
-                    else
-                    {
-                        HP -= value;
-                    }
-                    break;
-                case "None":
+        {
+            case "Eden":
+                if (DataManager.instance.nowPlayer.currentMap == "태초의숲")
+                {
+                    HP -= (value / 2);
+                }
+                else
+                {
                     HP -= value;
-                    break;
-            }
+                }
+                break;
+            case "Noah":
+                if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")
+                {
+                    HP -= (value / 2);
+                }
+                else
+                {
+                    HP -= value;
+                }
+                break;
+            case "Adam":
+                if (DataManager.instance.nowPlayer.currentMap == "타오르는황야")
+                {
+                    HP -= (value / 2);
+                }
+                else
+                {
+                    HP -= value;
+                }
+                break;
+            case "Jonah":
+                if (DataManager.instance.nowPlayer.currentMap == "파멸된도시")
+                {
+                    HP -= (value / 2);
+                }
+                else
+                {
+                    HP -= value;
+                }
+                break;
+            case "None":
+                HPDecreased = true;
+                HP -= value;
+                break;
+        }
         
         intHP = Mathf.FloorToInt(HP);
         SetActiveHPBar(intHP, false);
@@ -156,6 +157,7 @@ public class PlayerHP : MonoBehaviour
 
     public void IncreaseHP(int value)
     {
+        HPIncreased = true; 
         HP += value;
 
         // 현재 HP가 100을 초과하지 않도록 보정
@@ -163,8 +165,6 @@ public class PlayerHP : MonoBehaviour
         {
             HP = 100;
         }
-
-        HPIncreased = true; 
 
         intHP = Mathf.FloorToInt(HP);
         SetActiveHPBar(intHP, true);

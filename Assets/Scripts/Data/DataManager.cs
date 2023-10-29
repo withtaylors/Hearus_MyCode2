@@ -233,7 +233,16 @@ public class DataManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SaveInventoryData();
+        SaveData(nowSlot);
+        nowPlayer = null;
+        DataClear();
+        InventoryClear();
+        Destroy(DataManager.instance.gameObject);
+        Debug.Log("all 종료1");
+
         isQuitting = true;
+        Debug.Log("OnApplicationQuit");
         StartCoroutine(QuitCoroutine());
     }
 
@@ -249,7 +258,7 @@ public class DataManager : MonoBehaviour
             DataClear();
             InventoryClear();
             Destroy(DataManager.instance.gameObject);
-            Debug.Log("all 종료");
+            Debug.Log("all 종료2");
         }
     }
 }
