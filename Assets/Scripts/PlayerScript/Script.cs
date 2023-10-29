@@ -38,6 +38,9 @@ public class Script
     [Tooltip("아이템 설명")]
     public string itemDes;
 
+    [Tooltip("프리스 선물")]
+    public string present;
+
     [Tooltip("대사 내용")]
     public string[] sentences;
 }

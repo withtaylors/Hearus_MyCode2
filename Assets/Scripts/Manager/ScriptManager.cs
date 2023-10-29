@@ -129,25 +129,31 @@ public class ScriptManager : MonoBehaviour
                         isNext = false;
                         if (++currentLine < currentScript.sentences.Length)
                         {
-                            //문장이 남아 있을 때
+                            // 문장이 남아 있을 때
                             StartCoroutine(TypeWriter());
                         }
                         else
                         {
+                            if (currentScript.present != "")
+                            {
+                                // 프리스 선물 버튼을 눌렀을 때
+                                PresentToFrith.instance.OnPresentChoice(currentScript.present);
+                            }
+
                             if (currentScript.isExistOption == "Y")
                             {
-                                //옵션이 있을 때
+                                // 옵션이 있을 때
                                 FindOption(int.Parse(currentScript.optionNumber));
                                 ShowOption();
                             }
                             else if (currentScript.isExistNextScript == "Y")
                             {
-                                //다음 스크립트가 있을 때
+                                // 다음 스크립트가 있을 때
                                 JumpToNextScript();
                             }
                             else
                             {
-                                //아무것도 없을 때
+                                // 아무것도 없을 때
                                 if (currentScript.getTiming != "")
                                 {
                                     if (currentGameObject != null)

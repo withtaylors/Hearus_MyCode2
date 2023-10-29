@@ -81,6 +81,7 @@ public class ScriptParser : MonoBehaviour
             string getTiming;
             string journeyNumber;
             string itemDes;
+            string present;
             List<string> sentenceList = new List<string>();
 
             scriptID = row[0];
@@ -94,6 +95,7 @@ public class ScriptParser : MonoBehaviour
             getTiming = row[9];
             journeyNumber = row[10];
             itemDes = row[11];
+            present = row[12];
 
             do
             {
@@ -118,6 +120,7 @@ public class ScriptParser : MonoBehaviour
             script.getTiming = getTiming;
             script.journeyNumber = journeyNumber;
             script.itemDes = itemDes;
+            script.present = present;
 
             script.itemID = string.Concat(script.itemID.Where(x => !char.IsWhiteSpace(x)));
             script.scriptID = string.Concat(script.scriptID.Where(x => !char.IsWhiteSpace(x)));
@@ -130,6 +133,7 @@ public class ScriptParser : MonoBehaviour
             script.getTiming = string.Concat(script.getTiming.Where(x => !char.IsWhiteSpace(x)));
             script.journeyNumber = string.Concat(script.journeyNumber.Where(x => !char.IsWhiteSpace(x)));
             script.itemDes = string.Concat(script.itemDes.Where(x => !char.IsWhiteSpace(x)));
+            script.present = string.Concat(script.present.Where(x => !char.IsWhiteSpace(x)));
 
 
             scriptList.Add(script);
