@@ -38550,6 +38550,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3511107435981547198, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
+      propertyPath: myAnim
+      value: 
+      objectReference: {fileID: 543450651889197253}
+    - target: {fileID: 3511107435981547198, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: decreaseSprite
       value: 
       objectReference: {fileID: 21300000, guid: 127cc4073bd5dc342a81bedd02706fec, type: 3}
@@ -48487,6 +48491,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd6e72698f2b0c44aa8f58969302bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &543450651889197253 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6089990028921295507, guid: 054652141416beb4da6bad560003daad, type: 3}
+  m_PrefabInstance: {fileID: 425986005350541407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &553082074973493574
 MeshRenderer:
   m_ObjectHideFlags: 0
