@@ -44695,6 +44695,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3511107435981547198, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
+      propertyPath: myAnim
+      value: 
+      objectReference: {fileID: 646149633}
+    - target: {fileID: 3511107435981547198, guid: c95f0a70e0965814cab85beae0fb7d5b, type: 3}
       propertyPath: decreaseSprite
       value: 
       objectReference: {fileID: 21300000, guid: 127cc4073bd5dc342a81bedd02706fec, type: 3}
