@@ -6,7 +6,6 @@ public class playerLocation : MonoBehaviour
 {
     public Transform playerTransform;
     public string filename;
-
     public bool gameNext;
     public bool gameBefore;
     public string currentMap;
