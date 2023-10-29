@@ -4145,6 +4145,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7627895287739225181, guid: e103fed2fb2b752448b6bd7d7f486150, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8040482240046394831, guid: e103fed2fb2b752448b6bd7d7f486150, type: 3}
       propertyPath: m_Name
       value: Tutorial Canvas
@@ -17293,9 +17297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 1305947244}
   FrithMenuInfo: {fileID: 799496710}
-  RectImg: {fileID: 23194915}
-  RectImg2: {fileID: 0}
-  KoreanText: {fileID: 0}
   eden: {fileID: 0}
   noah: {fileID: 0}
   adam: {fileID: 0}
@@ -17304,9 +17305,6 @@ MonoBehaviour:
   noahInfo: {fileID: 1590004889}
   adamInfo: {fileID: 914670269}
   jonahInfo: {fileID: 1183193850}
-  slider: {fileID: 0}
-  frithIntimacy: 0
-  frithIntimacy_Text: {fileID: 0}
 --- !u!1 &1058663813
 GameObject:
   m_ObjectHideFlags: 0
