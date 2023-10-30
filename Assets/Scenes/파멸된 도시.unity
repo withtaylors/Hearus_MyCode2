@@ -27129,6 +27129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoTab: {fileID: 13043242}
+  otherTab: []
+  player: {fileID: 646149634}
 --- !u!114 &1402138123
 MonoBehaviour:
   m_ObjectHideFlags: 0
