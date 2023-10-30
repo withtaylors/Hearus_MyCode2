@@ -27129,7 +27129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoTab: {fileID: 13043242}
-  otherTab: []
+  otherTab:
+  - {fileID: 323949651}
   player: {fileID: 646149634}
 --- !u!114 &1402138123
 MonoBehaviour:
@@ -27144,7 +27145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 1218143333}
 --- !u!114 &1402138124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27189,17 +27190,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 13043242}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1402138122}
+        m_TargetAssemblyTypeName: InfoTabActive, Assembly-CSharp
+        m_MethodName: InfoTabClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1402138125
 MonoBehaviour:
@@ -30478,7 +30479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 21142891}
 --- !u!114 &1526722377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32142,18 +32143,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 13043242}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1402138122}
         m_TargetAssemblyTypeName: InfoTabActive, Assembly-CSharp
         m_MethodName: InfoTabClick
@@ -32179,7 +32168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 1218143333}
 --- !u!114 &1594536124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34876,7 +34865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 21142891}
 --- !u!114 &1725752784
 MonoBehaviour:
   m_ObjectHideFlags: 0
