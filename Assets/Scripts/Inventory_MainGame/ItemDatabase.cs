@@ -88,9 +88,14 @@ public class ItemDatabase : MonoBehaviour
         itemList.Add(new Item(161, "헤드 볼트", "우주선의 엔진을 고칠 수 있는 헤드볼트.", Item.ItemType.부품, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(162, "연료 키트", "간단하게 연료를 만들 수 있는 키트. 원래는 난로 등의 연료를 만들기 위해 쓰인 것 같다.", Item.ItemType.재료, Item.ItemEffect.기타, 0));
         itemList.Add(new Item(163, "액체 연료 3", "우주선의 연료로 쓰이는 액체 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0));
-        itemList.Add(new Item(164, "도끼", "", Item.ItemType.도구, Item.ItemEffect.기타, 0, false, false));
+        itemList.Add(new Item(164, "돌도끼", "간단하게 쓸 수 있는 돌도끼. 꽤 단단하다.", Item.ItemType.도구, Item.ItemEffect.기타, 0, false, false));
         itemList.Add(new Item(165, "닫혀 있는 상자", "굳게 닫혀 있는 상자. 도구를 사용하면 열 수 있을 것 같다.", Item.ItemType.기타, Item.ItemEffect.기타, 0, false, false));
         itemList.Add(new Item(166, "엔진 블록", "우주선의 엔진을 고칠 수 있는 엔진 블록.", Item.ItemType.부품, Item.ItemEffect.기타, 0, false, false));
         itemList.Add(new Item(167, "누군가의 동상", "", Item.ItemType.기타, Item.ItemEffect.기타, 0));
+        itemList.Add(new Item(168, "간이 칼", "전갈 꼬리로 만든 간단하게 쓸 수 있는 칼. 꽤 날카롭다.", Item.ItemType.도구, Item.ItemEffect.기타, 0, false, false));
+        itemList.Add(new Item(169, "거즈", "다친 곳을 치료할 수 있는 거즈. 간단하게 우주복의 닳은 부분도 고칠 수 있다.", Item.ItemType.소모품, Item.ItemEffect.회복, 10, false, true));
+        itemList.Add(new Item(170, "액체 연료 4", "지구에서 얻은 여러 가지 물건을 사용해 만든 우주선의 연료.", Item.ItemType.연료, Item.ItemEffect.기타, 0, false, false));
+        itemList.Add(new Item(171, "스프로킷", "버려진 기계들을 모아 찾아 낸 스프로킷. 우주선 엔진을 고칠 수 있다.", Item.ItemType.부품, Item.ItemEffect.기타, 0, false, false));
+        itemList.Add(new Item(172, "항생 약초", "항생 약초.", Item.ItemType.소모품, Item.ItemEffect.회복, 20, false, true));
     }
 }

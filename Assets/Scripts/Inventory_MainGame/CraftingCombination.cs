@@ -43,5 +43,13 @@ public class CraftingCombination : MonoBehaviour
     private void Start()
     {
         combinations.Add(new CraftingCombination(101, 3, 0, 0, 0, 0, 102));
+        combinations.Add(new CraftingCombination(101, 1, 129, 1, 127, 1, 164));
+        combinations.Add(new CraftingCombination(147, 3, 127, 1, 0, 0, 168));
+        combinations.Add(new CraftingCombination(139, 3, 101, 1, 0, 0, 169));
+        combinations.Add(new CraftingCombination(122, 1, 129, 1, 0, 0, 172));
+        combinations.Add(new CraftingCombination(123, 1, 129, 1, 0, 0, 172));
+        combinations.Add(new CraftingCombination(124, 1, 129, 1, 0, 0, 172));
+        combinations.Add(new CraftingCombination(144, 1, 153, 1, 162, 1, 170));
+        combinations.Add(new CraftingCombination(143, 1, 151, 1, 0, 0, 171));
     }
 }
