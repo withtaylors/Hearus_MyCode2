@@ -90,6 +90,8 @@ public class PlayerHP : MonoBehaviour
             return;
         }
 
+        HPDecreased = true; 
+        
         switch (DataManager.instance.nowPlayer.nowCharacter)
         {
             case "Eden":
@@ -133,7 +135,6 @@ public class PlayerHP : MonoBehaviour
                 }
                 break;
             case "None":
-                HPDecreased = true;
                 HP -= value;
                 break;
         }

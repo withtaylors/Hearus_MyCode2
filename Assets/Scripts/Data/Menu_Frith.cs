@@ -21,6 +21,11 @@ public class Menu_Frith : MonoBehaviour
     public GameObject adamInfo;
     public GameObject jonahInfo;
 
+    // 프리스 정보 잠금
+    public List<GameObject> lockedInformation;
+    // 프리스 정보 열림
+    public List<GameObject> openInformation;
+
     private void Awake()
     {
         instance = this;
@@ -28,6 +33,7 @@ public class Menu_Frith : MonoBehaviour
 
     public void Update()
     {
+        // 프리스 정보 메뉴, 프리스 캐릭터 visability
         if(DataManager.instance.nowPlayer.nowCharacter == "None")
         {
             Text.SetActive(true);
@@ -67,11 +73,30 @@ public class Menu_Frith : MonoBehaviour
                     break;
             }
         }
-    }
 
+        UnlockFrithInformation(); // 프리스 정보 잠금 해제
+    }
     public void SetVisible()
     {
         Text.SetActive(false);
         FrithMenuInfo.SetActive(true);
+    }
+
+    private void UnlockFrithInformation()
+    {
+        if (DataManager.instance.nowPlayer.FrithInfo % 2 == 0)
+        {
+            int unlockCount = DataManager.instance.nowPlayer.FrithInfo / 2;
+
+            for (int i = 0; i < lockedInformation.Count; i++)
+            {
+                if (unlockCount > 0 && lockedInformation[i])
+                {
+                    lockedInformation[i].SetActive(false);
+                    openInformation[i].SetActive(true);
+                    unlockCount--;
+                }
+            }  
+        }
     }
 }

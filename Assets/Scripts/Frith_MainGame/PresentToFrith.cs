@@ -13,6 +13,9 @@ public class PresentToFrith : MonoBehaviour
 
     private Item currentItem;
 
+    // 선물가능 아이템 목록
+    //private int[] validItemIDs = { 105, 107, 108, 109, 110, 122, 112, 113, 130, 131, 137, 138, 140, 141, 142, 148 };
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +34,8 @@ public class PresentToFrith : MonoBehaviour
             // 프리스가 선물을 받았다는 메시지 출력
             // 인벤토리에서 해당 아이템을 1개 삭제
             recievePanel.gameObject.SetActive(true);
+            DataManager.instance.nowPlayer.FrithInfo += 1;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
             Inventory.instance.DeleteItem(currentItem.itemID);
             StartCoroutine(FadeOutPanel(recievePanel));
         }
@@ -57,6 +62,8 @@ public class PresentToFrith : MonoBehaviour
             // 선물이 가능하다면
             // 프리스가 선물을 받았다는 메시지 출력
             recievePanel.gameObject.SetActive(true);
+            DataManager.instance.nowPlayer.FrithInfo += 1;
+            DataManager.instance.SaveData(DataManager.instance.nowSlot);
             StartCoroutine(FadeOutPanel(recievePanel));
         }
     }
