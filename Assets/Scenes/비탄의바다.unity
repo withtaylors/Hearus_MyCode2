@@ -44241,8 +44241,48 @@ MonoBehaviour:
   noahInfo: {fileID: 1599523370}
   adamInfo: {fileID: 354006678}
   jonahInfo: {fileID: 120189598}
-  lockedInformation: []
-  openInformation: []
+  lockedInformation:
+  - {fileID: 1528174660}
+  - {fileID: 2076070245}
+  - {fileID: 454706519}
+  - {fileID: 1204136303}
+  - {fileID: 1969650508}
+  - {fileID: 763022787}
+  - {fileID: 1088212285}
+  - {fileID: 517026319}
+  - {fileID: 556488871}
+  - {fileID: 1466705078}
+  - {fileID: 1080739056}
+  - {fileID: 1839234533}
+  - {fileID: 59743773}
+  - {fileID: 1509953943}
+  - {fileID: 881054483}
+  - {fileID: 2023322840}
+  - {fileID: 457543921}
+  - {fileID: 2017823360}
+  - {fileID: 942803719}
+  - {fileID: 764834179}
+  openInformation:
+  - {fileID: 1890727366}
+  - {fileID: 43281759}
+  - {fileID: 1973282484}
+  - {fileID: 378380406}
+  - {fileID: 614151740}
+  - {fileID: 724198526}
+  - {fileID: 1311995166}
+  - {fileID: 1687896351}
+  - {fileID: 964210488}
+  - {fileID: 350426222}
+  - {fileID: 1139958520}
+  - {fileID: 1173829317}
+  - {fileID: 279180204}
+  - {fileID: 303302995}
+  - {fileID: 993423371}
+  - {fileID: 1576271414}
+  - {fileID: 1494332978}
+  - {fileID: 901341253}
+  - {fileID: 1118240621}
+  - {fileID: 325813662}
 --- !u!4 &2018383506
 Transform:
   m_ObjectHideFlags: 0

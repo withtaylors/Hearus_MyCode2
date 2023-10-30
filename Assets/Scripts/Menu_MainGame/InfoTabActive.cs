@@ -8,7 +8,8 @@ public class InfoTabActive : MonoBehaviour
     public List<GameObject> otherTab = new List<GameObject>();
     public playerController player;
 
-    private bool infoTabIsActive = false;
+    public static bool infoTabIsActive = false;
+    
     void Awake()
     {
         player = FindObjectOfType<playerController>();

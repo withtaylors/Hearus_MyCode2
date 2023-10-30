@@ -30865,8 +30865,48 @@ MonoBehaviour:
   noahInfo: {fileID: 339330757}
   adamInfo: {fileID: 2068801414}
   jonahInfo: {fileID: 13934769}
-  lockedInformation: []
-  openInformation: []
+  lockedInformation:
+  - {fileID: 97753705}
+  - {fileID: 310735132}
+  - {fileID: 500397606}
+  - {fileID: 226072313}
+  - {fileID: 1252238409}
+  - {fileID: 634546125}
+  - {fileID: 798291122}
+  - {fileID: 92540701}
+  - {fileID: 42378737}
+  - {fileID: 1370552355}
+  - {fileID: 1532118554}
+  - {fileID: 2004938454}
+  - {fileID: 895377876}
+  - {fileID: 805009965}
+  - {fileID: 1149938}
+  - {fileID: 1851067573}
+  - {fileID: 711020685}
+  - {fileID: 1297682895}
+  - {fileID: 1767482934}
+  - {fileID: 120024875}
+  openInformation:
+  - {fileID: 801770970}
+  - {fileID: 716242996}
+  - {fileID: 409703988}
+  - {fileID: 2082062400}
+  - {fileID: 1376801729}
+  - {fileID: 307900184}
+  - {fileID: 2045856909}
+  - {fileID: 1721053210}
+  - {fileID: 858174683}
+  - {fileID: 2043263968}
+  - {fileID: 1271400878}
+  - {fileID: 873470899}
+  - {fileID: 1594106422}
+  - {fileID: 255880150}
+  - {fileID: 1883176934}
+  - {fileID: 893418269}
+  - {fileID: 2068121020}
+  - {fileID: 337419642}
+  - {fileID: 1603323030}
+  - {fileID: 757959954}
 --- !u!1 &1544988768
 GameObject:
   m_ObjectHideFlags: 0

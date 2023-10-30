@@ -17740,8 +17740,48 @@ MonoBehaviour:
   noahInfo: {fileID: 257881275}
   adamInfo: {fileID: 590935933}
   jonahInfo: {fileID: 1478091481}
-  lockedInformation: []
-  openInformation: []
+  lockedInformation:
+  - {fileID: 2136027458}
+  - {fileID: 1360773094}
+  - {fileID: 47490768}
+  - {fileID: 735339302}
+  - {fileID: 2130216515}
+  - {fileID: 569866560}
+  - {fileID: 781846335}
+  - {fileID: 1488240050}
+  - {fileID: 1154497398}
+  - {fileID: 238087599}
+  - {fileID: 1046988584}
+  - {fileID: 1285899190}
+  - {fileID: 2135018637}
+  - {fileID: 594394121}
+  - {fileID: 1666041641}
+  - {fileID: 1816719801}
+  - {fileID: 265427815}
+  - {fileID: 2131323530}
+  - {fileID: 1815338045}
+  - {fileID: 2146247742}
+  openInformation:
+  - {fileID: 1931728277}
+  - {fileID: 1076023639}
+  - {fileID: 292060250}
+  - {fileID: 43849100}
+  - {fileID: 2132463062}
+  - {fileID: 1433332288}
+  - {fileID: 843882058}
+  - {fileID: 1108257266}
+  - {fileID: 1742738127}
+  - {fileID: 235379375}
+  - {fileID: 1272134908}
+  - {fileID: 250867835}
+  - {fileID: 1254471937}
+  - {fileID: 1474924115}
+  - {fileID: 315735173}
+  - {fileID: 2002392094}
+  - {fileID: 1539525568}
+  - {fileID: 480349824}
+  - {fileID: 1708614370}
+  - {fileID: 942370096}
 --- !u!4 &403221865
 Transform:
   m_ObjectHideFlags: 0

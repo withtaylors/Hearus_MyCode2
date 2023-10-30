@@ -11,7 +11,7 @@ public class InfoSwitcher : MonoBehaviour
     {
         UpdateImage();
     }
-
+    
     public void SwitchImage(bool isRight)
     {
         // 비활성화 현재 이미지 오브젝트
