@@ -55,7 +55,7 @@ public class PresentToFrith : MonoBehaviour
             // 선물이 불가능하다면
             // 프리스는 선물을 받지 않았다는 메시지 출력
             refusePanel.gameObject.SetActive(true);
-            StartCoroutine(FadeOutPanel(recievePanel));
+            StartCoroutine(FadeOutPanel(refusePanel));
         }
         else
         {
