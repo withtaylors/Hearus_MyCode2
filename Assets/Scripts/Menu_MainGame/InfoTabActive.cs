@@ -18,26 +18,32 @@ public class InfoTabActive : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            InfoTab.SetActive(!infoTabIsActive);
+            InfoTabClick();
+        }
+    }
 
-            if (infoTabIsActive)
-            {
-                Time.timeScale = 0; // 게임 일시 중지
-                player.isWalking = false;
-                player.isRunning = false;
-            }
-            else
-            {
-                Time.timeScale = 1; // 게임 재개
-                player.isWalking = true;
-                player.isRunning = true;
-            }
+    public void InfoTabClick()
+    {
+        infoTabIsActive = !infoTabIsActive; // 활성화 상태를 반대로 전환
+        InfoTab.SetActive(infoTabIsActive);
+        
+        if (infoTabIsActive)
+        {
+            Time.timeScale = 0; // 게임 일시 중지
+            player.isWalking = false;
+            player.isRunning = false;
+        }
+        else
+        {
+            Time.timeScale = 1; // 게임 재개
+            player.isWalking = true;
+            player.isRunning = true;
+        }
 
-            // otherTab 리스트에 있는 모든 GameObject의 활성화 상태를 토글
-            foreach (GameObject obj in otherTab)
-            {
-                obj.SetActive(!obj.activeSelf);
-            }
+        // otherTab 리스트에 있는 모든 GameObject의 활성화 상태를 토글
+        foreach (GameObject obj in otherTab)
+        {
+            obj.SetActive(!obj.activeSelf);
         }
     }
 }
