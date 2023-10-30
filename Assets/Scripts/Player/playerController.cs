@@ -91,7 +91,7 @@ public class playerController : MonoBehaviour
         isPlayingScript = ScriptManager.instance.isPlayingScript;
 
         // 애니메이션/대화 실행 중이거나 isPicking 중일 때, 애니메이션 실행중일 시 움직임을 막음
-        if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("Hurted2") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Spinning") || isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
+        if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("Hurted2") || isPicking || isPlayingScript || isClimbing || myAnim.GetCurrentAnimatorStateInfo(0).IsName("falling to land") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Taking") || myAnim.GetCurrentAnimatorStateInfo(0).IsName("Picking"))
         {
             myAnim.SetBool("isWalking", false);
             myAnim.SetBool("isRunning", false);
@@ -141,15 +141,6 @@ public class playerController : MonoBehaviour
         else
         {
             myAnim.SetBool("isOnWater", false);       
-        }
-
-        if(PlayerHP.HPIncreased)
-        {
-            Debug.Log("PlayerHP.HPIncreased");
-
-            myAnim.SetTrigger("isHealed");
-            PlayerHP.HPIncreased = false;
-            StartCoroutine(ResetHealed());
         }
 
         if(PlayerHP.HPDecreased)
@@ -365,16 +356,6 @@ public class playerController : MonoBehaviour
         isHurted = false;
         PlayerHP.HPDecreased = false;
         Debug.Log("ResetHurted");
-    }
-
-    IEnumerator ResetHealed()
-    {
-        float animationDuration = 2f;
-        yield return new WaitForSeconds(animationDuration);
-
-        isHealed = false;
-        PlayerHP.HPIncreased = false;
-        Debug.Log("ResetHealed");
     }
     
     public void UpdateGrounded(bool isCollidingWithGround)
