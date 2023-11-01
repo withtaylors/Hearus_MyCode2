@@ -82,6 +82,7 @@ public class Inventory : MonoBehaviour
                     go_itemDes.SetActive(true);
                     TryInputArrowKey();
                     SelectedItemDes(inventoryItemList[selectedSlot].itemID);
+                    SelectedSlot();
                 }
                 else
                 {
@@ -282,6 +283,8 @@ public class Inventory : MonoBehaviour
                         selectedSlot = 0;
                         SelectedSlot();
                         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)tf.transform);
+                        SaveInventoryDataManager();
+                        DataManager.instance.SaveInventoryData();
                         break;
                     }
                 }
