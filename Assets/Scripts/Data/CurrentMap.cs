@@ -80,7 +80,7 @@ public class CurrentMap : MonoBehaviour
             if(DataManager.instance.nowPlayer.currentMap == "태초의숲")
             {
                 DataManager.instance.nowPlayer.currentMap = "비탄의바다";
-                DataManager.instance.nowPlayer.currentStage = "동굴";
+                DataManager.instance.nowPlayer.currentStage = "강과 바다";
                 DataManager.instance.SaveData(DataManager.instance.nowSlot);
             }
             else if (DataManager.instance.nowPlayer.currentMap == "비탄의바다")

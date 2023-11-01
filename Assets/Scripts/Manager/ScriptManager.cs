@@ -379,55 +379,54 @@ public class ScriptManager : MonoBehaviour
     public void OnOptionButtonClick()
     {
         string buttonTag = EventSystem.current.currentSelectedGameObject.tag; // 선택한 옵션의 태그를 받아 옴
+        int buttonNum = -1;
+        
+        switch (buttonTag)
+        {
+            case "FirstOption":
+                buttonNum = 0;
+                break;
+            case "SecondOption":
+                buttonNum = 1;
+                break;
+            case "ThirdOption":
+                buttonNum = 2;
+                break;
+        }
 
-        if (buttonTag == "FirstOption")
+        if (currentOption.optionID == "39") // 최종 선택지
         {
-            // 선택한 옵션에 따른 HP 증감
-            if (currentOption.optionEffect[0] == "피해")
+            if (buttonNum == 0)
             {
-                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
-                PlayerHP.HPDecreased = true;                
+                // 프리스를 데려가는 선택지를 골랐을 때
+                ShowOptionUI(false);
+                return;
             }
-            else if (currentOption.optionEffect[0] == "회복")
+            else if (buttonNum == 1)
             {
-                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[0]));
-                PlayerHP.HPIncreased = true;                
+                // 프리스를 데려가지 않는 선택지를 골랐을 때
+                ShowOptionUI(false);
+                return;
             }
-            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[0]));
+        }
+
+        if (currentOption.optionEffect[buttonNum] == "피해")
+        {
+            PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[buttonNum]));
+            PlayerHP.HPDecreased = true;
+        }
+        else if (currentOption.optionEffect[buttonNum] == "회복")
+        {
+            PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[buttonNum]));
+            PlayerHP.HPIncreased = true;
+        }
+
+        if (currentOption.isExistNextScript[buttonNum] != "")
+        {
+            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[buttonNum]));
             ShowScript();
         }
-        else if (buttonTag == "SecondOption")
-        {
-            // 선택한 옵션에 따른 HP 증감
-            if (currentOption.optionEffect[1] == "피해")
-            {
-                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[0]));
-                PlayerHP.HPDecreased = true;                
-            }
-            else if (currentOption.optionEffect[1] == "회복")
-            {
-                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[1]));
-                PlayerHP.HPIncreased = true;                
-            }         
-            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[1]));
-            ShowScript();
-        }
-        else if (buttonTag == "ThirdOption")
-        {
-            // 선택한 옵션에 따른 HP 증감
-            if (currentOption.optionEffect[2] == "피해")
-            {
-                PlayerHP.instance.DecreaseHP(int.Parse(currentOption.optionEffectValue[2]));
-                PlayerHP.HPDecreased = true;                
-            }
-            else if (currentOption.optionEffect[2] == "회복")
-            {
-                PlayerHP.instance.IncreaseHP(int.Parse(currentOption.optionEffectValue[2]));
-                PlayerHP.HPIncreased = true;                
-            }         
-            FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[2]));
-            ShowScript();
-        }
+
         ShowOptionUI(false);
     }
 

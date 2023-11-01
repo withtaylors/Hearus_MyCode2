@@ -3000,8 +3000,14 @@ MonoBehaviour:
       present: 
       sentences: []
   option:
-    line: {x: 1, y: 38}
+    line: {x: 1, y: 39}
     options:
+    - optionID: 
+      isExistNextScript: []
+      nextScriptNumber: []
+      sentences: []
+      optionEffect: []
+      optionEffectValue: []
     - optionID: 
       isExistNextScript: []
       nextScriptNumber: []

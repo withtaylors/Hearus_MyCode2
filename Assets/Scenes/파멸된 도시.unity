@@ -11346,6 +11346,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3298534952060363274, guid: 0529c04db8f7e614a9c0f03857e1309a, type: 3}
+--- !u!224 &610204696 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3523231692190427297, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+  m_PrefabInstance: {fileID: 2402074328123184696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &611222316
 GameObject:
   m_ObjectHideFlags: 0
@@ -15715,7 +15720,7 @@ PrefabInstance:
       objectReference: {fileID: 800959623}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: option.line.y
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: script.line.x
@@ -15723,7 +15728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: script.line.y
-      value: 214
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: go_ScriptPanel
@@ -15731,11 +15736,11 @@ PrefabInstance:
       objectReference: {fileID: 800959625}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: option.options.Array.size
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: script.scripts.Array.size
-      value: 214
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: optionPrefab.Array.data[0]
@@ -49301,7 +49306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2402074326943465786, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -193
+      value: -236.5
       objectReference: {fileID: 0}
     - target: {fileID: 2402074326943465788, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -49326,6 +49331,14 @@ PrefabInstance:
     - target: {fileID: 3491754061600616699, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523231692190427297, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 428
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523231692190427297, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3552450996567032736, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_Name
@@ -49513,7 +49526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341577316663062549, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -263.1
+      value: -291.09
       objectReference: {fileID: 0}
     - target: {fileID: 4341577316730641938, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -54124,7 +54137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_Item: []
   slots: []
-  tf: {fileID: 0}
+  tf: {fileID: 610204696}
   itemDes: {fileID: 4327416857492286755}
   inventoryItemList: []
   fieldItemIDList: 
