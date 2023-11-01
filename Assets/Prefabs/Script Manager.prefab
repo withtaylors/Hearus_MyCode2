@@ -85,7 +85,7 @@ MonoBehaviour:
   - 
   - 
   script:
-    line: {x: 1, y: 214}
+    line: {x: 1, y: 224}
     scripts:
     - scriptID: 
       itemID: 
@@ -98,6 +98,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -110,6 +111,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -122,6 +124,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -134,6 +137,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -146,6 +150,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -158,6 +163,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -170,6 +176,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -182,6 +189,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -194,6 +202,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -206,6 +215,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -218,6 +228,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -230,6 +241,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -242,6 +254,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -254,6 +267,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -266,6 +280,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -278,6 +293,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -290,6 +306,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -302,6 +319,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -314,6 +332,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -326,6 +345,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -338,6 +358,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -350,6 +371,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -362,6 +384,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -374,6 +397,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -386,6 +410,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -398,6 +423,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -410,6 +436,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -422,6 +449,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -434,6 +462,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -446,6 +475,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -458,6 +488,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -470,6 +501,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -482,6 +514,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -494,6 +527,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -506,6 +540,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -518,6 +553,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -530,6 +566,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -542,6 +579,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -554,6 +592,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -566,6 +605,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -578,6 +618,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -590,6 +631,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -602,6 +644,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -614,6 +657,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -626,6 +670,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -638,6 +683,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -650,6 +696,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -662,6 +709,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -674,6 +722,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -686,6 +735,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -698,6 +748,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -710,6 +761,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -722,6 +774,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -734,6 +787,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -746,6 +800,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -758,6 +813,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -770,6 +826,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -782,6 +839,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -794,6 +852,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -806,6 +865,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -818,6 +878,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -830,6 +891,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -842,6 +904,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -854,6 +917,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -866,6 +930,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -878,6 +943,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -890,6 +956,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -902,6 +969,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -914,6 +982,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -926,6 +995,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -938,6 +1008,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -950,6 +1021,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -962,6 +1034,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -974,6 +1047,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -986,6 +1060,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -998,6 +1073,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1010,6 +1086,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1022,6 +1099,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1034,6 +1112,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1046,6 +1125,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1058,6 +1138,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1070,6 +1151,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1082,6 +1164,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1094,6 +1177,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1106,6 +1190,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1118,6 +1203,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1130,6 +1216,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1142,6 +1229,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1154,6 +1242,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1166,6 +1255,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1178,6 +1268,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1190,6 +1281,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1202,6 +1294,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1214,6 +1307,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1226,6 +1320,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1238,6 +1333,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1250,6 +1346,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1262,6 +1359,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1274,6 +1372,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1286,6 +1385,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1298,6 +1398,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1310,6 +1411,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1322,6 +1424,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1334,6 +1437,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1346,6 +1450,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1358,6 +1463,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1370,6 +1476,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1382,6 +1489,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1394,6 +1502,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1406,6 +1515,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1418,6 +1528,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1430,6 +1541,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1442,6 +1554,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1454,6 +1567,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1466,6 +1580,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1478,6 +1593,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1490,6 +1606,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1502,6 +1619,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1514,6 +1632,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1526,6 +1645,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1538,6 +1658,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1550,6 +1671,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1562,6 +1684,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1574,6 +1697,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1586,6 +1710,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1598,6 +1723,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1610,6 +1736,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1622,6 +1749,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1634,6 +1762,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1646,6 +1775,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1658,6 +1788,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1670,6 +1801,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1682,6 +1814,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1694,6 +1827,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1706,6 +1840,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1718,6 +1853,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1730,6 +1866,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1742,6 +1879,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1754,6 +1892,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1766,6 +1905,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1778,6 +1918,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1790,6 +1931,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1802,6 +1944,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1814,6 +1957,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1826,6 +1970,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1838,6 +1983,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1850,6 +1996,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1862,6 +2009,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1874,6 +2022,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1886,6 +2035,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1898,6 +2048,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1910,6 +2061,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1922,6 +2074,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1934,6 +2087,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1946,6 +2100,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1958,6 +2113,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1970,6 +2126,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1982,6 +2139,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -1994,6 +2152,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2006,6 +2165,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2018,6 +2178,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2030,6 +2191,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2042,6 +2204,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2054,6 +2217,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2066,6 +2230,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2078,6 +2243,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2090,6 +2256,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2102,6 +2269,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2114,6 +2282,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2126,6 +2295,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2138,6 +2308,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2150,6 +2321,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2162,6 +2334,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2174,6 +2347,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2186,6 +2360,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2198,6 +2373,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2210,6 +2386,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2222,6 +2399,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2234,6 +2412,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2246,6 +2425,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2258,6 +2438,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2270,6 +2451,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2282,6 +2464,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2294,6 +2477,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2306,6 +2490,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2318,6 +2503,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2330,6 +2516,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2342,6 +2529,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2354,6 +2542,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2366,6 +2555,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2378,6 +2568,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2390,6 +2581,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2402,6 +2594,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2414,6 +2607,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2426,6 +2620,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2438,6 +2633,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2450,6 +2646,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2462,6 +2659,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2474,6 +2672,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2486,6 +2685,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2498,6 +2698,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2510,6 +2711,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2522,6 +2724,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2534,6 +2737,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2546,6 +2750,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2558,6 +2763,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2570,6 +2776,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2582,6 +2789,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2594,6 +2802,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2606,6 +2815,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2618,6 +2828,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2630,6 +2841,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2642,6 +2854,7 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
       sentences: []
     - scriptID: 
       itemID: 
@@ -2654,6 +2867,137 @@ MonoBehaviour:
       getTiming: 
       journeyNumber: 
       itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
+      sentences: []
+    - scriptID: 
+      itemID: 
+      isExistOption: 
+      optionNumber: 
+      isExistNextScript: 
+      nextScriptNumber: 
+      eventName: 
+      scriptSwitch: 
+      getTiming: 
+      journeyNumber: 
+      itemDes: 
+      present: 
       sentences: []
   option:
     line: {x: 1, y: 38}
@@ -2898,6 +3242,7 @@ MonoBehaviour:
     getTiming: 
     journeyNumber: 
     itemDes: 
+    present: 
     sentences: []
   currentOption:
     optionID: 
