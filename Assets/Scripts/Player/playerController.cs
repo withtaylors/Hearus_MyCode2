@@ -4,6 +4,8 @@ using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
 using UnityEngine.Events;
+using System;
+using System.Reflection;
 using TMPro;
 
 public class playerController : MonoBehaviour
@@ -219,6 +221,25 @@ public class playerController : MonoBehaviour
         }       
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ScriptSwitch"))
+        {
+            // nowPlayer의 필드 목록 저장
+            var fieldValues = DataManager.instance.nowPlayer.GetType().GetFields().ToList();
+            // other과 같은 이름의 필드를 findField에 저장
+            FieldInfo findField = fieldValues.Find(x => x.Name == other.gameObject.name);
+
+            if ((bool)findField.GetValue(DataManager.instance.nowPlayer)) // 해당 스크립트 스위치의 값이 true라면 리턴
+                return;
+            else
+                findField.SetValue(DataManager.instance.nowPlayer, true); // false라면 true로 바꿔 줌
+
+            ScriptManager.instance.FindScriptByEventName(other.gameObject.name);
+            ScriptManager.instance.ShowScript();
+        }
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.name.Equals("ropeground")) // 로프를 사용해야 하는 곳에서 벗어났을 때
@@ -227,6 +248,10 @@ public class playerController : MonoBehaviour
 
     void CheckPicking()
     {
+        // 애니메이션/대화 실행 중일 때는 아이템 습득 막음
+        if (isPicking || isPlayingScript)
+            return;
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f); // 주변 2 유닛 반경의 충돌체 확인
 
         if (!isPicking)

@@ -17,6 +17,18 @@ public class PlayerData
     public bool gameNext = true;
     public bool gameBefore = false;
     public bool isFinishedTutorial = false;
+
+    public bool scriptSwitch_1 = false; // 쓰레기섬 조우 여부
+    public bool scriptSwitch_2 = false; // 바다도시초반 조우 여부
+    public bool scriptSwitch_3 = false; // 바다다리중간 조우 여부
+    public bool scriptSwitch_4 = false; // 황야시작 조우 여부
+    public bool scriptSwitch_5 = false; // 황폐한사막끝 조우 여부
+    public bool scriptSwitch_6 = false; // 도시보이는곳중간 조우 여부
+    public bool scriptSwitch_7 = false; // 파멸된도시시작 조우 여부
+    public bool scriptSwitch_8 = false; // 주택 조우 여부
+    public bool scriptSwitch_9 = false; // 편지 조우 여부
+    public bool scriptSwitch_10 = false; // 우주선 조우 여부
+
     public string currentMap = "태초의숲";
     public string currentStage = "중심 들판";
 

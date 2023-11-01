@@ -23,6 +23,7 @@ TagManager:
   - Border
   - Dangerous
   - Dangerous(10)
+  - ScriptSwitch
   layers:
   - Default
   - TransparentFX
