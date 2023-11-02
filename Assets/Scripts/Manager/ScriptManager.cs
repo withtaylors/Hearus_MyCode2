@@ -421,7 +421,7 @@ public class ScriptManager : MonoBehaviour
             PlayerHP.HPIncreased = true;
         }
 
-        if (currentOption.isExistNextScript[buttonNum] != "Y")
+        if (currentOption.isExistNextScript[buttonNum] == "Y")
         {
             FindScriptByScriptID(int.Parse(currentOption.nextScriptNumber[buttonNum]));
             ShowScript();
