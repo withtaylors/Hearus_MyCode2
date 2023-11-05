@@ -15,14 +15,6 @@ public class InfoTabActive : MonoBehaviour
         player = FindObjectOfType<playerController>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            InfoTabClick();
-        }
-    }
-
     public void InfoTabClick()
     {
         infoTabIsActive = !infoTabIsActive; // 활성화 상태를 반대로 전환
