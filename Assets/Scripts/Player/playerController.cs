@@ -131,6 +131,7 @@ public class playerController : MonoBehaviour
             myRB.rotation = Quaternion.Slerp(myRB.rotation, newRotation, 10f * Time.deltaTime);
         }
         
+        // 플레이어가 비탄의 바다 뗏목을 타고 있다면(물 위를 건너고 있다면)
         if (CrossWater.isPlayerOnWater)  
         {
             Debug.Log("CrossWater.isPlayerOnWater");
@@ -145,13 +146,22 @@ public class playerController : MonoBehaviour
             myAnim.SetBool("isOnWater", false);       
         }
 
-        if(PlayerHP.HPDecreased)
+        // 플레이어의 hp가 감소했다면
+        if(PlayerHP.HPDecreased && !isHurted)
         {
             Debug.Log("PlayerHP.HPDecreased");
-
             myAnim.SetTrigger("isHurted");
+            isHurted = true; // 플래그를 여기서 true로 설정
             PlayerHP.HPDecreased = false;
             StartCoroutine(ResetHurted());
+        }
+
+        // 게임 시연 중 플레이어가 움직여지지않는 문제를 해결하기 위함
+        // 'z'와 'x'가 동시에 눌렸는지 확인
+        if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.X))
+        {
+            // 플레이어의 위치를 각각 x, y, z 축에서 0.5씩 이동
+            transform.position += new Vector3(0.2f, 0.2f, 0.2f);
         }
     }
 
