@@ -64132,6 +64132,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2402074326943465788, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4327416856578048728}
+    - target: {fileID: 2402074326943465788, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickUseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3062489099800709678, guid: 65f8d29d586a5b64fb03ad7f643c5649, type: 3}
       propertyPath: m_IsActive
       value: 1
