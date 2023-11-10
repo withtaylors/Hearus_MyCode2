@@ -82,21 +82,20 @@ public class Menu_Frith : MonoBehaviour
         FrithMenuInfo.SetActive(true);
     }
 
-    private void UnlockFrithInformation()
+    public void UnlockFrithInformation()
     {
-        if (DataManager.instance.nowPlayer.FrithInfo % 2 == 0)
-        {
-            int unlockCount = DataManager.instance.nowPlayer.FrithInfo / 2;
+        Debug.Log(" Inside UnlockFrithInformation");
 
-            for (int i = 0; i < lockedInformation.Count; i++)
+        int unlockCount = DataManager.instance.nowPlayer.FrithInfo / 2;
+
+        for (int i = 0; i < lockedInformation.Count; i++)
+        {
+            if (unlockCount > 0 && lockedInformation[i])
             {
-                if (unlockCount > 0 && lockedInformation[i])
-                {
-                    lockedInformation[i].SetActive(false);
-                    openInformation[i].SetActive(true);
-                    unlockCount--;
-                }
-            }  
-        }
+                lockedInformation[i].SetActive(false);
+                openInformation[i].SetActive(true);
+                unlockCount--;
+            }
+        }  
     }
 }
