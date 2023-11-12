@@ -165,14 +165,12 @@ public class ItemPickup : MonoBehaviour
         {
             if (Inventory.instance.getItemIDList[i] == _itemID) // 획득한 적이 있다면
             {
-                Debug.Log("획득한적잇음");
                 scriptManager.FindScriptByItemDesNum(_itemID);          // 아이템 설명 스크립트 재생
                 scriptManager.ShowScript();
                 return;
             }
         }
 
-        Debug.Log("획득한적없음");
         scriptManager.FindScriptByItemID(_itemID); // 해당 아이템 스크립트 찾기
         scriptManager.ShowScript(); // 스크립트 재생
     }

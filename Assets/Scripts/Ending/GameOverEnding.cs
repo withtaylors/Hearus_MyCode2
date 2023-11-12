@@ -84,7 +84,7 @@ public class GameOverEnding : MonoBehaviour
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

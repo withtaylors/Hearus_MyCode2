@@ -439,7 +439,7 @@ public class TutorialController : MonoBehaviour
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
 
         scriptManager.FindScriptByEventName("END_TUTORIAL");
@@ -456,7 +456,7 @@ public class TutorialController : MonoBehaviour
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
 
         // 빽빽한 숲에서 시작
@@ -478,7 +478,7 @@ public class TutorialController : MonoBehaviour
             tutorialPanel.GetComponent<Image>().color = c;
             tutorialPanelText.color = c2;
 
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -495,7 +495,7 @@ public class TutorialController : MonoBehaviour
             tutorialPanel.GetComponent<Image>().color = c;
             tutorialPanelText.color = c2;
 
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -514,7 +514,7 @@ public class TutorialController : MonoBehaviour
             tutorialPanel.GetComponent<Image>().color = c;
             tutorialPanelText.color = c2;
 
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
 
         tutorialStep++;

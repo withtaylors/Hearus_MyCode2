@@ -134,7 +134,6 @@ public class Inventory : MonoBehaviour
                 CreateSlot();                                               // 슬롯 생성
                 slots[slots.Count - 1].Additem(ItemDatabase.itemList[i]);   // 슬롯에 아이템 넣기
                 slots[slots.Count - 1].UncountableItem(ItemDatabase.itemList[i]);
-                LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)tf.transform);
                 return;
             }
         }

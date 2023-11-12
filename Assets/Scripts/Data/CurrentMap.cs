@@ -28,7 +28,7 @@ public class CurrentMap : MonoBehaviour
             case "타오르는황야":
                 UpdateCurrentMap("타오르는 황야");
                 break;
-            case "파멸된 도시":
+            case "파멸된도시":
                 UpdateCurrentMap("파멸된 도시");
                 break;
         }
