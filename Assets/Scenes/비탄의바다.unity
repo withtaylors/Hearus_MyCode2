@@ -60463,11 +60463,9 @@ GameObject:
   - component: {fileID: 2300023862860222949}
   - component: {fileID: 3751677998568900463}
   - component: {fileID: 1244338773725013928}
-  - component: {fileID: 3751677998568900464}
-  - component: {fileID: 3751677998568900465}
   m_Layer: 0
-  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC18C\uAE08\uACB0\uC815 <.002"
-  m_TagString: ITEM_PICKING
+  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC18C\uAE08\uACB0\uC815.002"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72721,38 +72719,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793724723552835292}
   m_Mesh: {fileID: -8007323360429832697, guid: fe2bf581087d7434ea0286609188b62f, type: 3}
---- !u!114 &3751677998568900464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793724723552835292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67d58f4ac3f4dd408f5ce2716757749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemID: 140
-  _count: 1
-  _fieldItemID: 1095
-  Picked:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!136 &3751677998568900465
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793724723552835292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.022183992
-  m_Height: 0.106695965
-  m_Direction: 2
-  m_Center: {x: 0.0058018034, y: 0.004625404, z: 0.002602982}
 --- !u!1 &3754789664415155603
 GameObject:
   m_ObjectHideFlags: 0
@@ -95146,47 +95112,13 @@ GameObject:
   - component: {fileID: 1180759095590811680}
   - component: {fileID: 6296895544733740339}
   - component: {fileID: 3880403925363985695}
-  - component: {fileID: 6697988142651669341}
-  - component: {fileID: 6697988142651669342}
   m_Layer: 0
-  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC18C\uAE08\uACB0\uC815 <"
-  m_TagString: ITEM_PICKING
+  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC18C\uAE08\uACB0\uC815"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6697988142651669341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697988142651669340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67d58f4ac3f4dd408f5ce2716757749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemID: 140
-  _count: 1
-  _fieldItemID: 1093
-  Picked:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!136 &6697988142651669342
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697988142651669340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.022896066
-  m_Height: 0.11556903
-  m_Direction: 2
-  m_Center: {x: 0.006075497, y: 0.00418706, z: 0.0077151638}
 --- !u!33 &6699924292931841819
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -103189,47 +103121,13 @@ GameObject:
   - component: {fileID: 6302637288633582790}
   - component: {fileID: 5871718059039773531}
   - component: {fileID: 4201317203021225882}
-  - component: {fileID: 7780477681955302626}
-  - component: {fileID: 7780477681955302627}
   m_Layer: 0
-  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC218\uC815 <.002"
-  m_TagString: ITEM_PICKING
+  m_Name: "2_\uB3D9\uAD74_\uC544\uC774\uD15C_\uC218\uC815.002"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7780477681955302626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780477681955302625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67d58f4ac3f4dd408f5ce2716757749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemID: 142
-  _count: 1
-  _fieldItemID: 1098
-  Picked:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!136 &7780477681955302627
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780477681955302625}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.0056077437
-  m_Height: 0.026910612
-  m_Direction: 2
-  m_Center: {x: 0.0021028835, y: -0.0011105319, z: -0.0035283046}
 --- !u!4 &7785193450943682059
 Transform:
   m_ObjectHideFlags: 0
