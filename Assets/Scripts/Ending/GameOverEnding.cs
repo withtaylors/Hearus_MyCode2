@@ -75,6 +75,8 @@ public class GameOverEnding : MonoBehaviour
 
     private IEnumerator FadeOutScene()
     {
+        WaitForSeconds wait = new WaitForSeconds(0.01f);
+
         if (fader.gameObject.activeSelf == false)
             fader.SetActive(true);
 
@@ -84,7 +86,7 @@ public class GameOverEnding : MonoBehaviour
         {
             c.a = f;
             fader.GetComponent<Image>().color = c;
-            yield return new WaitForSeconds(0.01f);
+            yield return wait;
         }
     }
 }
