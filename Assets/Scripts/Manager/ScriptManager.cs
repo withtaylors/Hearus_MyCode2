@@ -351,12 +351,12 @@ public class ScriptManager : MonoBehaviour
                 currentOption = option.options[i];
     }
 
-    private void ShowScriptUI(bool p_flag)
+    public void ShowScriptUI(bool p_flag)
     {
         go_ScriptPanel.SetActive(p_flag);
     }
 
-    private void ShowOptionUI(bool p_flag) 
+    public void ShowOptionUI(bool p_flag) 
     {
         for (int i = 0; i < optionPrefab.Count; i++)
             optionPrefab[i].SetActive(false);
@@ -401,12 +401,14 @@ public class ScriptManager : MonoBehaviour
             {
                 // 프리스를 데려가는 선택지를 골랐을 때
                 ShowOptionUI(false);
+                Ending.instance.TakeFrithEnding();
                 return;
             }
             else if (buttonNum == 1)
             {
                 // 프리스를 데려가지 않는 선택지를 골랐을 때
                 ShowOptionUI(false);
+                Ending.instance.LeaveFrithEnding();
                 return;
             }
         }
