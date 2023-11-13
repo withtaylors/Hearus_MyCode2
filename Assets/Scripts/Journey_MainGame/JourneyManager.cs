@@ -181,6 +181,9 @@ public class JourneyManager : MonoBehaviour
             case "타오르는황야":
                 _journeyObject = thirdPage.Find(currentJourney.journeyID).gameObject;
                 break;
+            case "파멸된 도시":
+                _journeyObject = fourthPage.Find(currentJourney.journeyID).gameObject;
+                break;
         }
 
         TextMeshProUGUI _journeyText = _journeyObject.transform.Find("Journey Text").GetComponent<TextMeshProUGUI>();

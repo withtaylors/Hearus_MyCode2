@@ -160,7 +160,6 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
-
         for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
         {
             if (Inventory.instance.getItemIDList[i] == _itemID) // 획득한 적이 있다면
