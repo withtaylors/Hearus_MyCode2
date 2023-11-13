@@ -11833,7 +11833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2262.3
+      value: -2100.2
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -44731,6 +44731,7 @@ GameObject:
   - component: {fileID: 8244061144947570956}
   - component: {fileID: 4283370889336590882}
   - component: {fileID: 2472315997934451241}
+  - component: {fileID: 8244061144947570957}
   m_Layer: 0
   m_Name: "3_\uC232_\uBC14\uB2E5.003"
   m_TagString: Untagged
@@ -51726,9 +51727,9 @@ GameObject:
   - component: {fileID: 7704257447361391724}
   - component: {fileID: 7428112637126425292}
   - component: {fileID: 7704257447361391725}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: "1_\uB3C4\uC2DC_\uC704\uD5D8\uC694\uC18C_\uAC74\uBB3C\uC794\uD5742.004"
-  m_TagString: Dangerous(10)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63342,6 +63343,20 @@ Transform:
   m_Father: {fileID: 4461060216816600841}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8244061144947570957
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884134172746209303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4099647274082686611, guid: d9c19728df2bb6540a2efc173994b9a2, type: 3}
 --- !u!1 &8264834478091386260
 GameObject:
   m_ObjectHideFlags: 0
@@ -64211,7 +64226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3460778175507409412}
   m_LocalRotation: {x: -0.7043012, y: 0.0985732, z: 0.082835786, w: 0.6981271}
-  m_LocalPosition: {x: -156.53668, y: -8.657349, z: 85.787735}
+  m_LocalPosition: {x: -156.53668, y: -8.657349, z: 87}
   m_LocalScale: {x: 233.5659, y: 233.56598, z: 233.56595}
   m_ConstrainProportionsScale: 0
   m_Children: []
