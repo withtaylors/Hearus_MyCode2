@@ -509,21 +509,30 @@ public class ScriptManager : MonoBehaviour
     {
         if (currentScript.scriptID == "200") // 닫혀 있는 상자
         {
+            bool find = false;
+
             for (int i = 0; i < Inventory.instance.inventoryItemList.Count; i++)
             {
                 if (Inventory.instance.inventoryItemList[i].itemID == 103) // 망가진 태엽 인형 있을 경우
                 {
-                    FindScriptByScriptID(201);
-                    ShowScript();
-                    return;
-                }
-                else
-                {
-                    FindScriptByScriptID(204);
-                    ShowScript();
-                    return;
+                    find = true;
+                    break;
                 }
             }
+
+            if (find)
+            {
+                FindScriptByScriptID(201); // 태엽 인형 있을 경우
+                ShowScript();
+                return;
+            }
+            else
+            {
+                FindScriptByScriptID(204); // 태엽 인형 없을 경우
+                ShowScript();
+                return;
+            }
+
         }
         else if (currentScript.eventName == "START_TUTORIAL")
         {

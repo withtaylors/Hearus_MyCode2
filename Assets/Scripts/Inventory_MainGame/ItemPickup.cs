@@ -100,7 +100,6 @@ public class ItemPickup : MonoBehaviour
                 }
             }
         }
-
         else if (_itemID == 123)
         {
             for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
@@ -122,7 +121,6 @@ public class ItemPickup : MonoBehaviour
                 }
             }
         }
-
         else if (_itemID == 124)
         {
             for (int i = 0; i < Inventory.instance.getItemIDList.Count; i++)
@@ -144,19 +142,24 @@ public class ItemPickup : MonoBehaviour
                 }
             }
         }
-
         else if (_itemID == 107) // 은행
         {
+            bool find = false;
+
             for (int i = 0; i < Inventory.instance.inventoryItemList.Count; i++)
             {
-                if (Inventory.instance.inventoryItemList[i].itemID == 164) // 도끼가 있다면 break
+                if (Inventory.instance.inventoryItemList[i].itemID == 164) // 도끼가 있다면 find = true;
+                { 
+                    find = true;
                     break;
-                else
-                {
-                    scriptManager.FindScriptByScriptID(141);
-                    scriptManager.ShowScript();
-                    return;
                 }
+            }
+
+            if (!find)
+            {
+                scriptManager.FindScriptByScriptID(141);
+                scriptManager.ShowScript();
+                return;
             }
         }
 
