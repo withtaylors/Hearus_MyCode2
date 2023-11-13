@@ -19279,7 +19279,7 @@ GameObject:
   - component: {fileID: 447238976}
   - component: {fileID: 447238975}
   - component: {fileID: 447238978}
-  - component: {fileID: 447238977}
+  - component: {fileID: 447238979}
   m_Layer: 0
   m_Name: "1_\uD669\uD3D0_\uC544\uC774\uD15C_\uBA5C\uC704\uCE58\uC544 <.001"
   m_TagString: ITEM_PICKING
@@ -19353,19 +19353,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447238973}
   m_Mesh: {fileID: -3234744973065234120, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
---- !u!135 &447238977
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447238973}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1574832
-  m_Center: {x: 0.1574068, y: 0.08325832, z: 0.008259106}
 --- !u!114 &447238978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19384,6 +19371,20 @@ MonoBehaviour:
   Picked:
     m_PersistentCalls:
       m_Calls: []
+--- !u!64 &447238979
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447238973}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3234744973065234120, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
 --- !u!1 &448119048
 GameObject:
   m_ObjectHideFlags: 0
@@ -25682,7 +25683,7 @@ GameObject:
   - component: {fileID: 641531389}
   - component: {fileID: 641531388}
   - component: {fileID: 641531391}
-  - component: {fileID: 641531390}
+  - component: {fileID: 641531392}
   m_Layer: 0
   m_Name: "1_\uD669\uD3D0_\uC544\uC774\uD15C_\uBA5C\uC704\uCE58\uC544 <.003"
   m_TagString: ITEM_PICKING
@@ -25756,19 +25757,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641531386}
   m_Mesh: {fileID: -751509575756506932, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
---- !u!135 &641531390
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641531386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.09930826
-  m_Center: {x: 0.07029268, y: -0.07689207, z: 0.0044938615}
 --- !u!114 &641531391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25787,6 +25775,20 @@ MonoBehaviour:
   Picked:
     m_PersistentCalls:
       m_Calls: []
+--- !u!64 &641531392
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641531386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -751509575756506932, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
 --- !u!1001 &646149630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59282,6 +59284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2145c177a8d46540882e19dc719bedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
+  videoPlayer: {fileID: 0}
   fader: {fileID: 1815956110}
   scriptManager: {fileID: 823420790}
   frithInfo: 0
@@ -78490,7 +78494,7 @@ GameObject:
   - component: {fileID: 2012386358}
   - component: {fileID: 2012386357}
   - component: {fileID: 2012386360}
-  - component: {fileID: 2012386359}
+  - component: {fileID: 2012386361}
   m_Layer: 0
   m_Name: "1_\uD669\uD3D0_\uC544\uC774\uD15C_\uBA5C\uC704\uCE58\uC544 <.002"
   m_TagString: ITEM_PICKING
@@ -78564,19 +78568,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012386355}
   m_Mesh: {fileID: 1530160222098435310, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
---- !u!135 &2012386359
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012386355}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.11016992
-  m_Center: {x: -0.11365308, y: 0.15702695, z: 0.013830258}
 --- !u!114 &2012386360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78595,6 +78586,20 @@ MonoBehaviour:
   Picked:
     m_PersistentCalls:
       m_Calls: []
+--- !u!64 &2012386361
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012386355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1530160222098435310, guid: b9cd18a5ae3ad3245a847e45cfe78e80, type: 3}
 --- !u!1 &2013992664
 GameObject:
   m_ObjectHideFlags: 0
@@ -90340,7 +90345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &8715705555599082010
 Camera:
   m_ObjectHideFlags: 0
