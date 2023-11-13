@@ -75,6 +75,8 @@ public class GameOverEnding : MonoBehaviour
 
     private IEnumerator FadeOutScene()
     {
+        yield return new WaitForSecondsRealtime(1f);
+
         WaitForSeconds wait = new WaitForSeconds(0.01f);
 
         if (fader.gameObject.activeSelf == false)

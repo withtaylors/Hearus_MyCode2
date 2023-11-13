@@ -166,6 +166,7 @@ public class ScriptManager : MonoBehaviour
                                 isFinished = true;
                                 isPlayingScript = false;
                                 FinishedScript.Invoke();
+                                Finish();
                             }
                         }
                     }
@@ -502,7 +503,7 @@ public class ScriptManager : MonoBehaviour
         nextButton.SetActive(false);
     }
 
-    public void Box()
+    public void Finish()
     {
         if (currentScript.scriptID == "200") // 닫혀 있는 상자
         {
@@ -521,6 +522,10 @@ public class ScriptManager : MonoBehaviour
                     return;
                 }
             }
+        }
+        else if (currentScript.eventName == "START_TUTORIAL")
+        {
+            TutorialController.Instance.StartTutorial();
         }
     }
 }

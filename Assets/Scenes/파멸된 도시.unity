@@ -15529,7 +15529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: FinishedScript.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Box
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 5359444712971484966, guid: e5652fbec8f05164f83be12e5e2f78c1, type: 3}
       propertyPath: AddJourney.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

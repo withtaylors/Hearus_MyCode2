@@ -9,9 +9,7 @@ using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
-    /// <summary>
-    /// 수정중!!!!!!!
-    /// </summary>
+    public static TutorialController Instance;
 
     [SerializeField] private bool NEXT_STEP_POSSIBLE; // 다음 단계로 넘어갈 수 있는지
     [SerializeField] private int tutorialStep; // 현재 단계
@@ -47,7 +45,6 @@ public class TutorialController : MonoBehaviour
     
     [SerializeField] private ScriptManager scriptManager; // 스크립트 매니저
 
-
     private bool right = false; // 상하좌우 이동
     private bool left = false; // 상하좌우 이동
     private bool jump = false; // 상하좌우 이동
@@ -61,12 +58,20 @@ public class TutorialController : MonoBehaviour
 
     private string selectedCharacter;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         if (DataManager.instance.nowPlayer.isFinishedTutorial)
             gameObject.SetActive(false);
         else
-            StartTutorial();
+        {
+            scriptManager.FindScriptByEventName("START_TUTORIAL"); // 스크립트 재생
+            scriptManager.ShowScript();
+        }
     }
 
     private void Update() // 다음 스텝으로 넘어가기 위한 조건 확인
@@ -144,11 +149,10 @@ public class TutorialController : MonoBehaviour
 
     public void StartTutorial()
     {
+        StartCoroutine("FadeInPanel");
+
         FirstStep();
         tutorialStep = 0;
-
-        scriptManager.FindScriptByEventName("START_TUTORIAL"); // 스크립트 재생
-        scriptManager.ShowScript();
     }
 
     private void NextStep()
@@ -461,6 +465,7 @@ public class TutorialController : MonoBehaviour
 
         // 빽빽한 숲에서 시작
         fader.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     private IEnumerator FadeOutPanel()
@@ -487,7 +492,7 @@ public class TutorialController : MonoBehaviour
         Color c = tutorialPanel.GetComponent<Image>().color;
         Color c2 = tutorialPanelText.color;
 
-        for (float f = 0f; f <= 1f; f += 0.01f)
+        for (float f = 0f; f <= 1f; f += 0.025f)
         {
             c.a = f;
             c2.a = f;
