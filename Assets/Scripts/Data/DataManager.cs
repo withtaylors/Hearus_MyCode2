@@ -145,16 +145,16 @@ public class DataManager : MonoBehaviour
 
         SaveInventoryData();
 
-        string playerData = JsonUtility.ToJson(nowPlayer);
+        string playerData = JsonUtility.ToJson(nowPlayer, true);
         File.WriteAllText(path + $"{nowSlot}_player.json", playerData);
 
-        string inventoryData = JsonUtility.ToJson(dataWrapper);
+        string inventoryData = JsonUtility.ToJson(dataWrapper, true);
         File.WriteAllText(path + $"{nowSlot}_inventory.json", inventoryData);
     }
 
     public void SaveInventoryData()
     {
-        dataWrapper.items.Clear(); // 초기화
+        //dataWrapper.items.Clear(); // 초기화
         dataWrapper.items = new List<InventoryData>(); // 생성
 
         for (int i = 0; i < InventoryDataManager.Instance.inventoryItemList.Count; i++) // 인벤토리 데이터 매니저에 있는 아이템 데이터들을 dataWrapper로 옮김
@@ -165,13 +165,13 @@ public class DataManager : MonoBehaviour
             dataWrapper.items.Add(_inventoryData);
         }
 
-        dataWrapper.fieldItemIDList.Clear();
+        //dataWrapper.fieldItemIDList.Clear();
         dataWrapper.fieldItemIDList = new List<int>();
 
         for (int i = 0; i < InventoryDataManager.Instance.fieldItemIDList.Count; i++)
             dataWrapper.fieldItemIDList.Add(InventoryDataManager.Instance.fieldItemIDList[i]);
 
-        dataWrapper.getItemIDList.Clear();
+        //dataWrapper.getItemIDList.Clear();
         dataWrapper.getItemIDList = new List<int>();
 
         for (int i = 0; i < InventoryDataManager.Instance.getItemIDList.Count; i++)

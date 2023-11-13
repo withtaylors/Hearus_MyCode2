@@ -124,11 +124,13 @@ public class Select : MonoBehaviour
         }
         else
         {
-            // DataManager.instance.FieldDataClear();
+            // 새 슬롯에 대한 초기화
+            DataManager.instance.nowPlayer = new PlayerData(); // 새로운 PlayerData 인스턴스 생성
+            DataManager.instance.dataWrapper = new InventoryDataWrapper(); // 새로운 InventoryDataWrapper 인스턴스 생성
+
             // 새로운 슬롯 정보 저장
             DataManager.instance.nowPlayer.filename = fileName.text;
             DataManager.instance.SaveData(DataManager.instance.nowSlot);
-
         }
         PlayNextScene();
         //ChangeScene.target();
