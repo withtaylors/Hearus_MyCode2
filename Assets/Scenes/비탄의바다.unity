@@ -1433,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 823420790}
     - target: {fileID: 7298328852430863585, guid: 9852b45538787f244b90bd1f22551202, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7298328852430863585, guid: 9852b45538787f244b90bd1f22551202, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16842,7 +16842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527908752
 GameObject:
@@ -17871,7 +17871,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569279728
 GameObject:
@@ -20878,7 +20878,7 @@ RectTransform:
   m_Children:
   - {fileID: 1826435694}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30994,7 +30994,7 @@ Transform:
   - {fileID: 1409403138}
   - {fileID: 1278275346}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126380723
 GameObject:
@@ -33390,63 +33390,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.630245, y: 27.54773, z: 5.1013126}
   m_Center: {x: -62.90512, y: 0, z: -32.568035}
---- !u!1001 &1208678363
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.7239475
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.79432344
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.42977
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742555283850159171, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5865697710841982380, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-      propertyPath: m_Name
-      value: Crafting Combination
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
 --- !u!1 &1211922189
 GameObject:
   m_ObjectHideFlags: 0
@@ -44409,17 +44352,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.819738, y: 27.54773, z: 4.170103}
   m_Center: {x: -13.812008, y: 0, z: -29.424742}
---- !u!114 &1735264410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4573091619315419990, guid: 94694b6d2e37b5f4d819d77ef655cb9b, type: 3}
-  m_PrefabInstance: {fileID: 1208678363}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77992e193da1fbc4eaddbdfb2958e0c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1741497634
 GameObject:
   m_ObjectHideFlags: 0
@@ -50987,7 +50919,7 @@ Transform:
   - {fileID: 920869796827930034}
   - {fileID: 1559408432}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989770113
 GameObject:
@@ -51854,7 +51786,7 @@ Transform:
   - {fileID: 598088557}
   - {fileID: 1309110263}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019934507
 GameObject:
@@ -52120,7 +52052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1263788016676995846, guid: 791a83e7ac71bb74c84d45817df10a1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57135,7 +57067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 172211553137559785, guid: 054652141416beb4da6bad560003daad, type: 3}
       propertyPath: m_LocalScale.x
@@ -82171,7 +82103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf_craftingSlots: {fileID: 2095722278040295443}
   craftingItemList: []
-  craftingCombination: {fileID: 1735264410}
+  craftingCombination: {fileID: 0}
   craftingLogPanel: {fileID: 1746254383}
   craftingLogText: {fileID: 1746254381}
 --- !u!114 &4327416856578048721
@@ -92148,7 +92080,7 @@ Transform:
   - {fileID: 5616422074102055740}
   - {fileID: 5616422075332541339}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5616422075455585975
 GameObject:
