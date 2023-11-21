@@ -89,7 +89,7 @@ public class Ending : MonoBehaviour
                 repair = 2;
             else if (repairCount >= 7 && repairCount < 10)
                 repair = 3;
-            else if (repairCount == 10)
+            else if (repairCount >= 10)
                 repair = 4;
         }
     }
@@ -177,14 +177,12 @@ public class Ending : MonoBehaviour
         {
             scriptManager.FindScriptByEventName("ending_330");
             DataManager.instance.nowPlayer.endingName = scriptManager.currentScript.eventName;
-            StartCoroutine("FadeOutScene");
             scriptManager.ShowScript();
         }
         else if (repair == 4)
         {
             scriptManager.FindScriptByEventName("ending_340");
             DataManager.instance.nowPlayer.endingName = scriptManager.currentScript.eventName;
-            StartCoroutine("FadeOutScene");
             scriptManager.ShowScript();
         }
     }
@@ -197,7 +195,6 @@ public class Ending : MonoBehaviour
         {
             scriptManager.FindScriptByEventName("ending_331");
             DataManager.instance.nowPlayer.endingName = scriptManager.currentScript.eventName;
-            StartCoroutine("FadeOutScene");
             scriptManager.ShowScript();
         }
         else if (repair == 4)
@@ -205,7 +202,6 @@ public class Ending : MonoBehaviour
             // 오리지널 엔딩 재생
             scriptManager.ShowScriptUI(false);
             DataManager.instance.nowPlayer.endingName = "ending_332";
-            StartCoroutine("FadeOutScene");
             StartCoroutine("PlayVideo");
         }
     }
@@ -240,11 +236,15 @@ public class Ending : MonoBehaviour
 
     private IEnumerator PlayVideo()
     {
+        /*
         while (true)
         {
             if (myCoroutine) yield return new WaitForSeconds(0.01f);
             else break;
         }
+        */
+
+        scriptManager.ShowScriptUI(false);
 
         yield return new WaitForSecondsRealtime(1f);
 
