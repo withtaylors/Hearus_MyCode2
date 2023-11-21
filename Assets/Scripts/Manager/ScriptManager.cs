@@ -158,8 +158,19 @@ public class ScriptManager : MonoBehaviour
                                 {
                                     if (currentGameObject != null)
                                     {
-                                        currentGameObject.GetComponent<ItemPickup>().Pickup();
-                                        currentGameObject.SetActive(false); // 습득 후 비활성화시킴
+                                        if (currentGameObject.GetComponent<ItemPickup>()._itemID == 165) // 굳게 닫힌 상자일 경우
+                                        {
+                                            TextLogs.instance.GetItemLog(166); // 부품 아이템 습득 로그 생성
+                                            Inventory.instance.GetAnItem(166, 1); // 부품 아이템 획득
+                                            Inventory.instance.DeleteItem(103); // 태엽 인형 제거
+                                            currentGameObject.SetActive(false); // 굳게 닫힌 상자 비활성화
+
+                                        }
+                                        else
+                                        {
+                                            currentGameObject.GetComponent<ItemPickup>().Pickup();
+                                            currentGameObject.SetActive(false); // 습득 후 비활성화시킴
+                                        }
                                     }
                                 }
                                 ShowScriptUI(false);

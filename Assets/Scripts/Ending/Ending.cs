@@ -14,9 +14,9 @@ public class Ending : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject fader;
     public ScriptManager scriptManager;
-    public int frithInfo = -1;
-    public int repairCount = -1;
-    public int repair = -1;
+    public int frithInfo;
+    public int repairCount;
+    public int repair;
     private bool myCoroutine = false;
 
     private void Awake()
@@ -26,6 +26,10 @@ public class Ending : MonoBehaviour
 
     private void Start()
     {
+        frithInfo = -1;
+        repairCount = -1;
+        repair = -1;
+
         if (DataManager.instance.nowPlayer.gameEnding)
         {
             StartCoroutine("FadeOutScene");
@@ -60,7 +64,7 @@ public class Ending : MonoBehaviour
                 frithInfo = 0;
             else if (DataManager.instance.nowPlayer.FrithInfo > 0 && DataManager.instance.nowPlayer.FrithInfo < 20)
                 frithInfo = 1;
-            else if (DataManager.instance.nowPlayer.FrithInfo == 20)
+            else if (DataManager.instance.nowPlayer.FrithInfo >= 20)
                 frithInfo = 2;
         }
 
@@ -75,17 +79,17 @@ public class Ending : MonoBehaviour
                     repairCount++;
             }
 
-            // 연료 5개, 부품 6개
-            // 하나 모을 때마다 9%씩 수행도 올라감
-            if (repairCount >= 0 && repairCount < 4)
+            // 연료 4개, 부품 6개
+            // 하나 모을 때마다 10%씩 수행도 올라감
+            if (repairCount >= 0 && repairCount < 3)
                 repair = 0;
-            else if (repairCount >= 4 && repairCount < 6)
+            else if (repairCount >= 3 && repairCount < 5)
                 repair = 1;
-            else if (repairCount >= 6 && repairCount < 8)
+            else if (repairCount >= 5 && repairCount < 7)
                 repair = 2;
-            else if (repairCount >= 8 && repairCount < 11)
+            else if (repairCount >= 7 && repairCount < 10)
                 repair = 3;
-            else if (repairCount == 11)
+            else if (repairCount == 10)
                 repair = 4;
         }
     }

@@ -40,7 +40,7 @@ public class CraftingCombination : MonoBehaviour
 
     public List<CraftingCombination> combinations = new List<CraftingCombination>();
 
-    private void Start()
+    private void OnEnable()
     {
         combinations.Add(new CraftingCombination(101, 3, 0, 0, 0, 0, 102));
         combinations.Add(new CraftingCombination(101, 1, 129, 1, 127, 1, 164));
